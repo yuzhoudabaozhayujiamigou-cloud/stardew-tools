@@ -12,13 +12,13 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
     return (
       <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
         <h2 className="text-lg font-semibold text-[#4a321e]">Note Detail</h2>
-        <p className="mt-3 text-sm text-[#614326]/90">Select a secret note from the left to view details.</p>
+        <p className="mt-3 text-sm text-[#614326]/90">Select a secret note from the notes list to view details.</p>
       </section>
     );
   }
 
   return (
-    <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7 lg:sticky lg:top-6">
+    <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Detail</p>

@@ -53,9 +53,10 @@ This project has evolved from a single utility page into a sustainable product s
 - URL-synced filters/search (`q`, `region`, `reward`).
 - Completion state persistence via `localStorage` (SSR-safe + debounced writes).
 - Secret notes list page upgraded to a polished card grid for easier visual scanning.
-- Dual-layer note navigation on detail pages:
-  - sticky desktop sidebar index (`1`-`25`) with active/completed states,
-  - pixel-style quick-nav toolbar with horizontal number chips.
+- Symmetric center-axis detail layout (`/secret-notes/[noteId]`):
+  - top quick-nav toolbar (`1`-`25`) always visible above detail card,
+  - bottom mirrored quick-nav toolbar for directional continuity,
+  - centered `max-w-5xl` composition for consistent visual balance.
 
 ---
 
@@ -137,6 +138,14 @@ Validated in production:
   - `/sw.js`
   - `/icons/icon-192.png`
   - `/icons/icon-512.png`
+
+### 6.3 Milestone — Center-Axis Symmetry Refactor
+
+- Removed desktop left index sidebar from detail page to eliminate horizontal asymmetry.
+- Placed long number toolbar at both top and bottom of note detail content.
+- Compressed detail header block for improved first-screen visibility.
+- Fixed detail composition width to `max-w-5xl` and centered all major modules.
+- Build regression re-validated after refactor.
 
 **Overall Validation Result:** `PASS`
 
