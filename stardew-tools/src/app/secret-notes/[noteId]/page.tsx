@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { NoteEmbedCard } from "@/components/secret-notes/NoteEmbedCard";
 import { NoteDetailPanel } from "@/components/secret-notes/NoteDetailPanel";
+import { NotesSidebar } from "@/components/secret-notes/NotesSidebar";
 import type { SecretNote } from "@/components/secret-notes/types";
 import { SiteFooter } from "@/components/SiteFooter";
 import { secretNotes } from "@/data/secretNotes";
@@ -53,6 +54,10 @@ function isInValidRange(noteId: number): boolean {
 
 function getNoteById(noteId: number) {
   return secretNotes.find((note) => note.id === noteId) ?? null;
+}
+
+function getNoteIds(): number[] {
+  return secretNotes.map((note) => note.id);
 }
 
 function parseEmbedMode(input: string | string[] | undefined): EmbedMode {
@@ -208,6 +213,7 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
   }
 
   const articleJsonLd = !isEmbedCard ? buildArticleJsonLd(note) : null;
+  const noteIds = getNoteIds();
 
   return (
     <div
@@ -273,8 +279,16 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
 
           {isEmbedCard ? (
             <NoteEmbedCard note={note} compact={isCompactEmbedCard} />
-          ) : (
+          ) : isEmbed ? (
             <NoteDetailPanel note={note} isCompleted={false} />
+          ) : (
+            <section className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)] lg:items-start">
+              <NotesSidebar currentNoteId={note.id} noteIds={noteIds} />
+
+              <div className="grid gap-4">
+                <NoteDetailPanel note={note} isCompleted={false} />
+              </div>
+            </section>
           )}
 
           {!isEmbed ? <SiteFooter className="mt-2" /> : null}

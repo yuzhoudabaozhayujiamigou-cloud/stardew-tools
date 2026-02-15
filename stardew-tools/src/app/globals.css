@@ -1,15 +1,49 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Stardew Sans";
+  src:
+    url("/fonts/geist-latin.woff2") format("woff2"),
+    url("/fonts/geist-latin-ext.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Stardew Mono";
+  src:
+    url("/fonts/geist-mono-latin.woff2") format("woff2"),
+    url("/fonts/geist-mono-latin-ext.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-stardew-sans:
+    "Stardew Sans",
+    "Segoe UI",
+    "PingFang SC",
+    "Microsoft YaHei",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  --font-stardew-mono:
+    "Stardew Mono",
+    "Cascadia Code",
+    "Consolas",
+    "Fira Code",
+    monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-stardew-sans);
+  --font-mono: var(--font-stardew-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +56,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-stardew-sans);
 }

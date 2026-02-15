@@ -5,6 +5,10 @@ const PRECACHE_URLS = [
   "/calculator",
   "/secret-notes",
   "/manifest.json",
+  "/fonts/geist-latin.woff2",
+  "/fonts/geist-latin-ext.woff2",
+  "/fonts/geist-mono-latin.woff2",
+  "/fonts/geist-mono-latin-ext.woff2",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
 ];
