@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { PwaRegisterScript } from "@/components/PwaRegisterScript";
+import { SiteFooter } from "@/components/SiteFooter";
+
 type CropGuideRow = {
   crop: string;
   seedCost: number;
@@ -140,6 +143,8 @@ export default function SpringProfitGuidePage() {
       </div>
 
       <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+        <PwaRegisterScript />
+
         <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
@@ -246,6 +251,8 @@ export default function SpringProfitGuidePage() {
             </div>
           </section>
         </article>
+
+        <SiteFooter className="mt-8" />
       </main>
 
       <Link

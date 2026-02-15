@@ -1,0 +1,27 @@
+{
+  "id": "/",
+  "name": "Stardew Tools",
+  "short_name": "StardewTools",
+  "description": "Stardew Valley crop profit and secret notes tools with fast, mobile-first workflows.",
+  "x-project-note": "Human-led, AI-driven engineering practice project for production-ready indie web tools.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3e5bf",
+  "theme_color": "#6ea84f",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

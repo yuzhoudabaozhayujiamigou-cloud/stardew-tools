@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { CalculatorClient } from "@/components/CalculatorClient";
 import { FaqGuideCard } from "@/components/calculator/FaqGuideCard";
+import { PwaRegisterScript } from "@/components/PwaRegisterScript";
+import { SiteFooter } from "@/components/SiteFooter";
 import crops from "@/data/crops.json";
 import { calculateSeasonProfit, type Crop, type Season } from "@/lib/calculateProfit";
 
@@ -74,6 +76,8 @@ export default function CalculatorPage() {
       </div>
 
       <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+        <PwaRegisterScript />
+
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
             Stardew Valley Tool
@@ -96,9 +100,7 @@ export default function CalculatorPage() {
           <FaqGuideCard />
         </section>
 
-        <footer className="mt-10 text-xs text-[#4f3823]/80">
-          Unofficial fan-made tool. Not affiliated with ConcernedApe.
-        </footer>
+        <SiteFooter className="mt-10" />
 
         <script
           type="application/ld+json"
