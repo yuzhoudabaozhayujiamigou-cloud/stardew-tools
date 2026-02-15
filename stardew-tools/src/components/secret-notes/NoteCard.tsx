@@ -18,6 +18,16 @@ export function NoteCard(props: NoteCardProps) {
       aria-label={`Open ${note.title}`}
       className="flex h-full min-h-[196px] transform-gpu flex-col rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/85 p-4 transition hover:-translate-y-0.5 hover:border-[#9b692f]/70 hover:bg-[#fdf0cd]"
     >
+      <div className="mb-3 aspect-video overflow-hidden rounded-xl border border-[#b58b61]/45 bg-[#f7e9c8]">
+        {note.locationImage ? (
+          <img src={note.locationImage} alt={`${note.title} preview`} className="h-full w-full object-cover" loading="lazy" />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[#7a5a37]/80">
+            No Preview
+          </div>
+        )}
+      </div>
+
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 text-left">
           <div className="truncate text-sm font-semibold text-[#4e341f]">{note.title}</div>

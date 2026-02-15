@@ -1,6 +1,6 @@
 import type { SecretNote } from "@/components/secret-notes/types";
 
-export const secretNotes: SecretNote[] = [
+const baseSecretNotes: SecretNote[] = [
   {
     id: 1,
     title: "Secret Note #1",
@@ -317,3 +317,36 @@ export const secretNotes: SecretNote[] = [
     tags: ["ornate necklace", "bathhouse", "friendship"],
   },
 ];
+
+const NOTE_LOCATION_IMAGE_BY_ID: Record<number, string> = {
+  1: "/notes/secret-note-01.svg",
+  2: "/notes/secret-note-02.svg",
+  3: "/notes/secret-note-03.svg",
+  4: "/notes/secret-note-04.svg",
+  5: "/notes/secret-note-05.svg",
+  6: "/notes/secret-note-06.svg",
+  7: "/notes/secret-note-07.svg",
+  8: "/notes/secret-note-08.svg",
+  9: "/notes/secret-note-09.svg",
+  10: "/notes/secret-note-10.svg",
+  11: "/notes/secret-note-11.svg",
+  12: "/notes/secret-note-12.svg",
+  13: "/notes/secret-note-13.svg",
+  14: "/notes/secret-note-14.svg",
+  15: "/notes/secret-note-15.svg",
+  16: "/notes/secret-note-16.svg",
+  17: "/notes/secret-note-17.svg",
+  18: "/notes/secret-note-18.svg",
+  19: "/notes/secret-note-19.svg",
+  20: "/notes/secret-note-20.svg",
+  21: "/notes/secret-note-21.svg",
+  22: "/notes/secret-note-22.svg",
+  23: "/notes/secret-note-23.svg",
+  24: "/notes/secret-note-24.svg",
+  25: "/notes/secret-note-25.svg",
+};
+
+export const secretNotes: SecretNote[] = baseSecretNotes.map((note) => ({
+  ...note,
+  locationImage: NOTE_LOCATION_IMAGE_BY_ID[note.id] ?? note.locationImage,
+}));

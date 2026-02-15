@@ -1,4 +1,4 @@
-const CACHE_NAME = "stardew-tools-v2";
+const CACHE_NAME = "stardew-tools-v3";
 const OFFLINE_FALLBACK_URL = "/";
 const PRECACHE_URLS = [
   "/",
@@ -11,6 +11,31 @@ const PRECACHE_URLS = [
   "/fonts/geist-mono-latin-ext.woff2",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
+  "/notes/secret-note-01.svg",
+  "/notes/secret-note-02.svg",
+  "/notes/secret-note-03.svg",
+  "/notes/secret-note-04.svg",
+  "/notes/secret-note-05.svg",
+  "/notes/secret-note-06.svg",
+  "/notes/secret-note-07.svg",
+  "/notes/secret-note-08.svg",
+  "/notes/secret-note-09.svg",
+  "/notes/secret-note-10.svg",
+  "/notes/secret-note-11.svg",
+  "/notes/secret-note-12.svg",
+  "/notes/secret-note-13.svg",
+  "/notes/secret-note-14.svg",
+  "/notes/secret-note-15.svg",
+  "/notes/secret-note-16.svg",
+  "/notes/secret-note-17.svg",
+  "/notes/secret-note-18.svg",
+  "/notes/secret-note-19.svg",
+  "/notes/secret-note-20.svg",
+  "/notes/secret-note-21.svg",
+  "/notes/secret-note-22.svg",
+  "/notes/secret-note-23.svg",
+  "/notes/secret-note-24.svg",
+  "/notes/secret-note-25.svg",
 ];
 
 self.addEventListener("install", (event) => {
