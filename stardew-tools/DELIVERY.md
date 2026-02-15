@@ -50,6 +50,9 @@ This project has evolved from a single utility page into a sustainable product s
 - Full notes dataset integrated (`#1` to `#25`).
 - URL-synced filters/search (`q`, `region`, `reward`).
 - Completion state persistence via `localStorage` (SSR-safe + debounced writes).
+- Dual-layer note navigation on detail pages:
+  - sticky desktop sidebar index (`1`-`25`) with active/completed states,
+  - pixel-style quick-nav toolbar with horizontal number chips.
 
 ---
 
@@ -82,6 +85,10 @@ Compact mode design goal:
 - no scrollbars,
 - only essential signal (note id + reward icon),
 - fast visual loading for external embedding.
+
+Embed compatibility guarantee:
+
+- detail navigation modules (sidebar/quick-nav) are hidden in embed card modes to keep integrations clean.
 
 Recommended embed snippet:
 
@@ -161,4 +168,3 @@ This repository now qualifies as a portfolio-grade product project rather than a
 ## 9) Delivery Statement
 
 `Stardew Tools` is delivered as a production-ready, SEO-capable, embed-friendly utility product with validated deployment and PWA fundamentals.
-

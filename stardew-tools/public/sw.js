@@ -1,4 +1,4 @@
-const CACHE_NAME = "stardew-tools-v1";
+const CACHE_NAME = "stardew-tools-v2";
 const OFFLINE_FALLBACK_URL = "/";
 const PRECACHE_URLS = [
   "/",

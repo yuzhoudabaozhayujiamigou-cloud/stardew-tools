@@ -64,8 +64,13 @@ function NoteQuickNav(props: { noteIds: number[]; currentNoteId: number }) {
   const { noteIds, currentNoteId } = props;
 
   return (
-    <section className="rounded-[22px] border-2 border-[#7c4d2e]/75 bg-[#f3e5bf]/95 p-3 shadow-[0_8px_18px_rgba(56,41,23,0.2)] ring-1 ring-yellow-900/20">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#6f4b2a]/75">Note Quick Nav</p>
+    <section className="rounded-[24px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-3 shadow-[0_10px_22px_rgba(56,41,23,0.24)] ring-1 ring-yellow-900/20">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#6f4b2a]/75">Pixel Quick Nav</p>
+        <span aria-hidden="true" className="inline-flex items-center leading-none opacity-80">
+          🎮
+        </span>
+      </div>
 
       <nav
         aria-label="Secret notes inline quick navigation"
@@ -79,10 +84,10 @@ function NoteQuickNav(props: { noteIds: number[]; currentNoteId: number }) {
               key={noteId}
               href={`/secret-notes/${noteId}`}
               aria-current={isActive ? "page" : undefined}
-              className={`inline-flex h-9 min-w-9 shrink-0 items-center justify-center rounded-lg border px-2 text-xs font-semibold transition ${
+              className={`inline-flex h-9 min-w-9 shrink-0 items-center justify-center rounded-lg border px-2 text-xs font-semibold transition-transform duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8e623d]/70 ${
                 isActive
                   ? "border-[#7f5731] bg-[#f9e6b0] text-[#4a321e] shadow-inner"
-                  : "border-[#a77d57]/40 bg-[#fff8e8]/85 text-[#5f432a] hover:bg-[#f6ebcf]"
+                  : "border-[#a77d57]/40 bg-[#fff8e8]/85 text-[#5f432a] hover:-translate-y-0.5 hover:border-[#8e623d]/70 hover:bg-[#f6ebcf] active:translate-y-0.5 active:shadow-inner"
               }`}
             >
               {noteId}
