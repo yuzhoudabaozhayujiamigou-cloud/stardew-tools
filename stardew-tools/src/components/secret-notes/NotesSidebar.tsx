@@ -27,7 +27,7 @@ export function NotesSidebar(props: NotesSidebarProps) {
 
   return (
     <>
-      <aside className="hidden lg:block">
+      <aside className="hidden lg:block lg:self-start">
         <div className="sticky top-6 rounded-[24px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_24px_rgba(56,41,23,0.24)] ring-1 ring-yellow-900/20">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Notes Index</p>
 
