@@ -7,7 +7,7 @@
 - **Primary Stack:** Next.js (App Router), TypeScript, Tailwind CSS, PWA
 - **Deployment:** Vercel
 - **Primary Domain:** `https://stardew-tools.vercel.app`
-- **Release Commit Tag:** `10190dd`
+- **Release Commit Tag:** `7b61d66`
 - **Delivery Date:** `2026-02-15`
 - **Production Status:** `PASS`
 
@@ -39,6 +39,8 @@ This project has evolved from a single utility page into a sustainable product s
 - Interactive sort state in results table (field + direction).
 - Best performer highlighting for `Gold/Day`.
 - Mobile-first horizontal table overflow with gradient swipe hint.
+- Global top navigation (Calculator / Secret Notes) for cross-module discovery.
+- Calculator homepage cross-entry card linking to Secret Notes Finder.
 - Accessibility improvements:
   - better `aria-label` for sort controls,
   - emoji semantics handling for screen readers,
@@ -50,6 +52,7 @@ This project has evolved from a single utility page into a sustainable product s
 - Full notes dataset integrated (`#1` to `#25`).
 - URL-synced filters/search (`q`, `region`, `reward`).
 - Completion state persistence via `localStorage` (SSR-safe + debounced writes).
+- Secret notes list page upgraded to a polished card grid for easier visual scanning.
 - Dual-layer note navigation on detail pages:
   - sticky desktop sidebar index (`1`-`25`) with active/completed states,
   - pixel-style quick-nav toolbar with horizontal number chips.

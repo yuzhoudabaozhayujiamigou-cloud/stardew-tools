@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
+
+import { TopNav } from "@/components/TopNav";
 
 import "./globals.css";
 
@@ -34,6 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <Suspense fallback={null}>
+          <TopNav />
+        </Suspense>
         {children}
       </body>
     </html>

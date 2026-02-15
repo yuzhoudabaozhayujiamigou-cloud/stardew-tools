@@ -151,7 +151,7 @@ export function SecretNotesClient(props: SecretNotesClientProps) {
           </div>
         </div>
 
-        <div className="mt-4 grid gap-3">
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {filteredNotes.length > 0 ? (
             filteredNotes.map((note) => (
               <NoteCard
@@ -164,7 +164,7 @@ export function SecretNotesClient(props: SecretNotesClientProps) {
               />
             ))
           ) : (
-            <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/85 px-4 py-3 text-sm text-[#614326]/90">
+            <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/85 px-4 py-3 text-sm text-[#614326]/90 sm:col-span-2">
               No notes found for this search keyword.
             </div>
           )}

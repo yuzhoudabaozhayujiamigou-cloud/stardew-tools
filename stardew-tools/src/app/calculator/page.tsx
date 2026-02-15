@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CalculatorClient } from "@/components/CalculatorClient";
 import { FaqGuideCard } from "@/components/calculator/FaqGuideCard";
@@ -98,6 +99,29 @@ export default function CalculatorPage() {
             initialResults={initialResults}
           />
           <FaqGuideCard />
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="max-w-2xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">New Module</p>
+                <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Secret Notes Finder</h2>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Decode all 25 secret notes, track completion progress, and jump directly between clues with desktop
+                  sidebar navigation or mobile quick-jump chips.
+                </p>
+              </div>
+
+              <Link
+                href="/secret-notes"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
+                  🔎
+                </span>
+                Open Secret Notes Finder
+              </Link>
+            </div>
+          </section>
         </section>
 
         <SiteFooter className="mt-10" />

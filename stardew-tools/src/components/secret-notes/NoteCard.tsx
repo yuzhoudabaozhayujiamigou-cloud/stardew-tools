@@ -15,7 +15,7 @@ export function NoteCard(props: NoteCardProps) {
 
   return (
     <article
-      className={`rounded-2xl border p-4 transition ${
+      className={`h-full rounded-2xl border p-4 transition ${
         isActive
           ? "border-[#9b692f] bg-[#f7e7b9] shadow-inner"
           : "border-[#9f744c]/35 bg-[#fff8e8]/85 hover:border-[#9b692f]/70"
@@ -56,4 +56,3 @@ export function NoteCard(props: NoteCardProps) {
     </article>
   );
 }
-
