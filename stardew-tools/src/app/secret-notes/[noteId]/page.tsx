@@ -66,7 +66,7 @@ function NoteQuickNav(props: { noteIds: number[]; currentNoteId: number }) {
     <section className="relative z-20 mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 px-2 py-2 shadow-[0_10px_22px_rgba(56,41,23,0.24)] ring-1 ring-yellow-900/20 sm:px-2.5 sm:py-2.5">
       <nav
         aria-label="Secret notes inline quick navigation"
-        className="flex flex-nowrap items-center justify-between gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2"
       >
         {noteIds.map((noteId) => {
           const isActive = noteId === currentNoteId;
@@ -76,7 +76,7 @@ function NoteQuickNav(props: { noteIds: number[]; currentNoteId: number }) {
               key={noteId}
               href={`/secret-notes/${noteId}`}
               aria-current={isActive ? "page" : undefined}
-              className={`inline-flex h-8 min-w-[1.9rem] shrink-0 items-center justify-center whitespace-nowrap rounded-md border px-1 text-[11px] font-semibold leading-none transition-transform duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8e623d]/70 focus-visible:ring-offset-1 ${
+              className={`inline-flex h-8 w-8 shrink-0 items-center justify-center whitespace-nowrap rounded-md border px-1 text-[11px] font-semibold leading-none transition-transform duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8e623d]/70 focus-visible:ring-offset-1 ${
                 isActive
                   ? "border-[#7f5731] bg-[#f9e6b0] text-[#3f2a18] shadow-inner"
                   : "border-[#a77d57]/40 bg-[#fff8e8]/90 text-[#5b3f25] hover:-translate-y-0.5 hover:border-[#8e623d]/70 hover:bg-[#f6ebcf] active:translate-y-0.5 active:shadow-inner"

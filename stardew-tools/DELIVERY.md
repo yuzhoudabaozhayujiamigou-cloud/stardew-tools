@@ -112,7 +112,7 @@ Recommended embed snippet:
   - `/icons/icon-512.png`
 - PWA registration added at page level to avoid unnecessary overhead on embed-only views.
 - Service worker cache version bumped to force-refresh UI precision updates:
-  - `stardew-tools-v4`
+  - `stardew-tools-v5`
 
 Project note is preserved in manifest metadata:
 
@@ -156,6 +156,13 @@ Validated in production:
 - Location Preview corner rendering refined to remove edge artifacts and keep radius continuity.
 - Raw Note and Decoded Hint text baselines aligned using shared block/text utility classes.
 - Production build re-validated after precision pass.
+
+### 6.5 Milestone — Adaptive Navigation Wrap (Cross-Device)
+
+- Secret Note quick-nav (`1`–`25`) now supports responsive wrapped layout.
+- Number chips stay centered with controlled row spacing (`gap-y-2`) after wrapping.
+- Narrow-screen behavior validated for mobile-width scenarios (e.g. `375px`) while preserving center-axis alignment.
+- Visibility hardening added to prevent number chips being obscured by surrounding shadows/layers.
 
 **Overall Validation Result:** `PASS`
 
