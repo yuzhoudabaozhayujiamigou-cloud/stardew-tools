@@ -287,7 +287,7 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
               : "h-full max-w-xl overflow-hidden px-0 py-0"
             : isEmbed
               ? "max-w-2xl px-2 py-2 sm:px-3 sm:py-3"
-              : "max-w-6xl px-4 py-10 sm:px-6"
+              : "max-w-7xl px-4 py-10 sm:px-6 lg:px-8"
         }`}
       >
         {!isEmbed ? <PwaRegisterScript /> : null}
@@ -321,10 +321,10 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
           ) : isEmbed ? (
             <NoteDetailPanel note={note} isCompleted={false} />
           ) : (
-            <section className="grid gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start">
+            <section className="grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start">
               <NotesSidebar currentNoteId={note.id} noteIds={noteIds} />
 
-              <div className="grid gap-5">
+              <div className="grid w-full gap-5 lg:max-w-4xl">
                 <NoteDetailPanel note={note} isCompleted={false} />
                 <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
               </div>

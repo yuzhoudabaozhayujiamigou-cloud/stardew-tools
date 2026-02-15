@@ -41,7 +41,7 @@ export default function SecretNotesPage() {
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             Search, decode, and track your Secret Notes progress. This first skeleton includes mock data,
-            desktop two-column layout, and mobile-friendly stacked cards.
+            a full-width responsive grid list, and mobile-friendly stacked cards.
           </p>
         </header>
 

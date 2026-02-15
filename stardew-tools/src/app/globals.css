@@ -58,3 +58,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-stardew-sans);
 }
+
+html {
+  scrollbar-gutter: stable;
+}

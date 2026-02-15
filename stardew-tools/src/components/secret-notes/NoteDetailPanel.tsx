@@ -48,17 +48,17 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
 
         <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3">
           <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Location Preview</div>
-          <div className="mt-3 overflow-hidden rounded-xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce]">
+          <div className="mt-3 aspect-video overflow-hidden rounded-xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce]">
             {note.locationImage ? (
               <img
                 src={note.locationImage}
                 alt={`${note.location} map preview`}
-                className="h-44 w-full object-cover"
+                className="h-full w-full object-cover"
                 loading="lazy"
               />
             ) : (
               <div
-                className="relative flex h-44 items-center justify-center overflow-hidden px-4 text-center"
+                className="relative flex h-full items-center justify-center overflow-hidden px-4 text-center"
                 style={{
                   backgroundImage:
                     "radial-gradient(circle at 20% 25%, rgba(255,255,255,0.6) 0 14%, transparent 15%), radial-gradient(circle at 75% 28%, rgba(255,255,255,0.52) 0 12%, transparent 13%), radial-gradient(circle at 55% 70%, rgba(255,255,255,0.4) 0 16%, transparent 17%), linear-gradient(135deg, rgba(196,157,108,0.22) 0 25%, rgba(242,228,192,0.5) 25% 50%, rgba(201,165,117,0.2) 50% 75%, rgba(243,231,199,0.55) 75% 100%)",

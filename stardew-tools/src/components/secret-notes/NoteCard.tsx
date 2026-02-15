@@ -1,49 +1,43 @@
 "use client";
 
+import Link from "next/link";
+
 import type { SecretNote } from "@/components/secret-notes/types";
 
 type NoteCardProps = {
   note: SecretNote;
-  isActive: boolean;
   isCompleted: boolean;
-  onSelect: (id: number) => void;
-  onToggleCompleted: (id: number, checked: boolean) => void;
 };
 
 export function NoteCard(props: NoteCardProps) {
-  const { note, isActive, isCompleted, onSelect, onToggleCompleted } = props;
+  const { note, isCompleted } = props;
 
   return (
-    <article
-      className={`h-full rounded-2xl border p-4 transition ${
-        isActive
-          ? "border-[#9b692f] bg-[#f7e7b9] shadow-inner"
-          : "border-[#9f744c]/35 bg-[#fff8e8]/85 hover:border-[#9b692f]/70"
-      }`}
+    <Link
+      href={`/secret-notes/${note.id}`}
+      aria-label={`Open ${note.title}`}
+      className="flex h-full min-h-[196px] transform-gpu flex-col rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/85 p-4 transition hover:-translate-y-0.5 hover:border-[#9b692f]/70 hover:bg-[#fdf0cd]"
     >
       <div className="flex items-start justify-between gap-3">
-        <button
-          type="button"
-          onClick={() => onSelect(note.id)}
-          className="flex-1 text-left"
-          aria-label={`Open ${note.title}`}
-        >
-          <div className="text-sm font-semibold text-[#4e341f]">{note.title}</div>
-          <p className="mt-1 text-sm text-[#614326]/90">{note.summary}</p>
-        </button>
+        <div className="flex-1 text-left">
+          <div className="truncate text-sm font-semibold text-[#4e341f]">{note.title}</div>
+          <p className="mt-1 min-h-[3.75rem] overflow-hidden text-sm text-[#614326]/90 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3]">
+            {note.summary}
+          </p>
+        </div>
 
-        <label className="inline-flex shrink-0 items-center gap-2 text-xs text-[#5f432a]/90">
-          <input
-            type="checkbox"
-            checked={isCompleted}
-            onChange={(event) => onToggleCompleted(note.id, event.target.checked)}
-            className="h-4 w-4 rounded border-[#8b603a] text-[#7c4d2e] focus:ring-[#8b603a]"
-          />
-          Done
-        </label>
+        <span
+          className={`inline-flex shrink-0 items-center rounded-full border px-2.5 py-1 text-[11px] font-semibold ${
+            isCompleted
+              ? "border-emerald-300 bg-emerald-50 text-emerald-800"
+              : "border-[#9f744c]/40 bg-[#fff2d2] text-[#6b4a2d]"
+          }`}
+        >
+          {isCompleted ? "✓ Done" : "Open"}
+        </span>
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="mt-auto flex flex-wrap gap-2 pt-3">
         {note.tags.map((tag) => (
           <span
             key={tag}
@@ -53,6 +47,6 @@ export function NoteCard(props: NoteCardProps) {
           </span>
         ))}
       </div>
-    </article>
+    </Link>
   );
 }
