@@ -1,0 +1,112 @@
+[
+  {
+    "id": "parsnip",
+    "name": "Parsnip",
+    "season": ["spring"],
+    "seedCost": 20,
+    "sellPrice": 35,
+    "growthDays": 4,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "season": ["spring"],
+    "seedCost": 50,
+    "sellPrice": 80,
+    "growthDays": 6,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1.25
+  },
+  {
+    "id": "cauliflower",
+    "name": "Cauliflower",
+    "season": ["spring"],
+    "seedCost": 80,
+    "sellPrice": 175,
+    "growthDays": 12,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "kale",
+    "name": "Kale",
+    "season": ["spring"],
+    "seedCost": 70,
+    "sellPrice": 110,
+    "growthDays": 6,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "strawberry",
+    "name": "Strawberry",
+    "season": ["spring"],
+    "seedCost": 100,
+    "sellPrice": 120,
+    "growthDays": 8,
+    "regrowDays": 4,
+    "isRegrowing": true,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "green_beans",
+    "name": "Green Bean",
+    "season": ["spring"],
+    "seedCost": 60,
+    "sellPrice": 40,
+    "growthDays": 10,
+    "regrowDays": 3,
+    "isRegrowing": true,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "coffee_bean",
+    "name": "Coffee Bean",
+    "season": ["spring", "summer"],
+    "seedCost": 2500,
+    "sellPrice": 15,
+    "growthDays": 10,
+    "regrowDays": 2,
+    "isRegrowing": true,
+    "yieldPerHarvest": 4
+  },
+  {
+    "id": "tulip",
+    "name": "Tulip",
+    "season": ["spring"],
+    "seedCost": 20,
+    "sellPrice": 30,
+    "growthDays": 6,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "blue_jazz",
+    "name": "Blue Jazz",
+    "season": ["spring"],
+    "seedCost": 30,
+    "sellPrice": 50,
+    "growthDays": 7,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "garlic",
+    "name": "Garlic",
+    "season": ["spring"],
+    "seedCost": 40,
+    "sellPrice": 60,
+    "growthDays": 4,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  }
+]
