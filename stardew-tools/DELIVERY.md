@@ -111,6 +111,8 @@ Recommended embed snippet:
   - `/icons/icon-192.png`
   - `/icons/icon-512.png`
 - PWA registration added at page level to avoid unnecessary overhead on embed-only views.
+- Service worker cache version bumped to force-refresh UI precision updates:
+  - `stardew-tools-v4`
 
 Project note is preserved in manifest metadata:
 
@@ -146,6 +148,14 @@ Validated in production:
 - Compressed detail header block for improved first-screen visibility.
 - Fixed detail composition width to `max-w-5xl` and centered all major modules.
 - Build regression re-validated after refactor.
+
+### 6.4 Milestone — UI Precision Alignment (Millimeter-Level)
+
+- Top quick-nav, main detail card, and bottom quick-nav now share identical physical width (`max-w-5xl`).
+- Vertical rhythm normalized to a 24px module (`gap-6`) for architectural consistency.
+- Location Preview corner rendering refined to remove edge artifacts and keep radius continuity.
+- Raw Note and Decoded Hint text baselines aligned using shared block/text utility classes.
+- Production build re-validated after precision pass.
 
 **Overall Validation Result:** `PASS`
 

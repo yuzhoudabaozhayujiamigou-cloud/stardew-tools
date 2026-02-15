@@ -7,6 +7,8 @@ type NoteDetailPanelProps = {
 
 export function NoteDetailPanel(props: NoteDetailPanelProps) {
   const { note, isCompleted } = props;
+  const detailBlockClass = "rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3";
+  const detailTextClass = "mt-1 text-left leading-6";
 
   if (!note) {
     return (
@@ -35,25 +37,25 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
         </span>
       </div>
 
-      <div className="mt-4 grid gap-3 text-sm text-[#5f432a]/90">
-        <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3">
+      <div className="mt-6 grid gap-6 text-sm text-[#5f432a]/90">
+        <div className={detailBlockClass}>
           <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Raw Note</div>
-          <p className="mt-1 leading-6">{note.rawText}</p>
+          <p className={detailTextClass}>{note.rawText}</p>
         </div>
 
-        <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3">
+        <div className={detailBlockClass}>
           <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Decoded Hint</div>
-          <p className="mt-1 leading-6">{note.decodedHint}</p>
+          <p className={detailTextClass}>{note.decodedHint}</p>
         </div>
 
-        <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3">
+        <div className={detailBlockClass}>
           <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Location Preview</div>
-          <div className="mt-3 aspect-video overflow-hidden rounded-xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce]">
+          <div className="mt-3 aspect-video overflow-hidden rounded-2xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce]">
             {note.locationImage ? (
               <img
                 src={note.locationImage}
                 alt={`${note.location} map preview`}
-                className="h-full w-full object-cover"
+                className="block h-full w-full object-cover"
                 loading="lazy"
               />
             ) : (
@@ -73,12 +75,12 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
           </div>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3">
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className={detailBlockClass}>
             <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Location</div>
             <p className="mt-1">{note.location}</p>
           </div>
-          <div className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/80 px-4 py-3">
+          <div className={detailBlockClass}>
             <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Reward</div>
             <p className="mt-1">{note.reward}</p>
           </div>

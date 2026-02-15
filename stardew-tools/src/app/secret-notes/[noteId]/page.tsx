@@ -63,7 +63,7 @@ function NoteQuickNav(props: { noteIds: number[]; currentNoteId: number }) {
   const { noteIds, currentNoteId } = props;
 
   return (
-    <section className="rounded-[22px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 px-2.5 py-2.5 shadow-[0_10px_22px_rgba(56,41,23,0.24)] ring-1 ring-yellow-900/20 sm:px-3 sm:py-3">
+    <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 px-2.5 py-2.5 shadow-[0_10px_22px_rgba(56,41,23,0.24)] ring-1 ring-yellow-900/20 sm:px-3 sm:py-3">
       <nav
         aria-label="Secret notes inline quick navigation"
         className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -286,7 +286,7 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
 
         <div className={isEmbedCard ? "h-full" : "grid gap-6"}>
           {!isEmbed ? (
-            <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
+            <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Secret Note Detail</p>
               <h1 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">{note.title}</h1>
               <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
@@ -313,7 +313,7 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
           ) : isEmbed ? (
             <NoteDetailPanel note={note} isCompleted={false} />
           ) : (
-            <section className="grid gap-4">
+            <section className="mx-auto grid w-full max-w-5xl gap-6">
               <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
               <NoteDetailPanel note={note} isCompleted={false} />
               <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
