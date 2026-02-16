@@ -33,6 +33,25 @@ export function CalculatorClient(props: {
   return (
     <>
       <InputForm value={formValue} onChange={setFormValue} />
+      <details className="mt-5 cursor-pointer rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
+        <summary className="font-semibold text-[#4a321e]">
+          Calculation Assumptions (How it works)
+        </summary>
+        <ul className="mt-3 list-disc space-y-2 pl-5 leading-6">
+          <li>
+            <strong>Planting:</strong> Assumes you plant today (Day 0).
+          </li>
+          <li>
+            <strong>Season Constraint:</strong> Calculations are capped by the 28-day season limit or your custom <code>daysLeft</code>.
+          </li>
+          <li>
+            <strong>Profit:</strong> <code>(Total Harvests * Sell Price) - Seed Cost</code>.
+          </li>
+          <li>
+            <strong>Gold/Day:</strong> Total Profit divided by <code>daysLeft</code>.
+          </li>
+        </ul>
+      </details>
       <ResultTable
         results={results.length ? results : props.initialResults}
         quality={formValue.quality}
