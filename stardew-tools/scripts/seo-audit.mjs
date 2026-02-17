@@ -181,6 +181,10 @@ async function run() {
 
   console.log(`\nSummary: ${passedCount}/${results.length} pages pass, ${failedCount} fail.`);
 
+  if (failedCount === 0) {
+    console.log("All SEO Checks Passed!");
+  }
+
   if (failedCount > 0) {
     process.exitCode = 1;
   }

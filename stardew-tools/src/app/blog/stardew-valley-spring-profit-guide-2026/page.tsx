@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -109,6 +110,24 @@ const rows: CropGuideRow[] = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "What's the best crop for Spring Year 1 in Stardew Valley?",
+    answer:
+      "For most players, strawberry and potato are the strongest practical Spring Year 1 picks under normal direct-selling assumptions.",
+  },
+  {
+    question: "How do I compare Spring crops with my own setup?",
+    answer:
+      "Use the calculator with Spring and 28 days left, then adjust quality and profession settings to match your run.",
+  },
+  {
+    question: "Is this guide for full-season planning or late-season panic decisions?",
+    answer:
+      "This page is for full-season Spring planning. For late-season panic windows, use dedicated Day 15/Day 20 threshold guides.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Stardew Valley Spring Profit Guide 2026 | S/A Tier Crops",
   description:
@@ -128,6 +147,37 @@ function tierBadge(tier: CropGuideRow["tier"]) {
 }
 
 export default function SpringProfitGuidePage() {
+  const fromPath = "/blog/stardew-valley-spring-profit-guide-2026";
+  const pageUrl = "https://stardew-tools.vercel.app/blog/stardew-valley-spring-profit-guide-2026";
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: "Stardew Valley Spring Profit Guide 2026",
+    datePublished: "2026-02-15",
+    author: {
+      "@type": "Organization",
+      name: "Stardew Tools",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
+  };
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -239,31 +289,74 @@ export default function SpringProfitGuidePage() {
             </p>
 
             <div className="mt-4">
-              <Link
-                href="/calculator"
+              <TrackedBlogCtaLink
+                href="/calculator?season=spring&daysLeft=28"
+                fromPath={fromPath}
+                ctaName="next_step_button"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
               >
                 <span aria-hidden="true" className="inline-flex items-center leading-none opacity-80">
                   🧮
                 </span>
                 Use the Calculator Now
-              </Link>
+              </TrackedBlogCtaLink>
             </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-2xl font-semibold text-[#4a321e]">FAQ</h2>
+            <div className="mt-4 space-y-3">
+              {faqItems.map((faq) => (
+                <details key={faq.question} className="rounded-2xl border border-[#9f744c]/35 bg-[#fff8e8]/85 px-4 py-3">
+                  <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">{faq.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#614326]/90">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Next Read</h2>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[#614326]/90">
+              <li>
+                Need a late-Spring emergency version? {" "}
+                <Link className="font-semibold underline" href="/blog/stardew-valley-is-it-too-late-to-plant-spring-day-20">
+                  Stardew Valley: Is it too late to plant on Spring Day 20?
+                </Link>
+              </li>
+              <li>
+                For short-window salvage picks: {" "}
+                <Link className="font-semibold underline" href="/blog/best-crops-7-days-left-before-season-switch">
+                  Stardew Valley: best crops with 7 days left before season switch
+                </Link>
+              </li>
+            </ul>
           </section>
         </article>
 
         <SiteFooter className="mt-8" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+        />
       </main>
 
-      <Link
-        href="/calculator"
+      <TrackedBlogCtaLink
+        href="/calculator?season=spring&daysLeft=28"
+        fromPath={fromPath}
+        ctaName="floating_button"
         aria-label="Back to Calculator"
         className="fixed bottom-6 right-6 z-20 inline-flex h-14 w-14 items-center justify-center rounded-full border-4 border-[#6f4528]/85 bg-[#b77842] text-2xl shadow-[0_10px_20px_rgba(54,34,18,0.35)] transition hover:scale-105 hover:bg-[#c6874f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f5d18c]/90 focus-visible:ring-offset-2 focus-visible:ring-offset-[#9ecf77]"
       >
         <span aria-hidden="true" className="inline-flex items-center leading-none">
           🧮
         </span>
-      </Link>
+      </TrackedBlogCtaLink>
     </div>
   );
 }
