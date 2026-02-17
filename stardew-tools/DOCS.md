@@ -21,3 +21,4 @@
 - **2026-02-16**: Day 4 词频与场景聚类完成（见 `notes/day4-clusters.md`），并统一 Day -> daysLeft 口径说明。
 - **2026-02-17**: Day 5 已上线两篇 daysLeft 长尾文并完成互链、Quick Nav、FAQ/BlogPosting schema。
 - **2026-02-17**: Day 6 完成最小点击埋点（`/api/event` + `cta_click` from/to/slug）并新增 Day 15 / 7 days left 两篇同簇文章。
+- **2026-02-17**: 新增 ` /ops/events ` 轻量聚合页（按 fromSlug 聚合 + 最近50条 + `OPS_KEY` gate + noindex）。

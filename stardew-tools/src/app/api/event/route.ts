@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import { recordAnalyticsEvent } from "@/lib/eventStore";
+
 type EventPayload = {
   event?: unknown;
   from?: unknown;
@@ -28,12 +30,24 @@ export async function POST(request: NextRequest) {
   const from = normalizeText(payload.from, 160);
   const to = normalizeText(payload.to, 220);
   const ctaName = normalizeText(payload.ctaName, 120);
+  const ua = normalizeText(request.headers.get("user-agent"), 180);
 
   if (event !== "cta_click" || !from.startsWith("/blog/") || !to.startsWith("/calculator")) {
     return NextResponse.json({ ok: false, error: "invalid_payload" }, { status: 400 });
   }
 
   const fromSlug = from.replace("/blog/", "");
+  const at = new Date().toISOString();
+
+  recordAnalyticsEvent({
+    event: "cta_click",
+    from,
+    fromSlug,
+    to,
+    ctaName,
+    at,
+    ua,
+  });
 
   console.log(
     JSON.stringify({
@@ -43,7 +57,8 @@ export async function POST(request: NextRequest) {
       fromSlug,
       to,
       ctaName,
-      at: new Date().toISOString(),
+      ua,
+      at,
     }),
   );
 
