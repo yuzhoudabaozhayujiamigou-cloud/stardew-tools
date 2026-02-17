@@ -38,6 +38,10 @@ export type ProfitInput = {
   hasTiller?: boolean;
 };
 
+export function clampSeasonDays(value: number, min = 1, max = 28) {
+  return Math.max(min, Math.min(max, Math.trunc(value)));
+}
+
 export type ProfitResult = {
   cropId: string;
   cropName: string;
@@ -48,7 +52,7 @@ export type ProfitResult = {
 };
 
 export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
-  const seasonDays = input.seasonDays ?? 28;
+  const seasonDays = clampSeasonDays(input.seasonDays ?? 28);
   const quality = input.quality ?? "normal";
   const hasTiller = input.hasTiller ?? false;
   const { crop } = input;
