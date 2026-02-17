@@ -9,6 +9,7 @@
 - [x] Topic: Spring Day 15, what can I still plant? | Query: "stardew spring day 15 what to plant" | CTA: /calculator?season=spring&daysLeft=14
 - [x] Topic: Best crops with 7 days left before season switch | Query: "stardew best crops 7 days left" | CTA: /calculator?season=spring&daysLeft=7
 - [x] Topic: Is it too late to plant on Spring Day 20? | Query: "stardew spring day 20 too late" | CTA: /calculator?season=spring&daysLeft=8
+- [x] Topic: Is it too late to plant on Spring Day 25? | Query: "stardew spring day 25 too late" | CTA: /calculator?season=spring&daysLeft=3
 - [x] Topic: Summer Day 1 maximum profit guide | Query: "stardew summer day 1 best crop" | CTA: /calculator?season=summer&daysLeft=28
 
 ## 02_口径与逻辑 (Assumptions)
@@ -26,3 +27,4 @@
 - **2026-02-17**: 新增 ` /ops/events ` 轻量聚合页（按 fromSlug 聚合 + 最近50条 + `OPS_KEY` gate + noindex）。
 - **2026-02-17**: 新增 Spring Day 20 紧急避险文 + Summer Day 1 预热文，形成“季末焦虑 -> 跨季规划”互链闭环。
 - **2026-02-17**: Calculator 结果增加移动端卡片模式，减少手机端横向滚动负担。
+- **2026-02-17**: 新增 Spring Day 25 panic-template（daysLeft=3）覆盖极限长尾检索并接入埋点闭环。
