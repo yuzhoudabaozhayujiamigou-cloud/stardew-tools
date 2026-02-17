@@ -14,6 +14,7 @@
 - [x] Topic: Summer Day 7 what to plant | Query: "stardew summer day 7 what to plant" | CTA: /calculator?season=summer&daysLeft=21
 - [x] Topic: Summer Day 15 profit guide | Query: "stardew summer day 15 best crops" | CTA: /calculator?season=summer&daysLeft=13
 - [x] Topic: Summer Day 20 is it too late | Query: "stardew summer day 20 too late" | CTA: /calculator?season=summer&daysLeft=8
+- [x] Topic: Is it too late to plant on Summer Day 25? | Query: "stardew summer day 25 too late" | CTA: /calculator?season=summer&daysLeft=3
 
 ## 02_口径与逻辑 (Assumptions)
 - [x] daysLeft: 1-28 约束已定义 (Day 1 完成)
@@ -32,3 +33,4 @@
 - **2026-02-17**: Calculator 结果增加移动端卡片模式，减少手机端横向滚动负担。
 - **2026-02-17**: 新增 Spring Day 25 panic-template（daysLeft=3）覆盖极限长尾检索并接入埋点闭环。
 - **2026-02-17**: 初七 Summer 工业化首批完成（Day 7 / Day 15 / Day 20），形成 Summer Day1 -> Day7 -> Day15 -> Day20 链路。
+- **2026-02-17**: Summer Day 25 panic-template 上线（daysLeft=3），Summer 链路封顶为 Day1 -> Day7 -> Day15 -> Day20 -> Day25。
