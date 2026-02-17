@@ -303,6 +303,12 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
                   Stardew Valley Spring Day 15: what can I still plant for profit?
                 </Link>
               </li>
+              <li>
+                For a late panic scenario with 8-day window: {" "}
+                <Link className="font-semibold underline" href="/blog/stardew-valley-is-it-too-late-to-plant-spring-day-20">
+                  Stardew Valley: Is it too late to plant on Spring Day 20?
+                </Link>
+              </li>
             </ul>
           </section>
 

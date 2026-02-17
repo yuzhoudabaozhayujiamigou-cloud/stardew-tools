@@ -207,11 +207,69 @@ export function ResultTable(props: ResultTableProps) {
           <span className="rounded-full border border-[#a67a50]/45 bg-[#fff4dc] px-3 py-1 text-xs font-medium text-[#5e3f24] shadow-sm">
             Current Multiplier: x{currentMultiplier.toFixed(2)}
           </span>
-          <span className="text-xs text-[#6f4b2a]/70 sm:hidden">scroll →</span>
+          <span className="text-xs text-[#6f4b2a]/70 sm:hidden">mobile cards</span>
         </div>
       </div>
 
-      <div className="relative mt-4">
+      <div className="mt-4 grid gap-3 sm:hidden">
+        {rows.map((row) => {
+          const goldRank = goldRankByCropId.get(row.cropId) ?? Number.POSITIVE_INFINITY;
+          const medal = medalByRank[goldRank];
+          const isBestGold = goldRank === 1;
+
+          return (
+            <article
+              key={`mobile-${row.cropId}`}
+              className="rounded-2xl border border-[#9f744c]/25 bg-[#fff8e8]/90 p-3 shadow-[0_1px_0_rgba(122,82,46,0.14)]"
+            >
+              <div className="flex items-start justify-between gap-3">
+                <div className="inline-flex items-center gap-2 text-[#503521]">
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded bg-[#dcb889]/40 text-[1.2rem] leading-none"
+                  >
+                    {getCropEmoji(row.cropId)}
+                  </span>
+                  <div>
+                    <div className="text-sm font-semibold">{row.cropName}</div>
+                    <div className="text-[11px] text-[#5f432a]/80">{row.harvestCount} harvests</div>
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <div className={`text-sm ${isBestGold ? "font-bold text-[#c38911]" : "font-semibold text-[#4d341f]"}`}>
+                    {fmt(row.goldPerDay)}
+                    {medal ? (
+                      <span aria-hidden="true" className="ml-1 leading-none">
+                        {medal}
+                      </span>
+                    ) : null}
+                    {isBestGold ? (
+                      <span aria-hidden="true" className="ml-1 animate-pulse leading-none">
+                        ✨
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="text-[11px] text-[#5f432a]/80">gold/day</div>
+                </div>
+              </div>
+
+              <dl className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
+                <div className="rounded-lg border border-[#a67a50]/25 bg-white/70 px-2 py-1.5">
+                  <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Revenue</dt>
+                  <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.totalRevenue)}</dd>
+                </div>
+                <div className="rounded-lg border border-[#a67a50]/25 bg-white/70 px-2 py-1.5">
+                  <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Profit</dt>
+                  <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.totalProfit)}</dd>
+                </div>
+              </dl>
+            </article>
+          );
+        })}
+      </div>
+
+      <div className="relative mt-4 hidden sm:block">
         <div className="overflow-x-auto">
           <table className="min-w-[700px] w-full border-separate border-spacing-y-2 text-sm tracking-wide">
             <thead>
@@ -347,7 +405,7 @@ export function ResultTable(props: ResultTableProps) {
           </table>
         </div>
 
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#f3e5bf] via-[#f3e5bf]/75 to-transparent sm:hidden" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#f3e5bf] via-[#f3e5bf]/75 to-transparent" />
       </div>
     </section>
   );
