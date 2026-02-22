@@ -93,6 +93,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 1 Maximum Profit Guide",
   description:
@@ -101,7 +103,7 @@ export const metadata: Metadata = {
 
 export default function StardewValleySummerDay1MaximumProfitGuidePage() {
   const fromPath = "/blog/stardew-valley-summer-day-1-maximum-profit-guide";
-  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-summer-day-1-maximum-profit-guide";
+  const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-summer-day-1-maximum-profit-guide`;
 
   const faqLd = {
     "@context": "https://schema.org",

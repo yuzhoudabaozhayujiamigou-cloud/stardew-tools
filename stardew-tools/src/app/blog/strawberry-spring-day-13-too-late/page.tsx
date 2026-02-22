@@ -62,6 +62,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Is It Too Late to Plant Strawberries on Spring 13?",
   description:
@@ -70,7 +72,7 @@ export const metadata: Metadata = {
 
 export default function StrawberrySpringDay13TooLatePage() {
   const fromPath = "/blog/strawberry-spring-day-13-too-late";
-  const pageUrl = "https://stardewprofit.com/blog/strawberry-spring-day-13-too-late";
+  const pageUrl = `${SITE_ORIGIN}/blog/strawberry-spring-day-13-too-late`;
 
   const faqLd = {
     "@context": "https://schema.org",

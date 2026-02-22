@@ -87,6 +87,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Best Crops With 7 Days Left Before Season Switch",
   description:
@@ -95,7 +97,7 @@ export const metadata: Metadata = {
 
 export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
   const fromPath = "/blog/best-crops-7-days-left-before-season-switch";
-  const pageUrl = "https://stardewprofit.com/blog/best-crops-7-days-left-before-season-switch";
+  const pageUrl = `${SITE_ORIGIN}/blog/best-crops-7-days-left-before-season-switch`;
 
   const faqLd = {
     "@context": "https://schema.org",

@@ -93,6 +93,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 20 — Is It Too Late?",
   description:
@@ -101,7 +103,7 @@ export const metadata: Metadata = {
 
 export default function StardewValleySummerDay20IsItTooLatePage() {
   const fromPath = "/blog/stardew-valley-summer-day-20-is-it-too-late";
-  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-summer-day-20-is-it-too-late";
+  const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-summer-day-20-is-it-too-late`;
 
   const faqLd = {
     "@context": "https://schema.org",

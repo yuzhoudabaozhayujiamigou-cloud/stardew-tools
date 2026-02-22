@@ -87,6 +87,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Best Spring Crops With 10 Days Left",
   description:
@@ -95,7 +97,7 @@ export const metadata: Metadata = {
 
 export default function BestSpringCrops10DaysLeftPage() {
   const fromPath = "/blog/best-spring-crops-10-days-left";
-  const pageUrl = "https://stardewprofit.com/blog/best-spring-crops-10-days-left";
+  const pageUrl = `${SITE_ORIGIN}/blog/best-spring-crops-10-days-left`;
 
   const faqLd = {
     "@context": "https://schema.org",

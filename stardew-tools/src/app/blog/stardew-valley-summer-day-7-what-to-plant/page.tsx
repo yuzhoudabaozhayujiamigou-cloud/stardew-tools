@@ -93,6 +93,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 7 — What Should I Plant?",
   description:
@@ -101,7 +103,7 @@ export const metadata: Metadata = {
 
 export default function StardewValleySummerDay7WhatToPlantPage() {
   const fromPath = "/blog/stardew-valley-summer-day-7-what-to-plant";
-  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-summer-day-7-what-to-plant";
+  const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-summer-day-7-what-to-plant`;
 
   const faqLd = {
     "@context": "https://schema.org",

@@ -93,6 +93,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Is It Too Late to Plant on Spring Day 20?",
   description:
@@ -101,7 +103,7 @@ export const metadata: Metadata = {
 
 export default function StardewValleyIsItTooLateToPlantSpringDay20Page() {
   const fromPath = "/blog/stardew-valley-is-it-too-late-to-plant-spring-day-20";
-  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-is-it-too-late-to-plant-spring-day-20";
+  const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-is-it-too-late-to-plant-spring-day-20`;
 
   const faqLd = {
     "@context": "https://schema.org",

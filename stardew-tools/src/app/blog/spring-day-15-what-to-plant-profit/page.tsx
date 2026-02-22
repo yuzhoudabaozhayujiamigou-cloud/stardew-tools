@@ -93,6 +93,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley Spring Day 15: What Can I Still Plant for Profit?",
   description:
@@ -101,7 +103,7 @@ export const metadata: Metadata = {
 
 export default function SpringDay15WhatToPlantProfitPage() {
   const fromPath = "/blog/spring-day-15-what-to-plant-profit";
-  const pageUrl = "https://stardewprofit.com/blog/spring-day-15-what-to-plant-profit";
+  const pageUrl = `${SITE_ORIGIN}/blog/spring-day-15-what-to-plant-profit`;
 
   const faqLd = {
     "@context": "https://schema.org",

@@ -93,6 +93,8 @@ const faqItems = [
   },
 ];
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 15 Profit Guide",
   description:
@@ -101,7 +103,7 @@ export const metadata: Metadata = {
 
 export default function StardewValleySummerDay15ProfitGuidePage() {
   const fromPath = "/blog/stardew-valley-summer-day-15-profit-guide";
-  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-summer-day-15-profit-guide";
+  const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-summer-day-15-profit-guide`;
 
   const faqLd = {
     "@context": "https://schema.org",
