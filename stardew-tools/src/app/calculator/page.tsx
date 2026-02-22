@@ -72,7 +72,7 @@ export default function CalculatorPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
+    <div className="relative min-h-screen bg-[#9ed7a4]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div
           className="absolute inset-0 opacity-90"
@@ -94,7 +94,7 @@ export default function CalculatorPage() {
         />
       </div>
 
-      <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+      <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 subpixel-antialiased sm:px-8 sm:py-10 lg:px-10">
         <PwaRegisterScript />
 
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">

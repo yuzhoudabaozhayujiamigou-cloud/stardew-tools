@@ -317,8 +317,8 @@ export function ResultTable(props: ResultTableProps) {
         </div>
       </div>
 
-      <div className="relative mt-4 hidden sm:block">
-        <div className="overflow-x-auto">
+      <div className="relative mt-4 hidden rounded-2xl border border-[#b88b63]/30 bg-[#fff8e8]/75 p-2 sm:block">
+        <div className="overflow-x-auto pb-1 pr-2">
           <table className="min-w-[900px] w-full border-separate border-spacing-y-2 text-sm tracking-wide">
             <thead>
               <tr className="text-left text-xs uppercase tracking-wider text-[#6f4b2a]/80">
@@ -505,7 +505,7 @@ export function ResultTable(props: ResultTableProps) {
           </table>
         </div>
 
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#f3e5bf] via-[#f3e5bf]/75 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-2 right-2 hidden w-10 rounded-r-xl bg-gradient-to-l from-[#f3e5bf] via-[#f3e5bf]/75 to-transparent lg:block" />
       </div>
     </section>
   );
