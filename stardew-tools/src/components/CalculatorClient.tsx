@@ -5,7 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 import { InputForm, type InputFormValue } from "@/components/InputForm";
 import { DaysLeftInput } from "@/components/calculator/DaysLeftInput";
 import { ResultTable } from "@/components/calculator/ResultTable";
-import { calculateSeasonProfit, clampSeasonDays, type Crop, type ProfitResult, type Season } from "@/lib/calculateProfit";
+import {
+  calculateSeasonProfit,
+  clampSeasonDays,
+  type Crop,
+  type Profession,
+  type ProfitResult,
+  type Season,
+} from "@/lib/calculateProfit";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const SHARE_RESET_DELAY_MS = 2200;
@@ -29,6 +36,14 @@ function parseQuerySeason(rawSeason: string | null): Season | null {
   return rawSeason as Season;
 }
 
+function parseQueryProfession(rawProfession: string | null): Profession {
+  if (rawProfession === "artisan") {
+    return "artisan";
+  }
+
+  return "none";
+}
+
 export function CalculatorClient(props: {
   crops: Crop[];
   initialSeason: Season;
@@ -42,6 +57,7 @@ export function CalculatorClient(props: {
     season: props.initialSeason,
     quality: "normal",
     hasTiller: false,
+    profession: "none",
   });
 
   useEffect(() => {
@@ -49,9 +65,13 @@ export function CalculatorClient(props: {
       const params = new URLSearchParams(window.location.search);
 
       const nextSeason = parseQuerySeason(params.get("season"));
-      if (nextSeason) {
-        setFormValue((prev) => ({ ...prev, season: nextSeason }));
-      }
+      const nextProfession = parseQueryProfession(params.get("profession") ?? params.get("skill"));
+
+      setFormValue((previous) => ({
+        ...previous,
+        season: nextSeason ?? previous.season,
+        profession: nextProfession,
+      }));
 
       const raw = params.get("daysLeft");
       if (!raw) return;
@@ -96,10 +116,11 @@ export function CalculatorClient(props: {
           seasonDays: daysLeft,
           quality: formValue.quality,
           hasTiller: formValue.hasTiller,
+          profession: formValue.profession,
         }),
       )
       .sort((a, b) => b.goldPerDay - a.goldPerDay);
-  }, [daysLeft, formValue.hasTiller, formValue.quality, formValue.season, props.crops]);
+  }, [daysLeft, formValue.hasTiller, formValue.profession, formValue.quality, formValue.season, props.crops]);
 
   const shareUrl = useMemo(() => {
     const params = new URLSearchParams({
@@ -107,8 +128,12 @@ export function CalculatorClient(props: {
       daysLeft: String(daysLeft),
     });
 
+    if (formValue.profession === "artisan") {
+      params.set("profession", "artisan");
+    }
+
     return `${SITE_ORIGIN}/calculator?${params.toString()}`;
-  }, [daysLeft, formValue.season]);
+  }, [daysLeft, formValue.profession, formValue.season]);
 
   const shareButtonLabel =
     copyState === "copied" ? "Copied!" : copyState === "error" ? "Copy failed" : "Copy result link";
@@ -118,10 +143,11 @@ export function CalculatorClient(props: {
   const shareText = useMemo(() => {
     const seasonLabel = formValue.season === "greenhouse" ? "Greenhouse" : formValue.season;
     const greenhouseSuffix = formValue.season === "greenhouse" ? " (Greenhouse mode)" : "";
+    const professionSuffix = formValue.profession === "artisan" ? " (Artisan +40% goods)" : "";
     const cropLabel = topPick?.cropName ?? "a crop";
 
-    return `${seasonLabel}, ${daysLeft} days left${greenhouseSuffix}: best pick is ${cropLabel}. ${shareUrl}`;
-  }, [daysLeft, formValue.season, shareUrl, topPick]);
+    return `${seasonLabel}, ${daysLeft} days left${greenhouseSuffix}${professionSuffix}: best pick is ${cropLabel}. ${shareUrl}`;
+  }, [daysLeft, formValue.profession, formValue.season, shareUrl, topPick]);
 
   const shareTextButtonLabel =
     shareTextState === "copied" ? "Copied!" : shareTextState === "error" ? "Copy failed" : "Copy share text";
@@ -177,6 +203,7 @@ export function CalculatorClient(props: {
         </button>
         <span className="text-xs text-[#6b4a2c]/80">
           Share preset: {formValue.season} · {daysLeft} days left
+          {formValue.profession === "artisan" ? " · artisan" : ""}
         </span>
       </div>
       <details className="mt-5 cursor-pointer rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
@@ -203,6 +230,7 @@ export function CalculatorClient(props: {
           results={results.length ? results : props.initialResults}
           quality={formValue.quality}
           hasTiller={formValue.hasTiller}
+          profession={formValue.profession}
         />
       </div>
     </>

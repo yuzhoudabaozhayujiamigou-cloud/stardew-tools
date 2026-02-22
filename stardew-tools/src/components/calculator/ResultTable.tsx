@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import {
   getSellPriceMultiplier,
   type CropQuality,
+  type Profession,
   type ProfitResult,
 } from "@/lib/calculateProfit";
 
@@ -12,6 +13,7 @@ type ResultTableProps = {
   results: ProfitResult[];
   quality: CropQuality;
   hasTiller: boolean;
+  profession: Profession;
 };
 
 type SortKey = "cropName" | "harvestCount" | "totalRevenue" | "totalProfit" | "goldPerDay";
@@ -212,6 +214,11 @@ export function ResultTable(props: ResultTableProps) {
           <span className="rounded-full border border-[#a67a50]/45 bg-[#fff4dc] px-3 py-1 text-xs font-medium text-[#5e3f24] shadow-sm">
             Current Multiplier: x{currentMultiplier.toFixed(2)}
           </span>
+          {props.profession === "artisan" ? (
+            <span className="rounded-full border border-[#7f9a43]/45 bg-[#dff0bc] px-3 py-1 text-xs font-medium text-[#4a5f24] shadow-sm">
+              Artisan Goods +40%
+            </span>
+          ) : null}
           <span className="text-xs text-[#6f4b2a]/70 sm:hidden">mobile cards</span>
         </div>
       </div>
@@ -395,6 +402,11 @@ export function ResultTable(props: ResultTableProps) {
                 <th className="py-2 pl-3 pr-8">
                   <span className="inline-flex items-center gap-1.5">
                     Artisan Goods
+                    {props.profession === "artisan" ? (
+                      <span className="rounded-full border border-[#7f9a43]/45 bg-[#dff0bc] px-2 py-0.5 text-[10px] font-semibold text-[#4a5f24]">
+                        +40%
+                      </span>
+                    ) : null}
                     <span className="text-[10px] font-normal text-[#6f4b2a]/60">(Kegs vs Jars)</span>
                   </span>
                 </th>
