@@ -198,7 +198,7 @@ export function CalculatorClient(props: {
           </li>
         </ul>
       </details>
-      <div className="mt-5 p-2">
+      <div className="m-4 p-2">
         <ResultTable
           results={results.length ? results : props.initialResults}
           quality={formValue.quality}

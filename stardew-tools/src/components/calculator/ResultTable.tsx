@@ -197,7 +197,7 @@ export function ResultTable(props: ResultTableProps) {
   };
 
   return (
-    <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+    <section className="scroll-mt-32 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
@@ -392,7 +392,7 @@ export function ResultTable(props: ResultTableProps) {
                     />
                   </button>
                 </th>
-                <th className="px-3 py-2">
+                <th className="py-2 pl-3 pr-8">
                   <span className="inline-flex items-center gap-1.5">
                     Artisan Goods
                     <span className="text-[10px] font-normal text-[#6f4b2a]/60">(Kegs vs Jars)</span>
@@ -452,7 +452,7 @@ export function ResultTable(props: ResultTableProps) {
                         {isBestGold ? <span className="sr-only">Best performer</span> : null}
                       </span>
                     </td>
-                    <td className="px-3 py-3 text-[#5f432a]/85">
+                    <td className="py-3 pl-3 pr-8 text-[#5f432a]/85">
                       {row.artisanGoodsProfit ? (
                         <div className="space-y-1.5">
                           <div className="flex items-center justify-between gap-x-3 gap-y-1">
@@ -505,7 +505,6 @@ export function ResultTable(props: ResultTableProps) {
           </table>
         </div>
 
-        <div className="pointer-events-none absolute inset-y-2 right-2 hidden w-10 rounded-r-xl bg-gradient-to-l from-[#f3e5bf] via-[#f3e5bf]/75 to-transparent lg:block" />
       </div>
     </section>
   );

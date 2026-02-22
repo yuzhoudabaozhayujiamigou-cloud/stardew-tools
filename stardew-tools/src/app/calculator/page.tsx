@@ -94,7 +94,7 @@ export default function CalculatorPage() {
         />
       </div>
 
-      <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 subpixel-antialiased sm:px-8 sm:py-10 lg:px-10">
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-6 py-8 subpixel-antialiased sm:px-12 sm:py-10">
         <PwaRegisterScript />
 
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">
