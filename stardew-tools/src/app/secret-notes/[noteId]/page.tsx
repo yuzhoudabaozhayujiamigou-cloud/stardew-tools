@@ -21,7 +21,7 @@ type SecretNoteDetailPageProps = {
 
 const MIN_SECRET_NOTE_ID = 1;
 const MAX_SECRET_NOTE_ID = 25;
-const DEFAULT_SITE_URL = "https://stardew-tools.vercel.app";
+const DEFAULT_SITE_URL = "https://stardewprofit.com";
 const ARTICLE_AUTHOR_NAME = "Stardew Tools Guide";
 const SECRET_NOTES_PUBLISHED_AT = "2026-02-15T00:00:00.000Z";
 

@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 
 export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
   const fromPath = "/blog/best-crops-7-days-left-before-season-switch";
-  const pageUrl = "https://stardew-tools.vercel.app/blog/best-crops-7-days-left-before-season-switch";
+  const pageUrl = "https://stardewprofit.com/blog/best-crops-7-days-left-before-season-switch";
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -253,6 +253,31 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            <div className="mt-4 rounded-2xl border border-[#9f744c]/30 bg-[#fff8e8]/85 px-4 py-3">
+              <h3 className="text-sm font-semibold text-[#4e341f]">💡 Skill Bonus Boost</h3>
+              <div className="mt-2 space-y-2 text-sm leading-6 text-[#614326]/90">
+                <p>
+                  With <strong className="text-[#4e341f]">Tiller (Level 5)</strong> + <strong className="text-[#4e341f]">Artisan (Level 10)</strong> skills:
+                </p>
+                <ul className="list-disc space-y-1 pl-5 text-xs">
+                  <li><strong>Potato:</strong> ~45g/day → ~63g/day (+40%)</li>
+                  <li><strong>Kale:</strong> ~35g/day → ~49g/day (+40%)</li>
+                  <li><strong>Strawberry:</strong> ~28g/day → ~39g/day (+40%)</li>
+                </ul>
+                <p className="text-xs text-[#6f4b2a]/70">
+                  Try with skills:{" "}
+                  <TrackedBlogCtaLink
+                    className="font-semibold underline"
+                    href="/calculator?season=spring&daysLeft=7&hasTiller=true&profession=artisan"
+                    fromPath={fromPath}
+                    ctaName="skill_bonus_link"
+                  >
+                    Tiller + Artisan setup
+                  </TrackedBlogCtaLink>
+                </p>
+              </div>
             </div>
 
             <div className="mt-5">

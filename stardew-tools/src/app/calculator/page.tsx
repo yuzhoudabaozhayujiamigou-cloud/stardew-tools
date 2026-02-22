@@ -8,6 +8,24 @@ import { SiteFooter } from "@/components/SiteFooter";
 import crops from "@/data/crops.json";
 import { calculateSeasonProfit, type Crop, type Season } from "@/lib/calculateProfit";
 
+const QUICK_PRESET_LINKS = [
+  {
+    href: "/?season=spring&daysLeft=28",
+    label: "Spring Best",
+    icon: "🌸",
+  },
+  {
+    href: "/?season=summer&daysLeft=10",
+    label: "Summer Panic",
+    icon: "☀️",
+  },
+  {
+    href: "/?season=greenhouse",
+    label: "Greenhouse Strategy",
+    icon: "🏡",
+  },
+] as const;
+
 export const metadata: Metadata = {
   title: "Stardew Valley Crop Profit Calculator (Gold/Day) | Stardew Tools",
   description:
@@ -90,6 +108,20 @@ export default function CalculatorPage() {
             Compare crop profit per season with quality multipliers and Tiller profession effects.
             Built for quick in-game route planning on desktop and mobile.
           </p>
+          <div className="mt-5 flex flex-wrap gap-2.5">
+            {QUICK_PRESET_LINKS.map((preset) => (
+              <Link
+                key={preset.href}
+                href={preset.href}
+                className="inline-flex items-center gap-1.5 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-xs font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
+                  {preset.icon}
+                </span>
+                {preset.label}
+              </Link>
+            ))}
+          </div>
         </header>
 
         <section className="mt-8 grid gap-6">

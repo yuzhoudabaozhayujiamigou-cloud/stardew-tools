@@ -79,6 +79,7 @@ export function InputForm(props: {
             <option value="summer">Summer</option>
             <option value="fall">Fall</option>
             <option value="winter">Winter</option>
+            <option value="greenhouse">Greenhouse</option>
           </select>
         </label>
 
