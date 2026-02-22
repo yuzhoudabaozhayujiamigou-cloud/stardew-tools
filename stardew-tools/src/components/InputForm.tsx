@@ -3,6 +3,7 @@
 import {
   getQualityMultiplier,
   type CropQuality,
+  type Profession,
   type Season,
 } from "@/lib/calculateProfit";
 
@@ -10,6 +11,7 @@ export type InputFormValue = {
   season: Season;
   quality: CropQuality;
   hasTiller: boolean;
+  profession: Profession;
 };
 
 const qualityOptions: Array<{
@@ -48,6 +50,7 @@ export function InputForm(props: {
   onChange: (next: InputFormValue) => void;
 }) {
   const { value, onChange } = props;
+  const artisanEnabled = value.profession === "artisan";
 
   return (
     <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -169,6 +172,27 @@ export function InputForm(props: {
             );
           })}
         </div>
+      </fieldset>
+
+      <fieldset className="mt-4 grid gap-2">
+        <legend className="text-sm font-medium text-[#5a3d25]">Artisan Profession</legend>
+        <label className="inline-flex items-center gap-2 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] px-3 py-2 text-sm text-[#4d341f]">
+          <input
+            type="checkbox"
+            checked={artisanEnabled}
+            onChange={(event) =>
+              onChange({
+                ...value,
+                profession: event.target.checked ? "artisan" : "none",
+              })
+            }
+            className="h-4 w-4 rounded border-[#a87a4d]/60 text-[#7f5731] focus:ring-[#7f5731]/40"
+          />
+          <span className="font-medium">Artisan (+40% artisan goods)</span>
+        </label>
+        <p className="text-xs text-[#6b4a2c]/80">
+          Only affects artisan goods column (not main ranking yet).
+        </p>
       </fieldset>
     </section>
   );
