@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SITE_ORIGIN } from "@/lib/site";
 
 type PickItem = {
   crop: string;
@@ -93,7 +94,6 @@ const faqItems = [
   },
 ];
 
-import { SITE_ORIGIN } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 20 — Is It Too Late?",

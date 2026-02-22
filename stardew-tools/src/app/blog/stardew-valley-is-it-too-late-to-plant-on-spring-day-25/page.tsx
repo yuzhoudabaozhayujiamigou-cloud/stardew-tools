@@ -4,6 +4,7 @@ import Link from "next/link";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SITE_ORIGIN } from "@/lib/site";
 
 type PanicItem = {
   action: string;
@@ -82,7 +83,6 @@ const faqItems = [
   },
 ];
 
-import { SITE_ORIGIN } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Stardew Valley: Is It Too Late to Plant on Spring Day 25?",
