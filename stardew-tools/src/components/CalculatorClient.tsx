@@ -6,8 +6,8 @@ import { InputForm, type InputFormValue } from "@/components/InputForm";
 import { DaysLeftInput } from "@/components/calculator/DaysLeftInput";
 import { ResultTable } from "@/components/calculator/ResultTable";
 import { calculateSeasonProfit, clampSeasonDays, type Crop, type ProfitResult, type Season } from "@/lib/calculateProfit";
+import { SITE_ORIGIN } from "@/lib/site";
 
-const SITE_ORIGIN = "https://stardewprofit.com";
 const SHARE_RESET_DELAY_MS = 2200;
 const VALID_QUERY_SEASONS = new Set<Season>([
   "spring",

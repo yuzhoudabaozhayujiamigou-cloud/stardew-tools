@@ -42,7 +42,7 @@ Ancient Fruit in a greenhouse with Artisan skill:
 • Wine: 550g × 3 × 1.4 (Artisan) = 2,310g
 • That's **2,730g per harvest** with regrowth every 7 days!
 
-**Link:** [stardewprofit.com](https://stardewprofit.com)
+**Link:** [www.stardewprofit.com](https://www.stardewprofit.com)
 
 Completely free, no ads, open source. Built with Next.js + TypeScript + Tailwind.
 
@@ -88,7 +88,7 @@ Would love feedback from min-maxers and speedrunners! What features would you ad
 • 酒: 550g × 3 × 1.4 (Artisan) = 2,310g
 • 每次收获 **2,730g**，7天再生长！
 
-**工具链接**: [stardewprofit.com](https://stardewprofit.com)
+**工具链接**: [www.stardewprofit.com](https://www.stardewprofit.com)
 
 完全免费、无广告、开源。用 Next.js + TypeScript + Tailwind 构建。
 
@@ -142,7 +142,7 @@ A: Check the "Year 1 Roadmap" blog post – it covers advanced strategies. Open 
 ### UTMs 参数
 在分享链接中添加 UTM 追踪：
 ```
-https://stardewprofit.com/calculator
+https://www.stardewprofit.com/calculator
   ?utm_source=reddit
   &utm_medium=social
   &utm_campaign=launch_v1

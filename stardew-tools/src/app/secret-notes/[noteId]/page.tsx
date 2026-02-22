@@ -8,6 +8,7 @@ import { NoteDetailPanel } from "@/components/secret-notes/NoteDetailPanel";
 import type { SecretNote } from "@/components/secret-notes/types";
 import { SiteFooter } from "@/components/SiteFooter";
 import { secretNotes } from "@/data/secretNotes";
+import { SITE_ORIGIN } from "@/lib/site";
 
 type SecretNoteDetailPageProps = {
   params: Promise<{
@@ -21,7 +22,7 @@ type SecretNoteDetailPageProps = {
 
 const MIN_SECRET_NOTE_ID = 1;
 const MAX_SECRET_NOTE_ID = 25;
-const DEFAULT_SITE_URL = "https://stardewprofit.com";
+const DEFAULT_SITE_URL = SITE_ORIGIN;
 const ARTICLE_AUTHOR_NAME = "Stardew Tools Guide";
 const SECRET_NOTES_PUBLISHED_AT = "2026-02-15T00:00:00.000Z";
 
