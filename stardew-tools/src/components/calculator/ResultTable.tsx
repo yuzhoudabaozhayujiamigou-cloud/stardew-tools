@@ -153,6 +153,11 @@ export function ResultTable(props: ResultTableProps) {
   }, [props.results, sortConfig.direction, sortConfig.key]);
 
   const handleSort = (key: SortKey) => {
+    // 触觉反馈（仅移动端支持）
+    if (typeof navigator !== "undefined" && "vibrate" in navigator) {
+      navigator.vibrate(10);
+    }
+
     setSortConfig((previous) => {
       if (previous.key === key) {
         return {
@@ -211,8 +216,38 @@ export function ResultTable(props: ResultTableProps) {
         </div>
       </div>
 
-      <div className="mt-4 grid gap-3 sm:hidden">
-        {rows.map((row) => {
+      <div className="mt-4 sm:hidden">
+        <div className="mb-3 flex flex-wrap gap-2">
+          {(["goldPerDay", "totalProfit", "harvestCount"] as const).map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => handleSort(key)}
+              aria-label={`Sort by ${sortLabelByKey[key]}`}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
+                sortConfig.key === key
+                  ? "bg-[#5e3f24] text-white shadow-md"
+                  : "bg-white/70 text-[#5e3f24] shadow-sm hover:bg-white/90"
+              }`}
+            >
+              {sortLabelByKey[key]}{" "}
+              {sortConfig.key === key ? (
+                sortConfig.direction === "asc" ? (
+                  <span aria-hidden="true">
+                    ↑
+                  </span>
+                ) : (
+                  <span aria-hidden="true">
+                    ↓
+                  </span>
+                )
+              ) : null}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid gap-3">
+          {rows.map((row) => {
           const goldRank = goldRankByCropId.get(row.cropId) ?? Number.POSITIVE_INFINITY;
           const medal = medalByRank[goldRank];
           const isBestGold = goldRank === 1;
@@ -263,15 +298,28 @@ export function ResultTable(props: ResultTableProps) {
                   <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Profit</dt>
                   <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.totalProfit)}</dd>
                 </div>
+                {row.artisanGoodsProfit && (
+                  <>
+                    <div className="rounded-lg border border-[#a67a50]/25 bg-white/70 px-2 py-1.5">
+                      <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Kegs</dt>
+                      <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.artisanGoodsProfit.kegs)}</dd>
+                    </div>
+                    <div className="rounded-lg border border-[#a67a50]/25 bg-white/70 px-2 py-1.5">
+                      <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Jars</dt>
+                      <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.artisanGoodsProfit.preservesJars)}</dd>
+                    </div>
+                  </>
+                )}
               </dl>
             </article>
           );
         })}
+        </div>
       </div>
 
       <div className="relative mt-4 hidden sm:block">
         <div className="overflow-x-auto">
-          <table className="min-w-[700px] w-full border-separate border-spacing-y-2 text-sm tracking-wide">
+          <table className="min-w-[900px] w-full border-separate border-spacing-y-2 text-sm tracking-wide">
             <thead>
               <tr className="text-left text-xs uppercase tracking-wider text-[#6f4b2a]/80">
                 <th className="px-3 py-2" aria-sort={getAriaSort("cropName")}>
@@ -344,6 +392,12 @@ export function ResultTable(props: ResultTableProps) {
                     />
                   </button>
                 </th>
+                <th className="px-3 py-2">
+                  <span className="inline-flex items-center gap-1.5">
+                    Artisan Goods
+                    <span className="text-[10px] font-normal text-[#6f4b2a]/60">(Kegs vs Jars)</span>
+                  </span>
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -397,6 +451,52 @@ export function ResultTable(props: ResultTableProps) {
                         {medal ? <span className="sr-only">Top {goldRank} gold per day crop</span> : null}
                         {isBestGold ? <span className="sr-only">Best performer</span> : null}
                       </span>
+                    </td>
+                    <td className="px-3 py-3 text-[#5f432a]/85">
+                      {row.artisanGoodsProfit ? (
+                        <div className="space-y-1.5">
+                          <div className="flex items-center justify-between gap-x-3 gap-y-1">
+                            <span className="inline-flex items-center gap-1 text-xs">
+                              <span aria-hidden="true">🍷</span>
+                              <span className="sr-only">Kegs</span>
+                            </span>
+                            <span className="font-medium text-[#5f432a]">{fmt(row.artisanGoodsProfit.kegs)}</span>
+                          </div>
+                          <div className="flex items-center justify-between gap-x-3 gap-y-1">
+                            <span className="inline-flex items-center gap-1 text-xs">
+                              <span aria-hidden="true">🫙</span>
+                              <span className="sr-only">Preserves Jar</span>
+                            </span>
+                            <span className="font-medium text-[#5f432a]">{fmt(row.artisanGoodsProfit.preservesJars)}</span>
+                          </div>
+                          <div className="flex items-center justify-between gap-x-3 gap-y-1 pt-0.5">
+                            <span className="text-[10px] text-[#6f4b2a]/60">Better</span>
+                            <span className="text-xs font-semibold">
+                              {row.artisanGoodsProfit.betterOption === "kegs" && (
+                                <span className="inline-flex items-center gap-1">
+                                  <span aria-hidden="true">🍷</span>
+                                  <span className="sr-only">Kegs</span>
+                                  <span>by</span>
+                                  <span>{fmt(row.artisanGoodsProfit.kegs - row.artisanGoodsProfit.preservesJars)}</span>
+                                </span>
+                              )}
+                              {row.artisanGoodsProfit.betterOption === "preserves_jars" && (
+                                <span className="inline-flex items-center gap-1">
+                                  <span aria-hidden="true">🫙</span>
+                                  <span className="sr-only">Jars</span>
+                                  <span>by</span>
+                                  <span>{fmt(row.artisanGoodsProfit.preservesJars - row.artisanGoodsProfit.kegs)}</span>
+                                </span>
+                              )}
+                              {row.artisanGoodsProfit.betterOption === "same" && (
+                                <span className="text-[#6f4b2a]/70">Same (=)</span>
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <span className="text-xs text-[#6f4b2a]/50">Enable artisan goods to see</span>
+                      )}
                     </td>
                   </tr>
                 );
