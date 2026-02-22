@@ -36,6 +36,7 @@ export function CalculatorClient(props: {
 }) {
   const [daysLeft, setDaysLeft] = useState<number>(28);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
+  const [shareTextState, setShareTextState] = useState<"idle" | "copied" | "error">("idle");
 
   const [formValue, setFormValue] = useState<InputFormValue>({
     season: props.initialSeason,
@@ -74,26 +75,17 @@ export function CalculatorClient(props: {
     return () => window.clearTimeout(timeoutId);
   }, [copyState]);
 
-  const shareUrl = useMemo(() => {
-    const params = new URLSearchParams({
-      season: formValue.season,
-      daysLeft: String(daysLeft),
-    });
-
-    return `${SITE_ORIGIN}/?${params.toString()}`;
-  }, [daysLeft, formValue.season]);
-
-  const shareButtonLabel =
-    copyState === "copied" ? "Copied!" : copyState === "error" ? "Copy failed" : "Copy result link";
-
-  const handleCopyShareLink = async () => {
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      setCopyState("copied");
-    } catch {
-      setCopyState("error");
+  useEffect(() => {
+    if (shareTextState === "idle") {
+      return;
     }
-  };
+
+    const timeoutId = window.setTimeout(() => {
+      setShareTextState("idle");
+    }, SHARE_RESET_DELAY_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [shareTextState]);
 
   const results = useMemo(() => {
     return props.crops
@@ -109,6 +101,55 @@ export function CalculatorClient(props: {
       .sort((a, b) => b.goldPerDay - a.goldPerDay);
   }, [daysLeft, formValue.hasTiller, formValue.quality, formValue.season, props.crops]);
 
+  const shareUrl = useMemo(() => {
+    const params = new URLSearchParams({
+      season: formValue.season,
+      daysLeft: String(daysLeft),
+    });
+
+    return `${SITE_ORIGIN}/calculator?${params.toString()}`;
+  }, [daysLeft, formValue.season]);
+
+  const shareButtonLabel =
+    copyState === "copied" ? "Copied!" : copyState === "error" ? "Copy failed" : "Copy result link";
+
+  const topPick = results[0];
+
+  const shareText = useMemo(() => {
+    const seasonLabel = formValue.season === "greenhouse" ? "Greenhouse" : formValue.season;
+    const greenhouseSuffix = formValue.season === "greenhouse" ? " (Greenhouse mode)" : "";
+    const cropLabel = topPick?.cropName ?? "a crop";
+
+    return `${seasonLabel}, ${daysLeft} days left${greenhouseSuffix}: best pick is ${cropLabel}. ${shareUrl}`;
+  }, [daysLeft, formValue.season, shareUrl, topPick]);
+
+  const shareTextButtonLabel =
+    shareTextState === "copied" ? "Copied!" : shareTextState === "error" ? "Copy failed" : "Copy share text";
+
+  const copyText = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      try {
+        window.prompt("Copy to clipboard:", text);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+  };
+
+  const handleCopyShareLink = async () => {
+    const ok = await copyText(shareUrl);
+    setCopyState(ok ? "copied" : "error");
+  };
+
+  const handleCopyShareText = async () => {
+    const ok = await copyText(shareText);
+    setShareTextState(ok ? "copied" : "error");
+  };
+
   return (
     <>
       <InputForm value={formValue} onChange={setFormValue} />
@@ -123,6 +164,16 @@ export function CalculatorClient(props: {
             🔗
           </span>
           {shareButtonLabel}
+        </button>
+        <button
+          type="button"
+          onClick={handleCopyShareText}
+          className="inline-flex items-center gap-2 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-sm font-semibold text-[#5c3d23] transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+        >
+          <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
+            ✍️
+          </span>
+          {shareTextButtonLabel}
         </button>
         <span className="text-xs text-[#6b4a2c]/80">
           Share preset: {formValue.season} · {daysLeft} days left
