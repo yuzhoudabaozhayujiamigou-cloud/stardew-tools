@@ -148,7 +148,7 @@ function tierBadge(tier: CropGuideRow["tier"]) {
 
 export default function SpringProfitGuidePage() {
   const fromPath = "/blog/stardew-valley-spring-profit-guide-2026";
-  const pageUrl = "https://stardew-tools.vercel.app/blog/stardew-valley-spring-profit-guide-2026";
+  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-spring-profit-guide-2026";
 
   const faqLd = {
     "@context": "https://schema.org",

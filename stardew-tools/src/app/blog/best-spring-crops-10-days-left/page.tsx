@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 
 export default function BestSpringCrops10DaysLeftPage() {
   const fromPath = "/blog/best-spring-crops-10-days-left";
-  const pageUrl = "https://stardew-tools.vercel.app/blog/best-spring-crops-10-days-left";
+  const pageUrl = "https://stardewprofit.com/blog/best-spring-crops-10-days-left";
 
   const faqLd = {
     "@context": "https://schema.org",

@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 
 export default function StrawberrySpringDay13TooLatePage() {
   const fromPath = "/blog/strawberry-spring-day-13-too-late";
-  const pageUrl = "https://stardew-tools.vercel.app/blog/strawberry-spring-day-13-too-late";
+  const pageUrl = "https://stardewprofit.com/blog/strawberry-spring-day-13-too-late";
 
   const faqLd = {
     "@context": "https://schema.org",

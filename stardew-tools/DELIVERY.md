@@ -6,7 +6,7 @@
 - **Type:** SEO-driven utility platform (tool + content hybrid)
 - **Primary Stack:** Next.js (App Router), TypeScript, Tailwind CSS, PWA
 - **Deployment:** Vercel
-- **Primary Domain:** `https://stardew-tools.vercel.app`
+- **Primary Domain:** `https://stardewprofit.com`
 - **Release Commit Tag:** `7b61d66`
 - **Delivery Date:** `2026-02-15`
 - **Production Status:** `PASS`
@@ -97,7 +97,7 @@ Embed compatibility guarantee:
 Recommended embed snippet:
 
 ```html
-<iframe src="https://stardew-tools.vercel.app/secret-notes/18?embed=card&compact=1" 
+<iframe src="https://stardewprofit.com/secret-notes/18?embed=card&compact=1" 
         style="width:300px; height:84px; border:none;"></iframe>
 ```
 

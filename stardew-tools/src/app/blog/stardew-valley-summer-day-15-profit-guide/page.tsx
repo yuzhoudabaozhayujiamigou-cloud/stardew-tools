@@ -101,7 +101,7 @@ export const metadata: Metadata = {
 
 export default function StardewValleySummerDay15ProfitGuidePage() {
   const fromPath = "/blog/stardew-valley-summer-day-15-profit-guide";
-  const pageUrl = "https://stardew-tools.vercel.app/blog/stardew-valley-summer-day-15-profit-guide";
+  const pageUrl = "https://stardewprofit.com/blog/stardew-valley-summer-day-15-profit-guide";
 
   const faqLd = {
     "@context": "https://schema.org",
