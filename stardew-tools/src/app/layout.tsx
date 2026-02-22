@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 import { TopNav } from "@/components/TopNav";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
           <TopNav />
         </Suspense>
         {children}
+        <Analytics />
       </body>
     </html>
   );
