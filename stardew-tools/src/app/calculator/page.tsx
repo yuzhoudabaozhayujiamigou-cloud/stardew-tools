@@ -115,7 +115,7 @@ export default function CalculatorPage() {
               <Link
                 key={preset.href}
                 href={preset.href}
-                className="inline-flex items-center gap-1.5 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-xs font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-xs font-semibold text-[#5c3d23] shadow-sm transform-gpu transition-transform transition-colors duration-150 will-change-transform hover:-translate-y-0.5 active:translate-y-0 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c4d2e]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f3e5bf]"
               >
                 <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
                   {preset.icon}
