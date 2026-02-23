@@ -45,6 +45,39 @@ export const PRESETS: Record<string, Preset> = {
     defaultDaysLeft: 15,
     defaultProfession: "artisan",
   },
+  "ancient-vs-starfruit-greenhouse": {
+    id: "ancient-vs-starfruit-greenhouse",
+    title: {
+      en: "Ancient Fruit vs Starfruit (Greenhouse)",
+      zh: "古代果实 vs 杨桃（温室）",
+    },
+    defaultCompare: ["ancient_fruit", "starfruit"],
+    defaultSeason: "greenhouse",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "ancient-vs-starfruit-summer-28": {
+    id: "ancient-vs-starfruit-summer-28",
+    title: {
+      en: "Ancient Fruit vs Starfruit (Summer 28 Days)",
+      zh: "古代果实 vs 杨桃（夏季 28 天）",
+    },
+    defaultCompare: ["ancient_fruit", "starfruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "ancient-vs-starfruit-short-window": {
+    id: "ancient-vs-starfruit-short-window",
+    title: {
+      en: "Ancient Fruit vs Starfruit (Short Window)",
+      zh: "古代果实 vs 杨桃（短窗口）",
+    },
+    defaultCompare: ["ancient_fruit", "starfruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 10,
+    defaultProfession: "artisan",
+  },
 };
 
 export function getPresetById(rawPresetId: string | null): Preset | null {
