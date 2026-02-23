@@ -8,12 +8,14 @@ import {
   type Profession,
   type ProfitResult,
 } from "@/lib/calculateProfit";
+import { getCalculatorText, type CalculatorLang } from "@/lib/i18n-calculator";
 
 type ResultTableProps = {
   results: ProfitResult[];
   quality: CropQuality;
   hasTiller: boolean;
   profession: Profession;
+  lang: CalculatorLang;
 };
 
 type SortKey = "cropName" | "harvestCount" | "totalRevenue" | "totalProfit" | "goldPerDay";
@@ -41,14 +43,6 @@ const cropEmojiById: Record<string, string> = {
   green_beans: "🫛",
   tulip: "🌷",
   blue_jazz: "🪻",
-};
-
-const sortLabelByKey: Record<SortKey, string> = {
-  cropName: "Crop",
-  harvestCount: "Harvests",
-  totalRevenue: "Revenue",
-  totalProfit: "Profit",
-  goldPerDay: "Gold/Day",
 };
 
 function getCropEmoji(cropId: string): string {
@@ -122,6 +116,14 @@ export function ResultTable(props: ResultTableProps) {
   });
 
   const currentMultiplier = getSellPriceMultiplier(props.quality, props.hasTiller);
+  const text = getCalculatorText(props.lang);
+  const sortLabelByKey: Record<SortKey, string> = {
+    cropName: text.cropLabel,
+    harvestCount: text.harvestsLabel,
+    totalRevenue: text.revenueLabel,
+    totalProfit: text.profitLabel,
+    goldPerDay: text.goldPerDayLabel,
+  };
 
   const goldRankByCropId = useMemo(() => {
     const ranked = [...props.results].sort((a, b) => b.goldPerDay - a.goldPerDay);
@@ -191,11 +193,19 @@ export function ResultTable(props: ResultTableProps) {
     const currentState =
       sortConfig.key === key
         ? sortConfig.direction === "asc"
-          ? "ascending"
-          : "descending"
-        : "not sorted";
+          ? props.lang === "zh"
+            ? "升序"
+            : "ascending"
+          : props.lang === "zh"
+            ? "降序"
+            : "descending"
+        : props.lang === "zh"
+          ? "未排序"
+          : "not sorted";
 
-    return `Sort by ${sortLabelByKey[key]}, currently ${currentState}`;
+    return props.lang === "zh"
+      ? `按 ${sortLabelByKey[key]} 排序，当前${currentState}`
+      : `Sort by ${sortLabelByKey[key]}, currently ${currentState}`;
   };
 
   return (
@@ -203,23 +213,23 @@ export function ResultTable(props: ResultTableProps) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
-            Results
+            {text.resultsTitle}
           </div>
           <div className="mt-1 text-sm text-[#6f4b2a]/85">
-            Sorted by {sortConfig.key === "cropName" ? "crop name" : sortConfig.key} ({sortConfig.direction})
+            {text.resultsSortedBy} {sortConfig.key === "cropName" ? text.sortCropName : sortLabelByKey[sortConfig.key]} ({sortConfig.direction})
           </div>
         </div>
 
         <div className="flex items-center gap-2">
           <span className="rounded-full border border-[#a67a50]/45 bg-[#fff4dc] px-3 py-1 text-xs font-medium text-[#5e3f24] shadow-sm">
-            Current Multiplier: x{currentMultiplier.toFixed(2)}
+            {text.multiplierLabel}: x{currentMultiplier.toFixed(2)}
           </span>
           {props.profession === "artisan" ? (
             <span className="rounded-full border border-[#7f9a43]/45 bg-[#dff0bc] px-3 py-1 text-xs font-medium text-[#4a5f24] shadow-sm">
-              Artisan Goods +40%
+              {text.artisanBoostBadge}
             </span>
           ) : null}
-          <span className="text-xs text-[#6f4b2a]/70 sm:hidden">mobile cards</span>
+          <span className="text-xs text-[#6f4b2a]/70 sm:hidden">{text.mobileCards}</span>
         </div>
       </div>
 
@@ -230,7 +240,7 @@ export function ResultTable(props: ResultTableProps) {
               key={key}
               type="button"
               onClick={() => handleSort(key)}
-              aria-label={`Sort by ${sortLabelByKey[key]}`}
+              aria-label={props.lang === "zh" ? `按 ${sortLabelByKey[key]} 排序` : `Sort by ${sortLabelByKey[key]}`}
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
                 sortConfig.key === key
                   ? "bg-[#5e3f24] text-white shadow-md"
@@ -274,7 +284,7 @@ export function ResultTable(props: ResultTableProps) {
                   </span>
                   <div>
                     <div className="text-sm font-semibold">{row.cropName}</div>
-                    <div className="text-[11px] text-[#5f432a]/80">{row.harvestCount} harvests</div>
+                    <div className="text-[11px] text-[#5f432a]/80">{row.harvestCount} {text.harvestsSuffix}</div>
                   </div>
                 </div>
 
@@ -292,17 +302,17 @@ export function ResultTable(props: ResultTableProps) {
                       </span>
                     ) : null}
                   </div>
-                  <div className="text-[11px] text-[#5f432a]/80">gold/day</div>
+                  <div className="text-[11px] text-[#5f432a]/80">{text.goldPerDaySuffix}</div>
                 </div>
               </div>
 
               <dl className="mt-3 grid grid-cols-2 gap-2 text-[11px]">
                 <div className="rounded-lg border border-[#a67a50]/25 bg-white/70 px-2 py-1.5">
-                  <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Revenue</dt>
+                  <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">{text.revenueLabel}</dt>
                   <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.totalRevenue)}</dd>
                 </div>
                 <div className="rounded-lg border border-[#a67a50]/25 bg-white/70 px-2 py-1.5">
-                  <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">Profit</dt>
+                  <dt className="uppercase tracking-[0.08em] text-[#6f4b2a]/70">{text.profitLabel}</dt>
                   <dd className="mt-0.5 font-semibold text-[#5f432a]">{fmt(row.totalProfit)}</dd>
                 </div>
                 {row.artisanGoodsProfit && (
@@ -336,7 +346,7 @@ export function ResultTable(props: ResultTableProps) {
                     aria-label={getSortAriaLabel("cropName")}
                     className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 transition hover:text-[#4e341f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8b5d36]/40"
                   >
-                    Crop
+                    {text.cropLabel}
                     <SortHintIcon
                       active={sortConfig.key === "cropName"}
                       direction={getIconDirection("cropName")}
@@ -350,7 +360,7 @@ export function ResultTable(props: ResultTableProps) {
                     aria-label={getSortAriaLabel("harvestCount")}
                     className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 transition hover:text-[#4e341f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8b5d36]/40"
                   >
-                    Harvests
+                    {text.harvestsLabel}
                     <SortHintIcon
                       active={sortConfig.key === "harvestCount"}
                       direction={getIconDirection("harvestCount")}
@@ -364,7 +374,7 @@ export function ResultTable(props: ResultTableProps) {
                     aria-label={getSortAriaLabel("totalRevenue")}
                     className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 transition hover:text-[#4e341f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8b5d36]/40"
                   >
-                    Revenue
+                    {text.revenueLabel}
                     <SortHintIcon
                       active={sortConfig.key === "totalRevenue"}
                       direction={getIconDirection("totalRevenue")}
@@ -378,7 +388,7 @@ export function ResultTable(props: ResultTableProps) {
                     aria-label={getSortAriaLabel("totalProfit")}
                     className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 transition hover:text-[#4e341f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8b5d36]/40"
                   >
-                    Profit
+                    {text.profitLabel}
                     <SortHintIcon
                       active={sortConfig.key === "totalProfit"}
                       direction={getIconDirection("totalProfit")}
@@ -392,7 +402,7 @@ export function ResultTable(props: ResultTableProps) {
                     aria-label={getSortAriaLabel("goldPerDay")}
                     className="inline-flex items-center gap-1 rounded-md px-1 py-0.5 transition hover:text-[#4e341f] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8b5d36]/40"
                   >
-                    Gold/Day
+                    {text.goldPerDayLabel}
                     <SortHintIcon
                       active={sortConfig.key === "goldPerDay"}
                       direction={getIconDirection("goldPerDay")}
@@ -401,13 +411,13 @@ export function ResultTable(props: ResultTableProps) {
                 </th>
                 <th className="py-2 pl-3 pr-8">
                   <span className="inline-flex items-center gap-1.5">
-                    Artisan Goods
+                    {text.artisanGoodsLabel}
                     {props.profession === "artisan" ? (
                       <span className="rounded-full border border-[#7f9a43]/45 bg-[#dff0bc] px-2 py-0.5 text-[10px] font-semibold text-[#4a5f24]">
                         +40%
                       </span>
                     ) : null}
-                    <span className="text-[10px] font-normal text-[#6f4b2a]/60">(Kegs vs Jars)</span>
+                    <span className="text-[10px] font-normal text-[#6f4b2a]/60">{text.artisanKegsVsJars}</span>
                   </span>
                 </th>
               </tr>
@@ -482,13 +492,13 @@ export function ResultTable(props: ResultTableProps) {
                             <span className="font-medium text-[#5f432a]">{fmt(row.artisanGoodsProfit.preservesJars)}</span>
                           </div>
                           <div className="flex items-center justify-between gap-x-3 gap-y-1 pt-0.5">
-                            <span className="text-[10px] text-[#6f4b2a]/60">Better</span>
+                            <span className="text-[10px] text-[#6f4b2a]/60">{text.betterLabel}</span>
                             <span className="text-xs font-semibold">
                               {row.artisanGoodsProfit.betterOption === "kegs" && (
                                 <span className="inline-flex items-center gap-1">
                                   <span aria-hidden="true">🍷</span>
                                   <span className="sr-only">Kegs</span>
-                                  <span>by</span>
+                                  <span>{text.byLabel}</span>
                                   <span>{fmt(row.artisanGoodsProfit.kegs - row.artisanGoodsProfit.preservesJars)}</span>
                                 </span>
                               )}
@@ -496,18 +506,18 @@ export function ResultTable(props: ResultTableProps) {
                                 <span className="inline-flex items-center gap-1">
                                   <span aria-hidden="true">🫙</span>
                                   <span className="sr-only">Jars</span>
-                                  <span>by</span>
+                                  <span>{text.byLabel}</span>
                                   <span>{fmt(row.artisanGoodsProfit.preservesJars - row.artisanGoodsProfit.kegs)}</span>
                                 </span>
                               )}
                               {row.artisanGoodsProfit.betterOption === "same" && (
-                                <span className="text-[#6f4b2a]/70">Same (=)</span>
+                                <span className="text-[#6f4b2a]/70">{text.sameLabel}</span>
                               )}
                             </span>
                           </div>
                         </div>
                       ) : (
-                        <span className="text-xs text-[#6f4b2a]/50">Enable artisan goods to see</span>
+                        <span className="text-xs text-[#6f4b2a]/50">{text.enableArtisanGoodsHint}</span>
                       )}
                     </td>
                   </tr>

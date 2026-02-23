@@ -6,6 +6,7 @@ import {
   type Profession,
   type Season,
 } from "@/lib/calculateProfit";
+import { getCalculatorText, type CalculatorLang } from "@/lib/i18n-calculator";
 
 export type InputFormValue = {
   season: Season;
@@ -16,40 +17,35 @@ export type InputFormValue = {
 
 const qualityOptions: Array<{
   value: CropQuality;
-  label: string;
   icon: string;
 }> = [
-  { value: "normal", label: "Normal", icon: "" },
-  { value: "silver", label: "Silver", icon: "🥈" },
-  { value: "gold", label: "Gold", icon: "🥇" },
-  { value: "iridium", label: "Iridium", icon: "💜" },
+  { value: "normal", icon: "" },
+  { value: "silver", icon: "🥈" },
+  { value: "gold", icon: "🥇" },
+  { value: "iridium", icon: "💜" },
 ];
 
 const tillerOptions: Array<{
   value: boolean;
-  label: string;
-  helper: string;
   icon: string;
 }> = [
   {
     value: false,
-    label: "Off",
-    helper: "Base",
     icon: "",
   },
   {
     value: true,
-    label: "On (+10%)",
-    helper: "x1.10",
     icon: "👨‍🌾",
   },
 ];
 
 export function InputForm(props: {
   value: InputFormValue;
+  lang: CalculatorLang;
   onChange: (next: InputFormValue) => void;
 }) {
-  const { value, onChange } = props;
+  const { value, onChange, lang } = props;
+  const text = getCalculatorText(lang);
   const artisanEnabled = value.profession === "artisan";
 
   return (
@@ -57,10 +53,10 @@ export function InputForm(props: {
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/70">
-            Inputs
+            {text.inputHeader}
           </div>
           <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">
-            Crop Settings
+            {text.inputTitle}
           </h2>
         </div>
         <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#8a5b3a]/30 bg-[#f7edd2] shadow-sm">
@@ -72,22 +68,22 @@ export function InputForm(props: {
 
       <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
         <label className="grid gap-2">
-          <span className="text-sm font-medium text-[#5a3d25]">Season</span>
+          <span className="text-sm font-medium text-[#5a3d25]">{text.seasonLabel}</span>
           <select
             value={value.season}
             onChange={(event) => onChange({ ...value, season: event.target.value as Season })}
             className="h-11 rounded-2xl border border-[#a87a4d]/50 bg-[#fff8e7] px-4 text-sm text-[#4b331f] shadow-sm focus:border-[#7f5731] focus:outline-none"
           >
-            <option value="spring">Spring</option>
-            <option value="summer">Summer</option>
-            <option value="fall">Fall</option>
-            <option value="winter">Winter</option>
-            <option value="greenhouse">Greenhouse</option>
+            <option value="spring">{text.seasonOptions.spring}</option>
+            <option value="summer">{text.seasonOptions.summer}</option>
+            <option value="fall">{text.seasonOptions.fall}</option>
+            <option value="winter">{text.seasonOptions.winter}</option>
+            <option value="greenhouse">{text.seasonOptions.greenhouse}</option>
           </select>
         </label>
 
         <fieldset className="grid gap-2">
-          <legend className="text-sm font-medium text-[#5a3d25]">Crop Quality</legend>
+          <legend className="text-sm font-medium text-[#5a3d25]">{text.qualityLabel}</legend>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {qualityOptions.map((option) => {
               const isActive = value.quality === option.value;
@@ -115,7 +111,7 @@ export function InputForm(props: {
                     ) : null}
                     <span>
                       <span className="block text-sm font-medium text-[#4d341f]">
-                        {option.label}
+                        {text.qualityOptions[option.value]}
                       </span>
                       <span className="block text-xs text-[#6b4a2c]/75">
                         x{getQualityMultiplier(option.value).toFixed(2)}
@@ -130,14 +126,16 @@ export function InputForm(props: {
       </div>
 
       <fieldset className="mt-4 grid gap-2">
-        <legend className="text-sm font-medium text-[#5a3d25]">Tiller Profession</legend>
+        <legend className="text-sm font-medium text-[#5a3d25]">{text.tillerLabel}</legend>
         <div className="grid grid-cols-1 gap-2 sm:max-w-md sm:grid-cols-2">
           {tillerOptions.map((option) => {
             const isActive = value.hasTiller === option.value;
+            const optionLabel = option.value ? text.tillerOn : text.tillerOff;
+            const optionHelper = option.value ? text.tillerOnHelper : text.tillerOffHelper;
 
             return (
               <button
-                key={option.label}
+                key={String(option.value)}
                 type="button"
                 onClick={() => onChange({ ...value, hasTiller: option.value })}
                 aria-pressed={isActive}
@@ -158,12 +156,18 @@ export function InputForm(props: {
                   ) : null}
                   <span>
                     <span className="block text-sm font-medium text-[#4d341f]">
-                      {option.label}
+                      {optionLabel}
                     </span>
-                    <span className="block text-xs text-[#6b4a2c]/75">{option.helper}</span>
+                    <span className="block text-xs text-[#6b4a2c]/75">{optionHelper}</span>
                     {option.value ? (
                       <span className="sr-only">
-                        {isActive ? "Tiller profession enabled" : "Enable tiller profession"}
+                        {isActive
+                          ? lang === "zh"
+                            ? "Tiller 已启用"
+                            : "Tiller profession enabled"
+                          : lang === "zh"
+                            ? "启用 Tiller"
+                            : "Enable tiller profession"}
                       </span>
                     ) : null}
                   </span>
@@ -175,7 +179,7 @@ export function InputForm(props: {
       </fieldset>
 
       <fieldset className="mt-4 grid gap-2">
-        <legend className="text-sm font-medium text-[#5a3d25]">Artisan Profession</legend>
+        <legend className="text-sm font-medium text-[#5a3d25]">{text.artisanProfessionLabel}</legend>
         <label className="inline-flex items-center gap-2 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] px-3 py-2 text-sm text-[#4d341f]">
           <input
             type="checkbox"
@@ -188,12 +192,13 @@ export function InputForm(props: {
             }
             className="h-4 w-4 rounded border-[#a87a4d]/60 text-[#7f5731] focus:ring-[#7f5731]/40"
           />
-          <span className="font-medium">Artisan (+40% artisan goods)</span>
+          <span className="font-medium">{text.artisanToggle}</span>
         </label>
         <p className="text-xs text-[#6b4a2c]/80">
-          Only affects artisan goods column (not main ranking yet).
+          {text.artisanHint}
         </p>
       </fieldset>
     </section>
   );
 }
+
