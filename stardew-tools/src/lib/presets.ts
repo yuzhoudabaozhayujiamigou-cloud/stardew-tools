@@ -78,6 +78,39 @@ export const PRESETS: Record<string, Preset> = {
     defaultDaysLeft: 10,
     defaultProfession: "artisan",
   },
+  "keg-count-small-workshop": {
+    id: "keg-count-small-workshop",
+    title: {
+      en: "Keg Count - Small Workshop",
+      zh: "酒桶数量 - 小作坊",
+    },
+    defaultCompare: ["starfruit", "melon"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 15,
+    defaultProfession: "artisan",
+  },
+  "keg-count-mid-farm": {
+    id: "keg-count-mid-farm",
+    title: {
+      en: "Keg Count - Mid Farm",
+      zh: "酒桶数量 - 中等农场",
+    },
+    defaultCompare: ["hops", "starfruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "keg-count-heavy-processing": {
+    id: "keg-count-heavy-processing",
+    title: {
+      en: "Keg Count - Heavy Processing",
+      zh: "酒桶数量 - 重度产线",
+    },
+    defaultCompare: ["ancient_fruit", "hops"],
+    defaultSeason: "greenhouse",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
 };
 
 export function getPresetById(rawPresetId: string | null): Preset | null {
