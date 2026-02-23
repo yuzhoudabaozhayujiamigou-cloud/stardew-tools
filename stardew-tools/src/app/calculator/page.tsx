@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   const initialSeason: Season = "spring";
-  const readNextPosts = getCalculatorReadNextPosts(4);
+  const readNextPosts = getCalculatorReadNextPosts(6);
 
   const initialResults = (crops as Crop[])
     .filter((crop) => crop.season.includes(initialSeason))
