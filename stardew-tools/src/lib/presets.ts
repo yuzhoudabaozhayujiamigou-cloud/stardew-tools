@@ -144,6 +144,105 @@ export const PRESETS: Record<string, Preset> = {
     defaultDaysLeft: 28,
     defaultProfession: "artisan",
   },
+  "wine-vs-juice-keg-heavy": {
+    id: "wine-vs-juice-keg-heavy",
+    title: {
+      en: "Wine vs Juice (Keg Heavy)",
+      zh: "Wine vs Juice（酒桶优先）",
+    },
+    defaultCompare: ["starfruit", "pumpkin"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "wine-vs-juice-balanced": {
+    id: "wine-vs-juice-balanced",
+    title: {
+      en: "Wine vs Juice (Balanced)",
+      zh: "Wine vs Juice（均衡）",
+    },
+    defaultCompare: ["ancient_fruit", "starfruit"],
+    defaultSeason: "greenhouse",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "wine-vs-juice-no-kegs": {
+    id: "wine-vs-juice-no-kegs",
+    title: {
+      en: "Wine vs Juice (No Kegs)",
+      zh: "Wine vs Juice（无酒桶）",
+    },
+    defaultCompare: ["blueberry", "cranberry"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "artisan-vs-tiller-processing": {
+    id: "artisan-vs-tiller-processing",
+    title: {
+      en: "Artisan vs Tiller (Processing)",
+      zh: "Artisan vs Tiller（加工）",
+    },
+    defaultCompare: ["starfruit", "ancient_fruit"],
+    defaultSeason: "greenhouse",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "artisan-vs-tiller-farming": {
+    id: "artisan-vs-tiller-farming",
+    title: {
+      en: "Artisan vs Tiller (Farming)",
+      zh: "Artisan vs Tiller（种植）",
+    },
+    defaultCompare: ["strawberry", "blueberry"],
+    defaultSeason: "spring",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "artisan-vs-tiller-mixed": {
+    id: "artisan-vs-tiller-mixed",
+    title: {
+      en: "Artisan vs Tiller (Mixed)",
+      zh: "Artisan vs Tiller（混合）",
+    },
+    defaultCompare: ["pumpkin", "cranberry"],
+    defaultSeason: "fall",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "best-spring-10-days-left": {
+    id: "best-spring-10-days-left",
+    title: {
+      en: "Best Spring Crops (10 Days Left)",
+      zh: "春季剩 10 天最佳作物",
+    },
+    defaultCompare: ["strawberry", "blueberry"],
+    defaultSeason: "spring",
+    defaultDaysLeft: 10,
+    defaultProfession: "artisan",
+  },
+  "best-summer-10-days-left": {
+    id: "best-summer-10-days-left",
+    title: {
+      en: "Best Summer Crops (10 Days Left)",
+      zh: "夏季剩 10 天最佳作物",
+    },
+    defaultCompare: ["hops", "starfruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 10,
+    defaultProfession: "artisan",
+  },
+  "best-fall-10-days-left": {
+    id: "best-fall-10-days-left",
+    title: {
+      en: "Best Fall Crops (10 Days Left)",
+      zh: "秋季剩 10 天最佳作物",
+    },
+    defaultCompare: ["cranberry", "pumpkin"],
+    defaultSeason: "fall",
+    defaultDaysLeft: 10,
+    defaultProfession: "artisan",
+  },
 };
 
 export function getPresetById(rawPresetId: string | null): Preset | null {
