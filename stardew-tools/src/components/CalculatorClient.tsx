@@ -19,6 +19,7 @@ import {
   parseCalculatorLang,
   type CalculatorLang,
 } from "@/lib/i18n-calculator";
+import { getPresetById } from "@/lib/presets";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const SHARE_RESET_DELAY_MS = 2200;
@@ -43,12 +44,42 @@ function parseQuerySeason(rawSeason: string | null): Season | null {
   return rawSeason as Season;
 }
 
-function parseQueryProfession(rawProfession: string | null): Profession {
-  if (rawProfession === "artisan") {
-    return "artisan";
+function parseQueryProfession(rawProfession: string | null): Profession | null {
+  if (rawProfession === "artisan" || rawProfession === "none") {
+    return rawProfession;
   }
 
-  return "none";
+  return null;
+}
+
+function parseQueryCompare(rawCompare: string | null): [string, string] | null {
+  if (!rawCompare) {
+    return null;
+  }
+
+  const cropIds = rawCompare
+    .split(",")
+    .map((segment) => segment.trim())
+    .filter(Boolean);
+
+  if (cropIds.length < 2 || cropIds[0] === cropIds[1]) {
+    return null;
+  }
+
+  return [cropIds[0], cropIds[1]];
+}
+
+function parseQueryDaysLeft(rawDaysLeft: string | null): number | null {
+  if (!rawDaysLeft) {
+    return null;
+  }
+
+  const parsed = Number.parseInt(rawDaysLeft, 10);
+  if (!Number.isFinite(parsed)) {
+    return null;
+  }
+
+  return clampSeasonDays(parsed);
 }
 
 function fmt(n: number) {
@@ -65,6 +96,7 @@ export function CalculatorClient(props: {
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
   const [shareTextState, setShareTextState] = useState<"idle" | "copied" | "error">("idle");
   const [compareCopyState, setCompareCopyState] = useState<"idle" | "copied" | "error">("idle");
+  const [compareSelection, setCompareSelection] = useState<[string, string] | null>(null);
 
   const [formValue, setFormValue] = useState<InputFormValue>({
     season: props.initialSeason,
@@ -77,23 +109,29 @@ export function CalculatorClient(props: {
     try {
       const params = new URLSearchParams(window.location.search);
 
+      const preset = getPresetById(params.get("preset"));
       const nextSeason = parseQuerySeason(params.get("season"));
       const nextProfession = parseQueryProfession(params.get("profession") ?? params.get("skill"));
       const nextLang = parseCalculatorLang(params.get("lang"));
+      const explicitCompare = parseQueryCompare(params.get("compare"));
+      const nextCompare = explicitCompare ?? preset?.defaultCompare ?? null;
+      const nextDaysLeft = parseQueryDaysLeft(params.get("daysLeft"));
+      const resolvedDaysLeft =
+        nextDaysLeft ??
+        (typeof preset?.defaultDaysLeft === "number" ? clampSeasonDays(preset.defaultDaysLeft) : null);
 
       setLang(nextLang);
+      setCompareSelection(nextCompare);
 
       setFormValue((previous) => ({
         ...previous,
-        season: nextSeason ?? previous.season,
-        profession: nextProfession,
+        season: nextSeason ?? preset?.defaultSeason ?? previous.season,
+        profession: nextProfession ?? preset?.defaultProfession ?? previous.profession,
       }));
 
-      const raw = params.get("daysLeft");
-      if (!raw) return;
-      const parsed = Number.parseInt(raw, 10);
-      if (!Number.isFinite(parsed)) return;
-      setDaysLeft(clampSeasonDays(parsed));
+      if (resolvedDaysLeft !== null) {
+        setDaysLeft(resolvedDaysLeft);
+      }
     } catch {
       // ignore query parse failures
     }
@@ -152,8 +190,33 @@ export function CalculatorClient(props: {
       .sort((a, b) => b.goldPerDay - a.goldPerDay);
   }, [daysLeft, formValue.hasTiller, formValue.profession, formValue.quality, formValue.season, props.crops]);
 
+  const resultsById = useMemo(() => {
+    const lookup = new Map<string, ProfitResult>();
+    for (const result of results) {
+      lookup.set(result.cropId, result);
+    }
+    return lookup;
+  }, [results]);
+
+  const comparePair = useMemo(() => {
+    if (compareSelection) {
+      const first = resultsById.get(compareSelection[0]);
+      const second = resultsById.get(compareSelection[1]);
+      if (first && second && first.cropId !== second.cropId) {
+        return [first, second] as const;
+      }
+    }
+
+    if (results.length >= 2) {
+      return [results[0], results[1]] as const;
+    }
+
+    return null;
+  }, [compareSelection, results, resultsById]);
+
   const topPick = results[0];
-  const runnerUp = results[1];
+  const compareTop = comparePair?.[0];
+  const compareRunnerUp = comparePair?.[1];
 
   const shareUrl = useMemo(() => {
     const params = new URLSearchParams({
@@ -186,12 +249,12 @@ export function CalculatorClient(props: {
       params.set("lang", "zh");
     }
 
-    if (topPick && runnerUp) {
-      params.set("compare", `${topPick.cropId},${runnerUp.cropId}`);
+    if (compareTop && compareRunnerUp) {
+      params.set("compare", `${compareTop.cropId},${compareRunnerUp.cropId}`);
     }
 
     return `${SITE_ORIGIN}/calculator?${params.toString()}`;
-  }, [daysLeft, formValue.profession, formValue.season, lang, runnerUp, topPick]);
+  }, [compareRunnerUp, compareTop, daysLeft, formValue.profession, formValue.season, lang]);
 
   const issueUrl = useMemo(() => {
     const issueTitle =
@@ -231,14 +294,14 @@ export function CalculatorClient(props: {
   }, [daysLeft, formValue.profession, formValue.season, lang, shareUrl, text, topPick?.cropName]);
 
   const compareText = useMemo(() => {
-    if (!topPick || !runnerUp) {
+    if (!compareTop || !compareRunnerUp) {
       return compareUrl;
     }
 
     return lang === "zh"
-      ? `方案对比：${topPick.cropName} vs ${runnerUp.cropName}，利润差 ${fmt(topPick.totalProfit - runnerUp.totalProfit)}。${compareUrl}`
-      : `Plan comparison: ${topPick.cropName} vs ${runnerUp.cropName}, profit gap ${fmt(topPick.totalProfit - runnerUp.totalProfit)}. ${compareUrl}`;
-  }, [compareUrl, lang, runnerUp, topPick]);
+      ? `方案对比：${compareTop.cropName} vs ${compareRunnerUp.cropName}，利润差 ${fmt(compareTop.totalProfit - compareRunnerUp.totalProfit)}。${compareUrl}`
+      : `Plan comparison: ${compareTop.cropName} vs ${compareRunnerUp.cropName}, profit gap ${fmt(compareTop.totalProfit - compareRunnerUp.totalProfit)}. ${compareUrl}`;
+  }, [compareRunnerUp, compareTop, compareUrl, lang]);
 
   const shareButtonLabel =
     copyState === "copied" ? text.copied : copyState === "error" ? text.copyFailed : text.shareButton;
@@ -304,11 +367,11 @@ export function CalculatorClient(props: {
   const topPickRevenuePerHarvest = topPick && topPick.harvestCount > 0 ? topPick.totalRevenue / topPick.harvestCount : 0;
   const topPickSeedCost = topPick ? topPick.totalRevenue - topPick.totalProfit : 0;
 
-  const topArtisanBest = topPick?.artisanGoodsProfit
-    ? Math.max(topPick.artisanGoodsProfit.kegs, topPick.artisanGoodsProfit.preservesJars)
+  const topArtisanBest = compareTop?.artisanGoodsProfit
+    ? Math.max(compareTop.artisanGoodsProfit.kegs, compareTop.artisanGoodsProfit.preservesJars)
     : 0;
-  const runnerArtisanBest = runnerUp?.artisanGoodsProfit
-    ? Math.max(runnerUp.artisanGoodsProfit.kegs, runnerUp.artisanGoodsProfit.preservesJars)
+  const runnerArtisanBest = compareRunnerUp?.artisanGoodsProfit
+    ? Math.max(compareRunnerUp.artisanGoodsProfit.kegs, compareRunnerUp.artisanGoodsProfit.preservesJars)
     : 0;
 
   return (
@@ -434,23 +497,23 @@ export function CalculatorClient(props: {
         </section>
       ) : null}
 
-      {topPick && runnerUp ? (
+      {compareTop && compareRunnerUp ? (
         <section className="mt-5 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
           <h3 className="text-base font-semibold text-[#4a321e]">{text.compareTitle}</h3>
           <p className="mt-1 text-xs text-[#6b4a2c]/80">{text.compareSubtitle}</p>
 
           <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
             <div className="rounded-xl border border-[#b88b63]/40 bg-[#fff2c8] px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareTopPlan}</span>: {topPick.cropName}
+              <span className="font-semibold text-[#4a321e]">{text.compareTopPlan}</span>: {compareTop.cropName}
             </div>
             <div className="rounded-xl border border-[#b88b63]/40 bg-[#fff2c8] px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareRunnerUp}</span>: {runnerUp.cropName}
+              <span className="font-semibold text-[#4a321e]">{text.compareRunnerUp}</span>: {compareRunnerUp.cropName}
             </div>
             <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareProfitGap}</span>: {fmt(topPick.totalProfit - runnerUp.totalProfit)}
+              <span className="font-semibold text-[#4a321e]">{text.compareProfitGap}</span>: {fmt(compareTop.totalProfit - compareRunnerUp.totalProfit)}
             </div>
             <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareGoldPerDayGap}</span>: {fmt(topPick.goldPerDay - runnerUp.goldPerDay)}
+              <span className="font-semibold text-[#4a321e]">{text.compareGoldPerDayGap}</span>: {fmt(compareTop.goldPerDay - compareRunnerUp.goldPerDay)}
             </div>
             <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2 sm:col-span-2">
               <span className="font-semibold text-[#4a321e]">{text.compareArtisanGap}</span>: {fmt(topArtisanBest - runnerArtisanBest)}
@@ -520,4 +583,3 @@ export function CalculatorClient(props: {
     </>
   );
 }
-

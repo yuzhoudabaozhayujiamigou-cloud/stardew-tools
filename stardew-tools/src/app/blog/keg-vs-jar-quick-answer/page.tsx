@@ -48,27 +48,39 @@ export default function KegVsJarQuickAnswerPage() {
 
             <div className="mt-4 flex flex-wrap gap-3">
               <TrackedBlogCtaLink
-                href="/calculator?season=summer&daysLeft=15&profession=artisan"
+                href="/calculator?preset=keg-vs-jar-starfruit&profession=artisan&lang=zh"
                 fromPath={fromPath}
-                ctaName="keg_vs_jar_artisan_preset"
+                ctaName="keg_vs_jar_starfruit_preset"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
               >
                 <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
                   🧮
                 </span>
-                Open Keg vs Jar Preset
+                Starfruit Wine Preset
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
-                href="/calculator?season=summer&daysLeft=15"
+                href="/calculator?preset=keg-vs-jar-pumpkin&profession=artisan&lang=zh"
                 fromPath={fromPath}
-                ctaName="keg_vs_jar_baseline_preset"
+                ctaName="keg_vs_jar_pumpkin_preset"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
               >
                 <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
                   📊
                 </span>
-                Open Baseline Preset
+                Pumpkin Pickles Preset
+              </TrackedBlogCtaLink>
+
+              <TrackedBlogCtaLink
+                href="/calculator?preset=keg-vs-jar-hops&profession=artisan&lang=zh"
+                fromPath={fromPath}
+                ctaName="keg_vs_jar_hops_preset"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
+                  🍺
+                </span>
+                Hops Pale Ale Preset
               </TrackedBlogCtaLink>
             </div>
           </section>
@@ -79,4 +91,3 @@ export default function KegVsJarQuickAnswerPage() {
     </div>
   );
 }
-
