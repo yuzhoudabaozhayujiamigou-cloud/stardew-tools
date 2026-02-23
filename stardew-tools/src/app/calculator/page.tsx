@@ -168,27 +168,27 @@ export default function CalculatorPage() {
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Read next</h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-              Not sure whether Ancient Fruit or Starfruit fits your setup? Use this quick answer guide, then jump into a prefilled calculator scenario.
+              Continue with two high-intent quick answers and jump back here with presets after reading.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
-                href="/blog/ancient-fruit-vs-starfruit-quick-answer"
+                href="/blog/how-many-kegs-do-i-need-quick-answer"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
+                  🏭
+                </span>
+                How Many Kegs Do I Need?
+              </Link>
+
+              <Link
+                href="/blog/ancient-fruit-vs-starfruit-quick-answer"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
               >
                 <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
                   📘
                 </span>
                 Ancient Fruit vs Starfruit Guide
-              </Link>
-
-              <Link
-                href="/calculator?preset=ancient-vs-starfruit-greenhouse&season=greenhouse&daysLeft=28&profession=artisan"
-                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
-              >
-                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
-                  🌿
-                </span>
-                Open Greenhouse Preset
               </Link>
             </div>
           </section>
