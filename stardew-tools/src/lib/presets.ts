@@ -243,6 +243,39 @@ export const PRESETS: Record<string, Preset> = {
     defaultDaysLeft: 10,
     defaultProfession: "artisan",
   },
+  "starfruit-wine-summer-28d": {
+    id: "starfruit-wine-summer-28d",
+    title: {
+      en: "Starfruit Wine (Summer 28 Days)",
+      zh: "杨桃酒（夏季 28 天）",
+    },
+    defaultCompare: ["starfruit", "ancient_fruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "ancient-fruit-wine-greenhouse-28d": {
+    id: "ancient-fruit-wine-greenhouse-28d",
+    title: {
+      en: "Ancient Fruit Wine (Greenhouse 28 Days)",
+      zh: "古代果实酒（温室 28 天）",
+    },
+    defaultCompare: ["starfruit", "ancient_fruit"],
+    defaultSeason: "greenhouse",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "starfruit-wine-summer-10d": {
+    id: "starfruit-wine-summer-10d",
+    title: {
+      en: "Starfruit Wine (Summer 10 Days Left)",
+      zh: "杨桃酒（夏季剩 10 天）",
+    },
+    defaultCompare: ["starfruit", "ancient_fruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 10,
+    defaultProfession: "artisan",
+  },
 };
 
 export function getPresetById(rawPresetId: string | null): Preset | null {
