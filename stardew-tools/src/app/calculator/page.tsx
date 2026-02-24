@@ -27,6 +27,11 @@ const QUICK_PRESET_LINKS = [
   },
 ] as const;
 
+const QUICK_PRESET_LINK_CLASS =
+  "inline-flex min-h-8 items-center gap-1.5 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-xs font-semibold leading-5 text-[#5c3d23] shadow-sm transition-colors duration-150 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1] active:border-[#7c4d2e]/70 active:bg-[#f8df95] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7c4d2e]/55 focus-visible:shadow-[0_0_0_3px_rgba(124,77,46,0.2)] aria-[current=page]:border-[#7c4d2e]/70 aria-[current=page]:bg-[#fce8b1]";
+
+const QUICK_PRESET_ICON_CLASS = "inline-flex w-4 shrink-0 items-center justify-center leading-none opacity-85";
+
 export const metadata: Metadata = {
   title: "Stardew Valley Crop Profit Calculator (Gold/Day) | Stardew Tools",
   description:
@@ -115,9 +120,9 @@ export default function CalculatorPage() {
               <Link
                 key={preset.href}
                 href={preset.href}
-                className="inline-flex items-center gap-1.5 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-xs font-semibold text-[#5c3d23] shadow-sm transform-gpu transition-transform transition-colors duration-150 will-change-transform hover:-translate-y-0.5 active:translate-y-0 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7c4d2e]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#f3e5bf]"
+                className={QUICK_PRESET_LINK_CLASS}
               >
-                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
+                <span aria-hidden="true" className={QUICK_PRESET_ICON_CLASS}>
                   {preset.icon}
                 </span>
                 {preset.label}
