@@ -469,8 +469,9 @@ export function CalculatorClient(props: {
         </ul>
       </details>
 
-      {topPick ? (
-        <section className="mt-5 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
+      <div className="mt-5 grid min-h-[70vh] content-start gap-5 transition-opacity duration-200 motion-reduce:transition-none">
+        {topPick ? (
+          <section className="rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
           <h3 className="text-base font-semibold text-[#4a321e]">{text.explainTitle}</h3>
           <p className="mt-2 leading-6">
             {text.explainSummaryPrefix}: <strong>{topPick.cropName}</strong>
@@ -494,11 +495,11 @@ export function CalculatorClient(props: {
             <li>{text.explainFactorProfession}: {formValue.profession}</li>
             <li>{text.explainFactorArtisan}</li>
           </ul>
-        </section>
-      ) : null}
+          </section>
+        ) : null}
 
-      {compareTop && compareRunnerUp ? (
-        <section className="mt-5 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
+        {compareTop && compareRunnerUp ? (
+          <section className="rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
           <h3 className="text-base font-semibold text-[#4a321e]">{text.compareTitle}</h3>
           <p className="mt-1 text-xs text-[#6b4a2c]/80">{text.compareSubtitle}</p>
 
@@ -519,66 +520,67 @@ export function CalculatorClient(props: {
               <span className="font-semibold text-[#4a321e]">{text.compareArtisanGap}</span>: {fmt(topArtisanBest - runnerArtisanBest)}
             </div>
           </div>
+          </section>
+        ) : null}
+
+        <section className="rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
+          <h3 className="text-base font-semibold text-[#4a321e]">{text.dataTitle}</h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5 leading-6">
+            <li>
+              <strong>{text.dataVersion}:</strong> {CALCULATOR_DATA_META.version}
+            </li>
+            <li>
+              <strong>{text.dataUpdated}:</strong> {CALCULATOR_DATA_META.updatedAt}
+            </li>
+            <li>
+              <strong>{text.dataSources}:</strong>{" "}
+              {CALCULATOR_DATA_META.sources.map((source, index) => (
+                <span key={source.href}>
+                  {index > 0 ? " · " : ""}
+                  <a
+                    href={source.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-semibold underline"
+                  >
+                    {source.label}
+                  </a>
+                </span>
+              ))}
+            </li>
+          </ul>
+
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <a
+              href={CALCULATOR_DATA_META.changelogUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-sm font-semibold text-[#5c3d23] transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+            >
+              📚 {text.dataChangelog}
+            </a>
+
+            <a
+              href={issueUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-sm font-semibold text-[#5c3d23] transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+            >
+              🐞 {text.reportIssue}
+            </a>
+          </div>
+          <p className="mt-2 text-xs text-[#6b4a2c]/80">{text.reportHint}</p>
         </section>
-      ) : null}
 
-      <section className="mt-5 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
-        <h3 className="text-base font-semibold text-[#4a321e]">{text.dataTitle}</h3>
-        <ul className="mt-3 list-disc space-y-2 pl-5 leading-6">
-          <li>
-            <strong>{text.dataVersion}:</strong> {CALCULATOR_DATA_META.version}
-          </li>
-          <li>
-            <strong>{text.dataUpdated}:</strong> {CALCULATOR_DATA_META.updatedAt}
-          </li>
-          <li>
-            <strong>{text.dataSources}:</strong>{" "}
-            {CALCULATOR_DATA_META.sources.map((source, index) => (
-              <span key={source.href}>
-                {index > 0 ? " · " : ""}
-                <a
-                  href={source.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold underline"
-                >
-                  {source.label}
-                </a>
-              </span>
-            ))}
-          </li>
-        </ul>
-
-        <div className="mt-3 flex flex-wrap items-center gap-3">
-          <a
-            href={CALCULATOR_DATA_META.changelogUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-sm font-semibold text-[#5c3d23] transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
-          >
-            📚 {text.dataChangelog}
-          </a>
-
-          <a
-            href={issueUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-3 py-1.5 text-sm font-semibold text-[#5c3d23] transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
-          >
-            🐞 {text.reportIssue}
-          </a>
+        <div className="p-2">
+          <ResultTable
+            results={results.length ? results : props.initialResults}
+            quality={formValue.quality}
+            hasTiller={formValue.hasTiller}
+            profession={formValue.profession}
+            lang={lang}
+          />
         </div>
-        <p className="mt-2 text-xs text-[#6b4a2c]/80">{text.reportHint}</p>
-      </section>
-
-      <div className="m-4 p-2">
-        <ResultTable
-          results={results.length ? results : props.initialResults}
-          quality={formValue.quality}
-          hasTiller={formValue.hasTiller}
-          profession={formValue.profession}
-          lang={lang}
-        />
       </div>
     </>
   );
