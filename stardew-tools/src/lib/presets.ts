@@ -276,6 +276,39 @@ export const PRESETS: Record<string, Preset> = {
     defaultDaysLeft: 10,
     defaultProfession: "artisan",
   },
+  "hops-vs-starfruit-summer-28d": {
+    id: "hops-vs-starfruit-summer-28d",
+    title: {
+      en: "Hops vs Starfruit (Summer 28 Days)",
+      zh: "啤酒花 vs 杨桃（夏季 28 天）",
+    },
+    defaultCompare: ["hops", "starfruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "hops-vs-starfruit-greenhouse-28d": {
+    id: "hops-vs-starfruit-greenhouse-28d",
+    title: {
+      en: "Hops vs Starfruit (Greenhouse 28 Days)",
+      zh: "啤酒花 vs 杨桃（温室 28 天）",
+    },
+    defaultCompare: ["hops", "starfruit"],
+    defaultSeason: "greenhouse",
+    defaultDaysLeft: 28,
+    defaultProfession: "artisan",
+  },
+  "hops-vs-starfruit-summer-10d": {
+    id: "hops-vs-starfruit-summer-10d",
+    title: {
+      en: "Hops vs Starfruit (Summer 10 Days Left)",
+      zh: "啤酒花 vs 杨桃（夏季剩 10 天）",
+    },
+    defaultCompare: ["hops", "starfruit"],
+    defaultSeason: "summer",
+    defaultDaysLeft: 10,
+    defaultProfession: "artisan",
+  },
 };
 
 export function getPresetById(rawPresetId: string | null): Preset | null {
