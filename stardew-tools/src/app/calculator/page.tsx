@@ -35,7 +35,7 @@ const QUICK_PRESET_ICON_CLASS = "inline-flex w-4 shrink-0 items-center justify-c
 export const metadata: Metadata = {
   title: "Stardew Valley Crop Profit Calculator (Gold/Day) | Stardew Tools",
   description:
-    "Compare Stardew Valley crops by harvest count, total seasonal profit, and gold per day. Includes regrowing crops support.",
+    "Find the most profitable Stardew Valley crop in seconds. Compare gold per day across seasons, quality levels, and Tiller/Artisan professions. Free, no login needed.",
 };
 
 export default function CalculatorPage() {
@@ -111,11 +111,20 @@ export default function CalculatorPage() {
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
             Crop Profit Calculator
           </h1>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Compare crop profit per season with quality multipliers and Tiller profession effects.
-            Built for quick in-game route planning on desktop and mobile.
+          <p className="mt-1 text-lg font-medium text-[#5c3d23]/90 sm:text-xl">
+            Find the most profitable crop in seconds
           </p>
-          <div className="mt-5 flex flex-wrap gap-2.5">
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
+            Pick your season, set days remaining, and instantly see which crops earn the most gold per day.
+            Supports quality levels, Tiller &amp; Artisan professions, and regrowing crops — no wiki digging needed.
+          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-2.5">
+            <a
+              href="#calculator"
+              className="inline-flex min-h-8 items-center gap-1.5 rounded-xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-4 py-2 text-sm font-bold leading-5 text-white shadow-sm transition-colors duration-150 hover:bg-[#4e7a32] active:bg-[#436b2a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5c8a3e]"
+            >
+              ▶ Start Calculating
+            </a>
             {QUICK_PRESET_LINKS.map((preset) => (
               <Link
                 key={preset.href}
@@ -131,17 +140,18 @@ export default function CalculatorPage() {
           </div>
 
           <p className="mt-4 text-sm text-[#5f4228]/90">
-            New guide:{" "}
+            📘{" "}
             <Link
-              href="/blog/ancient-fruit-vs-starfruit-quick-answer"
+              href="/blog"
               className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
             >
-              Ancient Fruit vs Starfruit (Quick Answer)
+              Browse all guides & quick answers
             </Link>
+            {" "}— crop comparisons, keg math, and seasonal strategies.
           </p>
         </header>
 
-        <section className="mt-8 grid gap-6">
+        <section id="calculator" className="mt-8 grid gap-6 scroll-mt-4">
           <CalculatorClient
             crops={crops as Crop[]}
             initialSeason={initialSeason}
