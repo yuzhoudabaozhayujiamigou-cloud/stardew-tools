@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const FAQ_EN = [
   "Is wine more profitable than juice in Stardew Valley?",
@@ -28,6 +30,8 @@ export const metadata: Metadata = {
 
 export default function WineVsJuiceQuickAnswerPage() {
   const fromPath = "/blog/wine-vs-juice-quick-answer";
+
+    const readNextPosts = getBlogReadNextPosts("wine-vs-juice-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -117,6 +121,8 @@ export default function WineVsJuiceQuickAnswerPage() {
             </ul>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="wine-vs-juice-quick-answer" />
 
         <SiteFooter className="mt-8" />
       </main>

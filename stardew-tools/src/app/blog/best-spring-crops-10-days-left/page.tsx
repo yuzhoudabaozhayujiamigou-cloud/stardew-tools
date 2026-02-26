@@ -5,6 +5,8 @@ import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_ORIGIN } from "@/lib/site";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 type PickItem = {
   crop: string;
@@ -126,6 +128,8 @@ export default function BestSpringCrops10DaysLeftPage() {
       "@id": pageUrl,
     },
   };
+
+    const readNextPosts = getBlogReadNextPosts("best-spring-crops-10-days-left", 3);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
@@ -330,6 +334,8 @@ export default function BestSpringCrops10DaysLeftPage() {
             </details>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="best-spring-crops-10-days-left" />
 
         <SiteFooter className="mt-8" />
 

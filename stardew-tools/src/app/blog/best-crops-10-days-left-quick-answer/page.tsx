@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const FAQ_EN = [
   "What should I plant with only 10 days left?",
@@ -28,6 +30,8 @@ export const metadata: Metadata = {
 
 export default function BestCrops10DaysLeftQuickAnswerPage() {
   const fromPath = "/blog/best-crops-10-days-left-quick-answer";
+
+    const readNextPosts = getBlogReadNextPosts("best-crops-10-days-left-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -117,6 +121,8 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
             </ul>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="best-crops-10-days-left-quick-answer" />
 
         <SiteFooter className="mt-8" />
       </main>

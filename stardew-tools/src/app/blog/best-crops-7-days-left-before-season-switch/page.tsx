@@ -5,6 +5,8 @@ import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_ORIGIN } from "@/lib/site";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 type PickItem = {
   crop: string;
@@ -126,6 +128,8 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
       "@id": pageUrl,
     },
   };
+
+    const readNextPosts = getBlogReadNextPosts("best-crops-7-days-left-before-season-switch", 3);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
@@ -356,6 +360,8 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
             </details>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="best-crops-7-days-left-before-season-switch" />
 
         <SiteFooter className="mt-8" />
 

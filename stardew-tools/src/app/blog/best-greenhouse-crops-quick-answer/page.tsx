@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const FAQ_EN = [
   "What are the best greenhouse crops in Stardew Valley?",
@@ -30,6 +32,8 @@ export const metadata: Metadata = {
 
 export default function BestGreenhouseCropsQuickAnswerPage() {
   const fromPath = "/blog/best-greenhouse-crops-quick-answer";
+
+    const readNextPosts = getBlogReadNextPosts("best-greenhouse-crops-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -128,6 +132,8 @@ export default function BestGreenhouseCropsQuickAnswerPage() {
             ))}
           </ul>
         </section>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="best-greenhouse-crops-quick-answer" />
 
         <SiteFooter className="mt-8" />
       </main>

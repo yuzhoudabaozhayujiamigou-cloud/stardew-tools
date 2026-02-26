@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const FAQ_EN = [
   "Which wine is more profitable: Starfruit or Ancient Fruit?",
@@ -26,6 +28,8 @@ export const metadata: Metadata = {
 
 export default function StarfruitVsAncientFruitWineQuickAnswerPage() {
   const fromPath = "/blog/starfruit-vs-ancient-fruit-wine-quick-answer";
+
+    const readNextPosts = getBlogReadNextPosts("starfruit-vs-ancient-fruit-wine-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -137,6 +141,8 @@ export default function StarfruitVsAncientFruitWineQuickAnswerPage() {
             </ul>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="starfruit-vs-ancient-fruit-wine-quick-answer" />
 
         <SiteFooter className="mt-8" />
       </main>

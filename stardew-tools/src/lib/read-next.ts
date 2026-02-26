@@ -51,6 +51,52 @@ function humanizeSlug(slug: string): string {
 
 const BLOG_SLUGS = getBlogSlugs();
 
+// Topic clusters for related post matching
+const TOPIC_TAGS: Record<string, string[]> = {
+  "ancient-fruit-vs-starfruit-quick-answer": ["wine", "greenhouse", "starfruit", "ancient-fruit"],
+  "starfruit-vs-ancient-fruit-wine-quick-answer": ["wine", "greenhouse", "starfruit", "ancient-fruit"],
+  "artisan-vs-tiller-quick-answer": ["profession", "artisan", "tiller", "wine"],
+  "keg-vs-jar-quick-answer": ["keg", "jar", "artisan", "wine"],
+  "how-many-kegs-do-i-need-quick-answer": ["keg", "wine", "artisan"],
+  "wine-vs-juice-quick-answer": ["keg", "wine", "artisan"],
+  "hops-vs-starfruit-quick-answer": ["starfruit", "hops", "summer", "keg"],
+  "best-greenhouse-crops-quick-answer": ["greenhouse", "ancient-fruit", "starfruit"],
+  "best-crops-10-days-left-quick-answer": ["timing", "late-season"],
+  "best-crops-7-days-left-before-season-switch": ["timing", "late-season"],
+  "best-spring-crops-10-days-left": ["timing", "spring", "late-season"],
+  "spring-day-15-what-to-plant-profit": ["timing", "spring"],
+  "strawberry-spring-day-13-too-late": ["timing", "spring", "strawberry"],
+  "stardew-valley-is-it-too-late-to-plant-spring-day-20": ["timing", "spring", "late-season"],
+  "stardew-valley-is-it-too-late-to-plant-on-spring-day-25": ["timing", "spring", "late-season"],
+  "stardew-valley-spring-profit-guide-2026": ["spring", "profit"],
+  "stardew-valley-summer-day-1-maximum-profit-guide": ["summer", "profit"],
+  "stardew-valley-summer-day-7-what-to-plant": ["timing", "summer"],
+  "stardew-valley-summer-day-15-profit-guide": ["timing", "summer"],
+  "stardew-valley-summer-day-20-is-it-too-late": ["timing", "summer", "late-season"],
+  "stardew-valley-is-it-too-late-to-plant-on-summer-day-25": ["timing", "summer", "late-season"],
+};
+
+export function getBlogReadNextPosts(currentSlug: string, limit = 3): ReadNextPost[] {
+  const currentTags = TOPIC_TAGS[currentSlug] ?? [];
+  const candidates = BLOG_SLUGS.filter((s) => s !== currentSlug);
+
+  // Score by shared tags, then featured priority, then alphabetical
+  const scored = candidates.map((slug) => {
+    const tags = TOPIC_TAGS[slug] ?? [];
+    const shared = currentTags.filter((t) => tags.includes(t)).length;
+    const featured = FEATURED_PRIORITY.indexOf(slug as (typeof FEATURED_PRIORITY)[number]);
+    return { slug, shared, featured: featured >= 0 ? featured : 999 };
+  });
+
+  scored.sort((a, b) => b.shared - a.shared || a.featured - b.featured || a.slug.localeCompare(b.slug));
+
+  return scored.slice(0, limit).map(({ slug }) => ({
+    slug,
+    href: `/blog/${slug}`,
+    label: LABEL_OVERRIDES[slug] ?? humanizeSlug(slug),
+  }));
+}
+
 export function getCalculatorReadNextPosts(limit = 4): ReadNextPost[] {
   const available = new Set(BLOG_SLUGS);
   const ordered: string[] = [];

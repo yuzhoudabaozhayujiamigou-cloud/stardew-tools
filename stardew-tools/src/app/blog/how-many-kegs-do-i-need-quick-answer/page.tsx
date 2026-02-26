@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const FAQ_EN = [
   "How many kegs do I need for Starfruit wine?",
@@ -30,6 +32,8 @@ export const metadata: Metadata = {
 
 export default function HowManyKegsDoINeedQuickAnswerPage() {
   const fromPath = "/blog/how-many-kegs-do-i-need-quick-answer";
+
+    const readNextPosts = getBlogReadNextPosts("how-many-kegs-do-i-need-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -148,6 +152,8 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
             </ul>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="how-many-kegs-do-i-need-quick-answer" />
 
         <SiteFooter className="mt-8" />
       </main>

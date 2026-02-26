@@ -5,6 +5,8 @@ import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_ORIGIN } from "@/lib/site";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 type PickItem = {
   crop: string;
@@ -132,6 +134,8 @@ export default function StardewValleySummerDay7WhatToPlantPage() {
       "@id": pageUrl,
     },
   };
+
+    const readNextPosts = getBlogReadNextPosts("stardew-valley-summer-day-7-what-to-plant", 3);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
@@ -323,6 +327,8 @@ export default function StardewValleySummerDay7WhatToPlantPage() {
             </details>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="stardew-valley-summer-day-7-what-to-plant" />
 
         <SiteFooter className="mt-8" />
 

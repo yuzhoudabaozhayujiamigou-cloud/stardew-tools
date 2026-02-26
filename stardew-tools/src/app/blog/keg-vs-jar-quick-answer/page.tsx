@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 export const metadata: Metadata = {
   title: "Keg vs Jar: Quick Profit Answer | Stardew Profit",
@@ -12,6 +14,8 @@ export const metadata: Metadata = {
 
 export default function KegVsJarQuickAnswerPage() {
   const fromPath = "/blog/keg-vs-jar-quick-answer";
+
+    const readNextPosts = getBlogReadNextPosts("keg-vs-jar-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -85,6 +89,8 @@ export default function KegVsJarQuickAnswerPage() {
             </div>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="keg-vs-jar-quick-answer" />
 
         <SiteFooter className="mt-8" />
       </main>

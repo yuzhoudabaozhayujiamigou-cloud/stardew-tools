@@ -5,6 +5,8 @@ import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_ORIGIN } from "@/lib/site";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 type PickItem = {
   crop: string;
@@ -132,6 +134,8 @@ export default function SpringDay15WhatToPlantProfitPage() {
       "@id": pageUrl,
     },
   };
+
+    const readNextPosts = getBlogReadNextPosts("spring-day-15-what-to-plant-profit", 3);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
@@ -340,6 +344,8 @@ export default function SpringDay15WhatToPlantProfitPage() {
             </details>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="spring-day-15-what-to-plant-profit" />
 
         <SiteFooter className="mt-8" />
 

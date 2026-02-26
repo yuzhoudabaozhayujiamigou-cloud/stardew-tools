@@ -5,6 +5,8 @@ import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_ORIGIN } from "@/lib/site";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 type PanicItem = {
   action: string;
@@ -121,6 +123,8 @@ export default function StardewValleyIsItTooLateToPlantOnSpringDay25Page() {
       "@id": pageUrl,
     },
   };
+
+    const readNextPosts = getBlogReadNextPosts("stardew-valley-is-it-too-late-to-plant-on-spring-day-25", 3);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
@@ -316,6 +320,8 @@ export default function StardewValleyIsItTooLateToPlantOnSpringDay25Page() {
             </details>
           </section>
         </article>
+
+        <BlogReadNext posts={readNextPosts} currentSlug="stardew-valley-is-it-too-late-to-plant-on-spring-day-25" />
 
         <SiteFooter className="mt-8" />
 
