@@ -21,6 +21,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-02-24T00:00:00+08:00",
+  },
   title: "Starfruit vs Ancient Fruit Wine (Quick Answer + Profit Calculator)",
   description:
     "Quick answer for Starfruit Wine vs Ancient Fruit Wine with 3 calculator presets for summer, greenhouse, and short-window scenarios.",

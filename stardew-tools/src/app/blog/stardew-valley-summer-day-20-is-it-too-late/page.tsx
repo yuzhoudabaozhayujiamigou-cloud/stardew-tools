@@ -98,6 +98,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley: Summer Day 20 — Is It Too Late?",
   description:
     "Stardew Valley Summer Day 20 panic guide with an 8-day late-window template: radish, wheat, hot pepper salvage picks and calculator CTA.",

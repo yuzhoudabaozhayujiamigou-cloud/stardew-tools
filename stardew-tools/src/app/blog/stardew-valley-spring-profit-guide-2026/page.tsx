@@ -133,6 +133,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-15T00:00:00+08:00",
+    modifiedTime: "2026-02-15T00:00:00+08:00",
+  },
   title: "Stardew Valley Spring Profit Guide 2026 | S/A Tier Crops",
   description:
     "S-tier and A-tier spring crop recommendations with profit data table. Includes ROI breakdown and quick path back to the calculator.",

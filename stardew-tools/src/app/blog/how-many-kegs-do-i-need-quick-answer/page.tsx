@@ -25,6 +25,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-02-23T00:00:00+08:00",
+  },
   title: "How Many Kegs Do I Need? (Quick Answer + Profit Calculator)",
   description:
     "Quick keg-count planning guide for Stardew Valley with direct calculator presets. Compare crop chains and decide small, mid, or heavy processing setups.",

@@ -98,6 +98,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley Spring Day 15: What Can I Still Plant for Profit?",
   description:
     "Stardew Valley Spring Day 15 playbook with the exact conversion (14 days left), top late-season crop picks, and a direct calculator CTA.",

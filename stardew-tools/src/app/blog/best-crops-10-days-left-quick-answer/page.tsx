@@ -23,6 +23,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-02-24T00:00:00+08:00",
+  },
   title: "Best Crops with 10 Days Left (Quick Answer)",
   description:
     "Quick seasonal answer for Stardew Valley with only 10 days left. Compare spring, summer, and fall presets instantly.",

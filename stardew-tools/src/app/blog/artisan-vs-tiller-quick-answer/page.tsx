@@ -23,6 +23,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-02-24T00:00:00+08:00",
+  },
   title: "Artisan vs Tiller: Which Makes More Money? (Quick Answer)",
   description:
     "SEO quick answer page for Artisan vs Tiller, implemented with calculator-compatible Artisan presets only.",

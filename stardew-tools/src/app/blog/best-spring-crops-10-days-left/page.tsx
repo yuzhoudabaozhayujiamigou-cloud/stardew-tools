@@ -92,6 +92,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley: Best Spring Crops With 10 Days Left",
   description:
     "Stardew Valley late Spring guide for exactly 10 days left: compare fast crops, expected harvest count, and estimated gold/day with a direct calculator CTA.",

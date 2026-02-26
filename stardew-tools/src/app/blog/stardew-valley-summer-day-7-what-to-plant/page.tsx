@@ -98,6 +98,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley: Summer Day 7 — What Should I Plant?",
   description:
     "Stardew Valley Summer Day 7 guide with 21 days left: blueberry, corn, melon, and hops picks with a direct calculator CTA.",

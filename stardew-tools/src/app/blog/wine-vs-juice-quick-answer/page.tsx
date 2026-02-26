@@ -23,6 +23,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-02-24T00:00:00+08:00",
+  },
   title: "Wine vs Juice: Which Is More Profitable? (Quick Answer)",
   description:
     "Quick answer for Wine vs Juice with three calculator presets: keg-heavy, balanced, and no-kegs setup.",

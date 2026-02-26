@@ -25,6 +25,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-02-23T00:00:00+08:00",
+  },
   title: "Best Greenhouse Crops (Quick Answer + Profit Calculator)",
   description:
     "A quick, practical greenhouse crop guide for Stardew Valley. Compare early, mid, and late greenhouse scenarios with direct calculator presets.",

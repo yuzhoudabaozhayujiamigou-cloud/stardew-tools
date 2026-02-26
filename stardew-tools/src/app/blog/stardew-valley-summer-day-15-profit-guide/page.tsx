@@ -98,6 +98,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley: Summer Day 15 Profit Guide",
   description:
     "Stardew Valley Summer Day 15 guide with 13 days left: radish, wheat, hot pepper picks and a direct calculator CTA.",

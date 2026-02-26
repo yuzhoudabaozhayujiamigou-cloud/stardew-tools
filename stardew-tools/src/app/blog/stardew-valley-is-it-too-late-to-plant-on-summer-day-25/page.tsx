@@ -87,6 +87,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley: Is It Too Late to Plant on Summer Day 25?",
   description:
     "Only 3 days left in Summer? Panic-template for late planting, including wheat cross-season carry logic and a direct calculator CTA.",

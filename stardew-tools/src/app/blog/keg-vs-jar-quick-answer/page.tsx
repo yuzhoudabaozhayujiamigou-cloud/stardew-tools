@@ -7,6 +7,11 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-02-23T00:00:00+08:00",
+  },
   title: "Keg vs Jar: Quick Profit Answer | Stardew Profit",
   description:
     "Fast answer for Keg vs Preserves Jar with a direct calculator preset link for real numbers by days left and profession.",

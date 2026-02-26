@@ -87,6 +87,11 @@ const faqItems = [
 
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-17T00:00:00+08:00",
+    modifiedTime: "2026-02-17T00:00:00+08:00",
+  },
   title: "Stardew Valley: Is It Too Late to Plant on Spring Day 25?",
   description:
     "Only 3 days left? Stardew Valley panic-guide for end-of-Spring planting, including the parsnip Speed-Gro edge case and a direct calculator CTA.",

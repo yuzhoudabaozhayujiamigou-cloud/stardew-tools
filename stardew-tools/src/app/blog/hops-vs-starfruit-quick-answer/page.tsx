@@ -21,6 +21,11 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
+  openGraph: {
+    type: "article",
+    publishedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-02-24T00:00:00+08:00",
+  },
   title: "Hops vs Starfruit (Quick Answer + Profit Calculator)",
   description:
     "Quick answer for Hops vs Starfruit with 3 calculator presets (summer full season, short window, greenhouse baseline). Compare instantly with identical parameters.",
