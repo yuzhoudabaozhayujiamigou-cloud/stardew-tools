@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SiteFooter } from "@/components/SiteFooter";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { getCalculatorReadNextPosts } from "@/lib/read-next";
+import { SITE_ORIGIN } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Stardew Valley Guides & Quick Answers | Stardew Tools",
@@ -41,6 +42,7 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "starfruit-vs-ancient-fruit-wine-quick-answer": "Starfruit vs Ancient Fruit Wine",
   "best-crops-10-days-left-quick-answer": "Best Crops with 10 Days Left",
   "best-crops-7-days-left-before-season-switch": "Best Crops with 7 Days Left",
+  "best-fall-crops-quick-answer": "Best Fall Crops",
   "best-spring-crops-10-days-left": "Best Spring Crops with 10 Days Left",
 };
 
@@ -58,8 +60,26 @@ const LINK_CLASS =
 export default function BlogIndexPage() {
   const slugs = getAllBlogPosts();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Stardew Valley Guides & Quick Answers",
+    description: "All crop profit guides, comparison articles, and farming strategy quick answers.",
+    numberOfItems: slugs.length,
+    itemListElement: slugs.map((slug: string, i: number) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: LABEL_OVERRIDES[slug] ?? humanizeSlug(slug),
+      url: `${SITE_ORIGIN}/blog/${slug}`,
+    })),
+  };
+
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div
           className="absolute inset-0 opacity-90"
