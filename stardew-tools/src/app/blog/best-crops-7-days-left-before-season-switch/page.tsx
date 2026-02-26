@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-17T00:00:00+08:00",
     modifiedTime: "2026-02-17T00:00:00+08:00",
   },
-  title: "Stardew Valley: Best Crops With 7 Days Left Before Season Switch",
+  title: "Best Crops With 7 Days Left (Stardew Valley)",
   description:
     "Stardew Valley late-season guide for exactly 7 days left before season switch: fast crop picks, expected harvest count, and direct calculator CTA.",
 };

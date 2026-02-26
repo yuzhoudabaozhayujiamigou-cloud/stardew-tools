@@ -25,7 +25,7 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Best Fall Crops in Stardew Valley (Quick Answer + Calculator)",
+  title: "Best Fall Crops (Quick Answer + Calculator)",
   description:
     "Find the most profitable fall crops in Stardew Valley. Compare Cranberry, Pumpkin, Grape, and more by gold per day with calculator presets.",
   openGraph: {

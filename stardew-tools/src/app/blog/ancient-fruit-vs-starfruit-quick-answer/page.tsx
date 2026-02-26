@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-23T00:00:00+08:00",
     modifiedTime: "2026-02-23T00:00:00+08:00",
   },
-  title: "Ancient Fruit vs Starfruit (Quick Answer + Profit Calculator)",
+  title: "Ancient Fruit vs Starfruit (Quick Answer + Calculator)",
   description:
     "Ancient Fruit vs Starfruit quick answer with direct calculator presets for greenhouse, full season, and short-window profit comparison.",
 };

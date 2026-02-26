@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-17T00:00:00+08:00",
     modifiedTime: "2026-02-17T00:00:00+08:00",
   },
-  title: "Stardew Valley: Is It Too Late to Plant Strawberries on Spring 13?",
+  title: "Spring 13: Too Late to Plant Strawberries? (Stardew)",
   description:
     "Stardew Valley Spring Day 13 guide with the exact conversion (16 days left), no-Speed-Gro baseline, and fallback crop plans linked to the calculator.",
 };
