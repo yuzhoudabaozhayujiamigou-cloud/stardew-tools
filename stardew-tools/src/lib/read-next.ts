@@ -18,6 +18,7 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "how-many-kegs-do-i-need-quick-answer": "How Many Kegs Do I Need?",
   "best-greenhouse-crops-quick-answer": "Best Greenhouse Crops",
   "ancient-fruit-vs-starfruit-quick-answer": "Ancient Fruit vs Starfruit",
+  "ancient-fruit-wine-vs-starfruit-wine": "Ancient Fruit Wine vs Starfruit Wine",
   "keg-vs-jar-quick-answer": "Keg vs Jar",
 };
 
@@ -54,6 +55,7 @@ const BLOG_SLUGS = getBlogSlugs();
 // Topic clusters for related post matching
 const TOPIC_TAGS: Record<string, string[]> = {
   "ancient-fruit-vs-starfruit-quick-answer": ["wine", "greenhouse", "starfruit", "ancient-fruit"],
+  "ancient-fruit-wine-vs-starfruit-wine": ["wine", "greenhouse", "starfruit", "ancient-fruit", "deep-dive"],
   "starfruit-vs-ancient-fruit-wine-quick-answer": ["wine", "greenhouse", "starfruit", "ancient-fruit"],
   "artisan-vs-tiller-quick-answer": ["profession", "artisan", "tiller", "wine"],
   "keg-vs-jar-quick-answer": ["keg", "jar", "artisan", "wine"],
@@ -61,6 +63,7 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "wine-vs-juice-quick-answer": ["keg", "wine", "artisan"],
   "hops-vs-starfruit-quick-answer": ["starfruit", "hops", "summer", "keg"],
   "best-greenhouse-crops-quick-answer": ["greenhouse", "ancient-fruit", "starfruit"],
+  "greenhouse-layout-guide": ["greenhouse", "layout", "sprinkler", "ancient-fruit", "starfruit"],
   "best-fall-crops-quick-answer": ["fall", "timing", "cranberry", "pumpkin"],
   "best-crops-year-1": ["year-1", "beginner", "spring", "summer", "fall", "winter", "profit", "guide"],
   "winter-seeds-profit-guide": ["winter", "winter-farming", "winter-seeds", "profit"],
@@ -124,4 +127,3 @@ export function getCalculatorReadNextPosts(limit = 4): ReadNextPost[] {
     label: LABEL_OVERRIDES[slug] ?? humanizeSlug(slug),
   }));
 }
-
