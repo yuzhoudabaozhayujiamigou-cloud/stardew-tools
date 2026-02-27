@@ -64,15 +64,23 @@ export default function CalculatorPage() {
         name: "Does this include artisan processing profit?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. This page focuses on direct crop selling value for faster in-season crop planning.",
+          text: "Not directly. This page focuses on direct crop selling value for faster in-season planning. For processing decisions, use the linked guides below (keg vs jar, wine vs juice, greenhouse strategy).",
         },
       },
       {
         "@type": "Question",
-        name: "Can I use this for Year 1 Spring planning?",
+        name: "Should I always plant the #1 crop on the list?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Use Normal quality and Tiller Off for early-game baseline planning.",
+          text: "Not always. The best crop depends on days left in the season, how often you can water/harvest, whether it regrows, and if you plan to process it later. Use the presets + the ‘read next’ guides to pick a plan you can actually run.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I use this for Year 1 planning?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. For early-game baselines, use Normal quality and Tiller Off. Then switch presets to test ‘Summer panic’ or ‘Greenhouse strategy’ once you unlock sprinklers/greenhouse.",
         },
       },
     ],
@@ -159,6 +167,26 @@ export default function CalculatorPage() {
             </Link>
             {" "}— crop comparisons, keg math, and seasonal strategies.
           </p>
+
+          <section className="mt-5 rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/70">
+              Next steps (most clicked)
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2.5">
+              <Link href="/blog/keg-vs-jar-profit-guide" className={QUICK_PRESET_LINK_CLASS}>
+                Keg vs Jar (Decision Guide)
+              </Link>
+              <Link href="/blog/wine-vs-juice-quick-answer" className={QUICK_PRESET_LINK_CLASS}>
+                Wine vs Juice (Quick Answer)
+              </Link>
+              <Link href="/blog/best-greenhouse-crops-quick-answer" className={QUICK_PRESET_LINK_CLASS}>
+                Best Greenhouse Crops
+              </Link>
+            </div>
+            <p className="mt-2 text-xs text-[#5f4228]/85">
+              Read one, then come back here and use the presets to lock in a plan.
+            </p>
+          </section>
         </header>
 
         <section id="calculator" className="mt-8 grid gap-6 scroll-mt-4">
