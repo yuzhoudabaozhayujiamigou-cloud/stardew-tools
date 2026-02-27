@@ -20,16 +20,21 @@ export default function Breadcrumb({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav aria-label="Breadcrumb" className="mb-4 text-sm text-gray-500">
+      <nav aria-label="Breadcrumb" className="mb-4 text-sm text-gray-600">
         {items.map((item, i) => (
           <span key={i}>
             {i > 0 && <span className="mx-1">›</span>}
             {item.href ? (
-              <a href={item.href} className="hover:text-gray-700">
+              <a
+                href={item.href}
+                className="inline-flex min-h-[44px] items-center px-1 hover:text-gray-800"
+              >
                 {item.name}
               </a>
             ) : (
-              <span>{item.name}</span>
+              <span className="inline-flex min-h-[44px] items-center px-1">
+                {item.name}
+              </span>
             )}
           </span>
         ))}
