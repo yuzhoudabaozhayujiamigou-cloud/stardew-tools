@@ -62,6 +62,8 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "hops-vs-starfruit-quick-answer": ["starfruit", "hops", "summer", "keg"],
   "best-greenhouse-crops-quick-answer": ["greenhouse", "ancient-fruit", "starfruit"],
   "best-fall-crops-quick-answer": ["fall", "timing", "cranberry", "pumpkin"],
+  "winter-seeds-profit-guide": ["winter", "winter-farming", "winter-seeds", "profit"],
+  "best-summer-crops-quick-answer": ["summer", "profit", "blueberry", "starfruit", "melon", "hops"],
   "best-crops-10-days-left-quick-answer": ["timing", "late-season"],
   "best-crops-7-days-left-before-season-switch": ["timing", "late-season"],
   "best-spring-crops-10-days-left": ["timing", "spring", "late-season"],
