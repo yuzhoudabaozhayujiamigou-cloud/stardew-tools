@@ -3,7 +3,6 @@ import { join } from "node:path";
 
 import type { MetadataRoute } from "next";
 
-import { secretNotes } from "@/data/secretNotes";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const STATIC_ENTRIES = [
@@ -68,12 +67,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const secretNoteEntries: MetadataRoute.Sitemap = secretNotes.map((note) => ({
-    url: `${SITE_ORIGIN}/secret-notes/${note.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
-
-  return [...staticEntries, ...blogEntries, ...secretNoteEntries];
+  return [...staticEntries, ...blogEntries];
 }

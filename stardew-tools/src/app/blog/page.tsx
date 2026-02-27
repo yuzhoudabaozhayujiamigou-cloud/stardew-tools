@@ -57,6 +57,29 @@ function humanizeSlug(slug: string): string {
 const LINK_CLASS =
   "block rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-5 py-3 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]";
 
+const FEATURED_POSTS = [
+  {
+    slug: "stardew-valley-profit-guide-2026",
+    label: "Profit Guide 2026",
+    description: "Best crops by season + keg vs jar + top wine picks.",
+  },
+  {
+    slug: "keg-vs-jar-quick-answer",
+    label: "Keg vs Jar (Quick Answer)",
+    description: "Fast rule-of-thumb decisions for Artisan profit.",
+  },
+  {
+    slug: "ancient-fruit-wine-vs-starfruit-wine",
+    label: "Ancient Fruit Wine vs Starfruit Wine",
+    description: "The best endgame wine depends on your bottleneck.",
+  },
+] as const;
+
+const FEATURED_LINK_CLASS =
+  "block rounded-2xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-5 py-4 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#4e7a32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5c8a3e]";
+
+const FEATURED_DESC_CLASS = "mt-1 text-xs font-semibold text-white/90";
+
 export default function BlogIndexPage() {
   const slugs = getAllBlogPosts();
 
@@ -108,8 +131,28 @@ export default function BlogIndexPage() {
           </p>
         </header>
 
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Featured</p>
+          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Start here</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
+            These are the fastest paths to profit decisions and calculator-friendly strategy.
+          </p>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            {FEATURED_POSTS.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className={FEATURED_LINK_CLASS}>
+                <span aria-hidden="true" className="mr-2 opacity-95">
+                  ⭐
+                </span>
+                {post.label}
+                <div className={FEATURED_DESC_CLASS}>{post.description}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-8 grid gap-3 sm:grid-cols-2">
-          {slugs.map((slug: string) => (
+          {slugs.filter((slug: string) => !FEATURED_POSTS.some((post) => post.slug === slug)).map((slug: string) => (
             <Link key={slug} href={`/blog/${slug}`} className={LINK_CLASS}>
               <span aria-hidden="true" className="mr-2 opacity-85">📘</span>
               {LABEL_OVERRIDES[slug] ?? humanizeSlug(slug)}

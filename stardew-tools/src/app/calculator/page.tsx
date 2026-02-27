@@ -172,22 +172,22 @@ export default function CalculatorPage() {
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">New Module</p>
-                <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Secret Notes Finder</h2>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Featured Guide</p>
+                <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Profit Guide 2026</h2>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Decode all 25 secret notes, track completion progress, and jump directly between clues with desktop
-                  sidebar navigation or mobile quick-jump chips.
+                  Keg vs jar, starfruit vs ancient fruit, and the best crops by season — one guide you can bookmark for
+                  your next save.
                 </p>
               </div>
 
               <Link
-                href="/secret-notes"
-                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+                href="/blog/stardew-valley-profit-guide-2026"
+                className="inline-flex items-center gap-2 rounded-2xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-[#4e7a32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5c8a3e]"
               >
-                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-85">
-                  🔎
+                <span aria-hidden="true" className="inline-flex items-center leading-none opacity-90">
+                  📘
                 </span>
-                Open Secret Notes Finder
+                Open Profit Guide 2026
               </Link>
             </div>
           </section>
