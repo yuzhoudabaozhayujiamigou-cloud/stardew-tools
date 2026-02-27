@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 
 import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import FaqJsonLd from "@/components/FaqJsonLd";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const FAQ_EN = [
   "What are the best crops in Year 1 of Stardew Valley?",
@@ -58,8 +60,23 @@ export default function BestCropsYear1Page() {
 
       <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
+        <FaqJsonLd
+          faqs={FAQ_EN.map((question, index) => ({
+            question,
+            answer: FAQ_ZH[index] ?? "",
+          }))}
+        />
 
-        <article className="space-y-6">
+        
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+            { name: "Best Crops Year 1 in Stardew Valley (By Season)" },
+          ]}
+        />
+
+<article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
               Quick Answer

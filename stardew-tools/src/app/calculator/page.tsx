@@ -78,6 +78,16 @@ export default function CalculatorPage() {
     ],
   };
 
+  const webAppLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Stardew Valley Crop Profit Calculator",
+    url: "https://stardewprofit.com/calculator",
+    applicationCategory: "GameApplication",
+    operatingSystem: "Web Browser",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  };
+
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -207,6 +217,12 @@ export default function CalculatorPage() {
         </section>
 
         <SiteFooter className="mt-10" />
+
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppLd) }}
+        />
 
         <script
           type="application/ld+json"
