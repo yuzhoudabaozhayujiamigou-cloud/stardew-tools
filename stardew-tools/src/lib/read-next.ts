@@ -62,6 +62,7 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "hops-vs-starfruit-quick-answer": ["starfruit", "hops", "summer", "keg"],
   "best-greenhouse-crops-quick-answer": ["greenhouse", "ancient-fruit", "starfruit"],
   "best-fall-crops-quick-answer": ["fall", "timing", "cranberry", "pumpkin"],
+  "best-crops-year-1": ["year-1", "beginner", "spring", "summer", "fall", "winter", "profit", "guide"],
   "winter-seeds-profit-guide": ["winter", "winter-farming", "winter-seeds", "profit"],
   "best-summer-crops-quick-answer": ["summer", "profit", "blueberry", "starfruit", "melon", "hops"],
   "best-crops-10-days-left-quick-answer": ["timing", "late-season"],
@@ -77,6 +78,7 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "stardew-valley-summer-day-15-profit-guide": ["timing", "summer"],
   "stardew-valley-summer-day-20-is-it-too-late": ["timing", "summer", "late-season"],
   "stardew-valley-is-it-too-late-to-plant-on-summer-day-25": ["timing", "summer", "late-season"],
+  "speed-gro-vs-deluxe-speed-gro": ["fertilizer", "speed-gro", "deluxe-speed-gro", "timing", "growth-speed"],
 };
 
 export function getBlogReadNextPosts(currentSlug: string, limit = 3): ReadNextPost[] {
