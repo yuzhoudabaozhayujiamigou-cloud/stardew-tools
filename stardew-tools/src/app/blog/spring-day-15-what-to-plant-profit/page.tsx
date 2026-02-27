@@ -125,6 +125,7 @@ export default function SpringDay15WhatToPlantProfitPage() {
         text: faq.answer,
       },
     })),
+
   };
 
   const articleLd = {
@@ -160,6 +161,7 @@ export default function SpringDay15WhatToPlantProfitPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
+        <FaqJsonLd faqs={faqItems} />
 
         
         <Breadcrumb
