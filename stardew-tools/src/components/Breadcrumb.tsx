@@ -10,7 +10,7 @@ export default function Breadcrumb({
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      ...(item.href ? { item: `https://stardewprofit.com${item.href}` } : {}),
+      ...(item.href ? { item: `https://www.stardewprofit.com${item.href}` } : {}),
     })),
   };
 

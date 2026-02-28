@@ -90,7 +90,7 @@ export default function CalculatorPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "Stardew Valley Crop Profit Calculator",
-    url: "https://stardewprofit.com/calculator",
+    url: "https://www.stardewprofit.com/calculator",
     applicationCategory: "GameApplication",
     operatingSystem: "Web Browser",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

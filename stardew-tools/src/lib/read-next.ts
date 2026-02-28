@@ -20,6 +20,7 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "ancient-fruit-vs-starfruit-quick-answer": "Ancient Fruit vs Starfruit",
   "ancient-fruit-wine-vs-starfruit-wine": "Ancient Fruit Wine vs Starfruit Wine",
   "keg-vs-jar-quick-answer": "Keg vs Jar",
+  "beginner-mistakes-losing-money": "8 Beginner Mistakes Losing You Money",
 };
 
 function getBlogSlugs(): string[] {
