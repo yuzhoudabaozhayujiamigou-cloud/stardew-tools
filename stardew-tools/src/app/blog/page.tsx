@@ -45,6 +45,9 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "best-fall-crops-quick-answer": "Best Fall Crops",
   "best-spring-crops-10-days-left": "Best Spring Crops with 10 Days Left",
   "beginner-mistakes-losing-money": "8 Beginner Mistakes Losing You Money",
+  "auto-petter-worth-it": "Is the Auto-Petter Worth It?",
+  "money-making-guide": "Money Making Guide – From Broke to Rich",
+  "best-crops-every-season": "Best Crops for Every Season",
 };
 
 function humanizeSlug(slug: string): string {

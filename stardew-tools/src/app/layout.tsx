@@ -9,9 +9,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
-  title: "Stardew Profit Calculator | Best Crop Tool 2026",
+  title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
   description:
-    "www.stardewprofit.com is a fast Stardew Valley crop profit calculator. Compare gold/day and seasonal profit to pick the best crops for any season.",
+    "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season and read expert farming guides.",
   alternates: {
     canonical: "./",
   },
@@ -22,20 +22,21 @@ export const metadata: Metadata = {
     "best crops stardew valley",
     "gold per day stardew",
     "stardew spring crops",
+    "stardewprofit",
   ],
   openGraph: {
-    title: "Stardew Profit Calculator | Best Crop Tool 2026",
+    title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
     description:
-      "Use www.stardewprofit.com to compare crop profit by season and maximize gold/day with a simple calculator.",
+      "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
     type: "website",
     url: SITE_ORIGIN,
     siteName: SITE_NAME,
   },
   twitter: {
     card: "summary",
-    title: "Stardew Profit Calculator | Best Crop Tool 2026",
+    title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
     description:
-      "Use www.stardewprofit.com to compare crop profit by season and maximize gold/day with a simple calculator.",
+      "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
   },
 };
 

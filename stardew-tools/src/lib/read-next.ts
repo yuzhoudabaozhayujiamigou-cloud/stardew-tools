@@ -21,6 +21,9 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "ancient-fruit-wine-vs-starfruit-wine": "Ancient Fruit Wine vs Starfruit Wine",
   "keg-vs-jar-quick-answer": "Keg vs Jar",
   "beginner-mistakes-losing-money": "8 Beginner Mistakes Losing You Money",
+  "auto-petter-worth-it": "Is the Auto-Petter Worth It?",
+  "money-making-guide": "Money Making Guide – From Broke to Rich",
+  "best-crops-every-season": "Best Crops for Every Season",
 };
 
 function getBlogSlugs(): string[] {
