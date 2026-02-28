@@ -7,7 +7,7 @@
     url("/fonts/geist-latin-ext.woff2") format("woff2");
   font-style: normal;
   font-weight: 100 900;
-  font-display: swap;
+  font-display: optional;
 }
 
 @font-face {
@@ -17,7 +17,7 @@
     url("/fonts/geist-mono-latin-ext.woff2") format("woff2");
   font-style: normal;
   font-weight: 100 900;
-  font-display: swap;
+  font-display: optional;
 }
 
 :root {
