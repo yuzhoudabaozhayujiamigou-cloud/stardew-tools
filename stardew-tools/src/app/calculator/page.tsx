@@ -98,7 +98,7 @@ export default function CalculatorPage() {
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={{ contain: "layout size style" }}>
         <div
           className="absolute inset-0 opacity-90"
           style={{
