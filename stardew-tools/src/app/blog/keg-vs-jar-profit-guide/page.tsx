@@ -66,6 +66,12 @@ const LINK =
 const TOC_LINK =
   "block rounded-xl border border-[#7c4d2e]/25 bg-white/40 px-3 py-2 text-sm font-medium text-[#4a321e] transition hover:bg-white/55";
 
+const CTA_CLASS =
+  "inline-flex items-center justify-center rounded-2xl border-2 border-[#7c4d2e]/70 bg-[#fce8b1] px-5 py-2.5 text-sm font-semibold text-[#5c4033] shadow-sm transition hover:-translate-y-0.5 hover:bg-[#ffd88a]";
+
+const SUB_CTA_CLASS =
+  "inline-flex items-center justify-center rounded-2xl border-2 border-[#7c4d2e]/65 bg-white/45 px-5 py-2.5 text-sm font-semibold text-[#5c4033] shadow-sm transition hover:-translate-y-0.5 hover:bg-white/60";
+
 export default function KegVsJarProfitGuidePage() {
   return (
     <div className="relative min-h-screen bg-[#f5e6c8] text-[#5c4033]">
@@ -126,22 +132,25 @@ export default function KegVsJarProfitGuidePage() {
             <h2 className={H2}>Table of contents</h2>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
               <a className={TOC_LINK} href="#quick-rule">
-                1) The quick rule (choose based on your bottleneck)
+                1) What to build first (3-phase plan)
+              </a>
+              <a className={TOC_LINK} href="#rule-of-thumb">
+                2) The quick rule (choose based on your bottleneck)
               </a>
               <a className={TOC_LINK} href="#profit-vs-throughput">
-                2) Profit vs throughput: the real keg vs jar question
+                3) Profit vs throughput: the real keg vs jar question
               </a>
               <a className={TOC_LINK} href="#what-to-process">
-                3) What to put in each machine (crop triage)
+                4) What to put in each machine (crop triage)
               </a>
               <a className={TOC_LINK} href="#capacity-planning">
-                4) Capacity planning: how many machines do you need?
+                5) Capacity planning: how many machines do you need?
               </a>
               <a className={TOC_LINK} href="#greenhouse">
-                5) Greenhouse + artisan pipeline (stable income)
+                6) Greenhouse + artisan pipeline (stable income)
               </a>
               <a className={TOC_LINK} href="#mistakes">
-                6) Common mistakes that kill your profits
+                7) Common mistakes that kill your profits
               </a>
               <a className={TOC_LINK} href="#faq">
                 FAQ
@@ -150,8 +159,50 @@ export default function KegVsJarProfitGuidePage() {
           </section>
 
           <section id="quick-rule" className={CARD}>
+            <h2 className={H2}>1) What to Build First (The 3-Phase Plan)</h2>
+            <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
+              If you&apos;re here for the decision: here&apos;s the most practical build-first plan that works for almost every
+              save.
+            </p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                <p className="text-sm font-semibold text-[#4a321e]">Early game</p>
+                <p className="mt-2 text-sm leading-6">
+                  Build <strong>preserves jars</strong> first. Faster cycles mean earlier cashflow for upgrades (bags,
+                  tools, sprinklers). Aim for a small line you can keep fed.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                <p className="text-sm font-semibold text-[#4a321e]">Midgame</p>
+                <p className="mt-2 text-sm leading-6">
+                  Start mixing in <strong>kegs</strong>. Route your best fruit into kegs, keep jars absorbing vegetables
+                  and overflow.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                <p className="text-sm font-semibold text-[#4a321e]">Late game</p>
+                <p className="mt-2 text-sm leading-6">
+                  Go <strong>keg-heavy</strong> once you have stable inputs (greenhouse) and enough machines to avoid
+                  backlog.
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
+              Want the quick sanity-check? Use the calculator to compare two crops with two machine setups.
+            </p>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link className={CTA_CLASS} href="/calculator">
+                Open the Profit Calculator
+              </Link>
+              <Link className={SUB_CTA_CLASS} href="/blog/greenhouse-layout-guide">
+                Greenhouse layout guide
+              </Link>
+            </div>
+          </section>
+
+          <section id="rule-of-thumb" className={CARD}>
             <h2 className={H2}>
-              1) The quick rule: pick the machine that matches your bottleneck
+              2) The quick rule: pick the machine that matches your bottleneck
             </h2>
             <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               Most arguments about <strong>keg vs preserve jar</strong> assume you’re
