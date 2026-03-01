@@ -7,6 +7,7 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   openGraph: {
@@ -393,6 +394,45 @@ export default function BeginnerMistakesLosingMoneyPage() {
                 Compare profit per day
               </TrackedBlogCtaLink>
             </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Next: where to go for more profit</h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              If you want a clear plan (not just tips), use these pages as your “money map”.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <TrackedBlogCtaLink
+                href="/calculator"
+                fromPath={fromPath}
+                ctaName="mistakes_next_calculator"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                Open the Profit Calculator
+              </TrackedBlogCtaLink>
+              <Link
+                href="/blog/stardew-valley-profit-guide-2026"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-white/55 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-white/70"
+              >
+                Profit Guide 2026
+              </Link>
+              <Link
+                href="/blog/keg-vs-jar-profit-guide"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-white/55 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-white/70"
+              >
+                Keg vs Jar (Build First)
+              </Link>
+            </div>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90">
+              If you want a “one day, huge acceleration” upgrade, run Skull Cavern like a throughput problem:
+              <Link
+                href="/blog/skull-cavern-mining-profit-guide"
+                className="ml-1 font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]"
+              >
+                Skull Cavern mining profit guide
+              </Link>
+              .
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

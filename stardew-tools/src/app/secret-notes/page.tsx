@@ -46,6 +46,24 @@ export default function SecretNotesPage() {
         </header>
 
         <section className="mt-8">
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Popular notes</h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              Quick picks that often show up in searches.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[22, 10, 12, 2, 3].map((id) => (
+                <a
+                  key={id}
+                  href={`/secret-notes/${id}`}
+                  className="inline-flex min-h-9 items-center justify-center rounded-xl border-2 border-[#7c4d2e]/55 bg-white/55 px-3 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/75 hover:bg-white/70"
+                >
+                  Note #{id}
+                </a>
+              ))}
+            </div>
+          </section>
+
           <Suspense
             fallback={
               <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 text-sm text-[#5f4228]/85 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20">
