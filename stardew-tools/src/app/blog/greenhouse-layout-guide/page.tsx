@@ -7,6 +7,7 @@ import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
 
 const FAQ_EN = [
   "What is the best Stardew Valley greenhouse layout?",
@@ -309,6 +310,13 @@ export default function GreenhouseLayoutGuidePage() {
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Calculator Presets</h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
               Click a preset to compare crops with the greenhouse season setting.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              Next: decide your processing path.
+              <Link className="ml-1 font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-profit-guide">
+                Keg vs Preserves Jar (profit guide)
+              </Link>
+              .
             </p>
 
             <div className="mt-4 flex flex-wrap gap-3">
