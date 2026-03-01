@@ -329,6 +329,32 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
             <section className="mx-auto grid w-full max-w-5xl gap-6">
               <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
               <NoteDetailPanel note={note} isCompleted={false} />
+
+              {note.id === 22 ? (
+                <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Deep Dive Guide</p>
+                  <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">Want the full explanation?</h2>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
+                    This note is easy to misunderstand if you don’t know what to click in the tunnel. If you want a
+                    step-by-step walkthrough (location, what to do, common mistakes, and FAQs), read the longform guide.
+                  </p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <Link
+                      href="/blog/secret-note-22-hidden-tunnel-panel"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+                    >
+                      Read: Secret Note 22 Hidden Tunnel Panel
+                    </Link>
+                    <Link
+                      href="/calculator"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Open Profit Calculator
+                    </Link>
+                  </div>
+                </section>
+              ) : null}
+
               <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
             </section>
           )}
