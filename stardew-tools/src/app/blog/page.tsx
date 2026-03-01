@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { SiteFooter } from "@/components/SiteFooter";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
-import { getCalculatorReadNextPosts } from "@/lib/read-next";
 import { SITE_ORIGIN } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -12,10 +11,10 @@ export const metadata: Metadata = {
     "Browse all Stardew Valley crop profit guides, quick answers, and farming strategy articles. Find the best crops, compare kegs vs jars, and plan your farm.",
 };
 
+import fs from "node:fs";
+import path from "node:path";
+
 function getAllBlogPosts() {
-  // Use the same discovery as read-next but get all posts
-  const fs = require("node:fs");
-  const path = require("node:path");
   const blogDir = path.join(process.cwd(), "src", "app", "blog");
 
   if (!fs.existsSync(blogDir)) return [];

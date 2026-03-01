@@ -139,7 +139,7 @@ export default function CalculatorPage() {
           <div className="mt-5 flex flex-wrap items-center gap-2.5">
             <a
               href="#calculator"
-              className="inline-flex min-h-8 items-center gap-1.5 rounded-xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-4 py-2 text-sm font-bold leading-5 text-white shadow-sm transition-colors duration-150 hover:bg-[#4e7a32] active:bg-[#436b2a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5c8a3e]"
+              className="inline-flex min-h-8 items-center gap-1.5 rounded-xl border-2 border-[#5b3a22]/75 bg-[#3f6f28] px-4 py-2 text-sm font-bold leading-5 text-white shadow-sm transition-colors duration-150 hover:bg-[#365f22] active:bg-[#2e511c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3f6f28]"
             >
               ▶ Start Calculating
             </a>

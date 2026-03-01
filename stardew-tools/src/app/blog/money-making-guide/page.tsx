@@ -509,7 +509,7 @@ export default function MoneyMakingGuidePage() {
 
             <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
               <p className="text-sm font-semibold text-[#4a321e]">
-                Late-game "rich loop" checklist
+                Late-game &quot;rich loop&quot; checklist
               </p>
               <p className="mt-1">
                 1) Crop that produces reliably → 2) enough Kegs → 3) Artisan
@@ -545,7 +545,7 @@ export default function MoneyMakingGuidePage() {
                   Mining & Ore
                 </p>
                 <p className="mt-1 text-sm text-[#5f4228]/90">
-                  Ore is not just sale value—it's infrastructure: sprinklers,
+                  Ore is not just sale value- it&apos;s infrastructure: sprinklers,
                   Kegs, and upgrades.
                 </p>
               </div>

@@ -314,7 +314,7 @@ export default function StardewValleySummerDay15ProfitGuidePage() {
             <h2 className="text-xl font-semibold text-[#4a321e]">Next Read</h2>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[#614326]/90">
               <li>
-                If you're coming from earlier Summer: {" "}
+                If you&apos;re coming from earlier Summer: {" "}
                 <Link className="font-semibold underline" href="/blog/stardew-valley-summer-day-7-what-to-plant">
                   Stardew Valley: Summer Day 7 — What Should I Plant?
                 </Link>

@@ -99,12 +99,12 @@ export default function BestSummerCropsQuickAnswerPage() {
                 It takes 13 days, so timing matters.
               </p>
               <p>
-                <strong>Hops</strong> is the best "high-maintenance, high-upside" option: it regrows every day after 11 days.
+                <strong>Hops</strong> is the best &quot;high-maintenance, high-upside&quot; option: it regrows every day after 11 days.
                 It sells cheaply as a crop (25g), but it shines if you have lots of kegs (Pale Ale is strong over time).
               </p>
               <p>
                 <strong>Melon</strong> is a solid middle ground (12 days, 250g base) and a great keg target early if you
-                dont have Starfruit access yet.
+                don&apos;t have Starfruit access yet.
               </p>
             </div>
           </section>
@@ -114,7 +114,7 @@ export default function BestSummerCropsQuickAnswerPage() {
             <div className="mt-3 space-y-2 text-sm leading-6 text-[#5f4228]/90">
               <p>🥇 <strong>Blueberry</strong> — Best overall for most players. Regrows every 4 days, 3 berries each harvest.</p>
               <p>🥈 <strong>Starfruit</strong> — Best single harvest value (750g). Best with kegs + Artisan.</p>
-              <p>🥉 <strong>Hops</strong> — Daily harvest after 11 days. Best if you can process (kegs) and dont mind daily picking.</p>
+              <p>🥉 <strong>Hops</strong> — Daily harvest after 11 days. Best if you can process (kegs) and don&apos;t mind daily picking.</p>
               <p>4th <strong>Melon</strong> — Strong early-summer cash crop (12 days). Good keg option before Starfruit.</p>
               <p>5th <strong>Hot Pepper</strong> — Cheap seeds, regrows every 3 days. Nice filler when you want steady harvests.</p>
               <p>6th <strong>Wheat</strong> — Fast (4 days) and flexible for late-season gaps; good if time is short.</p>
@@ -129,16 +129,16 @@ export default function BestSummerCropsQuickAnswerPage() {
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">When to Plant What</h2>
             <div className="mt-3 space-y-2 text-sm leading-6 text-[#5f4228]/90">
               <p>
-                <strong>Day 1</strong> Blueberry for steady profit, or Starfruit if youre keg-focused. Melon is great if youre early game.
+                <strong>Day 1</strong> Blueberry for steady profit, or Starfruit if you&apos;re keg-focused. Melon is great if you&apos;re early game.
               </p>
               <p>
-                <strong>Day 8</strong> You can still plant Blueberry and get multiple harvests. Starfruit is still fine if youre planning around one harvest.
+                <strong>Day 8</strong> You can still plant Blueberry and get multiple harvests. Starfruit is still fine if you&apos;re planning around one harvest.
               </p>
               <p>
-                <strong>14 days left (Day 15)</strong> Melon (12 days) is the big-value pick; Hot Pepper (6 days) can fit two cycles; Wheat (4 days) fits 3 cycles.
+                <strong>14 days left (Day 15)</strong> Melon (12 days) is the big-value pick; Hot Pepper (6 days) can fit two cycles; Wheat (4 days) fits 3 cycles.
               </p>
               <p>
-                <strong>73 days left (Day 22+)</strong> Switch to quick crops like Wheat (4 days) or consider finishing with regrow crops only if already planted.
+                <strong>7–3 days left (Day 22+)</strong> Switch to quick crops like Wheat (4 days) or consider finishing with regrow crops only if already planted.
               </p>
               <p className="text-xs leading-5 text-[#6f4b2a]/80">
                 Tip: Regrowing crops are usually best when planted early. Single-harvest crops can win late-season because they finish cleanly.

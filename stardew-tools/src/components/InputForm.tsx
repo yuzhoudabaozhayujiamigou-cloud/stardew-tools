@@ -113,7 +113,7 @@ export function InputForm(props: {
                       <span className="block text-sm font-medium text-[#4d341f]">
                         {text.qualityOptions[option.value]}
                       </span>
-                      <span className="block text-xs text-[#6b4a2c]/75">
+                      <span className="block text-xs text-[#4a2f19]/90">
                         x{getQualityMultiplier(option.value).toFixed(2)}
                       </span>
                     </span>
@@ -158,7 +158,7 @@ export function InputForm(props: {
                     <span className="block text-sm font-medium text-[#4d341f]">
                       {optionLabel}
                     </span>
-                    <span className="block text-xs text-[#6b4a2c]/75">{optionHelper}</span>
+                    <span className="block text-xs text-[#4a2f19]/90">{optionHelper}</span>
                     {option.value ? (
                       <span className="sr-only">
                         {isActive
