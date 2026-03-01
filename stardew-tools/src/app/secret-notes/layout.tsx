@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   description:
     "Search and decode Stardew Valley Secret Notes with location hints, rewards, and completion tracking.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 };
 
