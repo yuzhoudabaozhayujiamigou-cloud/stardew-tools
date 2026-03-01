@@ -249,6 +249,12 @@ export default function StardewValleyProfitGuide2026Page() {
             </p>
             <p className="mt-3 text-sm leading-6 text-[#5c4033]/90 sm:text-base">
               In practice, the best profit guide is a balanced one: jars help you scale early, kegs pay you back later.
+              If you want the fastest &quot;profit acceleration&quot; day in the whole game, Skull Cavern is the other half of the
+              story.
+              <Link className={`ml-1 ${LINK_CLASS}`} href="/blog/skull-cavern-mining-profit-guide">
+                Skull Cavern mining profit guide
+              </Link>
+              .
             </p>
           </section>
 
