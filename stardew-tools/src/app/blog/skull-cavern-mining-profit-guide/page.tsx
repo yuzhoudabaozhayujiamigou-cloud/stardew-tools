@@ -182,6 +182,10 @@ export default function SkullCavernMiningProfitGuidePage() {
               <Link className={`ml-1 ${LINK_CLASS}`} href="/blog/greenhouse-layout-guide">
                 greenhouse layout guide
               </Link>
+              , and keep the big picture in mind with the
+              <Link className={`ml-1 ${LINK_CLASS}`} href="/blog/stardew-valley-profit-guide-2026">
+                Profit Guide 2026
+              </Link>
               .
             </p>
           </section>
