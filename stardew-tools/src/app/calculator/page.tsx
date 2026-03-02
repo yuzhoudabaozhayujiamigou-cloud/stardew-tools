@@ -99,6 +99,30 @@ export default function CalculatorPage() {
           text: "Yes. For early-game baselines, use Normal quality and Tiller Off. Then switch presets to test ‘Summer panic’ or ‘Greenhouse strategy’ once you unlock sprinklers/greenhouse.",
         },
       },
+      {
+        "@type": "Question",
+        name: "Why does a regrow crop sometimes rank above a higher-value crop?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Gold per day rewards repeat harvests. Regrowing crops can generate more total sell value over the same time window, especially when days remaining are limited.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What should I set for days remaining?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "For outdoor seasons, set the exact number of days left on the calendar. For greenhouse comparisons, use a longer window like 28 or 56 days so multiple regrow cycles appear.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does this account for fertilizer, Speed-Gro, or other growth bonuses?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "This tool focuses on baseline crop economics with core regrow logic and quality/profession multipliers. Fertilizer and growth-speed bonuses can change rankings, so treat results as a shortlist and adjust for your setup.",
+        },
+      },
     ],
   };
 
@@ -212,6 +236,130 @@ export default function CalculatorPage() {
             initialResults={initialResults}
           />
           <FaqGuideCard />
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
+              How the Crop Profit Calculator Works (And How to Use It Well)
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              This page is designed for fast, practical crop planning. You pick a season (or greenhouse), choose how
+              many days you have left, and the calculator ranks crops by the metric that matters most for decision
+              making: gold per day. Instead of scanning wiki tables and doing the regrow math by hand, you get a clean
+              comparison you can tweak in seconds.
+            </p>
+
+            <h3 className="mt-5 text-lg font-semibold text-[#4a321e]">What it does</h3>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              The calculator estimates two things for each crop: total profit over the time window you select, and the
+              average profit per day over that same window. That second number is why the ranking feels useful: it helps
+              you compare a long-grow crop with huge payouts against a fast crop you can harvest multiple times. It also
+              handles common Stardew edge cases like regrowing crops and quality multipliers, so your shortlist matches
+              what you actually experience in game.
+            </p>
+
+            <h3 className="mt-5 text-lg font-semibold text-[#4a321e]">How the math works (gold/day)</h3>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              At a high level, gold/day is computed as: <span className="font-semibold">(total sell value − total seed cost) ÷ days</span>.
+              The “total sell value” part is where the game logic lives. For single-harvest crops, you get one harvest if
+              the growth time fits inside your selected window. For regrowing crops, you get an initial harvest after the
+              first growth period, then additional harvests every regrow interval as long as there are days remaining.
+              This means a regrow crop with a slightly lower sell price can beat a slow crop when the season is short.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              Quality and professions are applied as multipliers on the sale price. If you toggle Tiller, the base crop
+              sale value increases accordingly. (Artisan is included as an option on this page for convenience, but keep
+              in mind that Artisan is most meaningful when you are processing crops into artisan goods.)
+            </p>
+
+            <h3 className="mt-5 text-lg font-semibold text-[#4a321e]">Inputs explained</h3>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              <span className="font-semibold">Season</span> filters the crop list to what you can plant right now.
+              <span className="font-semibold"> Days remaining</span> controls how many harvest cycles fit. Set it to the
+              number of days left in the season if you are planning outdoors, or use a longer window for greenhouse
+              planning.
+              <span className="font-semibold"> Quality</span> estimates the average sale value per harvest at that
+              quality tier.
+              <span className="font-semibold"> Tiller</span> boosts raw crop sales, while <span className="font-semibold">Artisan</span>
+              matters when you process.
+            </p>
+
+            <h3 className="mt-5 text-lg font-semibold text-[#4a321e]">Common pitfalls</h3>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              The most common mistake is optimizing the spreadsheet instead of the farm. Gold/day assumes you can water
+              and harvest on time. If you miss harvest days, regrow crops look better on paper than they feel in play.
+              Another pitfall is ignoring startup time: crops with a long initial growth can look amazing for a full
+              season, but become terrible when only 9–12 days remain.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              Also, remember that this calculator focuses on raw crop selling. If your real plan is to turn everything
+              into wine, juice, jelly, or pickles, your ranking can change. When processing is the goal, use the
+              calculator to pick candidates, then sanity-check the decision with a processing guide.
+            </p>
+
+            <h3 className="mt-5 text-lg font-semibold text-[#4a321e]">When to use keg/jar assumptions</h3>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              If you have more crops than machines, the limiting factor is not the crop; it is your keg or preserves jar
+              capacity. In that case, a “best crop” list based on raw gold/day is only a starting point. Your best choice
+              becomes the crop that produces the most value per machine-day given your processing pipeline. The
+              <Link
+                href="/blog/keg-vs-jar-profit-guide"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                keg vs jar profit guide
+              </Link>
+              breaks that tradeoff down clearly, including when wine beats juice and when jars are the better early-game
+              bet.
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              For greenhouse planning, “days remaining” is less meaningful than repeatable weekly throughput. A good
+              approach is to test a longer window (like 28 or 56 days), then compare your top picks against the
+              <Link
+                href="/blog/best-greenhouse-crops-stardew-valley"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                best greenhouse crops guide
+              </Link>
+              to confirm the assumptions match your sprinkler layout, harvesting cadence, and processing plan.
+            </p>
+
+            <h3 className="mt-6 text-lg font-semibold text-[#4a321e]">FAQ</h3>
+            <div className="mt-3 grid gap-3">
+              {[
+                {
+                  q: "Why does a regrow crop rank higher than a crop with a bigger single harvest?",
+                  a: "Gold/day rewards repeat harvests. A crop that regrows every few days can out-earn a slow crop over the same window, especially when you have limited days left.",
+                },
+                {
+                  q: "What should I set for days remaining?",
+                  a: "For outdoor seasons, set the exact days left on the calendar. For greenhouse comparisons, use a longer window like 28 or 56 days so regrow cycles show up clearly.",
+                },
+                {
+                  q: "Does this account for fertilizer, Speed-Gro, or multi-harvest perks?",
+                  a: "This page focuses on baseline crop economics and core regrow logic. Fertilizer and growth speed effects can change rankings; treat the output as a shortlist and adjust based on your actual setup.",
+                },
+                {
+                  q: "Why is Artisan here if this is a crop selling calculator?",
+                  a: "It is included so you can sanity-check how much profession multipliers matter in your plan. For true processing optimization, use a keg/jar guide and compare value per machine-day.",
+                },
+                {
+                  q: "Should I always pick the #1 gold/day crop?",
+                  a: "Not necessarily. Consider how often you can harvest, whether you can replant quickly, and whether your processing capacity is the bottleneck.",
+                },
+                {
+                  q: "What is the fastest way to decide between two close options?",
+                  a: "Check whether both options fit your harvest schedule and whether you will sell raw or process. If you process, compare their downstream value using a keg vs jar reference.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.q}
+                  className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm"
+                >
+                  <p className="text-sm font-semibold text-[#4a321e]">{item.q}</p>
+                  <p className="mt-1 text-sm leading-6 text-[#5f4228]/90">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <div className="flex flex-wrap items-start justify-between gap-4">
