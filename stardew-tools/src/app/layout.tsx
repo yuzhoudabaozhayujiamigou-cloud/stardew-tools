@@ -29,7 +29,6 @@ export const metadata: Metadata = {
     description:
       "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
     type: "website",
-    url: SITE_ORIGIN,
     siteName: SITE_NAME,
   },
   twitter: {
