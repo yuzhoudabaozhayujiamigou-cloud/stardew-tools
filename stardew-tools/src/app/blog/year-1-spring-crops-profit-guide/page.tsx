@@ -100,7 +100,22 @@ export default function Year1SpringCropsProfitGuidePage() {
               A practical guide for early-game Spring: compare crops by <strong>gold per day</strong> and pick a
               plan you can actually execute.
             </p>
-            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <TrackedBlogCtaLink
+                className={CTA_CLASS}
+                href="/calculator"
+                fromPath={fromPath}
+                ctaName="open_calculator_hero"
+              >
+                Open the Profit Calculator
+              </TrackedBlogCtaLink>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/best-crops-year-1">
+                Best Crops Year 1 →
+              </Link>
+            </div>
+
+            <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               Keywords: <strong>year 1 spring crops</strong>, <strong>best spring crops</strong>,{" "}
               <strong>daily profit stardew</strong>
             </p>
