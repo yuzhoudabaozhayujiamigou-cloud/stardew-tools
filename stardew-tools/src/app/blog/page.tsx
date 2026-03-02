@@ -79,6 +79,11 @@ const FEATURED_POSTS = [
     description: "Pick crops based on kegs/jars throughput and your play schedule.",
   },
   {
+    slug: "stardew-valley-artisan-profit-guide",
+    label: "Artisan Profit Guide",
+    description: "A bottleneck-based guide to kegs vs jars, best chains, and build order.",
+  },
+  {
     slug: "keg-vs-jar-quick-answer",
     label: "Keg vs Jar (Quick Answer)",
     description: "Fast rule-of-thumb decisions for Artisan profit.",
