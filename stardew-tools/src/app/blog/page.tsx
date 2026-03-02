@@ -32,7 +32,8 @@ function getAllBlogPosts() {
 
 const LABEL_OVERRIDES: Record<string, string> = {
   "how-many-kegs-do-i-need-quick-answer": "How Many Kegs Do I Need?",
-  "best-greenhouse-crops-quick-answer": "Best Greenhouse Crops",
+  "best-greenhouse-crops-quick-answer": "Best Greenhouse Crops (Quick Answer)",
+  "best-greenhouse-crops-stardew-valley": "Best Greenhouse Crops (Pillar Guide)",
   "ancient-fruit-vs-starfruit-quick-answer": "Ancient Fruit vs Starfruit",
   "keg-vs-jar-quick-answer": "Keg vs Jar",
   "artisan-vs-tiller-quick-answer": "Artisan vs Tiller",
@@ -71,6 +72,11 @@ const FEATURED_POSTS = [
     slug: "year-1-spring-crops-profit-guide",
     label: "Year 1 Spring Profit Guide",
     description: "Gold/day presets for a realistic early-game Spring plan.",
+  },
+  {
+    slug: "best-greenhouse-crops-stardew-valley",
+    label: "Best Greenhouse Crops",
+    description: "Pick crops based on kegs/jars throughput and your play schedule.",
   },
   {
     slug: "keg-vs-jar-quick-answer",
