@@ -47,6 +47,7 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "auto-petter-worth-it": "Is the Auto-Petter Worth It?",
   "money-making-guide": "Money Making Guide – From Broke to Rich",
   "best-crops-every-season": "Best Crops for Every Season",
+  "year-1-spring-crops-profit-guide": "Year 1 Spring Crops Profit Guide",
 };
 
 function humanizeSlug(slug: string): string {
@@ -67,14 +68,14 @@ const FEATURED_POSTS = [
     description: "Best crops by season + keg vs jar + top wine picks.",
   },
   {
+    slug: "year-1-spring-crops-profit-guide",
+    label: "Year 1 Spring Profit Guide",
+    description: "Gold/day presets for a realistic early-game Spring plan.",
+  },
+  {
     slug: "keg-vs-jar-quick-answer",
     label: "Keg vs Jar (Quick Answer)",
     description: "Fast rule-of-thumb decisions for Artisan profit.",
-  },
-  {
-    slug: "ancient-fruit-wine-vs-starfruit-wine",
-    label: "Ancient Fruit Wine vs Starfruit Wine",
-    description: "The best endgame wine depends on your bottleneck.",
   },
 ] as const;
 
