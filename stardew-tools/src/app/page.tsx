@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: "StardewProfit – Best Stardew Valley Crop Calculator & Guides",
+    description:
+      "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season, plan your farm, and read expert guides to maximize profit.",
+  },
+  twitter: {
+    card: "summary",
+    title: "StardewProfit – Best Stardew Valley Crop Calculator & Guides",
+    description:
+      "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season, plan your farm, and read expert guides to maximize profit.",
+  },
 };
 
 const ENTRY_LINK_CLASS =
@@ -51,6 +64,20 @@ const FEATURED_GUIDES = [
 ] as const;
 
 export default function HomePage() {
+  const webSiteLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "StardewProfit",
+    url: "https://www.stardewprofit.com/",
+  };
+
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "StardewProfit",
+    url: "https://www.stardewprofit.com/",
+  };
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#9ed7a4]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -75,6 +102,14 @@ export default function HomePage() {
       </div>
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+        />
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
             StardewProfit.com
