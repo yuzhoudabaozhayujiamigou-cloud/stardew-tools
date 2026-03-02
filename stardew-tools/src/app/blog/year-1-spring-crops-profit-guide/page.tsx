@@ -176,7 +176,7 @@ export default function Year1SpringCropsProfitGuidePage() {
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <TrackedBlogCtaLink
                   className={CTA_CLASS}
-                  href="/?season=spring&daysLeft=28"
+                  href="/calculator?season=spring&daysLeft=28"
                   fromPath={fromPath}
                   ctaName="spring_preset_28"
                 >
@@ -184,7 +184,7 @@ export default function Year1SpringCropsProfitGuidePage() {
                 </TrackedBlogCtaLink>
                 <TrackedBlogCtaLink
                   className={CTA_CLASS}
-                  href="/?season=spring&daysLeft=14"
+                  href="/calculator?season=spring&daysLeft=14"
                   fromPath={fromPath}
                   ctaName="spring_preset_14"
                 >
@@ -192,7 +192,7 @@ export default function Year1SpringCropsProfitGuidePage() {
                 </TrackedBlogCtaLink>
                 <TrackedBlogCtaLink
                   className={CTA_CLASS}
-                  href="/?season=spring&daysLeft=7"
+                  href="/calculator?season=spring&daysLeft=7"
                   fromPath={fromPath}
                   ctaName="spring_preset_7"
                 >
