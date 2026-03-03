@@ -330,6 +330,55 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
               <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
               <NoteDetailPanel note={note} isCompleted={false} />
 
+              <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Help</p>
+                <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">FAQ</h2>
+                <div className="mt-3 grid gap-3 text-sm leading-6 text-[#5f4228]/85">
+                  <div>
+                    <p className="font-semibold text-[#4a321e]">How do I get Secret Notes?</p>
+                    <p className="mt-1">
+                      Unlock the <span className="font-semibold">Magnifying Glass</span>, then most notes drop while doing
+                      normal activities (digging, chopping, mining). After you find a note, open it from your collections.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#4a321e]">What does “decoded hint” mean?</p>
+                    <p className="mt-1">
+                      It’s the actionable instruction (where to go + what to interact with). Use the location + hint together,
+                      then verify by checking the reward you receive.
+                    </p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-[#4a321e]">Why does this page matter if I already saw the note in-game?</p>
+                    <p className="mt-1">
+                      This page is a quick reference: location, reward, and common confusion points. It’s also shareable so you
+                      can send the exact note to friends.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link
+                    href="/secret-notes"
+                    className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                  >
+                    Browse all notes
+                  </Link>
+                  <Link
+                    href="/calculator"
+                    className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+                  >
+                    Profit calculator
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                  >
+                    Guides & blog
+                  </Link>
+                </div>
+              </section>
+
               {note.id === 22 ? (
                 <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Deep Dive Guide</p>
