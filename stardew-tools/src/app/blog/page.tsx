@@ -34,6 +34,7 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "how-many-kegs-do-i-need-quick-answer": "How Many Kegs Do I Need?",
   "best-greenhouse-crops-quick-answer": "Best Greenhouse Crops (Quick Answer)",
   "best-greenhouse-crops-stardew-valley": "Best Greenhouse Crops (Pillar Guide)",
+  "ancient-fruit-vs-starfruit": "Ancient Fruit vs Starfruit (Full Guide)",
   "ancient-fruit-vs-starfruit-quick-answer": "Ancient Fruit vs Starfruit",
   "keg-vs-jar-quick-answer": "Keg vs Jar",
   "artisan-vs-tiller-quick-answer": "Artisan vs Tiller",

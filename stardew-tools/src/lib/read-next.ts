@@ -17,6 +17,7 @@ const FEATURED_PRIORITY = [
 const LABEL_OVERRIDES: Record<string, string> = {
   "how-many-kegs-do-i-need-quick-answer": "How Many Kegs Do I Need?",
   "best-greenhouse-crops-quick-answer": "Best Greenhouse Crops",
+  "ancient-fruit-vs-starfruit": "Ancient Fruit vs Starfruit (Full Guide)",
   "ancient-fruit-vs-starfruit-quick-answer": "Ancient Fruit vs Starfruit",
   "ancient-fruit-wine-vs-starfruit-wine": "Ancient Fruit Wine vs Starfruit Wine",
   "keg-vs-jar-quick-answer": "Keg vs Jar",
@@ -58,6 +59,7 @@ const BLOG_SLUGS = getBlogSlugs();
 
 // Topic clusters for related post matching
 const TOPIC_TAGS: Record<string, string[]> = {
+  "ancient-fruit-vs-starfruit": ["wine", "greenhouse", "starfruit", "ancient-fruit", "deep-dive"],
   "ancient-fruit-vs-starfruit-quick-answer": ["wine", "greenhouse", "starfruit", "ancient-fruit"],
   "ancient-fruit-wine-vs-starfruit-wine": ["wine", "greenhouse", "starfruit", "ancient-fruit", "deep-dive"],
   "starfruit-vs-ancient-fruit-wine-quick-answer": ["wine", "greenhouse", "starfruit", "ancient-fruit"],

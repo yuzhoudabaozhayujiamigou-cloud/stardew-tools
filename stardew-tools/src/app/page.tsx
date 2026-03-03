@@ -47,9 +47,9 @@ const FEATURED_GUIDES = [
     blurb: "Fast rules of thumb for artisan goods decisions.",
   },
   {
-    slug: "best-greenhouse-crops-quick-answer",
-    label: "Best Greenhouse Crops",
-    blurb: "What to grow when seasons stop mattering.",
+    slug: "best-greenhouse-crops-stardew-valley",
+    label: "Best Greenhouse Crops (Pillar Guide)",
+    blurb: "Throughput-based greenhouse crop planning: kegs/jars + schedule.",
   },
   {
     slug: "year-1-spring-crops-profit-guide",

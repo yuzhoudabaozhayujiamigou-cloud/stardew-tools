@@ -346,6 +346,12 @@ export default function KegVsJarProfitGuidePage() {
                 {" "}for a fast recommendation.
               </li>
               <li>
+                <Link href="/blog/ancient-fruit-vs-starfruit" className={LINK}>
+                  Ancient Fruit vs Starfruit (Full Guide)
+                </Link>
+                {" "}for the baseline decision (profit vs effort).
+              </li>
+              <li>
                 <Link href="/blog/ancient-fruit-wine-vs-starfruit-wine" className={LINK}>
                   Ancient Fruit Wine vs Starfruit Wine
                 </Link>
