@@ -139,7 +139,7 @@ export default function BestGreenhouseCropsStardewValleyPage() {
                   <strong>Processing capacity</strong>: how many kegs / jars you can keep busy.
                 </li>
                 <li>
-                  <strong>Harvest rhythm</strong>: daily, every 3 days, weekly, or only on weekends.
+                  <strong>Harvest rhythm</strong>: daily, every 3 days, weekly, or only on weekends.
                 </li>
                 <li>
                   <strong>Replant effort</strong>: some crops regrow, others force replanting.
@@ -160,7 +160,7 @@ export default function BestGreenhouseCropsStardewValleyPage() {
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] p-4">
-                  <h3 className="text-base font-semibold text-[#4a321e]">Daily play (5 days/week)</h3>
+                  <h3 className="text-base font-semibold text-[#4a321e]">Daily play (5 days/week)</h3>
                   <p className="mt-2">
                     Crops with frequent harvests can win because you won→t miss cycles.
                   </p>
@@ -169,7 +169,7 @@ export default function BestGreenhouseCropsStardewValleyPage() {
                   </p>
                 </div>
                 <div className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] p-4">
-                  <h3 className="text-base font-semibold text-[#4a321e]">Weekend-only (1 days/week)</h3>
+                  <h3 className="text-base font-semibold text-[#4a321e]">Weekend-only (1 days/week)</h3>
                   <p className="mt-2">
                     Choose forgiving timing. Weekly regrow crops are your friend.
                   </p>
@@ -189,6 +189,46 @@ export default function BestGreenhouseCropsStardewValleyPage() {
                   Compare crops with your setup
                 </TrackedBlogCtaLink>
               </div>
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#fff8e8]/92 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/15 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Related Guides (Recommended Next)</h2>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              If you're optimizing your greenhouse, these guides connect the strategy to the numbers (kegs, jars, timing,
+              and season planning).
+            </p>
+            <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+              <Link className={CTA_CLASS + " justify-center text-center"} href="/calculator">
+                Profit Calculator (compare crops)
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/stardew-valley-artisan-profit-guide">
+                Artisan Profit Guide (kegs vs jars framework)
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/keg-vs-jar-profit-guide">
+                Keg vs Jar (full profit guide)
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/how-many-kegs-do-i-need-quick-answer">
+                How Many Kegs Do I Need? (capacity planning)
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/ancient-fruit-vs-starfruit-quick-answer">
+                Ancient Fruit vs Starfruit (quick answer)
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/starfruit-vs-ancient-fruit-wine-quick-answer">
+                Starfruit Wine vs Ancient Fruit Wine
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/greenhouse-layout-guide">
+                Greenhouse Layout Guide
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/best-crops-every-season">
+                Best Crops for Every Season
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/stardew-valley-profit-guide-2026">
+                Profit Guide 2026 (roadmap)
+              </Link>
+              <Link className="text-sm font-semibold text-[#5c3d23] underline" href="/blog/wine-vs-juice-quick-answer">
+                Wine vs Juice (when kegs win)
+              </Link>
             </div>
           </section>
 
@@ -304,7 +344,7 @@ export default function BestGreenhouseCropsStardewValleyPage() {
                 <div className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] p-4">
                   <h3 className="text-base font-semibold text-[#4a321e]">Loop 2: Frequent harvest + jar throughput</h3>
                   <p className="mt-2">
-                    Harvest every 1 days and keep a wall of preserves jars running constantly.
+                    Harvest every 1 days and keep a wall of preserves jars running constantly.
                   </p>
                   <p className="mt-2 text-xs text-[#6f4b2a]/75">
                     Great early when jars are cheaper than building a massive keg shed.

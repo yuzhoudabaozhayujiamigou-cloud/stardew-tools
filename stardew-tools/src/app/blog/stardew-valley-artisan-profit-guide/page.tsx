@@ -4,12 +4,15 @@ import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SITE_ORIGIN } from "@/lib/site";
+import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const publishedTime = "2026-03-02T00:00:00Z";
 const modifiedTime = "2026-03-02T00:00:00Z";
-const url =
-  "https://www.stardewprofit.com/blog/stardew-valley-artisan-profit-guide";
+const fromPath = "/blog/stardew-valley-artisan-profit-guide";
+const url = `${SITE_ORIGIN}${fromPath}`;
 
 const TITLE =
   "Stardew Valley Artisan Profit Guide: Kegs, Jars, and the Best Money Makers";
@@ -122,6 +125,9 @@ function Callout({
 }
 
 export default function StardewValleyArtisanProfitGuidePage() {
+  const pageUrl = url;
+  const readNextPosts = getBlogReadNextPosts("stardew-valley-artisan-profit-guide", 3);
+
   return (
     <div className="relative min-h-screen bg-[#f5e6c8] text-[#5c4033]">
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -556,43 +562,67 @@ export default function StardewValleyArtisanProfitGuidePage() {
           </section>
 
           <section className={CARD}>
-            <h2 className={H2}>Internal links used</h2>
+            <h2 className={H2}>Related Guides (Recommended Next)</h2>
             <p className={P}>
-              This guide intentionally links to existing tools and related posts
-              so readers can jump from “strategy” to “numbers.”
+              Use these links to jump from the strategy to the exact numbers (machine count, days-left, and profit per day).
             </p>
             <ul className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
               <li>
                 <Link href="/calculator" className={LINK}>
-                  /calculator
+                  Profit Calculator (compare chains)
                 </Link>
               </li>
               <li>
                 <Link href="/blog/keg-vs-jar-profit-guide" className={LINK}>
-                  /blog/keg-vs-jar-profit-guide
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog/keg-vs-jar-quick-answer" className={LINK}>
-                  /blog/keg-vs-jar-quick-answer
+                  Keg vs Jar (full profit guide)
                 </Link>
               </li>
               <li>
                 <Link href="/blog/how-many-kegs-do-i-need-quick-answer" className={LINK}>
-                  /blog/how-many-kegs-do-i-need-quick-answer
+                  How Many Kegs Do I Need? (capacity planning)
                 </Link>
               </li>
               <li>
-                <Link href="/blog/animal-profit-guide" className={LINK}>
-                  /blog/animal-profit-guide
+                <Link href="/blog/wine-vs-juice-quick-answer" className={LINK}>
+                  Wine vs Juice (keg bottlenecks)
                 </Link>
               </li>
               <li>
                 <Link href="/blog/best-greenhouse-crops-stardew-valley" className={LINK}>
-                  /blog/best-greenhouse-crops-stardew-valley
+                  Best Greenhouse Crops (throughput guide)
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/ancient-fruit-vs-starfruit-quick-answer" className={LINK}>
+                  Ancient Fruit vs Starfruit
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/animal-profit-guide" className={LINK}>
+                  Animal profit guide (stable daily income)
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/best-crops-every-season" className={LINK}>
+                  Best crops for every season
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/speed-gro-vs-deluxe-speed-gro" className={LINK}>
+                  Speed-Gro vs Deluxe Speed-Gro
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/stardew-valley-profit-guide-2026" className={LINK}>
+                  Profit guide 2026 (roadmap)
                 </Link>
               </li>
             </ul>
+          </section>
+
+          <section className={CARD}>
+            <h2 className={H2}>Read Next</h2>
+            <BlogReadNext posts={readNextPosts} currentSlug="stardew-valley-artisan-profit-guide" />
           </section>
         </article>
 
