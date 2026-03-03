@@ -9,6 +9,7 @@ const STATIC_ENTRIES = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/calculator", changeFrequency: "weekly", priority: 0.9 },
   { path: "/blog", changeFrequency: "daily", priority: 0.8 },
+  { path: "/secret-notes", changeFrequency: "weekly", priority: 0.8 },
 ] as const satisfies ReadonlyArray<{
   path: string;
   changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
@@ -30,6 +31,7 @@ function getBlogDirectories(): string[] {
 }
 
 function getBlogLastModified(blogSlug: string, fallback: Date): Date {
+  // Best-effort; used for stable ordering and freshness hints in sitemap.
   const pagePath = join(process.cwd(), "src", "app", "blog", blogSlug, "page.tsx");
 
   if (!existsSync(pagePath)) {
@@ -67,5 +69,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...blogEntries];
+  const secretNotesEntries: MetadataRoute.Sitemap = Array.from({ length: 25 }, (_, index) => {
+    const noteId = index + 1;
+
+    return {
+      url: `${SITE_ORIGIN}/secret-notes/${noteId}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    } satisfies MetadataRoute.Sitemap[number];
+  });
+
+  return [...staticEntries, ...blogEntries, ...secretNotesEntries];
 }
