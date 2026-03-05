@@ -47,6 +47,7 @@ export function InputForm(props: {
   const { value, onChange, lang } = props;
   const text = getCalculatorText(lang);
   const artisanEnabled = value.profession === "artisan";
+  const advancedSettingsLabel = lang === "zh" ? "高级设置" : "Advanced Settings";
 
   return (
     <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -66,7 +67,7 @@ export function InputForm(props: {
         </span>
       </div>
 
-      <div className="mt-4 grid gap-4 xl:grid-cols-[minmax(0,300px)_minmax(0,1fr)]">
+      <div className="mt-4">
         <label className="grid gap-2">
           <span className="text-sm font-medium text-[#5a3d25]">{text.seasonLabel}</span>
           <select
@@ -81,8 +82,12 @@ export function InputForm(props: {
             <option value="greenhouse">{text.seasonOptions.greenhouse}</option>
           </select>
         </label>
+      </div>
 
-        <fieldset className="grid gap-2">
+      <details className="mt-4 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8]/85 p-3">
+        <summary className="cursor-pointer text-sm font-semibold text-[#5a3d25]">{advancedSettingsLabel}</summary>
+
+        <fieldset className="mt-3 grid gap-2">
           <legend className="text-sm font-medium text-[#5a3d25]">{text.qualityLabel}</legend>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {qualityOptions.map((option) => {
@@ -123,82 +128,81 @@ export function InputForm(props: {
             })}
           </div>
         </fieldset>
-      </div>
 
-      <fieldset className="mt-4 grid gap-2">
-        <legend className="text-sm font-medium text-[#5a3d25]">{text.tillerLabel}</legend>
-        <div className="grid grid-cols-1 gap-2 sm:max-w-md sm:grid-cols-2">
-          {tillerOptions.map((option) => {
-            const isActive = value.hasTiller === option.value;
-            const optionLabel = option.value ? text.tillerOn : text.tillerOff;
-            const optionHelper = option.value ? text.tillerOnHelper : text.tillerOffHelper;
+        <fieldset className="mt-4 grid gap-2">
+          <legend className="text-sm font-medium text-[#5a3d25]">{text.tillerLabel}</legend>
+          <div className="grid grid-cols-1 gap-2 sm:max-w-md sm:grid-cols-2">
+            {tillerOptions.map((option) => {
+              const isActive = value.hasTiller === option.value;
+              const optionLabel = option.value ? text.tillerOn : text.tillerOff;
+              const optionHelper = option.value ? text.tillerOnHelper : text.tillerOffHelper;
 
-            return (
-              <button
-                key={String(option.value)}
-                type="button"
-                onClick={() => onChange({ ...value, hasTiller: option.value })}
-                aria-pressed={isActive}
-                className={`rounded-2xl border px-3 py-2 text-left transition ${
-                  isActive
-                    ? "border-[#7f9a43] bg-[#dff0bc] shadow-inner shadow-[inset_0_0_0_1px_rgba(132,204,22,0.4)]"
-                    : "border-[#b88b63]/50 bg-[#fff8e8] hover:border-[#8e7b53]"
-                }`}
-              >
-                <span className="flex items-center gap-2">
-                  {option.icon ? (
-                    <span
-                      aria-hidden="true"
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#ab7a4f]/40 bg-[#efe0bb] text-[1.2rem] leading-none"
-                    >
-                      {option.icon}
-                    </span>
-                  ) : null}
-                  <span>
-                    <span className="block text-sm font-medium text-[#4d341f]">
-                      {optionLabel}
-                    </span>
-                    <span className="block text-xs text-[#4a2f19]/90">{optionHelper}</span>
-                    {option.value ? (
-                      <span className="sr-only">
-                        {isActive
-                          ? lang === "zh"
-                            ? "Tiller 已启用"
-                            : "Tiller profession enabled"
-                          : lang === "zh"
-                            ? "启用 Tiller"
-                            : "Enable tiller profession"}
+              return (
+                <button
+                  key={String(option.value)}
+                  type="button"
+                  onClick={() => onChange({ ...value, hasTiller: option.value })}
+                  aria-pressed={isActive}
+                  className={`rounded-2xl border px-3 py-2 text-left transition ${
+                    isActive
+                      ? "border-[#7f9a43] bg-[#dff0bc] shadow-inner shadow-[inset_0_0_0_1px_rgba(132,204,22,0.4)]"
+                      : "border-[#b88b63]/50 bg-[#fff8e8] hover:border-[#8e7b53]"
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    {option.icon ? (
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#ab7a4f]/40 bg-[#efe0bb] text-[1.2rem] leading-none"
+                      >
+                        {option.icon}
                       </span>
                     ) : null}
+                    <span>
+                      <span className="block text-sm font-medium text-[#4d341f]">
+                        {optionLabel}
+                      </span>
+                      <span className="block text-xs text-[#4a2f19]/90">{optionHelper}</span>
+                      {option.value ? (
+                        <span className="sr-only">
+                          {isActive
+                            ? lang === "zh"
+                              ? "Tiller 已启用"
+                              : "Tiller profession enabled"
+                            : lang === "zh"
+                              ? "启用 Tiller"
+                              : "Enable tiller profession"}
+                        </span>
+                      ) : null}
+                    </span>
                   </span>
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </fieldset>
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
 
-      <fieldset className="mt-4 grid gap-2">
-        <legend className="text-sm font-medium text-[#5a3d25]">{text.artisanProfessionLabel}</legend>
-        <label className="inline-flex items-center gap-2 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] px-3 py-2 text-sm text-[#4d341f]">
-          <input
-            type="checkbox"
-            checked={artisanEnabled}
-            onChange={(event) =>
-              onChange({
-                ...value,
-                profession: event.target.checked ? "artisan" : "none",
-              })
-            }
-            className="h-4 w-4 rounded border-[#a87a4d]/60 text-[#7f5731] focus:ring-[#7f5731]/40"
-          />
-          <span className="font-medium">{text.artisanToggle}</span>
-        </label>
-        <p className="text-xs text-[#6b4a2c]/80">
-          {text.artisanHint}
-        </p>
-      </fieldset>
+        <fieldset className="mt-4 grid gap-2">
+          <legend className="text-sm font-medium text-[#5a3d25]">{text.artisanProfessionLabel}</legend>
+          <label className="inline-flex items-center gap-2 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] px-3 py-2 text-sm text-[#4d341f]">
+            <input
+              type="checkbox"
+              checked={artisanEnabled}
+              onChange={(event) =>
+                onChange({
+                  ...value,
+                  profession: event.target.checked ? "artisan" : "none",
+                })
+              }
+              className="h-4 w-4 rounded border-[#a87a4d]/60 text-[#7f5731] focus:ring-[#7f5731]/40"
+            />
+            <span className="font-medium">{text.artisanToggle}</span>
+          </label>
+          <p className="text-xs text-[#6b4a2c]/80">
+            {text.artisanHint}
+          </p>
+        </fieldset>
+      </details>
     </section>
   );
 }
-

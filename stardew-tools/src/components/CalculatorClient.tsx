@@ -23,6 +23,7 @@ import { getPresetById } from "@/lib/presets";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const SHARE_RESET_DELAY_MS = 2200;
+const RESULTS_COLLAPSED_LIMIT = 5;
 const FEEDBACK_ISSUE_BASE = "https://github.com/yuzhoudabaozhayujiamigou-cloud/stardew-tools/issues/new";
 const VALID_QUERY_SEASONS = new Set<Season>([
   "spring",
@@ -154,6 +155,7 @@ export function CalculatorClient(props: {
   const [compareSelection] = useState<[string, string] | null>(initialQuery.compareSelection);
 
   const [formValue, setFormValue] = useState<InputFormValue>(initialQuery.form);
+  const [showAllResults, setShowAllResults] = useState(false);
 
   useEffect(() => {
     if (copyState === "idle") {
@@ -190,6 +192,10 @@ export function CalculatorClient(props: {
 
     return () => window.clearTimeout(timeoutId);
   }, [compareCopyState]);
+
+  useEffect(() => {
+    setShowAllResults(false);
+  }, [daysLeft, formValue.hasTiller, formValue.profession, formValue.quality, formValue.season]);
 
   const text = useMemo(() => getCalculatorText(lang), [lang]);
 
@@ -232,7 +238,14 @@ export function CalculatorClient(props: {
     return null;
   }, [compareSelection, results, resultsById]);
 
+  const tableSourceResults = results.length ? results : props.initialResults;
+  const visibleResults = showAllResults
+    ? tableSourceResults
+    : tableSourceResults.slice(0, RESULTS_COLLAPSED_LIMIT);
+  const shouldShowResultToggle = tableSourceResults.length > RESULTS_COLLAPSED_LIMIT;
+
   const topPick = results[0];
+  const quickAnswerPick = topPick ?? tableSourceResults[0];
   const compareTop = comparePair?.[0];
   const compareRunnerUp = comparePair?.[1];
 
@@ -334,6 +347,22 @@ export function CalculatorClient(props: {
         ? text.copyFailed
         : text.compareLinkButton;
 
+  const quickAnswerTitle = lang === "zh" ? "快速答案" : "Quick Answer";
+  const quickAnswerBestCropLabel = lang === "zh" ? "最佳作物" : "Best Crop";
+  const quickAnswerGoldPerDayLabel = lang === "zh" ? "金币/天" : "gold/day";
+
+  const resultToggleLabel = showAllResults
+    ? lang === "zh"
+      ? `显示前 ${RESULTS_COLLAPSED_LIMIT}`
+      : `Show Top ${RESULTS_COLLAPSED_LIMIT}`
+    : lang === "zh"
+      ? `显示全部（${tableSourceResults.length}）`
+      : `Show All (${tableSourceResults.length})`;
+
+  const collapsedResultHint = lang === "zh"
+    ? `默认仅展示前 ${RESULTS_COLLAPSED_LIMIT} 项（共 ${tableSourceResults.length} 项）`
+    : `Showing top ${RESULTS_COLLAPSED_LIMIT} of ${tableSourceResults.length}`;
+
   const copyText = async (nextText: string) => {
     try {
       await navigator.clipboard.writeText(nextText);
@@ -426,6 +455,18 @@ export function CalculatorClient(props: {
 
       <DaysLeftInput value={daysLeft} onChange={setDaysLeft} />
 
+      {quickAnswerPick ? (
+        <section className="mt-4 rounded-2xl border border-[#8a5b3a]/50 bg-[#fff2c8] px-4 py-3 text-sm text-[#5f4228]/95 shadow-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6b4a2c]/80">{quickAnswerTitle}</p>
+          <p className="mt-1 text-base font-semibold text-[#4a321e]">
+            {quickAnswerBestCropLabel}: {quickAnswerPick.cropName}
+          </p>
+          <p className="mt-1 text-sm text-[#5f4228]">
+            {fmt(quickAnswerPick.goldPerDay)} {quickAnswerGoldPerDayLabel}
+          </p>
+        </section>
+      ) : null}
+
       <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] px-4 py-3 text-sm text-[#5f4228]/90 shadow-sm">
         <button
           type="button"
@@ -487,57 +528,57 @@ export function CalculatorClient(props: {
         </ul>
       </details>
 
-      <div className="mt-5 grid min-h-[70vh] content-start gap-5 transition-opacity duration-200 motion-reduce:transition-none">
+      <div className="mt-5 grid content-start gap-5 transition-opacity duration-200 motion-reduce:transition-none">
         {topPick ? (
           <section className="rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
-          <h3 className="text-base font-semibold text-[#4a321e]">{text.explainTitle}</h3>
-          <p className="mt-2 leading-6">
-            {text.explainSummaryPrefix}: <strong>{topPick.cropName}</strong>
-          </p>
-          <ul className="mt-3 list-disc space-y-2 pl-5 leading-6">
-            <li>
-              <strong>{text.explainFormula}:</strong> {fmt(topPick.totalRevenue)} - {fmt(topPickSeedCost)} = {fmt(topPick.totalProfit)}
-            </li>
-            <li>
-              <strong>{text.explainRevenuePerHarvest}:</strong> {fmt(topPickRevenuePerHarvest)}
-            </li>
-            <li>
-              <strong>{text.explainSeedCost}:</strong> {fmt(topPickSeedCost)}
-            </li>
-          </ul>
-          <p className="mt-3 font-medium text-[#4a321e]">{text.explainFactors}</p>
-          <ul className="mt-2 list-disc space-y-1.5 pl-5 leading-6">
-            <li>{text.explainFactorSeason}: {formValue.season} · {daysLeft}</li>
-            <li>{text.explainFactorQuality}: {formValue.quality}</li>
-            <li>{text.explainFactorTiller}: {formValue.hasTiller ? "on" : "off"}</li>
-            <li>{text.explainFactorProfession}: {formValue.profession}</li>
-            <li>{text.explainFactorArtisan}</li>
-          </ul>
+            <h3 className="text-base font-semibold text-[#4a321e]">{text.explainTitle}</h3>
+            <p className="mt-2 leading-6">
+              {text.explainSummaryPrefix}: <strong>{topPick.cropName}</strong>
+            </p>
+            <ul className="mt-3 list-disc space-y-2 pl-5 leading-6">
+              <li>
+                <strong>{text.explainFormula}:</strong> {fmt(topPick.totalRevenue)} - {fmt(topPickSeedCost)} = {fmt(topPick.totalProfit)}
+              </li>
+              <li>
+                <strong>{text.explainRevenuePerHarvest}:</strong> {fmt(topPickRevenuePerHarvest)}
+              </li>
+              <li>
+                <strong>{text.explainSeedCost}:</strong> {fmt(topPickSeedCost)}
+              </li>
+            </ul>
+            <p className="mt-3 font-medium text-[#4a321e]">{text.explainFactors}</p>
+            <ul className="mt-2 list-disc space-y-1.5 pl-5 leading-6">
+              <li>{text.explainFactorSeason}: {formValue.season} · {daysLeft}</li>
+              <li>{text.explainFactorQuality}: {formValue.quality}</li>
+              <li>{text.explainFactorTiller}: {formValue.hasTiller ? "on" : "off"}</li>
+              <li>{text.explainFactorProfession}: {formValue.profession}</li>
+              <li>{text.explainFactorArtisan}</li>
+            </ul>
           </section>
         ) : null}
 
         {compareTop && compareRunnerUp ? (
           <section className="rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
-          <h3 className="text-base font-semibold text-[#4a321e]">{text.compareTitle}</h3>
-          <p className="mt-1 text-xs text-[#6b4a2c]/80">{text.compareSubtitle}</p>
+            <h3 className="text-base font-semibold text-[#4a321e]">{text.compareTitle}</h3>
+            <p className="mt-1 text-xs text-[#6b4a2c]/80">{text.compareSubtitle}</p>
 
-          <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
-            <div className="rounded-xl border border-[#b88b63]/40 bg-[#fff2c8] px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareTopPlan}</span>: {compareTop.cropName}
+            <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2">
+              <div className="rounded-xl border border-[#b88b63]/40 bg-[#fff2c8] px-3 py-2">
+                <span className="font-semibold text-[#4a321e]">{text.compareTopPlan}</span>: {compareTop.cropName}
+              </div>
+              <div className="rounded-xl border border-[#b88b63]/40 bg-[#fff2c8] px-3 py-2">
+                <span className="font-semibold text-[#4a321e]">{text.compareRunnerUp}</span>: {compareRunnerUp.cropName}
+              </div>
+              <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2">
+                <span className="font-semibold text-[#4a321e]">{text.compareProfitGap}</span>: {fmt(compareTop.totalProfit - compareRunnerUp.totalProfit)}
+              </div>
+              <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2">
+                <span className="font-semibold text-[#4a321e]">{text.compareGoldPerDayGap}</span>: {fmt(compareTop.goldPerDay - compareRunnerUp.goldPerDay)}
+              </div>
+              <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2 sm:col-span-2">
+                <span className="font-semibold text-[#4a321e]">{text.compareArtisanGap}</span>: {fmt(topArtisanBest - runnerArtisanBest)}
+              </div>
             </div>
-            <div className="rounded-xl border border-[#b88b63]/40 bg-[#fff2c8] px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareRunnerUp}</span>: {compareRunnerUp.cropName}
-            </div>
-            <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareProfitGap}</span>: {fmt(compareTop.totalProfit - compareRunnerUp.totalProfit)}
-            </div>
-            <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareGoldPerDayGap}</span>: {fmt(compareTop.goldPerDay - compareRunnerUp.goldPerDay)}
-            </div>
-            <div className="rounded-xl border border-[#b88b63]/35 bg-white/80 px-3 py-2 sm:col-span-2">
-              <span className="font-semibold text-[#4a321e]">{text.compareArtisanGap}</span>: {fmt(topArtisanBest - runnerArtisanBest)}
-            </div>
-          </div>
           </section>
         ) : null}
 
@@ -591,8 +632,20 @@ export function CalculatorClient(props: {
         </section>
 
         <div className="p-2">
+          {shouldShowResultToggle ? (
+            <div className="mb-2 flex flex-wrap items-center justify-between gap-2 px-1 text-xs text-[#6b4a2c]/80">
+              <span>{collapsedResultHint}</span>
+              <button
+                type="button"
+                onClick={() => setShowAllResults((previous) => !previous)}
+                className="rounded-lg border border-[#8a5b3a]/45 bg-[#fff2c8] px-2 py-1 font-semibold text-[#5c3d23] transition hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                {resultToggleLabel}
+              </button>
+            </div>
+          ) : null}
           <ResultTable
-            results={results.length ? results : props.initialResults}
+            results={visibleResults}
             quality={formValue.quality}
             hasTiller={formValue.hasTiller}
             profession={formValue.profession}
