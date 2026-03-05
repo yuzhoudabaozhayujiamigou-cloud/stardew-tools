@@ -229,6 +229,32 @@ export default function CalculatorPage() {
           </section>
         </header>
 
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Presets</p>
+          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Need a fast starting point?</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
+            Open a ready-made scenario, then tune values to match your farm. Start with these three and see all 10+
+            presets in the hub.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2.5">
+            <Link href="/calculator?preset=best-spring-10-days-left" className={QUICK_PRESET_LINK_CLASS}>
+              🌸 Spring (10 days left)
+            </Link>
+            <Link href="/calculator?preset=best-summer-10-days-left" className={QUICK_PRESET_LINK_CLASS}>
+              ☀️ Summer panic
+            </Link>
+            <Link href="/calculator?preset=ancient-vs-starfruit-greenhouse" className={QUICK_PRESET_LINK_CLASS}>
+              🏡 Greenhouse benchmark
+            </Link>
+            <Link
+              href="/presets"
+              className="inline-flex min-h-8 items-center rounded-xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-3 py-1.5 text-xs font-bold leading-5 text-white shadow-sm transition-colors duration-150 hover:bg-[#4e7a32]"
+            >
+              View All Presets
+            </Link>
+          </div>
+        </section>
+
         <section id="calculator" className="mt-8 grid gap-6 scroll-mt-4">
           <CalculatorClient
             crops={crops as Crop[]}

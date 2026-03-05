@@ -8,6 +8,7 @@ import { SITE_ORIGIN } from "@/lib/site";
 const STATIC_ENTRIES = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/calculator", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/presets", changeFrequency: "weekly", priority: 0.8 },
   { path: "/blog", changeFrequency: "daily", priority: 0.8 },
   { path: "/secret-notes", changeFrequency: "weekly", priority: 0.8 },
 ] as const satisfies ReadonlyArray<{
