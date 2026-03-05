@@ -87,7 +87,7 @@ export default function KegVsJarProfitGuidePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-[#e8cfa3]/35" />
       </div>
 
-      <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         <FaqJsonLd
           faqs={FAQ.map((item) => ({
             question: item.question,

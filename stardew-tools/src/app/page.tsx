@@ -30,36 +30,36 @@ const ENTRY_TITLE_CLASS = "text-lg font-semibold text-[#4a321e] sm:text-xl";
 
 const ENTRY_DESC_CLASS = "mt-2 text-sm leading-6 text-[#5f4228]/90";
 
-const FEATURED_GUIDES = [
+const POPULAR_GUIDES = [
   {
-    slug: "stardew-valley-profit-guide-2026",
-    label: "Stardew Valley Profit Guide (2026)",
-    blurb: "Best crops by season + keg vs jar + top wine picks.",
+    href: "/blog/best-crops-every-season",
+    title: "Best Crops Every Season",
+    description: "A simple season-by-season crop plan you can apply immediately.",
   },
   {
-    slug: "best-crops-every-season",
-    label: "Best Crops for Every Season",
-    blurb: "A season-by-season shortlist you can use immediately.",
+    href: "/blog/keg-vs-jar-profit-guide",
+    title: "Keg vs Jar Guide",
+    description: "See when to process with kegs vs jars for the best gold per day.",
   },
   {
-    slug: "keg-vs-jar-quick-answer",
-    label: "Keg vs Jar (Quick Answer)",
-    blurb: "Fast rules of thumb for artisan goods decisions.",
+    href: "/blog/year-1-spring-crops-profit-guide",
+    title: "Year 1 Spring",
+    description: "An early-game planting strategy built for realistic cash flow.",
   },
   {
-    slug: "best-greenhouse-crops-stardew-valley",
-    label: "Best Greenhouse Crops (Pillar Guide)",
-    blurb: "Throughput-based greenhouse crop planning: kegs/jars + schedule.",
+    href: "/blog/greenhouse-layout-guide",
+    title: "Greenhouse Layout",
+    description: "Layout ideas that maximize regrowth crops and machine throughput.",
   },
   {
-    slug: "year-1-spring-crops-profit-guide",
-    label: "Year 1 Spring Crops Profit Guide",
-    blurb: "Early-game plan that balances gold/day and realism.",
+    href: "/blog/ancient-fruit-vs-starfruit",
+    title: "Ancient Fruit vs Starfruit",
+    description: "Compare long-term wine profit, effort, and seasonal flexibility.",
   },
   {
-    slug: "money-making-guide",
-    label: "Money Making Guide",
-    blurb: "From broke to rich: the levers that actually move profit.",
+    href: "/blog/stardew-valley-artisan-profit-guide",
+    title: "Artisan Guide",
+    description: "Build a full artisan pipeline that scales from early to late game.",
   },
 ] as const;
 
@@ -138,6 +138,30 @@ export default function HomePage() {
           </div>
         </header>
 
+        <section className="mt-8 rounded-[28px] border-4 border-[#6f8b3c]/80 bg-[#e7f1c8]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">Popular Guides</p>
+          <h2 className="mt-1 text-xl font-semibold text-[#3f2d1b] sm:text-2xl">Read these first</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#4d3c28]/90">
+            Six high-signal blog guides for better crop choices, artisan processing, and greenhouse profit.
+          </p>
+
+          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {POPULAR_GUIDES.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className="group rounded-2xl border-2 border-[#7c4d2e]/60 bg-[#fff8e8]/80 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/80 hover:bg-[#fffef4]"
+              >
+                <h3 className="text-base font-semibold text-[#4a321e]">{guide.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{guide.description}</p>
+                <span className="mt-4 inline-flex text-sm font-semibold text-[#3f6f2c] transition group-hover:translate-x-0.5">
+                  Read Guide →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-8 grid gap-4 sm:grid-cols-3">
           <Link href="/calculator" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
@@ -168,29 +192,6 @@ export default function HomePage() {
               Search and decode Secret Notes, track progress, and jump straight to popular notes.
             </p>
           </Link>
-        </section>
-
-        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">
-            Featured guides
-          </p>
-          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Start here</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
-            Six high-signal reads that answer the most common profit questions.
-          </p>
-
-          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {FEATURED_GUIDES.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="rounded-2xl border-2 border-[#7c4d2e]/60 bg-white/55 px-4 py-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/80 hover:bg-white/70"
-              >
-                {post.label}
-                <div className="mt-1 text-xs font-semibold text-[#5f4228]/80">{post.blurb}</div>
-              </Link>
-            ))}
-          </div>
         </section>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

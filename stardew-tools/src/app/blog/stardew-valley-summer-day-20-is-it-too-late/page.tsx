@@ -159,7 +159,7 @@ export default function StardewValleySummerDay20IsItTooLatePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#b8e8ff]/55 via-transparent to-[#98ca73]/35" />
       </div>
 
-      <main className="relative z-10 mx-auto w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-10">
+      <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
         <FaqJsonLd faqs={faqItems} />
 

@@ -49,7 +49,7 @@ export function TopNav() {
 
   return (
     <header className="sticky top-0 z-50 border-b-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 shadow-[0_6px_16px_rgba(56,41,23,0.2)] backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
         <Link href="/calculator" className="inline-flex items-center gap-2 text-sm font-semibold text-[#4a321e]">
           <span aria-hidden="true" className="inline-flex items-center leading-none opacity-80">
             🌾
