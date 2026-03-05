@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BlogCalculatorSprintCta } from "@/components/blog/BlogCalculatorSprintCta";
 import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
@@ -115,7 +116,6 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
     };
   });
 
-  const season = "fall" as const;
 
   const profitCranberryNormal = cranberry
     ? calculateSeasonProfit({ crop: cranberry, seasonDays: 28, quality: "normal", hasTiller: false, profession: "none" })
@@ -344,6 +344,12 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
               ))}
             </ul>
           </section>
+
+          <BlogCalculatorSprintCta
+            fromPath={fromPath}
+            primaryHref="/calculator?season=fall&daysLeft=14"
+            primaryLabel="Open Timing Test in Calculator"
+          />
         </article>
 
         <BlogReadNext posts={readNextPosts} currentSlug="speed-gro-vs-deluxe-speed-gro" />

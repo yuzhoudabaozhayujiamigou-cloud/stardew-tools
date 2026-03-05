@@ -125,7 +125,6 @@ function Callout({
 }
 
 export default function StardewValleyArtisanProfitGuidePage() {
-  const pageUrl = url;
   const readNextPosts = getBlogReadNextPosts("stardew-valley-artisan-profit-guide", 3);
 
   return (

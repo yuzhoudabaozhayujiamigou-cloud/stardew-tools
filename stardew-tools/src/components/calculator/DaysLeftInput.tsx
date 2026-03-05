@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 function clampInt(value: number, min: number, max: number) {
   return Math.max(min, Math.min(max, value));
@@ -22,9 +22,9 @@ export function DaysLeftInput(props: {
 
   const [text, setText] = useState<string>(String(props.value));
 
-  useEffect(() => {
+  if (text !== String(props.value)) {
     setText(String(props.value));
-  }, [props.value]);
+  }
 
   const helper = useMemo(() => {
     return `Clamp ${min}–${max}. Assumes you can plant today.`;

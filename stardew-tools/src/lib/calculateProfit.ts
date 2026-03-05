@@ -180,8 +180,8 @@ function calculateArtisanGoodsProfit(
   // Artisan 技能加成
   const artisanBonus = hasArtisan ? 1.4 : 1.0;
 
-  // Tiller 技能加成（加工品不受 Tiller 影响，但这里保持一致性）
-  const tillerBonus = hasTiller ? 1.1 : 1.0;
+  // Tiller 技能加成：加工品不受 Tiller 影响
+  void hasTiller;
 
   // 加工品售价
   const artisanSellPrice = sellPrice * multiplier * artisanBonus;

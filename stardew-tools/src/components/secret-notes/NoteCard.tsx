@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 import type { SecretNote } from "@/components/secret-notes/types";
@@ -20,7 +21,14 @@ export function NoteCard(props: NoteCardProps) {
     >
       <div className="mb-3 aspect-video overflow-hidden rounded-xl border border-[#b58b61]/45 bg-[#f7e9c8]">
         {note.locationImage ? (
-          <img src={note.locationImage} alt={`${note.title} preview`} className="h-full w-full object-cover" loading="lazy" />
+          <Image
+            src={note.locationImage}
+            alt={`${note.title} preview`}
+            width={640}
+            height={360}
+            className="h-full w-full object-cover"
+            sizes="(min-width: 768px) 320px, 100vw"
+          />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-[11px] font-semibold uppercase tracking-[0.12em] text-[#7a5a37]/80">
             No Preview

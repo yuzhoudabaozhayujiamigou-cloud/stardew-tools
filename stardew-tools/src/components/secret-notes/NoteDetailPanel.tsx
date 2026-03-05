@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import type { SecretNote } from "@/components/secret-notes/types";
 
 type NoteDetailPanelProps = {
@@ -52,11 +54,13 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
           <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Location Preview</div>
           <div className="mt-3 aspect-video overflow-hidden rounded-2xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce]">
             {note.locationImage ? (
-              <img
+              <Image
                 src={note.locationImage}
                 alt={`${note.location} map preview`}
+                width={960}
+                height={540}
                 className="block h-full w-full object-cover"
-                loading="lazy"
+                sizes="(min-width: 768px) 640px, 100vw"
               />
             ) : (
               <div

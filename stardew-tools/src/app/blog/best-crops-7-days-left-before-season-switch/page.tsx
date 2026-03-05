@@ -15,6 +15,11 @@ type PickItem = {
   why: string;
 };
 
+type QuickRule = {
+  label: string;
+  text: string;
+};
+
 type TableRow = {
   crop: string;
   growth: string;
@@ -38,6 +43,21 @@ const topPicks: PickItem[] = [
   {
     crop: "Kale",
     why: "Simple one-cycle route if you prefer predictable timing over aggressive bets.",
+  },
+];
+
+const quickRules: QuickRule[] = [
+  {
+    label: "Rule #1",
+    text: "If the crop can’t mature before the season ends, skip it (no harvest = no profit).",
+  },
+  {
+    label: "Rule #2",
+    text: "With 7 days left, you’re usually planning for one harvest — favor fast, reliable crops over long growers.",
+  },
+  {
+    label: "Rule #3",
+    text: "If you’ll process in kegs/jars, use the calculator to compare true gold/day for your setup.",
   },
 ];
 
@@ -78,7 +98,17 @@ const faqItems = [
   {
     question: "What should I plant with 7 days left before the season switch?",
     answer:
-      "Focus on fast crops. Potato, garlic, parsnip, and kale are the safest practical choices in a 7-day window.",
+      "Focus on fast crops that still mature before the season ends. Potato, garlic, parsnip, and kale are the safest practical choices in a 7-day window.",
+  },
+  {
+    question: "How do I know if a crop will finish before the season ends?",
+    answer:
+      "Count the crop’s days to grow from today. If it can’t mature before the last day of the season, skip it (no harvest = no profit).",
+  },
+  {
+    question: "How many harvests can I get if I only have 7 days left?",
+    answer:
+      "Usually one harvest. Most viable picks in a 7-day window are single-cycle decisions, not multi-cycle plans.",
   },
   {
     question: "Is it too late to plant cauliflower with 7 days left?",
@@ -86,9 +116,9 @@ const faqItems = [
       "Yes in baseline runs. Cauliflower needs 12 days, so planting with only 7 days left usually misses harvest.",
   },
   {
-    question: "How many harvests can I get if I only have 7 days left?",
+    question: "Should I use a calculator for a 7-day window?",
     answer:
-      "Usually one harvest. Most viable picks in a 7-day window are single-cycle decisions, not multi-cycle plans.",
+      "Yes if you want exact gold/day for your setup (season, skills, fertilizers, and whether you’ll process in jars or kegs).",
   },
 ];
 
@@ -99,9 +129,9 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-17T00:00:00+08:00",
     modifiedTime: "2026-02-17T00:00:00+08:00",
   },
-  title: "Best Crops With 7 Days Left (Stardew Valley)",
+  title: "Best Crops With 7 Days Left in Stardew Valley (Max Profit)",
   description:
-    "Stardew Valley late-season guide for exactly 7 days left before season switch: fast crop picks, expected harvest count, and direct calculator CTA.",
+    "Only 7 days left in the season? Here are the best Stardew Valley crops to plant for maximum profit, plus a quick rule of thumb and a calculator shortcut.",
 };
 
 export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
@@ -125,7 +155,7 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: "Stardew Valley: Best Crops With 7 Days Left Before Season Switch",
+    headline: "Best Crops With 7 Days Left in Stardew Valley (Max Profit)",
     datePublished: "2026-02-17",
     author: {
       "@type": "Organization",
@@ -175,13 +205,13 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
 
             <div className="mt-3 space-y-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <p>
-                At 7 days left, this is no longer a growth-max strategy. It is a strict “what can still finish” decision.
+                Only 7 days left? This is no longer a growth-max strategy — it is a strict “what can still finish” decision.
               </p>
               <p>
                 In calculator terms, this scenario is <strong>daysLeft = 7</strong> for current-season planting.
               </p>
               <p>
-                Open the exact short-window setup: {" "}
+                Want exact numbers for your farm? Jump straight to the short-window setup: {" "}
                 <TrackedBlogCtaLink
                   className="font-semibold text-[#6a3f1e] underline"
                   href="/calculator?season=spring&daysLeft=7"
@@ -208,6 +238,55 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
               </TrackedBlogCtaLink>
             </div>
           </header>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-2xl font-semibold text-[#4a321e]">TL;DR (7 Days Left)</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#614326]/90">
+              {quickRules.map((rule) => (
+                <li key={rule.label}>
+                  <strong className="text-[#4e341f]">{rule.label}:</strong> {rule.text}
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-4 text-sm leading-6 text-[#614326]/90">
+              If you only want the picks, jump down to the list. If you want exact profit numbers (including skills or processing), use the calculator.
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+                href="#top-picks"
+              >
+                <span aria-hidden className="opacity-80">
+                  ✅
+                </span>
+                Top picks
+              </Link>
+
+              <Link
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+                href="#assumptions"
+              >
+                <span aria-hidden className="opacity-80">
+                  🔍
+                </span>
+                Assumptions
+              </Link>
+
+              <TrackedBlogCtaLink
+                href="/calculator?season=spring&daysLeft=7"
+                fromPath={fromPath}
+                ctaName="tldr_calculator_button"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+              >
+                <span aria-hidden className="opacity-80">
+                  🧮
+                </span>
+                Calculator (Spring, daysLeft=7)
+              </TrackedBlogCtaLink>
+            </div>
+          </section>
 
           <section className="rounded-[24px] border-2 border-[#9f744c]/35 bg-[#fff8e8]/85 p-4 sm:p-5">
             <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#6f4b2a]/80">Quick Nav</h2>

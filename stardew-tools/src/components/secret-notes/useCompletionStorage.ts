@@ -16,29 +16,30 @@ function normalizeCompletedIds(input: unknown): number[] {
 }
 
 export function useCompletionStorage() {
-  const [completedNoteIds, setCompletedNoteIds] = useState<Set<number>>(new Set());
-  const [isStorageReady, setIsStorageReady] = useState(false);
-  const writeTimerRef = useRef<number | null>(null);
-
-  useEffect(() => {
+  const [completedNoteIds, setCompletedNoteIds] = useState<Set<number>>(() => {
     if (typeof window === "undefined") {
-      return;
+      return new Set();
     }
 
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
 
-      if (raw) {
-        const parsed = JSON.parse(raw) as unknown;
-        const normalized = normalizeCompletedIds(parsed);
-        setCompletedNoteIds(new Set(normalized));
+      if (!raw) {
+        return new Set();
       }
+
+      const parsed = JSON.parse(raw) as unknown;
+      const normalized = normalizeCompletedIds(parsed);
+      return new Set(normalized);
     } catch {
-      setCompletedNoteIds(new Set());
+      return new Set();
     }
+  });
 
-    setIsStorageReady(true);
+  const [isStorageReady] = useState(true);
+  const writeTimerRef = useRef<number | null>(null);
 
+  useEffect(() => {
     return () => {
       if (writeTimerRef.current !== null) {
         window.clearTimeout(writeTimerRef.current);

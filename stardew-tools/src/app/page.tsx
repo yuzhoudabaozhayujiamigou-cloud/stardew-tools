@@ -118,7 +118,7 @@ export default function HomePage() {
             Make smarter farm profit decisions
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Use the fast crop profit calculator, then follow short guides that explain the "why" behind the best
+            Use the fast crop profit calculator, then follow short guides that explain the {"\"why\""} behind the best
             picks.
           </p>
 
@@ -209,7 +209,7 @@ export default function HomePage() {
             <div className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4">
               <div className="text-sm font-semibold text-[#4a321e]">What should I plant mid-season?</div>
               <div className="mt-2 text-sm leading-6 text-[#5f4228]/85">
-                Use the calculator with "days left" presets to avoid crops that won’t finish. Many guides focus on
+                Use the calculator with {"\"days left\""} presets to avoid crops that won’t finish. Many guides focus on
                 exact days like day 7, 15, or 20.
               </div>
             </div>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import { BlogCalculatorSprintCta } from "@/components/blog/BlogCalculatorSprintCta";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -242,6 +243,12 @@ export default function Year1SpringCropsProfitGuidePage() {
               ))}
             </div>
           </section>
+
+          <BlogCalculatorSprintCta
+            fromPath={fromPath}
+            primaryHref="/calculator?preset=best-spring-10-days-left"
+            primaryLabel="Open Spring Year 1 Preset"
+          />
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Read Next</h2>

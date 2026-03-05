@@ -195,7 +195,7 @@ export default function BestGreenhouseCropsStardewValleyPage() {
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#fff8e8]/92 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/15 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Related Guides (Recommended Next)</h2>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              If you're optimizing your greenhouse, these guides connect the strategy to the numbers (kegs, jars, timing,
+              If you&apos;re optimizing your greenhouse, these guides connect the strategy to the numbers (kegs, jars, timing,
               and season planning).
             </p>
             <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">

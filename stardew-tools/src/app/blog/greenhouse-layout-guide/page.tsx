@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BlogCalculatorSprintCta } from "@/components/blog/BlogCalculatorSprintCta";
 import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
@@ -359,6 +360,12 @@ export default function GreenhouseLayoutGuidePage() {
               ))}
             </ul>
           </section>
+
+          <BlogCalculatorSprintCta
+            fromPath={fromPath}
+            primaryHref="/calculator?preset=ancient-vs-starfruit-greenhouse"
+            primaryLabel="Open Greenhouse Preset"
+          />
         </article>
 
         <BlogReadNext posts={readNextPosts} currentSlug="greenhouse-layout-guide" />

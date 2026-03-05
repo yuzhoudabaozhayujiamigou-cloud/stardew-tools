@@ -153,7 +153,7 @@ export default function AncientFruitVsStarfruitPage() {
                 <strong>Machine throughput</strong>: Do you have enough <Link href="/blog/how-many-kegs-do-i-need-quick-answer" className={LINK}>kegs</Link> or jars?
               </li>
               <li>
-                <strong>Schedule</strong>: Daily play vs weekend-only changes what is "best".
+                <strong>Schedule</strong>: Daily play vs weekend-only changes what is {"best"}.
               </li>
             </ul>
           </section>
@@ -175,7 +175,7 @@ export default function AncientFruitVsStarfruitPage() {
             <h2 className={H2}>Kegs vs jars: processing changes the winner</h2>
             <p className={P}>
               When you process fruit into wine, your limiting factor becomes machine-days. If you are keg-limited, the
-              question is not "which crop is best", it is "which crop produces the most value per keg cycle".
+              question is not {"\"which crop is best\""}, it is {"\"which crop produces the most value per keg cycle\""}.
             </p>
             <p className={P}>
               Use these two guides to sanity-check the pipeline:

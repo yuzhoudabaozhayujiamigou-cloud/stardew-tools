@@ -91,21 +91,21 @@ export function CalculatorClient(props: {
   initialSeason: Season;
   initialResults: ProfitResult[];
 }) {
-  const [daysLeft, setDaysLeft] = useState<number>(28);
-  const [lang, setLang] = useState<CalculatorLang>("en");
-  const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
-  const [shareTextState, setShareTextState] = useState<"idle" | "copied" | "error">("idle");
-  const [compareCopyState, setCompareCopyState] = useState<"idle" | "copied" | "error">("idle");
-  const [compareSelection, setCompareSelection] = useState<[string, string] | null>(null);
+  const initialQuery = (() => {
+    if (typeof window === "undefined") {
+      return {
+        lang: "en" as CalculatorLang,
+        compareSelection: null as [string, string] | null,
+        form: {
+          season: props.initialSeason,
+          quality: "normal",
+          hasTiller: false,
+          profession: "none",
+        } satisfies InputFormValue,
+        daysLeft: 28,
+      };
+    }
 
-  const [formValue, setFormValue] = useState<InputFormValue>({
-    season: props.initialSeason,
-    quality: "normal",
-    hasTiller: false,
-    profession: "none",
-  });
-
-  useEffect(() => {
     try {
       const params = new URLSearchParams(window.location.search);
 
@@ -120,22 +120,40 @@ export function CalculatorClient(props: {
         nextDaysLeft ??
         (typeof preset?.defaultDaysLeft === "number" ? clampSeasonDays(preset.defaultDaysLeft) : null);
 
-      setLang(nextLang);
-      setCompareSelection(nextCompare);
-
-      setFormValue((previous) => ({
-        ...previous,
-        season: nextSeason ?? preset?.defaultSeason ?? previous.season,
-        profession: nextProfession ?? preset?.defaultProfession ?? previous.profession,
-      }));
-
-      if (resolvedDaysLeft !== null) {
-        setDaysLeft(resolvedDaysLeft);
-      }
+      return {
+        lang: nextLang,
+        compareSelection: nextCompare,
+        form: {
+          season: nextSeason ?? preset?.defaultSeason ?? props.initialSeason,
+          quality: "normal",
+          hasTiller: false,
+          profession: nextProfession ?? preset?.defaultProfession ?? "none",
+        } satisfies InputFormValue,
+        daysLeft: resolvedDaysLeft ?? 28,
+      };
     } catch {
-      // ignore query parse failures
+      return {
+        lang: "en" as CalculatorLang,
+        compareSelection: null as [string, string] | null,
+        form: {
+          season: props.initialSeason,
+          quality: "normal",
+          hasTiller: false,
+          profession: "none",
+        } satisfies InputFormValue,
+        daysLeft: 28,
+      };
     }
-  }, []);
+  })();
+
+  const [daysLeft, setDaysLeft] = useState<number>(initialQuery.daysLeft);
+  const [lang, setLang] = useState<CalculatorLang>(initialQuery.lang);
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
+  const [shareTextState, setShareTextState] = useState<"idle" | "copied" | "error">("idle");
+  const [compareCopyState, setCompareCopyState] = useState<"idle" | "copied" | "error">("idle");
+  const [compareSelection] = useState<[string, string] | null>(initialQuery.compareSelection);
+
+  const [formValue, setFormValue] = useState<InputFormValue>(initialQuery.form);
 
   useEffect(() => {
     if (copyState === "idle") {
