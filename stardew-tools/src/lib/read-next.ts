@@ -17,6 +17,7 @@ const FEATURED_PRIORITY = [
 const LABEL_OVERRIDES: Record<string, string> = {
   "how-many-kegs-do-i-need-quick-answer": "How Many Kegs Do I Need?",
   "best-greenhouse-crops-quick-answer": "Best Greenhouse Crops",
+  "flower-only-farm-profit-guide": "Flower-Only Farm Profit Guide",
   "ancient-fruit-vs-starfruit": "Ancient Fruit vs Starfruit (Full Guide)",
   "ancient-fruit-vs-starfruit-quick-answer": "Ancient Fruit vs Starfruit",
   "ancient-fruit-wine-vs-starfruit-wine": "Ancient Fruit Wine vs Starfruit Wine",
@@ -68,7 +69,10 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "how-many-kegs-do-i-need-quick-answer": ["keg", "wine", "artisan"],
   "wine-vs-juice-quick-answer": ["keg", "wine", "artisan"],
   "hops-vs-starfruit-quick-answer": ["starfruit", "hops", "summer", "keg"],
+  "stardew-honey-profit-guide": ["honey", "beehouse", "flower", "artisan", "profit"],
+  "flower-only-farm-profit-guide": ["flower", "honey", "beehouse", "layout", "artisan", "fairy-rose", "year-1", "profit"],
   "best-greenhouse-crops-quick-answer": ["greenhouse", "ancient-fruit", "starfruit"],
+  "stardew-valley-artisan-profit-guide": ["artisan", "honey", "keg", "jar", "profit"],
   "greenhouse-layout-guide": ["greenhouse", "layout", "sprinkler", "ancient-fruit", "starfruit"],
   "best-fall-crops-quick-answer": ["fall", "timing", "cranberry", "pumpkin"],
   "best-crops-year-1": ["year-1", "beginner", "spring", "summer", "fall", "winter", "profit", "guide"],
