@@ -230,6 +230,50 @@ export default function CalculatorPage() {
               Read one, then come back here and use the presets to lock in a plan.
             </p>
           </section>
+
+          <section className="mt-5 rounded-2xl border-2 border-[#6f8b3c]/60 bg-[#e7f1c8]/80 p-4 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">
+              Popular Topics
+            </p>
+            <div className="mt-2 grid gap-2.5 sm:grid-cols-3">
+              <Link 
+                href="/blog/year-1-spring-crops-profit-guide" 
+                className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-lg" aria-hidden="true">🌱</span>
+                  <span className="text-sm font-semibold text-[#4a321e]">Year 1 Guide</span>
+                </div>
+                <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
+                  Spring crops, upgrade order, and early game money strategy
+                </p>
+              </Link>
+              <Link 
+                href="/blog/best-greenhouse-crops-stardew-valley" 
+                className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-lg" aria-hidden="true">🏡</span>
+                  <span className="text-sm font-semibold text-[#4a321e]">Greenhouse Strategy</span>
+                </div>
+                <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
+                  Ancient Fruit vs Starfruit, layout tips, and profit optimization
+                </p>
+              </Link>
+              <Link 
+                href="/blog/stardew-valley-keg-jar-artisan-profit-system" 
+                className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-lg" aria-hidden="true">🍷</span>
+                  <span className="text-sm font-semibold text-[#4a321e]">Keg vs Jar System</span>
+                </div>
+                <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
+                  Processing decisions, payback time, and artisan profit guide
+                </p>
+              </Link>
+            </div>
+          </section>
         </header>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
