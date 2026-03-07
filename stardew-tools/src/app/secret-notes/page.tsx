@@ -1,9 +1,69 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SecretNotesClient } from "@/components/secret-notes/SecretNotesClient";
 import { SiteFooter } from "@/components/SiteFooter";
 import { secretNotes } from "@/data/secretNotes";
+
+export const metadata: Metadata = {
+  title: "Stardew Valley Secret Notes Finder | StardewProfit",
+  description:
+    "Search and decode Stardew Valley Secret Notes with location hints, rewards, and completion tracking. Find all 25 secret notes and unlock hidden rewards.",
+  alternates: {
+    canonical: "/secret-notes",
+  },
+  openGraph: {
+    url: "/secret-notes",
+    title: "Stardew Valley Secret Notes Finder",
+    description:
+      "Search and decode all 25 secret notes with location hints and rewards.",
+    type: "website",
+    images: [
+      {
+        url: "/api/og?title=Secret+Notes+Finder&subtitle=Find+All+25+Secret+Notes&type=guide",
+        width: 1200,
+        height: 630,
+        alt: "Stardew Valley Secret Notes Finder",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stardew Valley Secret Notes Finder",
+    description:
+      "Search and decode all 25 secret notes with location hints and rewards.",
+    images: ["/api/og?title=Secret+Notes+Finder&subtitle=Find+All+25+Secret+Notes&type=guide"],
+  },
+};
+
+const secretNotesSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Stardew Valley Secret Notes Finder",
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Search and decode Stardew Valley Secret Notes with location hints, rewards, and completion tracking. Find all 25 secret notes and unlock hidden rewards.",
+  "url": "https://www.stardewprofit.com/secret-notes",
+  "screenshot": "https://www.stardewprofit.com/api/og?title=Secret+Notes+Finder&type=guide",
+  "featureList": [
+    "Search all 25 secret notes",
+    "Location hints and guides",
+    "Reward information",
+    "Completion tracking",
+    "Mobile-friendly interface"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "StardewProfit",
+    "url": "https://www.stardewprofit.com"
+  }
+};
 
 export default function SecretNotesPage() {
   return (
@@ -76,6 +136,12 @@ export default function SecretNotesPage() {
         </section>
 
         <SiteFooter className="mt-10" />
+
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(secretNotesSchema) }}
+        />
       </main>
     </div>
   );

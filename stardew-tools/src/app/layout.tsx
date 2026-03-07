@@ -30,12 +30,21 @@ export const metadata: Metadata = {
       "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
     type: "website",
     siteName: SITE_NAME,
+    images: [
+      {
+        url: "/api/og?title=StardewProfit&subtitle=Best+Stardew+Valley+Crop+Calculator&type=default",
+        width: 1200,
+        height: 630,
+        alt: "StardewProfit - Stardew Valley Crop Calculator",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
     description:
       "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
+    images: ["/api/og?title=StardewProfit&subtitle=Best+Stardew+Valley+Crop+Calculator&type=default"],
   },
 };
 
@@ -51,6 +60,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Performance Optimization */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* Preload critical font */}
         <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body className="antialiased">

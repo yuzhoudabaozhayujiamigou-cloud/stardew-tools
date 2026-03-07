@@ -1,48 +1,131 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
-import { BlogReadNext } from "@/components/blog/BlogReadNext";
+import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
+import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
-import Breadcrumb from "@/components/Breadcrumb";
+import { SITE_ORIGIN } from "@/lib/site";
 
-const FAQ_EN = [
-  "What are the best summer crops in Stardew Valley?",
-  "Is Starfruit better than Blueberry?",
-  "What is the best summer crop for kegs?",
-  "What should I plant if I only have 14 days left in summer?",
-  "Do regrowing crops beat single-harvest crops?",
-  "Is it worth planting Hops in summer?",
-] as const;
+const publishedTime = "2026-02-27T00:00:00+08:00";
+const modifiedTime = "2026-03-07T00:00:00+08:00";
+const fromPath = "/blog/best-summer-crops-quick-answer";
+const url = `${SITE_ORIGIN}${fromPath}`;
 
-const FAQ_ZH = [
-  "星露谷夏季最好的作物是什么？",
-  "杨桃和蓝莓哪个更赚？",
-  "夏季最适合做酒桶（Keg）的作物是什么？",
-  "夏季只剩14天该种什么？",
-  "可重复收获作物一定更赚钱吗？",
-  "夏季种啤酒花值得吗？",
+const TITLE = "Best Summer Crops in Stardew Valley (Quick Answer + Profit Checklist)";
+const DESCRIPTION =
+  "Best Summer crops in Stardew Valley with quick picks for Day 1, mid-season, and late-season. Includes TL;DR, calculator CTA, crop links, and an 8-question FAQ.";
+
+const FAQ = [
+  {
+    question: "What is the best Summer crop in Stardew Valley for most players?",
+    answer:
+      "Blueberry is usually the safest best pick for most farms because it regrows, gives multiple berries per harvest, and scales well even before your processing setup is huge.",
+  },
+  {
+    question: "Is Starfruit better than Blueberry in Summer?",
+    answer:
+      "Starfruit wins on high single-crop value and can dominate with kegs plus Artisan. Blueberry is easier and more forgiving for Year 1 or low-machine farms.",
+  },
+  {
+    question: "What should I plant on Summer Day 1 if I want stable gold?",
+    answer:
+      "Plant mostly Blueberries, then add a smaller lane of Melon or Starfruit based on your budget and machine plans.",
+  },
+  {
+    question: "What if I only have around 14 days left in Summer?",
+    answer:
+      "Favor crops that can still finish cleanly in the remaining window and avoid slow chains that miss the season cutoff. Check calculator scenarios with daysLeft=14 before buying seeds.",
+  },
+  {
+    question: "Is Hops worth planting in Summer?",
+    answer:
+      "Hops is strong only if you can handle daily harvest rhythm and have enough kegs to process output. Without keg capacity, Hops can create backlog and stress.",
+  },
+  {
+    question: "Should I process Summer crops in kegs or preserve jars?",
+    answer:
+      "If fruit-heavy and machine-stable, kegs usually carry long-term profit. Jars are still useful for faster cashflow and overflow control.",
+  },
+  {
+    question: "Can late-season Wheat beat premium crops?",
+    answer:
+      "In short windows, yes. Fast crops can outperform expensive slow crops if the premium crop cannot finish or only yields once at poor timing.",
+  },
+  {
+    question: "What is the fastest way to choose Summer crops correctly?",
+    answer:
+      "Use a 3-step check: remaining days, seed budget, and machine capacity. Then test top candidates in the calculator before purchasing.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Best Summer Crops in Stardew Valley (Quick Answer)",
-  description:
-    "Find the best summer crops in Stardew Valley fast. Compare Blueberry, Starfruit, Melon, Hops, and more with summer calculator presets.",
+  title: `${TITLE} | Stardew Profit`,
+  description: DESCRIPTION,
+  keywords: [
+    "best summer crops stardew valley",
+    "stardew summer crop guide",
+    "blueberry vs starfruit stardew",
+    "summer day 15 stardew",
+    "stardew crop profit calculator",
+  ],
+  alternates: {
+    canonical: url,
+  },
   openGraph: {
+    title: `${TITLE} | Stardew Profit`,
+    description: DESCRIPTION,
     type: "article",
-    publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-02-27T00:00:00+08:00",
+    url,
+    images: [{ url: `${url}/opengraph-image` }],
+    publishedTime,
+    modifiedTime,
   },
 };
 
+const CARD =
+  "rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7";
+
+const H2 = "text-xl font-semibold text-[#4a321e] sm:text-2xl";
+
+const LINK =
+  "font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]";
+
 const CTA_CLASS =
-  "inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]";
+  "inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]";
 
 export default function BestSummerCropsQuickAnswerPage() {
-  const fromPath = "/blog/best-summer-crops-quick-answer";
   const readNextPosts = getBlogReadNextPosts("best-summer-crops-quick-answer", 3);
+
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: TITLE,
+    description: DESCRIPTION,
+    datePublished: publishedTime,
+    dateModified: modifiedTime,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    author: {
+      "@type": "Organization",
+      name: "Stardew Profit",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Stardew Profit",
+    },
+    image: [`${url}/opengraph-image`],
+    about: [
+      "best summer crops stardew valley",
+      "summer crop timing",
+      "blueberry starfruit comparison",
+    ],
+  };
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -61,155 +144,173 @@ export default function BestSummerCropsQuickAnswerPage() {
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
         <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
+          faqs={FAQ.map((item) => ({
+            question: item.question,
+            answer: item.answer,
           }))}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+        />
 
-        
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Best Summer Crops in Stardew Valley (Quick Answer)" },
+            { name: "Best Summer Crops" },
           ]}
         />
 
-<article className="space-y-6">
+        <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
-            <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-              Best Summer Crops in Stardew Valley
-            </h1>
-            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">星露谷夏季最赚钱的作物是什么？</p>
-          </header>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer • Summer Crop SEO</p>
+            <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">Best Summer Crops in Stardew Valley</h1>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">Use this page when you need a fast Summer crop choice that still respects timing, budget, and machine capacity.</p>
 
-          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Quick Answer</h2>
-            <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <p>
-                <strong>Blueberry</strong> is the best all-around summer crop for most farms: it regrows every 4 days
-                after the first harvest (13 days) and produces <strong>3 berries per harvest</strong>. If you plant on
-                Summer Day 1, you get multiple harvests with only one seed purchase.
-              </p>
-              <p>
-                <strong>Starfruit</strong> is the best <strong>single-harvest</strong> summer crop for raw selling price
-                (750g base), and it becomes a top-tier choice if you can process it into wine (especially with Artisan).
-                It takes 13 days, so timing matters.
-              </p>
-              <p>
-                <strong>Hops</strong> is the best &quot;high-maintenance, high-upside&quot; option: it regrows every day after 11 days.
-                It sells cheaply as a crop (25g), but it shines if you have lots of kegs (Pale Ale is strong over time).
-              </p>
-              <p>
-                <strong>Melon</strong> is a solid middle ground (12 days, 250g base) and a great keg target early if you
-                don&apos;t have Starfruit access yet.
-              </p>
-            </div>
-          </section>
-
-          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Summer Crop Tier List</h2>
-            <div className="mt-3 space-y-2 text-sm leading-6 text-[#5f4228]/90">
-              <p>🥇 <strong>Blueberry</strong> — Best overall for most players. Regrows every 4 days, 3 berries each harvest.</p>
-              <p>🥈 <strong>Starfruit</strong> — Best single harvest value (750g). Best with kegs + Artisan.</p>
-              <p>🥉 <strong>Hops</strong> — Daily harvest after 11 days. Best if you can process (kegs) and don&apos;t mind daily picking.</p>
-              <p>4th <strong>Melon</strong> — Strong early-summer cash crop (12 days). Good keg option before Starfruit.</p>
-              <p>5th <strong>Hot Pepper</strong> — Cheap seeds, regrows every 3 days. Nice filler when you want steady harvests.</p>
-              <p>6th <strong>Wheat</strong> — Fast (4 days) and flexible for late-season gaps; good if time is short.</p>
-            </div>
-            <p className="mt-3 text-xs leading-5 text-[#6f4b2a]/80">
-              Data notes (from calculator crop dataset): Blueberry (13+4 regrow, 3 yield), Starfruit (13 days), Melon (12 days),
-              Hops (11+1 regrow), Hot Pepper (6+3 regrow), Wheat (4 days).
-            </p>
-          </section>
-
-          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">When to Plant What</h2>
-            <div className="mt-3 space-y-2 text-sm leading-6 text-[#5f4228]/90">
-              <p>
-                <strong>Day 1</strong> Blueberry for steady profit, or Starfruit if you&apos;re keg-focused. Melon is great if you&apos;re early game.
-              </p>
-              <p>
-                <strong>Day 8</strong> You can still plant Blueberry and get multiple harvests. Starfruit is still fine if you&apos;re planning around one harvest.
-              </p>
-              <p>
-                <strong>14 days left (Day 15)</strong> Melon (12 days) is the big-value pick; Hot Pepper (6 days) can fit two cycles; Wheat (4 days) fits 3 cycles.
-              </p>
-              <p>
-                <strong>7–3 days left (Day 22+)</strong> Switch to quick crops like Wheat (4 days) or consider finishing with regrow crops only if already planted.
-              </p>
-              <p className="text-xs leading-5 text-[#6f4b2a]/80">
-                Tip: Regrowing crops are usually best when planted early. Single-harvest crops can win late-season because they finish cleanly.
-              </p>
-            </div>
-          </section>
-
-          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Calculator Presets</h2>
-            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-              Open a preset to compare crops by gold per day with your exact settings.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <TrackedBlogCtaLink
                 href="/calculator?season=summer&daysLeft=28"
                 fromPath={fromPath}
-                ctaName="summer_full_season"
+                ctaName="summer_quick_try_calculator_hero"
                 className={CTA_CLASS}
               >
-                <span aria-hidden className="inline-flex items-center leading-none opacity-85">☀️</span>
-                Full Summer Season (28 days)
+                Try Calculator
               </TrackedBlogCtaLink>
+              <Link href="/blog/best-crops-every-season" className={LINK}>
+                Read the full all-season crop guide
+              </Link>
+            </div>
+          </header>
 
+          <section className={CARD}>
+            <h2 className={H2}>TL;DR</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>Most players: start with Blueberry for stable Summer gold.</li>
+              <li>Starfruit is premium if you can afford seeds and keep kegs busy.</li>
+              <li>Hops is high-upside but only with strong keg throughput.</li>
+              <li>When days are short, choose crops that can still finish on time.</li>
+              <li>Before buying seeds, run one calculator check with your exact days left.</li>
+            </ul>
+          </section>
+
+          <section className={CARD}>
+            <h2 className={H2}>Best Summer Crop Picks by Situation</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl border border-[#7c4d2e]/30 bg-[#fff8e8] p-4">
+                <h3 className="text-base font-semibold text-[#4a321e]">Best overall: Blueberry</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Blueberry is usually the highest win-rate pick because it regrows and smooths cashflow across the season.</p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/30 bg-[#fff8e8] p-4">
+                <h3 className="text-base font-semibold text-[#4a321e]">Best premium route: Starfruit</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Use Starfruit when you can support higher seed cost and process into wine with keg capacity.</p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/30 bg-[#fff8e8] p-4">
+                <h3 className="text-base font-semibold text-[#4a321e]">Best early machine route: Melon</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Melon gives strong per-harvest value and is easier to integrate before large Starfruit scale.</p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/30 bg-[#fff8e8] p-4">
+                <h3 className="text-base font-semibold text-[#4a321e]">Best min-max route: Hops</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Great if you can maintain daily harvest rhythm plus keg processing. Skip if you dislike micro-heavy loops.</p>
+              </div>
+            </div>
+
+            <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              If you are unsure whether to optimize for raw crop sales or processing, read{" "}
+              <Link href="/blog/keg-vs-jar-profit-guide" className={LINK}>
+                Keg vs Jar Profit Guide
+              </Link>
+              {" "}and compare with the{" "}
+              <Link href="/blog/stardew-valley-artisan-profit-guide" className={LINK}>
+                Artisan Profit Guide
+              </Link>
+              .
+            </p>
+          </section>
+
+          <section className={CARD}>
+            <h2 className={H2}>Timing Rules (Day 1, Day 15, Late Summer)</h2>
+            <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <p><strong>Summer Day 1:</strong> prioritize Blueberry baseline, then optional Starfruit/Melon lanes.</p>
+              <p><strong>Around Day 15:</strong> stop planting slow options that cannot finish reliably.</p>
+              <p><strong>Late Summer:</strong> switch to fast-turn crops and short-cycle profit protection.</p>
+            </div>
+
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              <Link href="/blog/stardew-valley-summer-day-1-maximum-profit-guide" className={LINK}>
+                Summer Day 1 maximum profit guide
+              </Link>
+              <Link href="/blog/stardew-valley-summer-day-15-profit-guide" className={LINK}>
+                Summer Day 15 profit guide
+              </Link>
+              <Link href="/blog/stardew-valley-summer-day-20-is-it-too-late" className={LINK}>
+                Summer Day 20: is it too late?
+              </Link>
+              <Link href="/blog/best-crops-7-days-left-before-season-switch" className={LINK}>
+                Best crops with 7 days left
+              </Link>
+            </div>
+          </section>
+
+          <section className={CARD}>
+            <h2 className={H2}>Action Checklist (Do This Before Buying Seeds)</h2>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>Set your real remaining days (not idealized timing).</li>
+              <li>Confirm seed budget after tool/building reserves.</li>
+              <li>Choose a main lane (Blueberry or Starfruit) and one backup lane.</li>
+              <li>Check if your kegs/jars can absorb planned harvest volume.</li>
+              <li>Run the calculator and compare top 3 candidates.</li>
+              <li>Lock plan for one week and avoid random seed swaps.</li>
+            </ol>
+
+            <div className="mt-5 flex flex-wrap gap-3">
               <TrackedBlogCtaLink
-                href="/calculator?season=summer&daysLeft=14"
+                href="/calculator?season=summer&daysLeft=14&profession=artisan"
                 fromPath={fromPath}
-                ctaName="summer_mid_season"
+                ctaName="summer_quick_try_calculator_checklist"
                 className={CTA_CLASS}
               >
-                <span aria-hidden className="inline-flex items-center leading-none opacity-85">⏰</span>
-                Mid Summer (14 days left)
+                Try Calculator
               </TrackedBlogCtaLink>
-
               <TrackedBlogCtaLink
-                href="/calculator?season=summer&daysLeft=28&profession=artisan"
+                href="/calculator?preset=keg-vs-jar-starfruit&profession=artisan"
                 fromPath={fromPath}
-                ctaName="summer_artisan"
+                ctaName="summer_quick_compare_processing"
                 className={CTA_CLASS}
               >
-                <span aria-hidden className="inline-flex items-center leading-none opacity-85">🏆</span>
-                Summer + Artisan Profession
-              </TrackedBlogCtaLink>
-
-              <TrackedBlogCtaLink
-                href="/calculator?season=summer&daysLeft=28&quality=iridium"
-                fromPath={fromPath}
-                ctaName="summer_iridium"
-                className={CTA_CLASS}
-              >
-                <span aria-hidden className="inline-flex items-center leading-none opacity-85">💎</span>
-                Summer (Iridium Quality)
+                Compare Keg vs Jar
               </TrackedBlogCtaLink>
             </div>
           </section>
 
-          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+          <section id="faq" className={CARD}>
+            <h2 className={H2}>FAQ</h2>
+            <div className="mt-4 space-y-4">
+              {FAQ.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
+                  <summary className="cursor-pointer text-sm font-semibold text-[#4a321e] sm:text-base">{item.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">{item.answer}</p>
+                </details>
               ))}
-            </ul>
+            </div>
+          </section>
 
-            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+          <section className={CARD}>
+            <h2 className={H2}>Read Next</h2>
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <Link href="/blog/best-crops-every-season" className={LINK}>
+                Best Crops for Every Season
+              </Link>
+              <Link href="/blog/money-making-guide" className={LINK}>
+                Money Making Guide
+              </Link>
+              <Link href="/blog/stardew-valley-profit-guide-2026" className={LINK}>
+                Profit Guide 2026
+              </Link>
+              <Link href="/blog/best-fall-crops-quick-answer" className={LINK}>
+                Best Fall Crops Quick Answer
+              </Link>
+            </div>
           </section>
         </article>
 

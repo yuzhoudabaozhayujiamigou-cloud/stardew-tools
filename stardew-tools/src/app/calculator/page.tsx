@@ -65,12 +65,21 @@ export const metadata: Metadata = {
     description:
       "Free Stardew Valley crop profit calculator. Compare gold per day across all seasons, quality levels, and Tiller/Artisan professions. Find your best crop in seconds.",
     type: "website",
+    images: [
+      {
+        url: "/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator",
+        width: 1200,
+        height: 630,
+        alt: "Stardew Valley Crop Profit Calculator",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Stardew Valley Crop Profit Calculator – Compare Gold/Day | StardewProfit",
     description:
       "Free Stardew Valley crop profit calculator. Compare gold per day across all seasons, quality levels, and Tiller/Artisan professions. Find your best crop in seconds.",
+    images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
 

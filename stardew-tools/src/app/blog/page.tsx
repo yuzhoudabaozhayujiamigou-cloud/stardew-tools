@@ -50,6 +50,9 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "money-making-guide": "Money Making Guide – From Broke to Rich",
   "best-crops-every-season": "Best Crops for Every Season",
   "year-1-spring-crops-profit-guide": "Year 1 Spring Crops Profit Guide",
+  "stardew-valley-year-1-profit-guide-complete": "Complete Year 1 Profit Guide",
+  "stardew-valley-greenhouse-mastery-guide": "Greenhouse Mastery Guide",
+  "artisan-goods-empire-beginner-to-master": "Artisan Goods Empire",
 };
 
 function humanizeSlug(slug: string): string {
