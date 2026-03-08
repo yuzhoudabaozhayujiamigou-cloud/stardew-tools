@@ -127,6 +127,7 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "stardew-valley-summer-day-20-is-it-too-late": ["timing", "summer", "late-season"],
   "stardew-valley-is-it-too-late-to-plant-on-summer-day-25": ["timing", "summer", "late-season"],
   "speed-gro-vs-deluxe-speed-gro": ["fertilizer", "speed-gro", "deluxe-speed-gro", "timing", "growth-speed"],
+  "fish-pond-profit-calculator": ["fish-pond", "roe", "aged-roe", "profit", "artisan", "money-making"],
 };
 
 export function getBlogReadNextPosts(currentSlug: string, limit = 3): ReadNextPost[] {
