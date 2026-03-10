@@ -206,80 +206,94 @@ export default function CalculatorPage() {
             ))}
           </div>
 
-          <p className="mt-4 text-sm text-[#5f4228]/90">
-            📘{" "}
-            <Link
-              href="/blog"
-              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-            >
-              Browse all guides & quick answers
-            </Link>
-            {" "}— crop comparisons, keg math, and seasonal strategies.
-          </p>
+          <details className="mt-5 rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+            <summary className="cursor-pointer select-none text-sm font-semibold text-[#4a321e]">
+              📘 Guides &amp; next steps (optional)
+              <span className="ml-2 text-xs font-normal text-[#5f4228]/75">
+                (expand for popular guides and topic hubs)
+              </span>
+            </summary>
 
-          <section className="mt-5 rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/70">
-              Next steps (most clicked)
+            <p className="mt-3 text-sm text-[#5f4228]/90">
+              <Link
+                href="/blog"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                Browse all guides &amp; quick answers
+              </Link>
+              {" "}— crop comparisons, keg math, and seasonal strategies.
             </p>
-            <div className="mt-2 flex flex-wrap gap-2.5">
-              <Link href="/blog/keg-vs-jar-profit-guide" className={QUICK_PRESET_LINK_CLASS}>
-                Keg vs Jar (Decision Guide)
-              </Link>
-              <Link href="/blog/wine-vs-juice-quick-answer" className={QUICK_PRESET_LINK_CLASS}>
-                Wine vs Juice (Quick Answer)
-              </Link>
-              <Link href="/blog/best-greenhouse-crops-quick-answer" className={QUICK_PRESET_LINK_CLASS}>
-                Best Greenhouse Crops
-              </Link>
-            </div>
-            <p className="mt-2 text-xs text-[#5f4228]/85">
-              Read one, then come back here and use the presets to lock in a plan.
-            </p>
-          </section>
 
-          <section className="mt-5 rounded-2xl border-2 border-[#6f8b3c]/60 bg-[#e7f1c8]/80 p-4 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">
-              Popular Topics
-            </p>
-            <div className="mt-2 grid gap-2.5 sm:grid-cols-3">
-              <Link 
-                href="/blog/year-1-spring-crops-profit-guide" 
-                className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-lg" aria-hidden="true">🌱</span>
-                  <span className="text-sm font-semibold text-[#4a321e]">Year 1 Guide</span>
-                </div>
-                <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
-                  Spring crops, upgrade order, and early game money strategy
-                </p>
-              </Link>
-              <Link 
-                href="/blog/best-greenhouse-crops-stardew-valley" 
-                className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-lg" aria-hidden="true">🏡</span>
-                  <span className="text-sm font-semibold text-[#4a321e]">Greenhouse Strategy</span>
-                </div>
-                <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
-                  Ancient Fruit vs Starfruit, layout tips, and profit optimization
-                </p>
-              </Link>
-              <Link 
-                href="/blog/stardew-valley-keg-jar-artisan-profit-system" 
-                className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
-              >
-                <div className="flex items-center gap-2">
-                  <span className="text-lg" aria-hidden="true">🍷</span>
-                  <span className="text-sm font-semibold text-[#4a321e]">Keg vs Jar System</span>
-                </div>
-                <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
-                  Processing decisions, payback time, and artisan profit guide
-                </p>
-              </Link>
-            </div>
-          </section>
+            <section className="mt-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/70">
+                Next steps (most clicked)
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2.5">
+                <Link href="/blog/keg-vs-jar-profit-guide" className={QUICK_PRESET_LINK_CLASS}>
+                  Keg vs Jar (Decision Guide)
+                </Link>
+                <Link href="/blog/wine-vs-juice-quick-answer" className={QUICK_PRESET_LINK_CLASS}>
+                  Wine vs Juice (Quick Answer)
+                </Link>
+                <Link href="/blog/best-greenhouse-crops-quick-answer" className={QUICK_PRESET_LINK_CLASS}>
+                  Best Greenhouse Crops
+                </Link>
+              </div>
+              <p className="mt-2 text-xs text-[#5f4228]/85">
+                Read one, then come back here and use the presets to lock in a plan.
+              </p>
+            </section>
+
+            <section className="mt-4 rounded-2xl border-2 border-[#6f8b3c]/60 bg-[#e7f1c8]/80 p-4 shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">
+                Popular Topics
+              </p>
+              <div className="mt-2 grid gap-2.5 sm:grid-cols-3">
+                <Link
+                  href="/blog/year-1-spring-crops-profit-guide"
+                  className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg" aria-hidden="true">
+                      🌱
+                    </span>
+                    <span className="text-sm font-semibold text-[#4a321e]">Year 1 Guide</span>
+                  </div>
+                  <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
+                    Spring crops, upgrade order, and early game money strategy
+                  </p>
+                </Link>
+                <Link
+                  href="/blog/best-greenhouse-crops-stardew-valley"
+                  className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg" aria-hidden="true">
+                      🏡
+                    </span>
+                    <span className="text-sm font-semibold text-[#4a321e]">Greenhouse Strategy</span>
+                  </div>
+                  <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
+                    Ancient Fruit vs Starfruit, layout tips, and profit optimization
+                  </p>
+                </Link>
+                <Link
+                  href="/blog/stardew-valley-keg-jar-artisan-profit-system"
+                  className="group rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/70 hover:bg-white"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg" aria-hidden="true">
+                      🍷
+                    </span>
+                    <span className="text-sm font-semibold text-[#4a321e]">Keg vs Jar System</span>
+                  </div>
+                  <p className="mt-1.5 text-xs leading-5 text-[#5f4228]/85">
+                    Processing decisions, payback time, and artisan profit guide
+                  </p>
+                </Link>
+              </div>
+            </section>
+          </details>
         </header>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -316,8 +330,16 @@ export default function CalculatorPage() {
           />
           <FaqGuideCard />
 
-          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
+          <details className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            {/* NOTE: keep this details block well-formed; do not leave stray closing tags. */}
+            <summary className="cursor-pointer select-none text-base font-semibold text-[#4a321e] sm:text-lg">
+              How the Crop Profit Calculator Works (optional)
+              <span className="ml-2 text-xs font-normal text-[#5f4228]/75">
+                (expand for the full explanation)
+              </span>
+            </summary>
+
+            <h2 className="mt-4 text-xl font-semibold text-[#4a321e] sm:text-2xl">
               How the Crop Profit Calculator Works (And How to Use It Well)
             </h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
@@ -402,7 +424,7 @@ export default function CalculatorPage() {
             </p>
 
 
-          </section>
+          </details>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <div className="flex flex-wrap items-start justify-between gap-4">
