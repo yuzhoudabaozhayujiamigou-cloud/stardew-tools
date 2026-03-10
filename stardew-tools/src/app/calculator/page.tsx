@@ -53,17 +53,17 @@ const START_HERE_ARTICLES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator – Compare Gold/Day | StardewProfit",
+  title: "Stardew Valley Profit Calculator (1.6) – Best Crops, Gold/Day & ROI | StardewProfit",
   description:
-    "Free Stardew Valley crop profit calculator. Compare gold per day across all seasons, quality levels, and Tiller/Artisan professions. Find your best crop in seconds.",
+    "Free Stardew Valley profit calculator (1.6). Compare crops by gold/day and ROI across seasons, quality, fertilizer, and Tiller/Artisan. Find the best crop in seconds.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Crop Profit Calculator – Compare Gold/Day | StardewProfit",
+    title: "Stardew Valley Profit Calculator (1.6) – Best Crops, Gold/Day & ROI | StardewProfit",
     description:
-      "Free Stardew Valley crop profit calculator. Compare gold per day across all seasons, quality levels, and Tiller/Artisan professions. Find your best crop in seconds.",
+      "Free Stardew Valley profit calculator (1.6). Compare crops by gold/day and ROI across seasons, quality, fertilizer, and Tiller/Artisan. Find the best crop in seconds.",
     type: "website",
     images: [
       {
@@ -76,9 +76,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Crop Profit Calculator – Compare Gold/Day | StardewProfit",
+    title: "Stardew Valley Profit Calculator (1.6) – Best Crops, Gold/Day & ROI | StardewProfit",
     description:
-      "Free Stardew Valley crop profit calculator. Compare gold per day across all seasons, quality levels, and Tiller/Artisan professions. Find your best crop in seconds.",
+      "Free Stardew Valley profit calculator (1.6). Compare crops by gold/day and ROI across seasons, quality, fertilizer, and Tiller/Artisan. Find the best crop in seconds.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -170,15 +170,21 @@ export default function CalculatorPage() {
             Stardew Valley Tool
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Crop Profit Calculator
+            Stardew Valley Profit Calculator
           </h1>
           <p className="mt-1 text-lg font-medium text-[#5c3d23]/90 sm:text-xl">
-            Find the most profitable crop in seconds
+            Compare crops by gold/day and ROI — in seconds
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Pick your season, set days remaining, and instantly see which crops earn the most gold per day.
-            Supports quality levels, Tiller &amp; Artisan professions, and regrowing crops — no wiki digging needed.
+            Pick your season, days remaining, and setup to instantly see the best crops by profit/day and payback time.
+            Includes quality, fertilizer, regrowth timing, and Tiller/Artisan professions — no wiki digging needed.
           </p>
+          <ul className="mt-4 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-2">
+            <li>• Gold per day (profit/day)</li>
+            <li>• ROI / break-even days</li>
+            <li>• Best crop by season</li>
+            <li>• Tiller vs Artisan impact</li>
+          </ul>
           <div className="mt-5 flex flex-wrap items-center gap-2.5">
             <a
               href="#calculator"

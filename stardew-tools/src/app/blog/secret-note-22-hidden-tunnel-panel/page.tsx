@@ -3,9 +3,9 @@ import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Secret Note 22 in Stardew Valley: Hidden Tunnel Panel Explained",
+  title: "Secret Note 22 (Stardew Valley): Solution, Location & Rewards (1.6)",
   description:
-    "Learn what Secret Note 22 means, where to find the hidden tunnel panel, and what you get from it. Includes step-by-step directions, tips, and FAQs.",
+    "Secret Note 22 points to a hidden panel in the Tunnel. Here’s the exact location, step-by-step directions, what you get, and common mistakes (Stardew Valley 1.6).",
 };
 
 const pageUrl =
@@ -37,20 +37,24 @@ const toc: TocItem[] = [
 
 const faqs = [
   {
-    q: "Where do I get Secret Note 22?",
-    a: "You get Secret Note 22 from the Secret Notes system (unlocked after you gain the Magnifying Glass). Like most notes, it can drop from common activities such as killing monsters, chopping trees, fishing, or digging artifact spots once notes are unlocked.",
+    q: "Where do you find Secret Note 22?",
+    a: "Secret Note 22 is part of the Secret Notes system unlocked after you obtain the Magnifying Glass. Once notes are unlocked, they can drop from normal gameplay (combat, fishing, chopping trees, digging artifact spots, etc.).",
   },
   {
-    q: "Where is the hidden tunnel panel mentioned in Secret Note 22?",
-    a: "The note points to a hidden panel inside the tunnel area by the Bus Stop. Look for an interactable spot on the tunnel wall; when you click it, you can reveal the stash the note is hinting at.",
+    q: "Where is the panel for Secret Note 22?",
+    a: "The clue points to a hidden, interactable panel on the wall inside the Tunnel near the Bus Stop. Enter the Tunnel and click along the wall area until you hit the interact prompt.",
   },
   {
-    q: "Is Secret Note 22 missable?",
-    a: "No. Secret Notes are not permanently missable. If you don't act on one right away, you can still complete it later once you know the location and have access to the relevant area.",
+    q: "What reward do you get from Secret Note 22?",
+    a: "Interacting with the hidden panel reveals a stash/reward. It’s a quick detour that gives an immediate payoff once you click the correct spot.",
   },
   {
-    q: "Do I need a specific season or weather for Secret Note 22?",
-    a: "No specific season is required. The key requirement is access to the tunnel by the Bus Stop and knowing where to interact to reveal the hidden panel.",
+    q: "Why can’t I interact with the panel?",
+    a: "Make sure you’re in the correct Tunnel area by the Bus Stop and click precisely on the wall spot (it can be easy to miss). If you just unlocked notes, try re-entering the area and clicking slowly along the wall.",
+  },
+  {
+    q: "Does Secret Note 22 change in Stardew Valley 1.6?",
+    a: "The basic solution (Tunnel + hidden panel) is the same. If anything feels off, it’s usually a positioning/miss-click issue rather than a version change.",
   },
 ];
 
@@ -79,13 +83,14 @@ export default function Page() {
       <header className="mb-8">
         <p className="text-sm text-neutral-700">Stardew Valley Guides</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-900">
-          Secret Note 22 in Stardew Valley: Hidden Tunnel Panel Explained
+          Secret Note 22 (Stardew Valley): Solution, Location &amp; Rewards
         </h1>
         <p className="mt-3 text-base leading-7 text-neutral-800">
-          Secret Note 22 is one of those Stardew Valley notes that feels cryptic
-          until you know exactly <em>where</em> to look. This guide explains what
-          the note is pointing at, how to find the hidden tunnel panel, and what
-          you get when you interact with it.
+          <strong>Quick answer:</strong> Secret Note 22 is a clue for a hidden panel inside the Tunnel by the Bus Stop.
+          Go to the Bus Stop, enter the Tunnel, then interact with the panel on the wall to reveal the stash and claim the reward.
+        </p>
+        <p className="mt-3 text-base leading-7 text-neutral-800">
+          Below you’ll find the exact location, step-by-step directions, and troubleshooting tips if it doesn’t trigger.
         </p>
 
         <div className="mt-5 rounded-lg border border-neutral-200 bg-white/60 p-4">
