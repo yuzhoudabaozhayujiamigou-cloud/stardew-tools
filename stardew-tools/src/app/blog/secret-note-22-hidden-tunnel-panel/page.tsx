@@ -1,15 +1,44 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import { SITE_ORIGIN } from "@/lib/site";
+
+const pageTitle = "Secret Note 22 Solution: Hidden Tunnel Panel Location & Reward (Stardew)";
+const pageDescription =
+  "Secret Note 22 points to a hidden wall panel in the Bus Stop tunnel. Get the exact location, steps to trigger it, reward, and quick fixes.";
+const pagePath = "/blog/secret-note-22-hidden-tunnel-panel";
+const pageUrl = `${SITE_ORIGIN}${pagePath}`;
+const ogImageUrl =
+  `${SITE_ORIGIN}/api/og?title=Secret+Note+22+Solution&subtitle=Hidden+Tunnel+Panel+Location&type=blog`;
 
 export const metadata: Metadata = {
-  title: "Secret Note 22 Solution: Hidden Tunnel Panel Location & Reward (Stardew)",
-  description:
-    "Secret Note 22 points to a hidden wall panel in the Bus Stop tunnel. Get the exact location, steps to trigger it, reward, and quick fixes.",
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: pagePath,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: pageUrl,
+    siteName: "Stardew Profit",
+    type: "article",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "Secret Note 22 hidden tunnel panel solution",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: [ogImageUrl],
+  },
 };
-
-const pageUrl =
-  "https://www.stardewprofit.com/blog/secret-note-22-hidden-tunnel-panel";
 
 function slugifyAnchor(input: string) {
   return input

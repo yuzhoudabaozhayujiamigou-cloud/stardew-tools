@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
+import { SITE_ORIGIN } from "@/lib/site";
 
-const SITE_URL = "https://stardewprofit.com";
+const SITE_URL = SITE_ORIGIN;
 
 const publishedTime = "2026-03-08T00:00:00.000Z";
 const modifiedTime = "2026-03-08T00:00:00.000Z";
@@ -170,13 +171,13 @@ export default function Page() {
               <span className="text-slate-700"> — fastest way to compare crops with your rules.</span>
             </li>
             <li>
-              <Link className="text-sky-800 hover:underline" href="/tools/keg-vs-jar">
-                Keg vs Jar tool
+              <Link className="text-sky-800 hover:underline" href="/blog/keg-vs-jar-profit-guide">
+                Keg vs Jar guide
               </Link>
               <span className="text-slate-700"> — decide processing based on time and value.</span>
             </li>
             <li>
-              <Link className="text-sky-800 hover:underline" href="/guides/best-crops">
+              <Link className="text-sky-800 hover:underline" href="/blog/best-crops-every-season">
                 Best Crops guide
               </Link>
               <span className="text-slate-700"> — broad seasonal context when you’re not greenhouse-ready yet.</span>
@@ -309,12 +310,12 @@ export default function Page() {
           </ul>
           <p className="mt-4 leading-7 text-slate-800">
             To quantify this for your save, use:
-            <Link className="ml-1 text-sky-800 hover:underline" href="/tools/keg-vs-jar">
+            <Link className="ml-1 text-sky-800 hover:underline" href="/blog/keg-vs-jar-profit-guide">
               Keg vs Jar
             </Link>
             <span className="text-slate-800"> and</span>
-            <Link className="ml-1 text-sky-800 hover:underline" href="/tools/artisan">
-              Artisan Profit tool
+            <Link className="ml-1 text-sky-800 hover:underline" href="/blog/stardew-valley-artisan-profit-guide">
+              Artisan Profit guide
             </Link>
             <span className="text-slate-800"> (if you track profession bonuses).</span>
           </p>
@@ -391,7 +392,7 @@ export default function Page() {
           </div>
           <p className="mt-6 leading-7 text-slate-800">
             Related reading:
-            <Link className="ml-1 text-sky-800 hover:underline" href="/guides/artisan-goods">
+            <Link className="ml-1 text-sky-800 hover:underline" href="/blog/stardew-valley-artisan-profit-guide">
               Artisan Goods Profit Guide
             </Link>
             <span className="text-slate-800"> (bigger picture beyond just greenhouse crops).</span>
@@ -454,7 +455,7 @@ export default function Page() {
             </Link>
             <Link
               className="rounded-xl border border-sky-700 bg-white/60 px-4 py-2 text-sky-800 hover:bg-white"
-              href="/tools/keg-vs-jar"
+              href="/blog/keg-vs-jar-profit-guide"
             >
               Compare Keg vs Jar
             </Link>
