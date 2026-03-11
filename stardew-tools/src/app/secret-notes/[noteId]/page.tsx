@@ -194,8 +194,18 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
     };
   }
 
-  const title = `Stardew Valley Secret Note #${note.id} Location & Reward`;
-  const description = `Location: ${note.location}. ${toHintExcerpt(note.decodedHint)}`;
+  // SEO-optimized titles and descriptions for high-priority notes
+  let title: string;
+  let description: string;
+  
+  if (note.id === 23) {
+    title = `Secret Note 23 Bear Guide - Maple Syrup & Berry Profit`;
+    description = `Find the bear in Secret Woods, give Maple Syrup, unlock Bear's Knowledge to boost berry sell prices by 3x. Complete walkthrough with map.`;
+  } else {
+    title = `Stardew Valley Secret Note #${note.id} Location & Reward`;
+    description = `Location: ${note.location}. ${toHintExcerpt(note.decodedHint)}`;
+  }
+  
   const canonicalUrl = `${getSiteUrl()}/secret-notes/${note.id}`;
   const imageUrl = getAbsoluteImageUrl(note.locationImage);
 

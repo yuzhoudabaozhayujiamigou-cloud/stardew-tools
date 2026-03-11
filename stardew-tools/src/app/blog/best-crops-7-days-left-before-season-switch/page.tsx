@@ -129,9 +129,9 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-17T00:00:00+08:00",
     modifiedTime: "2026-02-17T00:00:00+08:00",
   },
-  title: "Best Crops With 7 Days Left in Stardew Valley (Max Profit)",
+  title: "Best Crops for Last 7 Days Before Season Switch - Quick Guide",
   description:
-    "Only 7 days left in the season? Here are the best Stardew Valley crops to plant for maximum profit, plus a quick rule of thumb and a calculator shortcut.",
+    "Maximize profit in the final week! Plant fast-growing crops, use Speed-Gro, and avoid waste. Complete guide with profit calculator.",
 };
 
 export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {

@@ -28,9 +28,9 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Ancient Fruit Wine vs Starfruit Wine (Deep Dive)",
+  title: "Ancient Fruit Wine vs Starfruit Wine - Which Makes More Money?",
   description:
-    "Ancient fruit wine vs starfruit wine Stardew Valley: side-by-side values, keg vs jar, and long-term annual profit logic for greenhouse planning.",
+    "Complete ROI comparison: Ancient Fruit wins long-term, Starfruit wins short-term. Detailed profit analysis with calculator.",
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
