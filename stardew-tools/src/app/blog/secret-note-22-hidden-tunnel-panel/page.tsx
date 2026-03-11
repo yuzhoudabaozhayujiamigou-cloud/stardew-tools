@@ -3,9 +3,9 @@ import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Secret Note 22 (Stardew Valley): Solution, Location & Rewards (1.6)",
+  title: "Secret Note 22 Solution: Hidden Tunnel Panel Location & Reward (Stardew)",
   description:
-    "Secret Note 22 points to a hidden panel in the Tunnel. Here’s the exact location, step-by-step directions, what you get, and common mistakes (Stardew Valley 1.6).",
+    "Secret Note 22 points to a hidden wall panel in the Bus Stop tunnel. Get the exact location, steps to trigger it, reward, and quick fixes.",
 };
 
 const pageUrl =
@@ -38,23 +38,27 @@ const toc: TocItem[] = [
 const faqs = [
   {
     q: "Where do you find Secret Note 22?",
-    a: "Secret Note 22 is part of the Secret Notes system unlocked after you obtain the Magnifying Glass. Once notes are unlocked, they can drop from normal gameplay (combat, fishing, chopping trees, digging artifact spots, etc.).",
+    a: "After you unlock Secret Notes with the Magnifying Glass, note #22 can drop from normal gameplay (combat, fishing, chopping trees, digging artifact spots, etc.).",
   },
   {
-    q: "Where is the panel for Secret Note 22?",
-    a: "The clue points to a hidden, interactable panel on the wall inside the Tunnel near the Bus Stop. Enter the Tunnel and click along the wall area until you hit the interact prompt.",
+    q: "Where is the hidden panel for Secret Note 22?",
+    a: "Inside the Tunnel by the Bus Stop. Enter the tunnel and click the wall area (it’s a hidden interaction point, not a visible object).",
   },
   {
-    q: "What reward do you get from Secret Note 22?",
-    a: "Interacting with the hidden panel reveals a stash/reward. It’s a quick detour that gives an immediate payoff once you click the correct spot.",
+    q: "What’s the Secret Note 22 reward?",
+    a: "A one-time hidden stash you can collect immediately once you click the correct wall spot in the tunnel.",
   },
   {
-    q: "Why can’t I interact with the panel?",
-    a: "Make sure you’re in the correct Tunnel area by the Bus Stop and click precisely on the wall spot (it can be easy to miss). If you just unlocked notes, try re-entering the area and clicking slowly along the wall.",
+    q: "Why won’t the panel interact / trigger?",
+    a: "You’re usually a tile or two off. Re-enter the Tunnel, then click slowly along the wall until the interaction triggers.",
   },
   {
-    q: "Does Secret Note 22 change in Stardew Valley 1.6?",
-    a: "The basic solution (Tunnel + hidden panel) is the same. If anything feels off, it’s usually a positioning/miss-click issue rather than a version change.",
+    q: "Do you need Stardew Valley 1.6 for Secret Note 22?",
+    a: "No. The solution (Tunnel + hidden wall panel) is the same — most issues are positioning rather than version-related.",
+  },
+  {
+    q: "Is Secret Note 22 missable?",
+    a: "No. You can solve it later — it’s a quick detour whenever you’re near the Bus Stop (desert trip, town run, traveling cart).",
   },
 ];
 

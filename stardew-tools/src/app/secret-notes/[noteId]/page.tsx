@@ -392,13 +392,13 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
                       href="/blog/secret-note-22-hidden-tunnel-panel"
                       className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
                     >
-                      Read: Secret Note 22 Hidden Tunnel Panel
+                      Read full guide (Secret Note 22)
                     </Link>
                     <Link
                       href="/calculator"
                       className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
                     >
-                      Open Profit Calculator
+                      Profit calculator
                     </Link>
                   </div>
                 </section>
