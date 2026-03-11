@@ -690,6 +690,9 @@ export default function MoneyMakingGuidePage() {
               <PillLink href="/blog/stardew-valley-profit-guide-2026">
                 Stardew Valley Profit Guide 2026
               </PillLink>
+              <PillLink href="/guides/multiplayer-crossplay">
+                Multiplayer Crossplay Guide
+              </PillLink>
               <PillLink href="/blog/keg-vs-jar-quick-answer">
                 Keg vs Jar (quick answer)
               </PillLink>

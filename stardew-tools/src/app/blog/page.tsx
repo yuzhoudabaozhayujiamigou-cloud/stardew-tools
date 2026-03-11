@@ -181,6 +181,29 @@ export default function BlogIndexPage() {
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
           <p className="text-sm leading-6 text-[#5f4228]/90">
+            Playing co-op? Check the platform matrix in our{" "}
+            <Link
+              href="/guides/multiplayer-crossplay"
+              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+            >
+              multiplayer crossplay guide
+            </Link>
+            .
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Link href="/guides/multiplayer-crossplay" className={LINK_CLASS}>
+              <span aria-hidden="true" className="mr-2 opacity-85">🎮</span>
+              Multiplayer & Crossplay Setup Matrix
+            </Link>
+            <Link href="/guides/greenhouse-profit-guide" className={LINK_CLASS}>
+              <span aria-hidden="true" className="mr-2 opacity-85">🌱</span>
+              Greenhouse Profit Guide
+            </Link>
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-sm leading-6 text-[#5f4228]/90">
             Want to compare crops directly?{" "}
             <Link
               href="/calculator"
