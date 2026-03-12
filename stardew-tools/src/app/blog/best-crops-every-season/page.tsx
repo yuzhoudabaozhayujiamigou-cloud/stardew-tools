@@ -249,6 +249,16 @@ const faqEn = [
     answer:
       "Focus on fast or repeat-harvest crops, and always check profit/day for the remaining days. The StardewProfit calculator can filter by season and compare profit/day instantly.",
   },
+  {
+    question: "What is the safest no-regret crop route for Year 1?",
+    answer:
+      "A simple route is Potato -> Strawberry in Spring, Blueberry in Summer, and Cranberry in Fall, then spend Winter improving tools and processing capacity. It is stable, low-risk, and easy to scale with sprinklers.",
+  },
+  {
+    question: "How many Kegs or Jars do I need before betting on Starfruit/Hops?",
+    answer:
+      "If you only have a few machines, prioritize easy repeat crops first. Once you have enough Kegs/Jars to process harvests consistently every cycle, Starfruit and Hops become much stronger choices.",
+  },
 ];
 
 const faqZh = [
@@ -271,6 +281,16 @@ const faqZh = [
     question: "季节快结束了，怎么选作物最赚？",
     answer:
       "看剩余天数，优先选生长快或可重复收获的作物，并对比 gold/day。你也可以直接用 StardewProfit 计算器按季节筛选对比。",
+  },
+  {
+    question: "第一年最稳的无脑赚钱种植路线是什么？",
+    answer:
+      "可以用这条稳健路线：春季土豆 -> 草莓，夏季蓝莓，秋季蔓越莓；冬天把重心放在工具升级和桶/罐子产能建设。上限高、容错也高。",
+  },
+  {
+    question: "桶和罐子不多时，要不要硬玩杨桃/啤酒花？",
+    answer:
+      "不建议。加工产能不足时，先用好养、可重复收获的主力作物更稳。等你桶/罐子数量能稳定消化收成，再切到杨桃/啤酒花会更赚。",
   },
 ];
 
@@ -334,6 +354,15 @@ export default function BestCropsEverySeasonPage() {
             </p>
 
             <div className="mt-5 flex flex-wrap gap-3">
+              <TrackedBlogCtaLink
+                href="/calculator?utm_source=best-crops-every-season&utm_medium=cta&utm_campaign=hero-full-plan"
+                fromPath={fromPath}
+                ctaName="best_crops_every_season_hero_utm"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/30 bg-[#e6f8d8] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/60 hover:bg-[#d9f2c7]"
+              >
+                🚀 Open Full Crop Planner
+              </TrackedBlogCtaLink>
+
               <TrackedBlogCtaLink
                 href="/calculator?season=spring&profession=artisan"
                 fromPath={fromPath}
@@ -458,6 +487,61 @@ export default function BestCropsEverySeasonPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">
+              Mid-season check: lock your plan now
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              If you&apos;re switching from raw crop profit to processing profit,
+              do a quick calculator check now so you don&apos;t lock gold into a
+              weak crop cycle.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <TrackedBlogCtaLink
+                href="/calculator?utm_source=best-crops-every-season&utm_medium=cta&utm_campaign=mid-season-check"
+                fromPath={fromPath}
+                ctaName="best_crops_every_season_mid_utm"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/30 bg-[#e6f8d8] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/60 hover:bg-[#d9f2c7]"
+              >
+                📈 Run Mid-season Crop Audit
+              </TrackedBlogCtaLink>
+              <TrackedBlogCtaLink
+                href="/calculator?preset=greenhouse&profession=artisan&utm_source=best-crops-every-season&utm_medium=cta&utm_campaign=mid-greenhouse"
+                fromPath={fromPath}
+                ctaName="best_crops_every_season_mid_preset"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                🌿 Open Greenhouse Preset
+              </TrackedBlogCtaLink>
+            </div>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <Link
+                href="/blog/best-crops-year-1"
+                className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
+              >
+                Best Crops Year 1 (route)
+              </Link>
+              <Link
+                href="/blog/keg-vs-jar-profit-guide"
+                className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
+              >
+                Keg vs Jar Profit Guide
+              </Link>
+              <Link
+                href="/blog/greenhouse-layout-guide"
+                className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
+              >
+                Greenhouse Layout Guide
+              </Link>
+              <Link
+                href="/blog/stardew-valley-profit-guide-2026"
+                className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
+              >
+                Stardew Valley Profit Guide 2026
+              </Link>
             </div>
           </section>
 
@@ -928,6 +1012,35 @@ export default function BestCropsEverySeasonPage() {
                   </p>
                 </div>
               ))}
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">
+              Final step: turn this guide into your exact crop plan
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+              You already have the best seasonal shortlist. Run one last check
+              with your current day, profession, and machine count so every
+              field tile is optimized for your farm state.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <TrackedBlogCtaLink
+                href="/calculator?utm_source=best-crops-every-season&utm_medium=cta&utm_campaign=end-final-check"
+                fromPath={fromPath}
+                ctaName="best_crops_every_season_end_utm"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/30 bg-[#e6f8d8] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/60 hover:bg-[#d9f2c7]"
+              >
+                ✅ Open Final Crop Check
+              </TrackedBlogCtaLink>
+              <TrackedBlogCtaLink
+                href="/calculator?preset=keg-vs-jar-starfruit&profession=artisan&utm_source=best-crops-every-season&utm_medium=cta&utm_campaign=end-processing"
+                fromPath={fromPath}
+                ctaName="best_crops_every_season_end_preset"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+              >
+                🧪 Compare Processing Preset
+              </TrackedBlogCtaLink>
             </div>
           </section>
 
