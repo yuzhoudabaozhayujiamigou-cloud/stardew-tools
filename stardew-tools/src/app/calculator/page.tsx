@@ -5,24 +5,28 @@ import { CalculatorClient } from "@/components/CalculatorClient";
 import { FaqGuideCard } from "@/components/calculator/FaqGuideCard";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TrackLink } from "@/components/TrackLink";
 import crops from "@/data/crops.json";
 import { calculateSeasonProfit, type Crop, type Season } from "@/lib/calculateProfit";
 
 const QUICK_PRESET_LINKS = [
   {
-    href: "/?season=spring&daysLeft=28",
+    href: "/calculator?preset=best-spring-10-days-left",
     label: "Spring Best",
     icon: "🌸",
+    track: "calculator_preset_header_spring_best",
   },
   {
-    href: "/?season=summer&daysLeft=10",
+    href: "/calculator?preset=best-summer-10-days-left",
     label: "Summer Panic",
     icon: "☀️",
+    track: "calculator_preset_header_summer_panic",
   },
   {
-    href: "/?season=greenhouse",
+    href: "/calculator?preset=ancient-vs-starfruit-greenhouse",
     label: "Greenhouse Strategy",
     icon: "🏡",
+    track: "calculator_preset_header_greenhouse_strategy",
   },
 ] as const;
 
@@ -193,16 +197,12 @@ export default function CalculatorPage() {
               ▶ Start Calculating
             </a>
             {QUICK_PRESET_LINKS.map((preset) => (
-              <Link
-                key={preset.href}
-                href={preset.href}
-                className={QUICK_PRESET_LINK_CLASS}
-              >
+              <TrackLink key={preset.href} href={preset.href} className={QUICK_PRESET_LINK_CLASS} trackEvent={preset.track}>
                 <span aria-hidden="true" className={QUICK_PRESET_ICON_CLASS}>
                   {preset.icon}
                 </span>
                 {preset.label}
-              </Link>
+              </TrackLink>
             ))}
           </div>
 
@@ -304,21 +304,34 @@ export default function CalculatorPage() {
             presets in the hub.
           </p>
           <div className="mt-4 flex flex-wrap gap-2.5">
-            <Link href="/calculator?preset=best-spring-10-days-left" className={QUICK_PRESET_LINK_CLASS}>
+            <TrackLink
+              href="/calculator?preset=best-spring-10-days-left"
+              className={QUICK_PRESET_LINK_CLASS}
+              trackEvent="calculator_preset_section_spring_10_days"
+            >
               🌸 Spring (10 days left)
-            </Link>
-            <Link href="/calculator?preset=best-summer-10-days-left" className={QUICK_PRESET_LINK_CLASS}>
+            </TrackLink>
+            <TrackLink
+              href="/calculator?preset=best-summer-10-days-left"
+              className={QUICK_PRESET_LINK_CLASS}
+              trackEvent="calculator_preset_section_summer_panic"
+            >
               ☀️ Summer panic
-            </Link>
-            <Link href="/calculator?preset=ancient-vs-starfruit-greenhouse" className={QUICK_PRESET_LINK_CLASS}>
+            </TrackLink>
+            <TrackLink
+              href="/calculator?preset=ancient-vs-starfruit-greenhouse"
+              className={QUICK_PRESET_LINK_CLASS}
+              trackEvent="calculator_preset_section_greenhouse_benchmark"
+            >
               🏡 Greenhouse benchmark
-            </Link>
-            <Link
+            </TrackLink>
+            <TrackLink
               href="/presets"
               className="inline-flex min-h-8 items-center rounded-xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-3 py-1.5 text-xs font-bold leading-5 text-white shadow-sm transition-colors duration-150 hover:bg-[#4e7a32]"
+              trackEvent="calculator_view_all_presets"
             >
               View All Presets
-            </Link>
+            </TrackLink>
           </div>
         </section>
 
