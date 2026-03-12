@@ -29,6 +29,7 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "auto-petter-worth-it": "Is the Auto-Petter Worth It?",
   "money-making-guide": "Money Making Guide – From Broke to Rich",
   "best-crops-every-season": "Best Crops for Every Season",
+  "stardew-valley-fishing-profit-guide": "Complete Fishing Profit Guide",
 };
 
 function getBlogSlugs(): string[] {
@@ -128,6 +129,14 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "stardew-valley-is-it-too-late-to-plant-on-summer-day-25": ["timing", "summer", "late-season"],
   "speed-gro-vs-deluxe-speed-gro": ["fertilizer", "speed-gro", "deluxe-speed-gro", "timing", "growth-speed"],
   "fish-pond-profit-calculator": ["fish-pond", "roe", "aged-roe", "profit", "artisan", "money-making"],
+  "stardew-valley-fishing-profit-guide": [
+    "fishing",
+    "fish-pond",
+    "profession",
+    "seasonal",
+    "money-making",
+    "profit",
+  ],
 };
 
 export function getBlogReadNextPosts(currentSlug: string, limit = 3): ReadNextPost[] {
