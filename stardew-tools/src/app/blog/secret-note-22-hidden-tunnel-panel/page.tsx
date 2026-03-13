@@ -4,9 +4,9 @@ import Script from "next/script";
 import { SITE_ORIGIN } from "@/lib/site";
 
 // Meta: keep it query-aligned ("where is/ location / reward") to improve CTR from GSC impressions
-const pageTitle = "Secret Note 22 (Stardew Valley): Location, Solution, Reward (Hidden Tunnel Panel)";
+const pageTitle = "Secret Note 22 Location (Stardew Valley): Hidden Tunnel Panel Walkthrough";
 const pageDescription =
-  "Where is Secret Note 22 in Stardew Valley? Exact Bus Stop tunnel panel location + step-by-step solution, reward, and fixes if it won't trigger.";
+  "Where is Secret Note 22 in Stardew Valley? Get the exact hidden tunnel panel location, quick reward steps, common fixes, and related profit guides in one page.";
 const pagePath = "/blog/secret-note-22-hidden-tunnel-panel";
 const pageUrl = `${SITE_ORIGIN}${pagePath}`;
 const ogImageUrl =
@@ -117,10 +117,10 @@ export default function Page() {
       <header className="mb-8">
         <p className="text-sm text-neutral-700">Stardew Valley Guides</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-neutral-900">
-          Secret Note 22 (Stardew Valley): Location, Solution &amp; Reward
+          Secret Note 22 (Stardew Valley): Solution, Location &amp; Rewards
         </h1>
         <p className="mt-3 text-base leading-7 text-neutral-800">
-          <strong>Quick answer:</strong> Secret Note 22's location is a hidden wall panel inside the Bus Stop tunnel (the Tunnel area).
+          <strong>Quick answer:</strong> Secret Note 22 is a clue for a hidden panel inside the Tunnel by the Bus Stop.
           Go to the Bus Stop, enter the Tunnel, then interact with the panel on the wall to reveal the stash and claim the reward.
         </p>
         <p className="mt-3 text-base leading-7 text-neutral-800">
