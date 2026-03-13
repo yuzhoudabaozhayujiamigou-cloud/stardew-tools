@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -8,35 +9,52 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const FAQ_EN = [
-  "Is Hops better than Starfruit for keg profit?",
-  "When does Starfruit win over Hops?",
-  "What if I only have 10 days left in the season?",
-  "Does Artisan profession change the winner?",
-] as const;
+const PAGE_URL = "https://www.stardewprofit.com/blog/hops-vs-starfruit-quick-answer";
 
-const FAQ_ZH = [
-  "啤酒花和杨桃，做酒桶（keg）谁更赚？",
-  "什么时候杨桃会反超啤酒花？",
-  "如果只剩 10 天该选哪个？",
-  "工匠（Artisan）会改变结论吗？",
+const FAQ_ITEMS = [
+  {
+    question: "Is Hops better than Starfruit for keg profit?",
+    answer:
+      "Hops is strong when you can manage frequent processing loops, while Starfruit is strong for high-value harvest spikes. The winner changes with your machine capacity and days left.",
+  },
+  {
+    question: "When does Starfruit beat Hops?",
+    answer:
+      "Starfruit usually gains ground when you can consistently process high-value harvests and avoid idle kegs. It also improves when your playstyle favors fewer but bigger harvest events.",
+  },
+  {
+    question: "What if I only have 10 days left in the season?",
+    answer:
+      "Short windows favor setups with faster realization and less setup risk. Run the 10-day preset first, then compare with your normal 28-day baseline.",
+  },
+  {
+    question: "Does Artisan profession change the result?",
+    answer:
+      "Yes. Artisan increases processed value and can shift close matchups. Always run the same scenario once with your profession assumptions to avoid false conclusions.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
+  title: "Hops vs Starfruit (Stardew Valley): Quick Answer + Presets",
+  description:
+    "Hops or Starfruit for better profit? Use a TL;DR verdict, a step-by-step decision flow, FAQ, and calculator presets for 10-day, 28-day, and greenhouse scenarios.",
+  alternates: {
+    canonical: PAGE_URL,
+  },
   openGraph: {
     type: "article",
+    url: PAGE_URL,
+    title: "Hops vs Starfruit (Stardew Valley): Quick Answer + Presets",
+    description:
+      "Compare Hops and Starfruit with consistent presets for short and full planning windows.",
     publishedTime: "2026-02-24T00:00:00+08:00",
     modifiedTime: "2026-02-24T00:00:00+08:00",
   },
-  title: "Hops vs Starfruit (Quick Answer + Profit Calculator)",
-  description:
-    "Quick answer for Hops vs Starfruit with 3 calculator presets (summer full season, short window, greenhouse baseline). Compare instantly with identical parameters.",
 };
 
 export default function HopsVsStarfruitQuickAnswerPage() {
   const fromPath = "/blog/hops-vs-starfruit-quick-answer";
-
-    const readNextPosts = getBlogReadNextPosts("hops-vs-starfruit-quick-answer", 3);
+  const readNextPosts = getBlogReadNextPosts("hops-vs-starfruit-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -54,23 +72,17 @@ export default function HopsVsStarfruitQuickAnswerPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
-        <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
-          }))}
-        />
+        <FaqJsonLd faqs={[...FAQ_ITEMS]} />
 
-        
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Hops vs Starfruit (Quick Answer + Profit Calculator)" },
+            { name: "Hops vs Starfruit (Stardew Valley): Quick Answer + Presets" },
           ]}
         />
 
-<article className="space-y-6">
+        <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
 
@@ -90,7 +102,7 @@ export default function HopsVsStarfruitQuickAnswerPage() {
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR Quick Answer</h2>
 
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <li>If your goal is a steady keg routine with frequent inputs, Hops is often a strong pick.</li>
@@ -109,12 +121,13 @@ export default function HopsVsStarfruitQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">How to decide in 30 seconds</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">Use Case + Steps</h2>
 
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>If you only have a short window (10 days), run the short-window preset and pick the higher result.</li>
-              <li>If you want a full-season plan, run the 28-day Summer preset and pick the higher result.</li>
-              <li>If you are greenhouse-focused, run the greenhouse preset as a stable baseline.</li>
+              <li>If you only have a short window (10 days), run the short-window preset first.</li>
+              <li>If you want a full-season plan, run the 28-day Summer preset with the same settings.</li>
+              <li>If you are greenhouse-focused, run the greenhouse preset as your stable baseline.</li>
+              <li>Compare which crop keeps your machines busier without creating unprocessed backlog.</li>
             </ol>
           </section>
 
@@ -159,21 +172,37 @@ export default function HopsVsStarfruitQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Related Guides</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/how-many-kegs-do-i-need-quick-answer">
+                  How many kegs do I need?
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/wine-vs-juice-quick-answer">
+                  Wine vs Juice quick answer
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">
+                  Greenhouse layout guide
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
 
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-3 space-y-3">
+              {FAQ_ITEMS.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] px-4 py-3">
+                  <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">{item.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#614326]/90">{item.answer}</p>
+                </details>
               ))}
-            </ul>
-
-            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 
@@ -184,4 +213,3 @@ export default function HopsVsStarfruitQuickAnswerPage() {
     </div>
   );
 }
-

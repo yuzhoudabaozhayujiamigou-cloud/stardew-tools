@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -8,37 +9,52 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const FAQ_EN = [
-  "What should I plant with only 10 days left?",
-  "Does the best crop change by season?",
-  "Are regrowing crops still worth it with short windows?",
-  "Should I prioritize fast harvests or high single-value crops?",
-  "Can Artisan assumptions still matter with only 10 days left?",
-] as const;
+const PAGE_URL = "https://www.stardewprofit.com/blog/best-crops-10-days-left-quick-answer";
 
-const FAQ_ZH = [
-  "只剩 10 天该种什么？",
-  "最佳作物会不会因季节不同而变化？",
-  "剩余天数很短时，复收作物还值得吗？",
-  "该优先快收，还是单次高价作物？",
-  "只剩 10 天时 Artisan 假设还有意义吗？",
+const FAQ_ITEMS = [
+  {
+    question: "What should I plant with only 10 days left?",
+    answer:
+      "Pick crops that can finish reliably within the remaining window. Fast-cycle options and low-risk harvest timing usually beat high upside plans that cannot complete.",
+  },
+  {
+    question: "Does the best crop change by season?",
+    answer:
+      "Yes. Seed options, growth days, and regrowth behavior differ by season, so the optimal 10-day choice in Spring may not be optimal in Summer or Fall.",
+  },
+  {
+    question: "Are regrowing crops still worth it with short windows?",
+    answer:
+      "Sometimes. Regrowing crops can still win if they mature early enough for at least one profitable follow-up harvest before the season ends.",
+  },
+  {
+    question: "Should I prioritize fast harvests or high single-value crops?",
+    answer:
+      "Prioritize reliable completion first, then compare value. High-value crops lose quickly if they miss the final harvest window.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
+  title: "Best Crops with 10 Days Left (Stardew Valley Quick Answer)",
+  description:
+    "Find the best crops when only 10 days remain in the season. Includes TL;DR, step-by-step decision flow, FAQ, and spring/summer/fall calculator presets.",
+  alternates: {
+    canonical: PAGE_URL,
+  },
   openGraph: {
     type: "article",
+    url: PAGE_URL,
+    title: "Best Crops with 10 Days Left (Stardew Valley Quick Answer)",
+    description:
+      "Short-window crop decisions for Spring, Summer, and Fall with preset comparisons.",
     publishedTime: "2026-02-24T00:00:00+08:00",
     modifiedTime: "2026-02-24T00:00:00+08:00",
   },
-  title: "Best Crops with 10 Days Left (Quick Answer)",
-  description:
-    "Quick seasonal answer for Stardew Valley with only 10 days left. Compare spring, summer, and fall presets instantly.",
 };
 
 export default function BestCrops10DaysLeftQuickAnswerPage() {
   const fromPath = "/blog/best-crops-10-days-left-quick-answer";
-
-    const readNextPosts = getBlogReadNextPosts("best-crops-10-days-left-quick-answer", 3);
+  const readNextPosts = getBlogReadNextPosts("best-crops-10-days-left-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -56,23 +72,17 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
-        <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
-          }))}
-        />
+        <FaqJsonLd faqs={[...FAQ_ITEMS]} />
 
-        
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Best Crops with 10 Days Left (Quick Answer)" },
+            { name: "Best Crops with 10 Days Left (Stardew Valley Quick Answer)" },
           ]}
         />
 
-<article className="space-y-6">
+        <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
@@ -84,12 +94,29 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR Quick Answer</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <li>Spring 10-day window: compare Strawberry vs Blueberry assumptions fast.</li>
               <li>Summer 10-day window: Hops vs Starfruit can flip by execution style.</li>
               <li>Fall 10-day window: Cranberry vs Pumpkin depends on your remaining cycle.</li>
             </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Use Case + Steps</h2>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>Pick your current season and set days left to 10 in the calculator.</li>
+              <li>Run the matching preset pair to compare likely finish outcomes.</li>
+              <li>Choose crops with reliable harvest completion before season end.</li>
+              <li>Re-check if weather or playtime constraints reduce daily actions.</li>
+            </ol>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              For baseline long-window planning, review{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-crops-year-1">
+                best crops year 1
+              </Link>
+              .
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -128,19 +155,36 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Related Guides</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-crops-year-1">
+                  Best crops year 1
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-greenhouse-crops-quick-answer">
+                  Best greenhouse crops quick answer
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/hops-vs-starfruit-quick-answer">
+                  Hops vs Starfruit quick answer
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-3 space-y-3">
+              {FAQ_ITEMS.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] px-4 py-3">
+                  <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">{item.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#614326]/90">{item.answer}</p>
+                </details>
               ))}
-            </ul>
-            <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 
@@ -151,4 +195,3 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
     </div>
   );
 }
-

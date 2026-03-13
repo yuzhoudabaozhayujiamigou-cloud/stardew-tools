@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -8,37 +9,52 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const FAQ_EN = [
-  "Is wine more profitable than juice in Stardew Valley?",
-  "Does Artisan profession increase both wine and juice value?",
-  "When should I skip kegs and stay with simpler chains?",
-  "Which crops are better for wine-focused processing?",
-  "How does greenhouse timing affect wine vs juice?",
-] as const;
+const PAGE_URL = "https://www.stardewprofit.com/blog/wine-vs-juice-quick-answer";
 
-const FAQ_ZH = [
-  "在星露谷里 wine 一定比 juice 更赚钱吗？",
-  "Artisan 是否会同时提高 wine 和 juice 收益？",
-  "什么时候应该跳过酒桶，走更轻量的链路？",
-  "哪些作物更适合 wine 导向的加工？",
-  "温室节奏会如何影响 wine vs juice 的结论？",
+const FAQ_ITEMS = [
+  {
+    question: "Is wine more profitable than juice in Stardew Valley?",
+    answer:
+      "Wine often wins with high-value fruit and stable keg capacity. Juice can stay competitive when your crop mix is broader and your processing pipeline is still ramping.",
+  },
+  {
+    question: "Does Artisan profession increase both wine and juice value?",
+    answer:
+      "Yes. Artisan boosts processed goods and changes break-even points, so run your comparison using the same profession assumptions for both sides.",
+  },
+  {
+    question: "When should I skip kegs and use simpler chains?",
+    answer:
+      "If you cannot keep kegs busy or you need faster cash conversion, simpler chains can outperform in practice. Avoid machine downtime and backlog first, then optimize per-item value.",
+  },
+  {
+    question: "How does greenhouse timing affect wine vs juice?",
+    answer:
+      "Greenhouse uptime reduces seasonal volatility, so machine throughput becomes more important. The best choice depends on whether your kegs can handle steady harvest flow.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
+  title: "Wine vs Juice (Stardew Valley): Quick Answer + Calculator",
+  description:
+    "Wine or juice for better profit? Get a TL;DR verdict, a practical use-case workflow, FAQ, and preset calculator scenarios for keg-heavy, balanced, and low-keg farms.",
+  alternates: {
+    canonical: PAGE_URL,
+  },
   openGraph: {
     type: "article",
+    url: PAGE_URL,
+    title: "Wine vs Juice (Stardew Valley): Quick Answer + Calculator",
+    description:
+      "Quick wine vs juice decision framework with presets for real farm constraints.",
     publishedTime: "2026-02-24T00:00:00+08:00",
     modifiedTime: "2026-02-24T00:00:00+08:00",
   },
-  title: "Wine vs Juice: Which Is More Profitable? (Quick Answer)",
-  description:
-    "Quick answer for Wine vs Juice with three calculator presets: keg-heavy, balanced, and no-kegs setup.",
 };
 
 export default function WineVsJuiceQuickAnswerPage() {
   const fromPath = "/blog/wine-vs-juice-quick-answer";
-
-    const readNextPosts = getBlogReadNextPosts("wine-vs-juice-quick-answer", 3);
+  const readNextPosts = getBlogReadNextPosts("wine-vs-juice-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -56,23 +72,17 @@ export default function WineVsJuiceQuickAnswerPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
-        <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
-          }))}
-        />
+        <FaqJsonLd faqs={[...FAQ_ITEMS]} />
 
-        
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Wine vs Juice: Which Is More Profitable? (Quick Answer)" },
+            { name: "Wine vs Juice (Stardew Valley): Quick Answer + Calculator" },
           ]}
         />
 
-<article className="space-y-6">
+        <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
@@ -84,12 +94,29 @@ export default function WineVsJuiceQuickAnswerPage() {
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR Quick Answer</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <li>Keg-heavy setups usually reward high-value crops more strongly.</li>
               <li>Balanced setups depend on crop mix and your processing cadence.</li>
               <li>No-kegs scenarios can still be competitive with simpler, faster choices.</li>
             </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Use Case + Steps</h2>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>Choose your current machine reality: keg-heavy, balanced, or low-keg.</li>
+              <li>Run the matching preset below with your season and days left.</li>
+              <li>Compare net result and how much crop stays unprocessed each cycle.</li>
+              <li>If results are close, pick the option that is easier to maintain weekly.</li>
+            </ol>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              If you need a neutral baseline first, use{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">
+                the base crop calculator
+              </Link>
+              .
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -128,19 +155,36 @@ export default function WineVsJuiceQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Related Guides</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-profit-guide">
+                  Keg vs Preserve Jar complete guide
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/hops-vs-starfruit-quick-answer">
+                  Hops vs Starfruit quick answer
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">
+                  Greenhouse layout guide
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-3 space-y-3">
+              {FAQ_ITEMS.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] px-4 py-3">
+                  <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">{item.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#614326]/90">{item.answer}</p>
+                </details>
               ))}
-            </ul>
-            <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 
@@ -151,4 +195,3 @@ export default function WineVsJuiceQuickAnswerPage() {
     </div>
   );
 }
-
