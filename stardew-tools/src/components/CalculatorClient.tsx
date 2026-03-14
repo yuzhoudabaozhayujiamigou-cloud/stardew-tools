@@ -193,9 +193,8 @@ export function CalculatorClient(props: {
     return () => window.clearTimeout(timeoutId);
   }, [compareCopyState]);
 
-  useEffect(() => {
-    setShowAllResults(false);
-  }, [daysLeft, formValue.hasTiller, formValue.profession, formValue.quality, formValue.season]);
+  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}`;
+
 
   const text = useMemo(() => getCalculatorText(lang), [lang]);
 
@@ -239,10 +238,24 @@ export function CalculatorClient(props: {
   }, [compareSelection, results, resultsById]);
 
   const tableSourceResults = results.length ? results : props.initialResults;
-  const visibleResults = showAllResults
+  const shouldShowResultToggle = tableSourceResults.length > RESULTS_COLLAPSED_LIMIT;
+
+  // Ensure the expanded state does not apply across different input combinations.
+  // We intentionally avoid setState-in-effect due to react-hooks v7 rule behavior.
+  const currentInputsKey = inputsKey;
+  const [expandedInputsKey, setExpandedInputsKey] = useState(currentInputsKey);
+
+  if (expandedInputsKey !== currentInputsKey) {
+    // When inputs change, collapse results back to default without using effects.
+    // Safe: guarded, runs at most twice per input change.
+    setExpandedInputsKey(currentInputsKey);
+    setShowAllResults(false);
+  }
+
+  const effectiveShowAllResults = showAllResults;
+  const visibleResults = effectiveShowAllResults
     ? tableSourceResults
     : tableSourceResults.slice(0, RESULTS_COLLAPSED_LIMIT);
-  const shouldShowResultToggle = tableSourceResults.length > RESULTS_COLLAPSED_LIMIT;
 
   const topPick = results[0];
   const quickAnswerPick = topPick ?? tableSourceResults[0];
