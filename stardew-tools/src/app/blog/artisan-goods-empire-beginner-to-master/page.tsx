@@ -458,7 +458,7 @@ export default function ArtisanGoodsEmpireBeginnerToMasterPage() {
             <p className={P}>
               The keg-versus-jar debate creates confusion because players compare metrics from different
               contexts. One player is short on machines, another is short on input crops, another is short
-              on resin. The "best" machine changes with bottleneck type. To avoid wrong conclusions,
+              on resin. The {"\""}best{"\""} machine changes with bottleneck type. To avoid wrong conclusions,
               classify your situation first.
             </p>
             <h3 className={`${H3} mt-6`}>Bottleneck diagnostic before choosing machines</h3>
@@ -539,8 +539,8 @@ export default function ArtisanGoodsEmpireBeginnerToMasterPage() {
             <p className={P}>
               Oak resin is the hidden governor of most artisan empires. Players often do the visible work
               correctly: growing crops, mining ore, collecting wood, planning machine zones. Then expansion
-              freezes because resin inflow cannot support projected keg growth. The fix is not "wait and
-              hope"; it is deliberate resin operations.
+              freezes because resin inflow cannot support projected keg growth. The fix is not {"\""}wait and
+              hope{"\""}; it is deliberate resin operations.
             </p>
             <p className={P}>
               Treat resin like strategic inventory, not incidental loot. Plan tapper count against machine
@@ -581,7 +581,7 @@ export default function ArtisanGoodsEmpireBeginnerToMasterPage() {
               <li className={LI}>Maintain tree replacement cadence so future resin throughput is stable.</li>
             </ul>
             <p className={P}>
-              Resin control is where many players transition from "good artisan setup" to true empire
+              Resin control is where many players transition from {"\""}good artisan setup{"\""} to true empire
               execution.
             </p>
           </section>
@@ -795,7 +795,7 @@ export default function ArtisanGoodsEmpireBeginnerToMasterPage() {
               because each cycle teaches you which assumptions were valid.
             </p>
             <Callout title="Case-study rule">
-              Never copy another farm's final layout without copying its process discipline. Layouts are
+              Never copy another farm{String.fromCharCode(39)}s final layout without copying its process discipline. Layouts are
               artifacts; routines are the real engine.
             </Callout>
           </section>

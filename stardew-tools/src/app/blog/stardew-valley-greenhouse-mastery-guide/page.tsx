@@ -358,7 +358,7 @@ export default function StardewValleyGreenhouseMasteryGuidePage() {
               Outdoor fields are seasonal, weather-exposed, and calendar-constrained. Greenhouse farming
               is controlled, stable, and year-round. Once you understand this difference, your planning
               shifts from seasonal survival to continuous production design. That shift is exactly why
-              many high-profit farms feel "effortless" after greenhouse setup: income smoothing replaces
+              many high-profit farms feel {"\""}effortless{"\""} after greenhouse setup: income smoothing replaces
               seasonal volatility.
             </p>
             <p className={P}>
@@ -370,7 +370,7 @@ export default function StardewValleyGreenhouseMasteryGuidePage() {
               around outdoor opportunities, but your core engine keeps running.
             </p>
             <p className={P}>
-              This is why greenhouse optimization should not be delayed to "late game perfection." Even a
+              This is why greenhouse optimization should not be delayed to {"\""}late game perfection{"\""}. Even a
               partially optimized greenhouse can significantly reduce decision pressure. If your goal is a
               scalable profit system, use this guide alongside the{" "}
               <Link className={LINK} href="/blog/farm-profit-pillars">Farm Profit Pillars guide</Link>{" "}
@@ -390,7 +390,7 @@ export default function StardewValleyGreenhouseMasteryGuidePage() {
               preplanned. The right way is to treat unlock day as launch day. Before completion, you
               should already know crop plan, sprinkler placement, chest routing, and first processing
               batch flow. This prework determines whether greenhouse activation feels transformational or
-              merely "nice to have."
+              merely {"\""}nice to have{"\""}.
             </p>
             <h3 className={`${H3} mt-6`}>Pre-unlock preparation priorities</h3>
             <ul className="mt-3 space-y-1">
@@ -445,7 +445,7 @@ export default function StardewValleyGreenhouseMasteryGuidePage() {
             <h2 className={H2}>Layout variants for different playstyles</h2>
             <p className={P}>
               Not every player should run the same greenhouse geometry. Your schedule, replant tolerance,
-              and machine infrastructure all affect what is "optimal." The 116 pattern is a strong
+              and machine infrastructure all affect what is {"\""}optimal{"\""}. The 116 pattern is a strong
               baseline, but variants can outperform it for specific constraints. For example, players with
               limited weekly play windows often benefit from slightly cleaner lanes that sacrifice a few
               tiles for lower friction. Meanwhile, high-attention optimizers may run strict density plus
@@ -597,9 +597,9 @@ export default function StardewValleyGreenhouseMasteryGuidePage() {
             <h2 className={H2}>Profit math and ROI planning</h2>
             <p className={P}>
               ROI in greenhouse setups is easy to misunderstand because returns are continuous and tied to
-              multiple dependent systems. Instead of asking only "Which crop has higher sell price?" ask
-              "Which full pipeline generates more realized value per week after accounting for labor,
-              machine capacity, and bottlenecks?" This framing prevents misleading optimization.
+              multiple dependent systems. Instead of asking only {"\""}Which crop has higher sell price?{"\""} ask
+              {"\""}Which full pipeline generates more realized value per week after accounting for labor,
+              machine capacity, and bottlenecks?{"\""} This framing prevents misleading optimization.
             </p>
             <div className="mt-5 overflow-x-auto">
               <table className="min-w-[980px] w-full border-separate border-spacing-y-2 text-sm">
@@ -633,8 +633,8 @@ export default function StardewValleyGreenhouseMasteryGuidePage() {
               workflow routing is likely broken. Use this diagnosis loop before spending heavily.
             </p>
             <Callout title="Practical ROI question">
-              "If I add 10 kegs this week, do I reduce delayed conversion enough to recover investment
-              faster than alternative uses of gold?" This question is more reliable than headline margin
+              {"\""}If I add 10 kegs this week, do I reduce delayed conversion enough to recover investment
+              faster than alternative uses of gold?{"\""} This question is more reliable than headline margin
               comparisons.
             </Callout>
           </section>

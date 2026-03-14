@@ -412,9 +412,9 @@ export default function StardewValleyYear1ProfitGuideCompletePage() {
             <p className={P}>
               Profit scales when your farm can move more value per day with the same effort. Sprinklers,
               clean field lanes, chest placement, and machine routing are throughput tools. People talk
-              about "best crop" as if crop selection alone determines wealth, but in mature Year 1 runs,
+              about {"\""}best crop{"\""} as if crop selection alone determines wealth, but in mature Year 1 runs,
               execution speed and machine uptime can outperform small crop-choice differences. A 95%
-              optimal crop with near-zero downtime beats a "perfect" crop strategy that sits in chests
+              optimal crop with near-zero downtime beats a {"\""}perfect{"\""} crop strategy that sits in chests
               waiting for machines.
             </p>
             <h3 className={`${H3} mt-6`}>Principle 3: Treat every season as setup for the next one</h3>
@@ -599,7 +599,7 @@ export default function StardewValleyYear1ProfitGuideCompletePage() {
               for tactical comparison.
             </p>
             <Callout title="High-impact Fall habit">
-              Schedule one weekly "pipeline reset" session: empty chests, refill machines, sell delayed
+              Schedule one weekly {"\""}pipeline reset{"\""} session: empty chests, refill machines, sell delayed
               outputs, and verify next week seed/material budget. This single routine prevents drift
               better than any isolated optimization trick.
             </Callout>
@@ -692,7 +692,7 @@ export default function StardewValleyYear1ProfitGuideCompletePage() {
             </p>
             <h3 className={`${H3} mt-6`}>Mistake 3: Ignoring machine bottlenecks until Fall</h3>
             <p className={P}>
-              Many players treat artisan setup as "later," then discover in Fall that they cannot process
+              Many players treat artisan setup as {"\""}later,{"\""} then discover in Fall that they cannot process
               enough to capture high-value opportunities. Start material pipelines early, especially oak
               resin and bars, even if your first machine count is small.
             </p>
@@ -770,7 +770,7 @@ export default function StardewValleyYear1ProfitGuideCompletePage() {
                 calculator
               </Link>{" "}
               and adjust crop buying to match your real bottleneck. Then schedule one weekly reset
-              session. This alone will outperform most "perfect" plans that never survive contact with
+              session. This alone will outperform most {"\""}perfect{"\""} plans that never survive contact with
               actual gameplay.
             </p>
             <p className={P}>

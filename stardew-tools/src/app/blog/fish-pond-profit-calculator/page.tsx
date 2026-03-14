@@ -372,7 +372,7 @@ export default function FishPondProfitCalculatorPage() {
           <section className={CARD}>
             <h2 className={H2}>Fish Pond Setup Checklist</h2>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>Build fish pond (5,000g, 200 Stone, 5 Seaweed) from Robin's shop.</li>
+              <li>Build fish pond (5,000g, 200 Stone, 5 Seaweed) from Robin{String.fromCharCode(39)}s shop.</li>
               <li>Catch your target fish (Lava Eel from Mines 100, Sturgeon from Mountain Lake Summer/Winter).</li>
               <li>Place fish in pond and complete population quests (usually 3 Stone, 5 Green Algae, etc.).</li>
               <li>Collect roe every 1-5 days depending on fish type.</li>

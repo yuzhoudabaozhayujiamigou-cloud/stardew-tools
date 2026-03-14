@@ -655,7 +655,7 @@ export default function StardewValleyFishingProfitGuidePage() {
               the number of crops you can run is capped by stamina and time. But the number of fish you
               can catch scales with practice and rod upgrades, not field size. That means your income
               can increase before your infrastructure does. In practical terms, fishing is often your
-              bridge from "survival mode" to "system mode" where sprinklers, tool upgrades, and better
+              bridge from {"\""}survival mode{"\""} to {"\""}system mode{"\""} where sprinklers, tool upgrades, and better
               route planning take over.
             </p>
             <p className={P}>
@@ -884,8 +884,8 @@ export default function StardewValleyFishingProfitGuidePage() {
             <p className={P}>
               This comparison is where many guides oversimplify. Rod fishing and crab pots are not direct
               substitutes; they solve different economic needs. Rod fishing is an active income spike.
-              Crab pots are a passive income floor. The right question is not "which is always better"
-              but "which layer does my current farm need more right now".
+              Crab pots are a passive income floor. The right question is not {"\""}which is always better{"\""}
+              but {"\""}which layer does my current farm need more right now{"\""}.
             </p>
 
             <div className="mt-5 overflow-x-auto">
