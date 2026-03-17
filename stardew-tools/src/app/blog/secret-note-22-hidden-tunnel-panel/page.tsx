@@ -3,9 +3,10 @@ import Link from "next/link";
 import Script from "next/script";
 import { SITE_ORIGIN } from "@/lib/site";
 
-const pageTitle = "Secret Note 22 Solution: Hidden Tunnel Panel Location & Reward (Stardew)";
+// Meta: keep it query-aligned ("where is/ location / reward") to improve CTR from GSC impressions
+const pageTitle = "Secret Note 22 Location (Stardew Valley): Hidden Tunnel Panel Walkthrough";
 const pageDescription =
-  "Secret Note 22 points to a hidden wall panel in the Bus Stop tunnel. Get the exact location, steps to trigger it, reward, and quick fixes.";
+  "Where is Secret Note 22 in Stardew Valley? Get the exact hidden tunnel panel location, quick reward steps, common fixes, and related profit guides in one page.";
 const pagePath = "/blog/secret-note-22-hidden-tunnel-panel";
 const pageUrl = `${SITE_ORIGIN}${pagePath}`;
 const ogImageUrl =
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: pagePath,
+    canonical: pageUrl,
   },
   openGraph: {
     title: pageTitle,
@@ -66,28 +67,28 @@ const toc: TocItem[] = [
 
 const faqs = [
   {
+    q: "Where is the Secret Note 22 panel in Stardew Valley?",
+    a: "Secret Note 22 points to a hidden wall panel inside the Tunnel by the Bus Stop. Enter the tunnel, then click the wall area until you hit the correct tile—there’s no obvious interaction marker.",
+  },
+  {
+    q: "How do you trigger the Secret Note 22 reward?",
+    a: "After you’ve obtained Secret Note 22, go to the Bus Stop tunnel and click the exact panel spot on the wall. When you click the correct tile, the hidden stash reveals immediately.",
+  },
+  {
+    q: "What reward do you get from Secret Note 22?",
+    a: "It’s a one-time hidden stash reward you can collect once per save. After you collect it, clicking the panel again won’t give additional items.",
+  },
+  {
+    q: "Why can’t I find the Secret Note 22 location even with the note?",
+    a: "Most misses come from being a tile or two off, clicking the wrong wall section, or expecting a prompt. Stand flush against the wall and click slowly along the panel area until it triggers.",
+  },
+  {
     q: "Where do you find Secret Note 22?",
     a: "After you unlock Secret Notes with the Magnifying Glass, note #22 can drop from normal gameplay (combat, fishing, chopping trees, digging artifact spots, etc.).",
   },
   {
-    q: "Where is the hidden panel for Secret Note 22?",
-    a: "Inside the Tunnel by the Bus Stop. Enter the tunnel and click the wall area (it’s a hidden interaction point, not a visible object).",
-  },
-  {
-    q: "What’s the Secret Note 22 reward?",
-    a: "A one-time hidden stash you can collect immediately once you click the correct wall spot in the tunnel.",
-  },
-  {
-    q: "Why won’t the panel interact / trigger?",
-    a: "You’re usually a tile or two off. Re-enter the Tunnel, then click slowly along the wall until the interaction triggers.",
-  },
-  {
-    q: "Do you need Stardew Valley 1.6 for Secret Note 22?",
-    a: "No. The solution (Tunnel + hidden wall panel) is the same — most issues are positioning rather than version-related.",
-  },
-  {
     q: "Is Secret Note 22 missable?",
-    a: "No. You can solve it later — it’s a quick detour whenever you’re near the Bus Stop (desert trip, town run, traveling cart).",
+    a: "No. You can solve it later—it’s a quick detour whenever you’re near the Bus Stop (desert trip, town run, traveling cart).",
   },
 ];
 
@@ -125,6 +126,15 @@ export default function Page() {
         <p className="mt-3 text-base leading-7 text-neutral-800">
           Below you’ll find the exact location, step-by-step directions, and troubleshooting tips if it doesn’t trigger.
         </p>
+
+        <div className="mt-4 rounded-lg border border-neutral-200 bg-white/70 p-4">
+          <p className="text-sm font-semibold text-neutral-900">TL;DR Quick Answer</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-neutral-800">
+            <li>Go to the Bus Stop tunnel after obtaining Secret Note 22.</li>
+            <li>Click the hidden wall panel tile until the stash triggers.</li>
+            <li>If it fails, adjust position by one tile and try again slowly.</li>
+          </ul>
+        </div>
 
         <div className="mt-5 rounded-lg border border-neutral-200 bg-white/60 p-4">
           <p className="text-sm text-neutral-800">
@@ -239,24 +249,36 @@ export default function Page() {
           Many players walk past it dozens of times and never interact with
           anything inside.
         </p>
-        <p className="mt-4 text-neutral-800">
-          Secret Note 22 is telling you there’s something there anyway. Go to
-          the tunnel and carefully click along the wall area where a panel would
-          realistically be. When you click the correct spot, the hidden stash is
-          revealed.
-        </p>
+
         <div className="mt-6 rounded-xl border border-neutral-200 bg-white/70 p-5">
-          <p className="text-sm font-semibold text-neutral-900">
-            Fast checklist
-          </p>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-neutral-800">
-            <li>Go to the Bus Stop tunnel.</li>
-            <li>Click the tunnel wall area (slowly, deliberately).</li>
-            <li>When it triggers, collect the stash.</li>
-          </ul>
+          <p className="text-sm font-semibold text-neutral-900">Step-by-step</p>
+          <ol className="mt-3 list-decimal space-y-2 pl-5 text-neutral-800">
+            <li>
+              <strong>Make sure you actually have Secret Note 22</strong> (found
+              after unlocking Secret Notes with the Magnifying Glass).
+            </li>
+            <li>
+              <strong>Go to the Bus Stop</strong> and enter the Tunnel (the dark
+              passage near the road).
+            </li>
+            <li>
+              <strong>Walk up to the wall</strong> and click the wall tiles
+              slowly along the panel area. There’s no big interaction prompt.
+            </li>
+            <li>
+              <strong>When it triggers</strong>, the hidden stash reveals
+              immediately—collect the reward.
+            </li>
+            <li>
+              <strong>Done</strong>: it’s a one-time reward. If you revisit later,
+              it won’t repeat.
+            </li>
+          </ol>
         </div>
+
         <p className="mt-4 text-neutral-800">
-          After you collect it, the note is effectively “done.”
+          Secret Note 22 is essentially a tiny treasure map. The only “hard” part
+          is that the interactable is invisible—most failures are just misclicks.
         </p>
       </section>
 

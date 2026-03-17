@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -8,37 +9,52 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const FAQ_EN = [
-  "Is Artisan better than Tiller for long-term money?",
-  "Can I still use this guide if my calculator currently focuses on Artisan mode?",
-  "Which crops show the biggest processing upside?",
-  "Do spring crops react differently from fall crops?",
-  "How should I test my own setup quickly?",
-] as const;
+const PAGE_URL = "https://www.stardewprofit.com/blog/artisan-vs-tiller-quick-answer";
 
-const FAQ_ZH = [
-  "长期收益看，Artisan 一定比 Tiller 更好吗？",
-  "如果计算器当前偏 Artisan，这篇还适用吗？",
-  "哪些作物最能体现加工加成？",
-  "春季和秋季作物的表现会不同吗？",
-  "怎么快速验证自己的实际配置？",
+const FAQ_ITEMS = [
+  {
+    question: "Is Artisan better than Tiller for long-term money?",
+    answer:
+      "Artisan usually wins once your farm is processing-heavy. Tiller can still be useful earlier when most income comes from raw crops rather than crafted goods.",
+  },
+  {
+    question: "Can I still use this guide if I currently run Artisan-only presets?",
+    answer:
+      "Yes. Use this page as a decision framework and compare scenarios consistently. The key is to keep assumptions fixed while testing different crop chains.",
+  },
+  {
+    question: "Which crops show the biggest processing upside?",
+    answer:
+      "High-value fruit and keg-focused chains usually show the clearest upside because processed multipliers scale strongly with stable input and machine uptime.",
+  },
+  {
+    question: "How should I test my own setup quickly?",
+    answer:
+      "Pick one season, run one farming-focused preset and one processing-focused preset, then compare output and backlog risk. Repeat with your real days-left value.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
+  title: "Artisan vs Tiller: Quick Answer + Profit Workflow",
+  description:
+    "Artisan or Tiller for better money? Use the TL;DR rule, step-by-step comparison flow, FAQ, and calculator presets to test your own Stardew Valley farm setup.",
+  alternates: {
+    canonical: PAGE_URL,
+  },
   openGraph: {
     type: "article",
+    url: PAGE_URL,
+    title: "Artisan vs Tiller: Quick Answer + Profit Workflow",
+    description:
+      "Decision framework for Artisan vs Tiller with practical presets and FAQ.",
     publishedTime: "2026-02-24T00:00:00+08:00",
     modifiedTime: "2026-02-24T00:00:00+08:00",
   },
-  title: "Artisan vs Tiller: Which Makes More Money? (Quick Answer)",
-  description:
-    "SEO quick answer page for Artisan vs Tiller, implemented with calculator-compatible Artisan presets only.",
 };
 
 export default function ArtisanVsTillerQuickAnswerPage() {
   const fromPath = "/blog/artisan-vs-tiller-quick-answer";
-
-    const readNextPosts = getBlogReadNextPosts("artisan-vs-tiller-quick-answer", 3);
+  const readNextPosts = getBlogReadNextPosts("artisan-vs-tiller-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -56,23 +72,17 @@ export default function ArtisanVsTillerQuickAnswerPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
-        <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
-          }))}
-        />
+        <FaqJsonLd faqs={[...FAQ_ITEMS]} />
 
-        
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Artisan vs Tiller: Which Makes More Money? (Quick Answer)" },
+            { name: "Artisan vs Tiller: Quick Answer + Profit Workflow" },
           ]}
         />
 
-<article className="space-y-6">
+        <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
@@ -84,12 +94,29 @@ export default function ArtisanVsTillerQuickAnswerPage() {
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR Quick Answer</h2>
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <li>Processing-heavy chains usually benefit more from Artisan assumptions.</li>
               <li>Pure farming choices still vary by season and harvest rhythm.</li>
               <li>Use presets below to compare scenarios quickly with your own timing.</li>
             </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Use Case + Steps</h2>
+            <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>Choose one target season and set the same days-left value across tests.</li>
+              <li>Run one processing-heavy preset and one farming-heavy preset.</li>
+              <li>Compare results and check if your machines can keep up with crop flow.</li>
+              <li>Pick the path that gives stable output with less idle time and less backlog.</li>
+            </ol>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Start with{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">
+                the calculator baseline
+              </Link>
+              .
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -128,19 +155,36 @@ export default function ArtisanVsTillerQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Related Guides</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-quick-answer">
+                  Keg vs Jar quick answer
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-crops-year-1">
+                  Best crops year 1 guide
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">
+                  Greenhouse layout guide
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-3 space-y-3">
+              {FAQ_ITEMS.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] px-4 py-3">
+                  <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">{item.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#614326]/90">{item.answer}</p>
+                </details>
               ))}
-            </ul>
-            <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 
@@ -151,4 +195,3 @@ export default function ArtisanVsTillerQuickAnswerPage() {
     </div>
   );
 }
-

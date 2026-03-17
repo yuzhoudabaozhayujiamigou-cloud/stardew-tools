@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -8,39 +9,52 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const FAQ_EN = [
-  "How many kegs do I need for Starfruit wine?",
-  "Do I need the same number of kegs for Ancient Fruit and Hops?",
-  "Does Artisan profession change keg planning?",
-  "What if I cannot craft enough kegs yet?",
-  "Is it better to process everything or sell some crops raw?",
-  "How do days left in season affect keg count decisions?",
-] as const;
+const PAGE_URL = "https://www.stardewprofit.com/blog/how-many-kegs-do-i-need-quick-answer";
 
-const FAQ_ZH = [
-  "杨桃酒大概需要多少酒桶？",
-  "古代果实和啤酒花需要同样数量的酒桶吗？",
-  "Artisan 会改变酒桶规划吗？",
-  "前期酒桶做不够怎么办？",
-  "是全加工更好，还是部分直接卖更好？",
-  "赛季剩余天数会如何影响酒桶数量决策？",
+const FAQ_ITEMS = [
+  {
+    question: "How many kegs do I need for Starfruit wine?",
+    answer:
+      "Start with enough kegs to keep your best harvest from sitting idle. If you still have large chest backlog after each harvest cycle, add more kegs before expanding crop tiles.",
+  },
+  {
+    question: "Do Ancient Fruit and Hops need the same keg count?",
+    answer:
+      "No. Hops creates much heavier input pressure because of frequent output, while Ancient Fruit is easier to stabilize with fewer kegs per tile.",
+  },
+  {
+    question: "Does Artisan profession change keg planning?",
+    answer:
+      "Artisan boosts processed value, so under-building kegs becomes more expensive in opportunity cost. The profession usually increases the payoff of expanding your keg line.",
+  },
+  {
+    question: "What if I cannot craft enough kegs yet?",
+    answer:
+      "Use a hybrid setup: route top-value fruit into existing kegs, sell some crops raw, and use jars for overflow. This keeps cashflow moving while you scale materials.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
+  title: "How Many Kegs Do I Need? (Stardew Valley Quick Planner)",
+  description:
+    "Estimate keg count fast with a TL;DR benchmark, practical step-by-step workflow, FAQ, and calculator presets for small, mid, and heavy processing farms.",
+  alternates: {
+    canonical: PAGE_URL,
+  },
   openGraph: {
     type: "article",
+    url: PAGE_URL,
+    title: "How Many Kegs Do I Need? (Stardew Valley Quick Planner)",
+    description:
+      "Use-case based keg planning with presets for starter, balanced, and heavy processing setups.",
     publishedTime: "2026-02-23T00:00:00+08:00",
     modifiedTime: "2026-02-23T00:00:00+08:00",
   },
-  title: "How Many Kegs Do I Need? (Quick Answer + Profit Calculator)",
-  description:
-    "Quick keg-count planning guide for Stardew Valley with direct calculator presets. Compare crop chains and decide small, mid, or heavy processing setups.",
 };
 
 export default function HowManyKegsDoINeedQuickAnswerPage() {
   const fromPath = "/blog/how-many-kegs-do-i-need-quick-answer";
-
-    const readNextPosts = getBlogReadNextPosts("how-many-kegs-do-i-need-quick-answer", 3);
+  const readNextPosts = getBlogReadNextPosts("how-many-kegs-do-i-need-quick-answer", 3);
 
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
@@ -58,23 +72,17 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
-        <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
-          }))}
-        />
+        <FaqJsonLd faqs={[...FAQ_ITEMS]} />
 
-        
         <Breadcrumb
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "How Many Kegs Do I Need? (Quick Answer + Profit Calculator)" },
+            { name: "How Many Kegs Do I Need? (Stardew Valley Quick Planner)" },
           ]}
         />
 
-<article className="space-y-6">
+        <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">How Many Kegs Do I Need?</h1>
@@ -82,7 +90,7 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">TL;DR Quick Answer</h2>
 
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <li>If you are early game, start with a small keg core and avoid overbuilding.</li>
@@ -98,17 +106,20 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e]">Why keg count changes your profit</h2>
+            <h2 className="text-xl font-semibold text-[#4a321e]">Use Case + Steps</h2>
             <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>Throughput mismatch: fast harvest cycles can overwhelm small keg setups.</li>
-              <li>Crop mix matters: Starfruit, Ancient Fruit, and Hops stress kegs differently.</li>
-              <li>Time horizon matters: with fewer days left, backlog risk increases fast.</li>
+              <li>Pick one crop chain you actually run now (for example Starfruit or Ancient Fruit).</li>
+              <li>Open the matching preset and set your true season/days-left values.</li>
+              <li>Check whether processed output is waiting in storage after harvest.</li>
+              <li>If backlog remains week to week, increase kegs before adding more crop tiles.</li>
             </ol>
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>吞吐错配：收获节奏快时，小规模酒桶很容易积压。</li>
-              <li>作物结构差异：杨桃、古代果实、啤酒花对酒桶压力并不一样。</li>
-              <li>时间窗口影响：剩余天数越短，产线积压风险越高。</li>
-            </ol>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              This pairs well with{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">
+                the crop profit calculator
+              </Link>{" "}
+              for fast what-if checks.
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -157,21 +168,37 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Related Guides</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-profit-guide">
+                  Keg vs Preserve Jar complete guide
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/hops-vs-starfruit-quick-answer">
+                  Hops vs Starfruit quick answer
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">
+                  Greenhouse layout guide
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
 
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-3 space-y-3">
+              {FAQ_ITEMS.map((item) => (
+                <details key={item.question} className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] px-4 py-3">
+                  <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">{item.question}</summary>
+                  <p className="mt-2 text-sm leading-6 text-[#614326]/90">{item.answer}</p>
+                </details>
               ))}
-            </ul>
-
-            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 
@@ -182,4 +209,3 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
     </div>
   );
 }
-

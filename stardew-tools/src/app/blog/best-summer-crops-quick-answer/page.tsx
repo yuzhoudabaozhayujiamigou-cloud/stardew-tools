@@ -15,9 +15,9 @@ const modifiedTime = "2026-03-07T00:00:00+08:00";
 const fromPath = "/blog/best-summer-crops-quick-answer";
 const url = `${SITE_ORIGIN}${fromPath}`;
 
-const TITLE = "Best Summer Crops in Stardew Valley (Quick Answer + Profit Checklist)";
+const TITLE = "Best Summer Crops in Stardew Valley (Day 1 to Late Summer Quick Answer)";
 const DESCRIPTION =
-  "Best Summer crops in Stardew Valley with quick picks for Day 1, mid-season, and late-season. Includes TL;DR, calculator CTA, crop links, and an 8-question FAQ.";
+  "Best Summer crops in Stardew Valley for Day 1, Day 15, and late-season decisions. Includes quick answer, practical checklist, FAQ, and calculator workflows.";
 
 const FAQ = [
   {
