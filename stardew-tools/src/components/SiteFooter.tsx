@@ -8,6 +8,12 @@ const FOOTER_LINKS = [
   { href: "/calculator", label: "Crop Calculator" },
   { href: "/blog", label: "Guides & Quick Answers" },
   { href: "/secret-notes", label: "Secret Notes Finder" },
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/cookie-policy", label: "Cookie Policy" },
+  { href: "/terms", label: "Terms of Use" },
+  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/disclaimer", label: "Disclaimer" },
 ] as const;
 
 const FOOTER_LINK_CLASS =
