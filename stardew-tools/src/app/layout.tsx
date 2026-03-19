@@ -68,6 +68,13 @@ export default function RootLayout({
         
         {/* Preload critical font */}
         <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+              {/* Google AdSense (site verification / ad loading) */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8196905039108849"
+          crossOrigin="anonymous"
+        />
+
       </head>
       <body className="antialiased">
         <Suspense fallback={null}>
