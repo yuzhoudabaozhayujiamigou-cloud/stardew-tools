@@ -15,9 +15,9 @@ const modifiedTime = "2026-03-07T00:00:00+08:00";
 const fromPath = "/blog/best-fall-crops-quick-answer";
 const url = `${SITE_ORIGIN}${fromPath}`;
 
-const TITLE = "Best Fall Crops in Stardew Valley (Quick Answer + Fall Profit Checklist)";
+const TITLE = "Best Fall Crops in Stardew Valley (Day 1 to Late Fall Quick Answer)";
 const DESCRIPTION =
-  "Find the best Fall crops in Stardew Valley with fast decisions for Day 1, mid-Fall, and late-Fall. Includes TL;DR, FAQ, internal links, and Try Calculator CTAs.";
+  "Best Fall crops in Stardew Valley for Day 1, mid-season, and late-Fall timing. Includes quick answer, use-case checklist, FAQ, and calculator links.";
 
 const FAQ = [
   {
