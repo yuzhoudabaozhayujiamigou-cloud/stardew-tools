@@ -135,10 +135,16 @@ export default function HomePage() {
             >
               Browse Guides
             </Link>
+            <a
+              href="#popular-guides"
+              className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-white/40 px-5 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:bg-white/60"
+            >
+              ↓ Popular Guides
+            </a>
           </div>
         </header>
 
-        <section className="mt-8 rounded-[28px] border-4 border-[#6f8b3c]/80 bg-[#e7f1c8]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/20 sm:p-7">
+        <section id="popular-guides" className="mt-8 rounded-[28px] border-4 border-[#6f8b3c]/80 bg-[#e7f1c8]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/20 sm:p-7">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">Popular Guides</p>
           <h2 className="mt-1 text-xl font-semibold text-[#3f2d1b] sm:text-2xl">Read these first</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#4d3c28]/90">
