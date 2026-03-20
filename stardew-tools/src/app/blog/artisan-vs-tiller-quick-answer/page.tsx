@@ -89,7 +89,7 @@ export default function ArtisanVsTillerQuickAnswerPage() {
               Artisan vs Tiller: Which Makes More Money?
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              SEO 语义保留 Artisan vs Tiller；当前实现保持与现有计算器兼容（仅使用 Artisan 预设链路）。
+              Compare the Artisan and Tiller professions with a quick profit workflow and presets you can run in minutes.
             </p>
           </header>
 
