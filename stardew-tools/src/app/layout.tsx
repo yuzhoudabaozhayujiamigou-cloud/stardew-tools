@@ -61,27 +61,24 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Performance Optimization */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Preload critical font */}
         <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-              {/* Google AdSense (site verification / ad loading) */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8196905039108849"
-          crossOrigin="anonymous"
-        />
-
-      </head>
+            </head>
       <body className="antialiased">
         <Suspense fallback={null}>
           <TopNav />
         </Suspense>
         {children}
         <Analytics />
+        {/* Google AdSense - moved to body bottom to avoid render-blocking */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8196905039108849"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );
