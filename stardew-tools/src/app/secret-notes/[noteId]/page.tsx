@@ -28,6 +28,57 @@ const SECRET_NOTES_PUBLISHED_AT = "2026-02-15T00:00:00.000Z";
 
 type EmbedMode = "none" | "panel" | "card";
 
+type NoteFaqItem = {
+  question: string;
+  answer: string;
+};
+
+const NOTE_19_FAQ_ITEMS: NoteFaqItem[] = [
+  {
+    question: "How do I solve Secret Note 19 in Stardew Valley?",
+    answer:
+      "Start at 1 Willow Lane, then follow the direction sequence from the note until movement is blocked. The endpoint reveals the Solid Gold Lewis statue location.",
+  },
+  {
+    question: "What reward does Secret Note 19 give?",
+    answer:
+      "Secret Note 19 leads to the Solid Gold Lewis statue. It is a one-time hidden reward tied to the path puzzle route in Pelican Town.",
+  },
+  {
+    question: "Why does Secret Note 19 pathing fail sometimes?",
+    answer:
+      "Most failures happen from starting on the wrong tile or taking a turn early. Reset your position at 1 Willow Lane and follow the sequence exactly until blocked.",
+  },
+  {
+    question: "Should I solve Secret Note 22 before or after Note 19?",
+    answer:
+      "Either order works, but many players finish Note 19 quickly first, then solve Secret Note 22 in the Bus Tunnel to unlock the Mysterious Qi chain.",
+  },
+];
+
+const NOTE_22_FAQ_ITEMS: NoteFaqItem[] = [
+  {
+    question: "Where is Secret Note 22 in Stardew Valley?",
+    answer:
+      "Secret Note 22 points to the Bus Tunnel panel. Bring a Battery Pack and interact with the hidden panel to start the Mysterious Qi quest chain.",
+  },
+  {
+    question: "What do I need for Secret Note 22?",
+    answer:
+      "You need Secret Note 22 plus a Battery Pack. Without the Battery Pack, the panel interaction in the tunnel will not start the quest.",
+  },
+  {
+    question: "What reward does Secret Note 22 unlock?",
+    answer:
+      "The immediate reward is unlocking the Mysterious Qi quest path. It is a key progression step rather than a direct gold payout.",
+  },
+  {
+    question: "What if Secret Note 22 does not trigger?",
+    answer:
+      "Re-check that you have the note and a Battery Pack, then interact with the panel in the Bus Tunnel again. Most issues are item-state or panel-position mistakes.",
+  },
+];
+
 function parseCompactMode(input: string | string[] | undefined): boolean {
   if (typeof input === "undefined") {
     return false;
@@ -162,6 +213,33 @@ function buildArticleJsonLd(note: SecretNote) {
   };
 }
 
+function getNoteFaqItems(noteId: number): NoteFaqItem[] | null {
+  if (noteId === 19) {
+    return NOTE_19_FAQ_ITEMS;
+  }
+
+  if (noteId === 22) {
+    return NOTE_22_FAQ_ITEMS;
+  }
+
+  return null;
+}
+
+function buildFaqJsonLd(noteFaqItems: NoteFaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: noteFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export function generateStaticParams() {
   return secretNotes.map((note) => ({ noteId: String(note.id) }));
 }
@@ -194,18 +272,26 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
     };
   }
 
-  // SEO-optimized titles and descriptions for high-priority notes
   let title: string;
   let description: string;
-  
-  if (note.id === 23) {
-    title = `Secret Note 23 Bear Guide - Maple Syrup & Berry Profit`;
-    description = `Find the bear in Secret Woods, give Maple Syrup, unlock Bear's Knowledge to boost berry sell prices by 3x. Complete walkthrough with map.`;
+
+  if (note.id === 19) {
+    title = "Secret Note 19 Solution (Stardew Valley) - Gold Lewis Statue Path";
+    description =
+      "Secret Note 19 starts at 1 Willow Lane. Follow the arrow path puzzle exactly to find the Solid Gold Lewis statue location and solve it fast.";
+  } else if (note.id === 22) {
+    title = "Secret Note 22 Location (Stardew Valley) - Bus Tunnel Panel Solution";
+    description =
+      "Secret Note 22 uses the hidden Bus Tunnel panel. Bring a Battery Pack to trigger the Mysterious Qi quest chain and avoid common interaction mistakes.";
+  } else if (note.id === 23) {
+    title = "Secret Note 23 Bear Guide - Maple Syrup & Berry Profit";
+    description =
+      "Find the bear in Secret Woods, give Maple Syrup, unlock Bear's Knowledge to boost berry sell prices by 3x. Complete walkthrough with map.";
   } else {
     title = `Stardew Valley Secret Note #${note.id} Location & Reward`;
     description = `Location: ${note.location}. ${toHintExcerpt(note.decodedHint)}`;
   }
-  
+
   const canonicalUrl = `${getSiteUrl()}/secret-notes/${note.id}`;
   const imageUrl = getAbsoluteImageUrl(note.locationImage);
 
@@ -267,6 +353,8 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
   }
 
   const articleJsonLd = !isEmbedCard ? buildArticleJsonLd(note) : null;
+  const noteFaqItems = !isEmbed ? getNoteFaqItems(note.id) : null;
+  const noteFaqJsonLd = noteFaqItems ? buildFaqJsonLd(noteFaqItems) : null;
   const noteIds = getNoteIds();
 
   return (
@@ -340,6 +428,87 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
               <NoteQuickNav noteIds={noteIds} currentNoteId={note.id} />
               <NoteDetailPanel note={note} isCompleted={false} />
 
+              {note.id === 19 ? (
+                <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Direct Answer</p>
+                  <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">
+                    Secret Note 19 solution in one minute
+                  </h2>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
+                    Start at <span className="font-semibold">1 Willow Lane</span>, follow the arrow sequence exactly
+                    until movement stops, and inspect the endpoint to find the
+                    {" "}
+                    <span className="font-semibold">Solid Gold Lewis statue</span>.
+                  </p>
+                  <ul className="mt-3 grid gap-2 text-sm leading-6 text-[#5f4228]/85 sm:grid-cols-2">
+                    <li>• Wrong starting tile is the most common reason this puzzle fails.</li>
+                    <li>• Follow the chain exactly as written; do not improvise turns.</li>
+                    <li>• If it fails, reset at 1 Willow Lane and repeat cleanly.</li>
+                    <li>• Solve note 22 next if you want to continue progression routing.</li>
+                  </ul>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href="/secret-notes/22"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+                    >
+                      Next: Secret Note 22
+                    </Link>
+                    <Link
+                      href="/calculator"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Open profit calculator
+                    </Link>
+                    <Link
+                      href="/blog/hops-vs-starfruit-quick-answer"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Hops vs Starfruit quick answer
+                    </Link>
+                  </div>
+                </section>
+              ) : null}
+
+              {note.id === 22 ? (
+                <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Direct Answer</p>
+                  <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">
+                    Secret Note 22 location and trigger
+                  </h2>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
+                    Bring a <span className="font-semibold">Battery Pack</span> to the Bus Tunnel and interact with the
+                    hidden wall panel to start the Mysterious Qi chain. If it does not trigger, re-check the item and
+                    panel position.
+                  </p>
+                  <ul className="mt-3 grid gap-2 text-sm leading-6 text-[#5f4228]/85 sm:grid-cols-2">
+                    <li>• You must already have Secret Note 22 unlocked.</li>
+                    <li>• Battery Pack is required for the interaction.</li>
+                    <li>• Click the panel area carefully if the first attempt fails.</li>
+                    <li>• Use note 19 and calculator links to keep your route efficient.</li>
+                  </ul>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <Link
+                      href="/secret-notes/19"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+                    >
+                      Secret Note 19 solution
+                    </Link>
+                    <Link
+                      href="/calculator"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Open profit calculator
+                    </Link>
+                    <Link
+                      href="/blog/secret-note-22-hidden-tunnel-panel"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Note 22 deep guide
+                    </Link>
+                  </div>
+                </section>
+              ) : null}
+
               <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Help</p>
                 <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">FAQ</h2>
@@ -389,6 +558,30 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
                 </div>
               </section>
 
+              {noteFaqItems ? (
+                <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
+                    Note Specific FAQ
+                  </p>
+                  <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">
+                    Secret Note {note.id} quick troubleshooting
+                  </h2>
+                  <div className="mt-3 grid gap-3">
+                    {noteFaqItems.map((item) => (
+                      <details
+                        key={item.question}
+                        className="rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] px-4 py-3"
+                      >
+                        <summary className="cursor-pointer list-none font-semibold text-[#4e341f]">
+                          {item.question}
+                        </summary>
+                        <p className="mt-2 text-sm leading-6 text-[#614326]/90">{item.answer}</p>
+                      </details>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
               {note.id === 22 ? (
                 <section className="mx-auto w-full max-w-5xl rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-4 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-5">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Deep Dive Guide</p>
@@ -405,10 +598,22 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
                       Read full guide (Secret Note 22)
                     </Link>
                     <Link
+                      href="/secret-notes/19"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Secret Note 19 solution
+                    </Link>
+                    <Link
                       href="/calculator"
                       className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
                     >
                       Profit calculator
+                    </Link>
+                    <Link
+                      href="/blog/hops-vs-starfruit-quick-answer"
+                      className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+                    >
+                      Hops vs Starfruit
                     </Link>
                   </div>
                 </section>
@@ -427,6 +632,14 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(articleJsonLd),
+          }}
+        />
+      ) : null}
+      {noteFaqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(noteFaqJsonLd),
           }}
         />
       ) : null}
