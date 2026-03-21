@@ -13,40 +13,55 @@ const PAGE_URL = "https://www.stardewprofit.com/blog/hops-vs-starfruit-quick-ans
 
 const FAQ_ITEMS = [
   {
-    question: "Is Hops better than Starfruit for keg profit?",
+    question: "Is Hops or Starfruit more profitable in Stardew Valley?",
     answer:
-      "Hops is strong when you can manage frequent processing loops, while Starfruit is strong for high-value harvest spikes. The winner changes with your machine capacity and days left.",
+      "It depends on your setup. Hops produces Pale Ale every 1-2 days for steady daily gold, while Starfruit Wine takes 7 days but yields a higher single sale. With enough kegs, Hops usually edges ahead on gold-per-day; with limited kegs, Starfruit's burst value wins.",
   },
   {
     question: "When does Starfruit beat Hops?",
     answer:
-      "Starfruit usually gains ground when you can consistently process high-value harvests and avoid idle kegs. It also improves when your playstyle favors fewer but bigger harvest events.",
+      "Starfruit usually gains ground when you have limited kegs and can consistently process high-value harvests. It also wins in the Greenhouse where the longer grow time doesn't cost you a season.",
   },
   {
     question: "What if I only have 10 days left in the season?",
     answer:
-      "Short windows favor setups with faster realization and less setup risk. Run the 10-day preset first, then compare with your normal 28-day baseline.",
+      "With only 10 days left, Hops can still squeeze in multiple harvests while Starfruit cannot finish a full grow cycle. Run the 10-day preset in the calculator to see exact numbers for your save.",
   },
   {
     question: "Does Artisan profession change the result?",
     answer:
-      "Yes. Artisan increases processed value and can shift close matchups. Always run the same scenario once with your profession assumptions to avoid false conclusions.",
+      "Yes — Artisan adds +40% to all artisan goods, which boosts both Pale Ale and Starfruit Wine equally in percentage terms. However, because Starfruit Wine has a higher base price, the absolute gold gain from Artisan is larger for Starfruit. Always toggle the profession in the calculator to compare.",
+  },
+  {
+    question: "How much gold per day does Hops make vs Starfruit?",
+    answer:
+      "With Artisan, a single Hops plant can yield roughly 420g per Pale Ale every 1-2 days. A single Starfruit plant yields about 3,150g per Wine but takes 7 days in the keg plus the longer grow time. Hops wins on throughput; Starfruit wins on per-harvest value.",
+  },
+  {
+    question: "Should I grow Hops or Starfruit in the Greenhouse?",
+    answer:
+      "Starfruit is generally the better Greenhouse pick. The Greenhouse removes seasonal pressure, so Starfruit's slow grow time stops being a disadvantage — and its higher per-Wine value shines over a full year of harvests.",
+  },
+  {
+    question: "Can I grow both Hops and Starfruit at the same time?",
+    answer:
+      "Yes, and many players do. A mixed setup lets you maintain steady Pale Ale income from Hops while stockpiling Starfruit for high-value Wine batches. Use the calculator to find the optimal split for your keg count.",
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Hops vs Starfruit (Stardew Valley): Quick Answer + Presets",
+  title: "Hops vs Starfruit Stardew Valley – Which Crop Is More Profitable? (2026)",
   description:
-    "Hops or Starfruit for better profit? Use a TL;DR verdict, a step-by-step decision flow, FAQ, and calculator presets for 10-day, 28-day, and greenhouse scenarios.",
+    "Hops vs Starfruit: Hops wins on gold-per-day with enough kegs; Starfruit Wine wins per-harvest. Get the verdict + free calculator presets for 10-day, 28-day & Greenhouse.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
     type: "article",
     url: PAGE_URL,
-    title: "Hops vs Starfruit (Stardew Valley): Quick Answer + Presets",
+    title: "Hops vs Starfruit Stardew Valley – Which Crop Is More Profitable? (2026)",
     description:
-      "Compare Hops and Starfruit with consistent presets for short and full planning windows.",
+      "Hops vs Starfruit: Hops wins on gold-per-day with enough kegs; Starfruit Wine wins per-harvest. Calculator presets for 10-day, 28-day & Greenhouse.",
     publishedTime: "2026-02-24T00:00:00+08:00",
     modifiedTime: "2026-02-24T00:00:00+08:00",
   },
@@ -78,7 +93,7 @@ export default function HopsVsStarfruitQuickAnswerPage() {
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Hops vs Starfruit (Stardew Valley): Quick Answer + Presets" },
+            { name: "Hops vs Starfruit (Stardew Valley): Which Is Better for Profit?" },
           ]}
         />
 
@@ -87,18 +102,35 @@ export default function HopsVsStarfruitQuickAnswerPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
 
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-              Hops vs Starfruit - Best Profit Pick
+              Hops vs Starfruit: Profit Verdict First
             </h1>
 
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              One line: Hops often shines when you want frequent, steady keg input; Starfruit often shines when you
-              want high burst value per harvest. Use the presets below and compare with your own season and days
-              left.
+              Verdict: Hops is usually better when your goal is steady, frequent keg throughput. Starfruit is usually
+              better when your goal is high burst value per harvest and you can support replant cycles.
             </p>
 
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              一句话：想要更频繁、更稳定的酒桶输入，啤酒花通常很强；想要单次爆发更高的收获价值，杨桃通常更强。别靠感觉，直接用预设在计算器里对比。
+              Do not treat this as a fixed ranking. Re-run both crops with identical season, days-left, and profession
+              settings in the calculator to confirm which one wins in your save.
             </p>
+
+            <div className="mt-4 flex flex-wrap gap-2.5">
+              <TrackedBlogCtaLink
+                href="/calculator"
+                fromPath={fromPath}
+                ctaName="hops_vs_starfruit_open_calculator"
+                className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#5c8a3e] px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#4e7a32]"
+              >
+                Open Crop Profit Calculator
+              </TrackedBlogCtaLink>
+              <Link
+                href="/"
+                className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+              >
+                Back to Home Quick Answer
+              </Link>
+            </div>
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "StardewProfit – Best Stardew Valley Crop Calculator & Guides",
+  title: "Stardew Profit Calculator & Guides - Best Stardew Profits by Season",
   description:
-    "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season, plan your farm, and read expert guides to maximize profit.",
+    "Find the best stardew profit and stardew profits by season. Use our Stardew Valley profit calculator, quick answers, and guides to plan crops and boost gold/day.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    title: "StardewProfit – Best Stardew Valley Crop Calculator & Guides",
+    title: "Stardew Profit Calculator & Guides - Best Stardew Profits by Season",
     description:
-      "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season, plan your farm, and read expert guides to maximize profit.",
+      "Find the best stardew profit and stardew profits by season. Use our Stardew Valley profit calculator, quick answers, and guides to plan crops and boost gold/day.",
   },
   twitter: {
     card: "summary",
-    title: "StardewProfit – Best Stardew Valley Crop Calculator & Guides",
+    title: "Stardew Profit Calculator & Guides - Best Stardew Profits by Season",
     description:
-      "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season, plan your farm, and read expert guides to maximize profit.",
+      "Find the best stardew profit and stardew profits by season. Use our Stardew Valley profit calculator, quick answers, and guides to plan crops and boost gold/day.",
   },
 };
 
@@ -63,6 +63,39 @@ const POPULAR_GUIDES = [
   },
 ] as const;
 
+const HOME_FAQ_ITEMS = [
+  {
+    question: "What is the fastest way to improve Stardew profit?",
+    answer:
+      "Open the calculator, set your season and days left, then pick the crop with the best gold/day that still fits your schedule and processing setup.",
+  },
+  {
+    question: "What does this Stardew Valley profit calculator include?",
+    answer:
+      "It compares crops using growth time, regrowth, quality assumptions, and profession multipliers so you can rank options by practical profit/day.",
+  },
+  {
+    question: "Is stardew profits strategy different with only 10 days left?",
+    answer:
+      "Yes. Late-season windows often punish slow crops. Use day-limited presets first, then validate with one guide before buying seeds.",
+  },
+  {
+    question: "Should I check Secret Note 22 for profit planning?",
+    answer:
+      "Secret Note 22 unlocks a key quest path, so many players reference it alongside farm planning. Use the quick answer page to avoid tunnel-panel mistakes.",
+  },
+  {
+    question: "How is Secret Note 19 related to progression?",
+    answer:
+      "Secret Note 19 gives the Solid Gold Lewis statue path solution and helps clear a common progression blocker while you optimize the rest of your farm route.",
+  },
+  {
+    question: "Where should I start if I am new to Stardew Valley profit planning?",
+    answer:
+      "Start with the calculator for your current season, then read one focused guide to confirm whether your plan should prioritize raw crops, kegs, or jars.",
+  },
+] as const;
+
 export default function HomePage() {
   const webSiteLd = {
     "@context": "https://schema.org",
@@ -76,6 +109,19 @@ export default function HomePage() {
     "@type": "Organization",
     name: "StardewProfit",
     url: "https://www.stardewprofit.com/",
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: HOME_FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 
   return (
@@ -110,16 +156,25 @@ export default function HomePage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
             StardewProfit.com
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Make smarter farm profit decisions
+            Stardew Valley Profit Guide and Calculator
           </h1>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Use the fast crop profit calculator, then follow short guides that explain the {"\"why\""} behind the best
-            picks.
+          <p className="mt-3 max-w-4xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
+            Looking for better stardew profit, stardew profits routes, or a fast stardew valley profit answer? Start
+            here. This homepage combines quick answers, route-specific note pages, and the crop calculator so you can
+            decide what to plant in under a minute.
+          </p>
+          <p className="mt-2 max-w-4xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
+            Check the calculator first, then use one guide to confirm machine throughput and season timing before you
+            spend seeds or artisan capacity.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">
@@ -143,6 +198,50 @@ export default function HomePage() {
             </a>
           </div>
         </header>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Quick Answer</p>
+          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">
+            Best first move for Stardew Valley profit
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+            Short answer: run your current season in the
+            {" "}
+            <Link
+              href="/calculator"
+              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+            >
+              crop profit calculator
+            </Link>
+            , pick the best gold/day crop that still finishes on time, then confirm edge cases with one focused guide.
+          </p>
+          <ul className="mt-3 grid gap-2 text-sm leading-6 text-[#5f4228]/90 sm:grid-cols-2">
+            <li>• Use days-left presets to avoid crops that cannot finish this season.</li>
+            <li>• Validate high-value routes with keg/jar throughput before scaling.</li>
+            <li>• Keep one quick reference for secret-note detours that affect route efficiency.</li>
+            <li>• Re-check crop rankings whenever your profession or machine count changes.</li>
+          </ul>
+          <div className="mt-4 flex flex-wrap gap-2.5">
+            <Link
+              href="/calculator"
+              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+            >
+              Open calculator
+            </Link>
+            <Link
+              href="/secret-notes/22"
+              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+            >
+              Secret Note 22 answer
+            </Link>
+            <Link
+              href="/secret-notes/19"
+              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+            >
+              Secret Note 19 answer
+            </Link>
+          </div>
+        </section>
 
         <section id="popular-guides" className="mt-8 rounded-[28px] border-4 border-[#6f8b3c]/80 bg-[#e7f1c8]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/20 sm:p-7">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">Popular Guides</p>
@@ -204,30 +303,13 @@ export default function HomePage() {
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">FAQ</p>
           <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Quick questions</h2>
 
-          <div className="mt-4 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4">
-              <div className="text-sm font-semibold text-[#4a321e]">Is this calculator accurate?</div>
-              <div className="mt-2 text-sm leading-6 text-[#5f4228]/85">
-                It uses the in-game base prices and simple gold/day math. Your farm bonuses (skills, fertilizer,
-                artisan processing) can change the best answer.
-              </div>
-            </div>
-
-            <div className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4">
-              <div className="text-sm font-semibold text-[#4a321e]">What should I plant mid-season?</div>
-              <div className="mt-2 text-sm leading-6 text-[#5f4228]/85">
-                Use the calculator with {"\"days left\""} presets to avoid crops that won’t finish. Many guides focus on
-                exact days like day 7, 15, or 20.
-              </div>
-            </div>
-
-            <div className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4">
-              <div className="text-sm font-semibold text-[#4a321e]">Where do I start?</div>
-              <div className="mt-2 text-sm leading-6 text-[#5f4228]/85">
-                Start with the calculator for your season, then read one featured guide to confirm whether kegs,
-                jars, or raw crops make the most sense.
-              </div>
-            </div>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {HOME_FAQ_ITEMS.map((item) => (
+              <article key={item.question} className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4">
+                <h3 className="text-sm font-semibold text-[#4a321e]">{item.question}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">{item.answer}</p>
+              </article>
+            ))}
           </div>
         </section>
       </main>

@@ -57,17 +57,17 @@ const START_HERE_ARTICLES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profit Calculator (1.6) – Best Crops, Gold/Day & ROI | StardewProfit",
+  title: "Stardew Crop Calculator (1.6) - Stardew Valley Profit Calculator | StardewProfit",
   description:
-    "Free Stardew Valley profit calculator (1.6). Compare crops by gold/day and ROI across seasons, quality, fertilizer, and Tiller/Artisan. Find the best crop in seconds.",
+    "Use this Stardew crop calculator and Stardew Valley profit calculator to compare gold/day, ROI, season timing, and professions. Find the best crop in seconds.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Profit Calculator (1.6) – Best Crops, Gold/Day & ROI | StardewProfit",
+    title: "Stardew Crop Calculator (1.6) - Stardew Valley Profit Calculator | StardewProfit",
     description:
-      "Free Stardew Valley profit calculator (1.6). Compare crops by gold/day and ROI across seasons, quality, fertilizer, and Tiller/Artisan. Find the best crop in seconds.",
+      "Use this Stardew crop calculator and Stardew Valley profit calculator to compare gold/day, ROI, season timing, and professions. Find the best crop in seconds.",
     type: "website",
     images: [
       {
@@ -80,9 +80,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Profit Calculator (1.6) – Best Crops, Gold/Day & ROI | StardewProfit",
+    title: "Stardew Crop Calculator (1.6) - Stardew Valley Profit Calculator | StardewProfit",
     description:
-      "Free Stardew Valley profit calculator (1.6). Compare crops by gold/day and ROI across seasons, quality, fertilizer, and Tiller/Artisan. Find the best crop in seconds.",
+      "Use this Stardew crop calculator and Stardew Valley profit calculator to compare gold/day, ROI, season timing, and professions. Find the best crop in seconds.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -130,6 +130,30 @@ export default function CalculatorPage() {
           text: "There is no single best crop for every account state because budget, days left, and processing setup all matter. Use this calculator for season-specific comparisons, then use https://www.stardewprofit.com/blog/farm-profit-pillars for a full season-by-season framework.",
         },
       },
+      {
+        "@type": "Question",
+        name: "What inputs should I set in this Stardew crop calculator first?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Start with season and days left, then adjust quality and profession assumptions. That gives the most realistic ranking before you optimize finer details.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does this Stardew Valley profit calculator work for version 1.6?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, this page is maintained as a 1.6 crop profit calculator. Re-check major updates after game patches and adjust assumptions to match your save.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Should I start from the homepage or jump straight to the calculator?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "If you already know your season and days left, jump straight to this calculator. If not, use the homepage quick answer at https://www.stardewprofit.com/ to choose a route first.",
+        },
+      },
     ],
   };
 
@@ -174,14 +198,31 @@ export default function CalculatorPage() {
             Stardew Valley Tool
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Stardew Valley Profit Calculator
+            Stardew Crop Calculator and Profit Calculator
           </h1>
           <p className="mt-1 text-lg font-medium text-[#5c3d23]/90 sm:text-xl">
             Compare crops by gold/day and ROI — in seconds
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Pick your season, days remaining, and setup to instantly see the best crops by profit/day and payback time.
-            Includes quality, fertilizer, regrowth timing, and Tiller/Artisan professions — no wiki digging needed.
+            This Stardew crop calculator is built for players searching "stardew valley crop calculator" or
+            "stardew valley profit calculator" and needing a practical answer fast. Enter your season, days left, and
+            setup to see the best crops ranked by gold/day and payback speed.
+          </p>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
+            It includes quality, fertilizer, regrowth timing, and Tiller/Artisan assumptions so you can move from
+            guesswork to clear profit decisions without scanning wiki tables.
+          </p>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
+            Want the overview first?
+            {" "}
+            <Link
+              href="/"
+              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+            >
+              Return to the homepage quick answer
+            </Link>
+            {" "}
+            before tuning presets.
           </p>
           <ul className="mt-4 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-2">
             <li>• Gold per day (profit/day)</li>
@@ -295,6 +336,44 @@ export default function CalculatorPage() {
             </section>
           </details>
         </header>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Quick Answer</p>
+          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">
+            How to use this Stardew Valley crop calculator
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
+            Set season + days left first, then compare crops by gold/day under your real profession assumptions.
+            This gives the most reliable short list for crop purchases and processing plans.
+          </p>
+          <ul className="mt-3 grid gap-2 text-sm leading-6 text-[#5f4228]/90 sm:grid-cols-2">
+            <li>• Start with the same season and days-left window you are currently playing.</li>
+            <li>• Compare both raw crop value and ROI before committing gold.</li>
+            <li>• Re-run with Tiller/Artisan toggles to avoid ranking mistakes.</li>
+            <li>• Validate the winner with one strategy guide before scaling machine throughput.</li>
+          </ul>
+
+          <div className="mt-4 flex flex-wrap gap-2.5">
+            <Link
+              href="/"
+              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
+            >
+              Back to Home
+            </Link>
+            <Link
+              href="/blog/farm-profit-pillars"
+              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+            >
+              Farm Profit Pillars
+            </Link>
+            <Link
+              href="/blog/stardew-valley-artisan-profit-guide"
+              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
+            >
+              Artisan Profit Guide
+            </Link>
+          </div>
+        </section>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Presets</p>
@@ -566,6 +645,42 @@ export default function CalculatorPage() {
                     Farm Profit Pillars
                   </Link>
                   {' '}for season-by-season recommendations you can actually execute.
+                </p>
+              </article>
+
+              <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+                <h3 className="text-base font-semibold text-[#4a321e]">What should I input first in this calculator?</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Always set season and days left first, because that changes which crops can realistically finish.
+                  Then adjust quality and profession assumptions for a more accurate ranking.
+                </p>
+              </article>
+
+              <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+                <h3 className="text-base font-semibold text-[#4a321e]">Should I use homepage guidance before this tool?</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  If you are unsure which route to optimize, start with the{' '}
+                  <Link
+                    href="/"
+                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+                  >
+                    homepage quick answer
+                  </Link>
+                  {' '}then come back here with a clear season goal.
+                </p>
+              </article>
+
+              <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+                <h3 className="text-base font-semibold text-[#4a321e]">How do I avoid overplanting for machine capacity?</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Use calculator output as the shortlist, then compare processing constraints with the{' '}
+                  <Link
+                    href="/blog/stardew-valley-keg-jar-artisan-profit-system"
+                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+                  >
+                    Keg/Jar/Artisan Profit System
+                  </Link>
+                  {' '}to keep kegs and jars fed without backlog.
                 </p>
               </article>
             </div>
