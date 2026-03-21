@@ -13,40 +13,55 @@ const PAGE_URL = "https://www.stardewprofit.com/blog/hops-vs-starfruit-quick-ans
 
 const FAQ_ITEMS = [
   {
-    question: "Is Hops better than Starfruit for keg profit?",
+    question: "Is Hops or Starfruit more profitable in Stardew Valley?",
     answer:
-      "Hops is strong when you can manage frequent processing loops, while Starfruit is strong for high-value harvest spikes. The winner changes with your machine capacity and days left.",
+      "It depends on your setup. Hops produces Pale Ale every 1-2 days for steady daily gold, while Starfruit Wine takes 7 days but yields a higher single sale. With enough kegs, Hops usually edges ahead on gold-per-day; with limited kegs, Starfruit's burst value wins.",
   },
   {
     question: "When does Starfruit beat Hops?",
     answer:
-      "Starfruit usually gains ground when you can consistently process high-value harvests and avoid idle kegs. It also improves when your playstyle favors fewer but bigger harvest events.",
+      "Starfruit usually gains ground when you have limited kegs and can consistently process high-value harvests. It also wins in the Greenhouse where the longer grow time doesn't cost you a season.",
   },
   {
     question: "What if I only have 10 days left in the season?",
     answer:
-      "Short windows favor setups with faster realization and less setup risk. Run the 10-day preset first, then compare with your normal 28-day baseline.",
+      "With only 10 days left, Hops can still squeeze in multiple harvests while Starfruit cannot finish a full grow cycle. Run the 10-day preset in the calculator to see exact numbers for your save.",
   },
   {
     question: "Does Artisan profession change the result?",
     answer:
-      "Yes. Artisan increases processed value and can shift close matchups. Always run the same scenario once with your profession assumptions to avoid false conclusions.",
+      "Yes — Artisan adds +40% to all artisan goods, which boosts both Pale Ale and Starfruit Wine equally in percentage terms. However, because Starfruit Wine has a higher base price, the absolute gold gain from Artisan is larger for Starfruit. Always toggle the profession in the calculator to compare.",
+  },
+  {
+    question: "How much gold per day does Hops make vs Starfruit?",
+    answer:
+      "With Artisan, a single Hops plant can yield roughly 420g per Pale Ale every 1-2 days. A single Starfruit plant yields about 3,150g per Wine but takes 7 days in the keg plus the longer grow time. Hops wins on throughput; Starfruit wins on per-harvest value.",
+  },
+  {
+    question: "Should I grow Hops or Starfruit in the Greenhouse?",
+    answer:
+      "Starfruit is generally the better Greenhouse pick. The Greenhouse removes seasonal pressure, so Starfruit's slow grow time stops being a disadvantage — and its higher per-Wine value shines over a full year of harvests.",
+  },
+  {
+    question: "Can I grow both Hops and Starfruit at the same time?",
+    answer:
+      "Yes, and many players do. A mixed setup lets you maintain steady Pale Ale income from Hops while stockpiling Starfruit for high-value Wine batches. Use the calculator to find the optimal split for your keg count.",
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Hops vs Starfruit (Stardew Valley): Which Is Better for Profit?",
+  title: "Hops vs Starfruit Stardew Valley – Which Crop Is More Profitable? (2026)",
   description:
-    "Hops vs Starfruit quick verdict: Hops often wins for steady keg flow, Starfruit often wins burst harvest value. Compare both with calculator presets and FAQ.",
+    "Hops vs Starfruit: Hops wins on gold-per-day with enough kegs; Starfruit Wine wins per-harvest. Get the verdict + free calculator presets for 10-day, 28-day & Greenhouse.",
   alternates: {
     canonical: PAGE_URL,
   },
   openGraph: {
     type: "article",
     url: PAGE_URL,
-    title: "Hops vs Starfruit (Stardew Valley): Which Is Better for Profit?",
+    title: "Hops vs Starfruit Stardew Valley – Which Crop Is More Profitable? (2026)",
     description:
-      "Verdict-first comparison for Hops vs Starfruit with calculator presets for 10-day, 28-day, and greenhouse planning.",
+      "Hops vs Starfruit: Hops wins on gold-per-day with enough kegs; Starfruit Wine wins per-harvest. Calculator presets for 10-day, 28-day & Greenhouse.",
     publishedTime: "2026-02-24T00:00:00+08:00",
     modifiedTime: "2026-02-24T00:00:00+08:00",
   },

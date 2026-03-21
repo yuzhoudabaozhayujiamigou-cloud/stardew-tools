@@ -276,13 +276,13 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
   let description: string;
 
   if (note.id === 19) {
-    title = "Secret Note 19 Solution (Stardew Valley) - Gold Lewis Statue Path";
+    title = "Secret Note 19 Stardew Valley – Location, Reward & Solution";
     description =
-      "Secret Note 19 starts at 1 Willow Lane. Follow the arrow path puzzle exactly to find the Solid Gold Lewis statue location and solve it fast.";
+      "Secret Note 19 leads to the Solid Gold Lewis statue. Start at 1 Willow Lane, follow the arrow sequence until blocked, and collect the statue. Full solution with troubleshooting tips.";
   } else if (note.id === 22) {
-    title = "Secret Note 22 Location (Stardew Valley) - Bus Tunnel Panel Solution";
+    title = "Secret Note 22 — Battery Pack + Bus Tunnel Panel (Stardew Valley)";
     description =
-      "Secret Note 22 uses the hidden Bus Tunnel panel. Bring a Battery Pack to trigger the Mysterious Qi quest chain and avoid common interaction mistakes.";
+      "Secret Note 22: bring a Battery Pack to the Bus Tunnel panel to start the Mysterious Qi quest. Step-by-step location, trigger guide & common fix.";
   } else if (note.id === 23) {
     title = "Secret Note 23 Bear Guide - Maple Syrup & Berry Profit";
     description =
