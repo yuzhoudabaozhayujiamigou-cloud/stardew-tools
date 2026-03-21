@@ -57,17 +57,17 @@ const START_HERE_ARTICLES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Crop Calculator (1.6) - Stardew Valley Profit Calculator | StardewProfit",
+  title: "Stardew Valley Crop Profit Calculator (1.6) | StardewProfit",
   description:
-    "Use this Stardew crop calculator and Stardew Valley profit calculator to compare gold/day, ROI, season timing, and professions. Find the best crop in seconds.",
+    "Compare gold/day for every Stardew Valley crop by season, fertilizer & profession. Free crop profit calculator — find the best crop in seconds.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Crop Calculator (1.6) - Stardew Valley Profit Calculator | StardewProfit",
+    title: "Stardew Valley Crop Profit Calculator (1.6) | StardewProfit",
     description:
-      "Use this Stardew crop calculator and Stardew Valley profit calculator to compare gold/day, ROI, season timing, and professions. Find the best crop in seconds.",
+      "Compare gold/day for every Stardew Valley crop by season, fertilizer & profession. Free crop profit calculator — find the best crop in seconds.",
     type: "website",
     images: [
       {

@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Stardew Profit Calculator & Guides - Best Stardew Profits by Season",
+  title: "Stardew Valley Farming Tools & Profit Guides | StardewProfit.com",
   description:
-    "Find the best stardew profit and stardew profits by season. Use our Stardew Valley profit calculator, quick answers, and guides to plan crops and boost gold/day.",
+    "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    title: "Stardew Profit Calculator & Guides - Best Stardew Profits by Season",
+    title: "Stardew Valley Farming Tools & Profit Guides | StardewProfit.com",
     description:
-      "Find the best stardew profit and stardew profits by season. Use our Stardew Valley profit calculator, quick answers, and guides to plan crops and boost gold/day.",
+      "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
   },
   twitter: {
     card: "summary",
-    title: "Stardew Profit Calculator & Guides - Best Stardew Profits by Season",
+    title: "Stardew Valley Farming Tools & Profit Guides | StardewProfit.com",
     description:
-      "Find the best stardew profit and stardew profits by season. Use our Stardew Valley profit calculator, quick answers, and guides to plan crops and boost gold/day.",
+      "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
   },
 };
 
