@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import Breadcrumb from "@/components/Breadcrumb";
 import { SiteFooter } from "@/components/SiteFooter";
 import cropsData from "@/data/crops.json";
 
@@ -47,12 +48,14 @@ const FALL_RELATED_POSTS = [
   { label: "Stardew Year 1 Profit Guide", href: "/blog/stardew-valley-year-1-profit-guide-complete" },
 ];
 
+const PAGE_PATH = "/best-crops/fall";
+
 export const metadata: Metadata = {
   title: "Best Fall Crops Stardew Valley - Profit Ranking Guide",
   description:
     "See the best fall crops Stardew Valley players can run for profit. Compare sell price, growth days, and gold/day estimates to plan your fall planting routes.",
   alternates: {
-    canonical: "/best-crops/fall",
+    canonical: PAGE_PATH,
   },
 };
 
@@ -60,6 +63,38 @@ export default function BestFallCropsPage() {
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Best Crops", href: "/best-crops" },
+            { name: "Fall", href: PAGE_PATH },
+          ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.stardewprofit.com" },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Best Crops",
+                  item: "https://www.stardewprofit.com/best-crops",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Best Fall Crops in Stardew Valley",
+                  item: "https://www.stardewprofit.com/best-crops/fall",
+                },
+              ],
+            }),
+          }}
+        />
+
         <header className={CARD_CLASS}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Fall Ranking</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
@@ -118,6 +153,21 @@ export default function BestFallCropsPage() {
                 {post.label}
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-lg font-semibold text-[#4a321e] sm:text-xl">Related Pages</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link href="/calculator" className={SECONDARY_CTA_CLASS}>
+              Profit Calculator
+            </Link>
+            <Link href="/best-crops/summer" className={SECONDARY_CTA_CLASS}>
+              Best Summer Crops
+            </Link>
+            <Link href="/best-crops/greenhouse" className={SECONDARY_CTA_CLASS}>
+              Best Greenhouse Crops
+            </Link>
           </div>
         </section>
 

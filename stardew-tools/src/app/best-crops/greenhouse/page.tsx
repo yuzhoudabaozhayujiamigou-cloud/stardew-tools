@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import Breadcrumb from "@/components/Breadcrumb";
 import { SiteFooter } from "@/components/SiteFooter";
 
 type GreenhouseCropRanking = {
@@ -53,12 +54,14 @@ const GREENHOUSE_RELATED_POSTS = [
   { label: "Ancient Fruit vs Starfruit", href: "/blog/ancient-fruit-vs-starfruit-quick-answer" },
 ];
 
+const PAGE_PATH = "/best-crops/greenhouse";
+
 export const metadata: Metadata = {
   title: "Best Greenhouse Crops Stardew Valley – Max Profit Year-Round",
   description:
     "Find the stardew greenhouse best crop for your setup. Compare Stardew Valley greenhouse profit rankings from Ancient Fruit Wine to Sweet Gem Berry and optimize year-round.",
   alternates: {
-    canonical: "/best-crops/greenhouse",
+    canonical: PAGE_PATH,
   },
 };
 
@@ -66,6 +69,38 @@ export default function BestGreenhouseCropsPage() {
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Best Crops", href: "/best-crops" },
+            { name: "Greenhouse", href: PAGE_PATH },
+          ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.stardewprofit.com" },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Best Crops",
+                  item: "https://www.stardewprofit.com/best-crops",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Best Greenhouse Crops in Stardew Valley",
+                  item: "https://www.stardewprofit.com/best-crops/greenhouse",
+                },
+              ],
+            }),
+          }}
+        />
+
         <header className={CARD_CLASS}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
             Greenhouse Ranking
@@ -124,6 +159,21 @@ export default function BestGreenhouseCropsPage() {
                 {post.label}
               </Link>
             ))}
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-lg font-semibold text-[#4a321e] sm:text-xl">Related Pages</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link href="/calculator" className={SECONDARY_CTA_CLASS}>
+              Profit Calculator
+            </Link>
+            <Link href="/tools/artisan-profit" className={SECONDARY_CTA_CLASS}>
+              Artisan Profit Guide
+            </Link>
+            <Link href="/best-crops/spring" className={SECONDARY_CTA_CLASS}>
+              Best Spring Crops
+            </Link>
           </div>
         </section>
 

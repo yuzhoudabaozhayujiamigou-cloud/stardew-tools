@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import Breadcrumb from "@/components/Breadcrumb";
 import { SiteFooter } from "@/components/SiteFooter";
 
 type FishProfitRow = {
@@ -16,6 +17,9 @@ const CARD_CLASS =
 const PRIMARY_CTA_CLASS =
   "inline-flex items-center justify-center rounded-2xl border-2 border-[#7c4d2e]/70 bg-[#5c8a3e] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4e7a32]";
 
+const SECONDARY_CTA_CLASS =
+  "inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-white/60 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-white/80";
+
 const TOP_FISH: FishProfitRow[] = [
   { name: "Legend", basePrice: 5000, location: "Mountain Lake", season: "Spring (Rain)" },
   { name: "Crimsonfish", basePrice: 1500, location: "East Beach Pier", season: "Summer" },
@@ -29,12 +33,14 @@ const TOP_FISH: FishProfitRow[] = [
   { name: "Eel", basePrice: 85, location: "Ocean", season: "Spring/Fall (Rain, Night)" },
 ];
 
+const PAGE_PATH = "/tools/fishing-profit";
+
 export const metadata: Metadata = {
   title: "Stardew Valley Fishing Profit Guide – Best Fish by Location",
   description:
     "Find the most profitable fish in Stardew Valley by location and season. Compare gold per fish and daily income from fishing vs farming.",
   alternates: {
-    canonical: "/tools/fishing-profit",
+    canonical: PAGE_PATH,
   },
 };
 
@@ -54,6 +60,33 @@ export default function FishingProfitPage() {
   return (
     <div className="relative min-h-screen bg-[#9ed7a4]">
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+        <Breadcrumb
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Tools", href: "/tools" },
+            { name: "Fishing Profit", href: PAGE_PATH },
+          ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.stardewprofit.com" },
+                { "@type": "ListItem", position: 2, name: "Tools", item: "https://www.stardewprofit.com/tools" },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Stardew Valley Fishing Profit Guide",
+                  item: "https://www.stardewprofit.com/tools/fishing-profit",
+                },
+              ],
+            }),
+          }}
+        />
+
         <header className={CARD_CLASS}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Tools</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
@@ -110,6 +143,18 @@ export default function FishingProfitPage() {
           <div className="mt-5">
             <Link href="/calculator" className={PRIMARY_CTA_CLASS}>
               Open Profit Calculator
+            </Link>
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-lg font-semibold text-[#4a321e] sm:text-xl">Related Pages</h2>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link href="/calculator" className={SECONDARY_CTA_CLASS}>
+              Profit Calculator
+            </Link>
+            <Link href="/tools/professions" className={SECONDARY_CTA_CLASS}>
+              Profession Guide
             </Link>
           </div>
         </section>
