@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Farming Tools & Profit Guides | StardewProfit.com",
+  title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
   description:
     "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
   alternates: {
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "/",
-    title: "Stardew Valley Farming Tools & Profit Guides | StardewProfit.com",
+    title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
     description:
       "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
   },
   twitter: {
     card: "summary",
-    title: "Stardew Valley Farming Tools & Profit Guides | StardewProfit.com",
+    title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
     description:
       "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
   },
