@@ -9,7 +9,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
-  title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
+  title: "StardewProfit – Stardew Valley Crop Profit Calculator",
   description:
     "StardewProfit.com: the fastest Stardew Valley crop profit calculator. Compare gold/day by season and read expert farming guides.",
   alternates: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "stardewprofit",
   ],
   openGraph: {
-    title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
+    title: "StardewProfit – Stardew Valley Crop Profit Calculator",
     description:
       "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "StardewProfit – Stardew Valley Crop Calculator & Guides",
+    title: "StardewProfit – Stardew Valley Crop Profit Calculator",
     description:
       "StardewProfit.com: compare crop profit by season and maximize gold/day with a free calculator.",
     images: ["/api/og?title=StardewProfit&subtitle=Best+Stardew+Valley+Crop+Calculator&type=default"],
