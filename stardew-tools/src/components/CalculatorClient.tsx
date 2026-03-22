@@ -23,6 +23,7 @@ import { getPresetById } from "@/lib/presets";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const SHARE_RESET_DELAY_MS = 2200;
+const SHARE_RESULTS_RESET_DELAY_MS = 2000;
 const RESULTS_COLLAPSED_LIMIT = 5;
 const FEEDBACK_ISSUE_BASE = "https://github.com/yuzhoudabaozhayujiamigou-cloud/stardew-tools/issues/new";
 const VALID_QUERY_SEASONS = new Set<Season>([
@@ -156,6 +157,7 @@ export function CalculatorClient(props: {
 
   const [formValue, setFormValue] = useState<InputFormValue>(initialQuery.form);
   const [showAllResults, setShowAllResults] = useState(false);
+  const [resultsLinkCopied, setResultsLinkCopied] = useState(false);
 
   useEffect(() => {
     if (copyState === "idle") {
@@ -192,6 +194,18 @@ export function CalculatorClient(props: {
 
     return () => window.clearTimeout(timeoutId);
   }, [compareCopyState]);
+
+  useEffect(() => {
+    if (!resultsLinkCopied) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setResultsLinkCopied(false);
+    }, SHARE_RESULTS_RESET_DELAY_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [resultsLinkCopied]);
 
   const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}`;
 
@@ -403,6 +417,15 @@ export function CalculatorClient(props: {
   const handleCopyCompareLink = async () => {
     const ok = await copyText(compareText);
     setCompareCopyState(ok ? "copied" : "error");
+  };
+
+  const handleShareResults = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setResultsLinkCopied(true);
+    } catch {
+      setResultsLinkCopied(false);
+    }
   };
 
   const handleLangChange = (nextLang: CalculatorLang) => {
@@ -645,18 +668,32 @@ export function CalculatorClient(props: {
         </section>
 
         <div className="p-2">
-          {shouldShowResultToggle ? (
-            <div className="mb-2 flex flex-wrap items-center justify-between gap-2 px-1 text-xs text-[#6b4a2c]/80">
-              <span>{collapsedResultHint}</span>
+          <div className="mb-2 flex flex-wrap items-center gap-2 px-1 text-xs text-[#6b4a2c]/80">
+            {shouldShowResultToggle ? (
+              <>
+                <span>{collapsedResultHint}</span>
+                <button
+                  type="button"
+                  onClick={() => setShowAllResults((previous) => !previous)}
+                  className="rounded-lg border border-[#8a5b3a]/45 bg-[#fff2c8] px-2 py-1 font-semibold text-[#5c3d23] transition hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+                >
+                  {resultToggleLabel}
+                </button>
+              </>
+            ) : null}
+            <div className="ml-auto inline-flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => setShowAllResults((previous) => !previous)}
-                className="rounded-lg border border-[#8a5b3a]/45 bg-[#fff2c8] px-2 py-1 font-semibold text-[#5c3d23] transition hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+                onClick={handleShareResults}
+                className="inline-flex items-center gap-2 rounded-lg border border-[#8a5b3a]/45 bg-[#fff2c8] px-2.5 py-1.5 text-xs font-semibold text-[#5c3d23] transition hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
               >
-                {resultToggleLabel}
+                📋 Share Results
               </button>
+              {resultsLinkCopied ? (
+                <span className="font-semibold text-[#4a321e]">✓ Link copied!</span>
+              ) : null}
             </div>
-          ) : null}
+          </div>
           <ResultTable
             results={visibleResults}
             quality={formValue.quality}
