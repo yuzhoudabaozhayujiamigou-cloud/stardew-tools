@@ -45,6 +45,21 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/blog/artisan-vs-tiller",
+        destination: "/blog/stardew-valley-artisan-profit-guide",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-crops-spring",
+        destination: "/blog/year-1-spring-crops-profit-guide",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
