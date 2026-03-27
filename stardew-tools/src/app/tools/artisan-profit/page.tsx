@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import FaqJsonLd from "@/components/FaqJsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
 
 type ArtisanRow = {
@@ -73,14 +74,46 @@ const ARTISAN_ROWS: ArtisanRow[] = [
   },
 ];
 
+const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/tools/artisan-profit";
+const PAGE_TITLE = "Stardew Valley Artisan Profit Calculator: Keg vs Jar vs Oil Press | StardewProfit";
+const PAGE_DESCRIPTION =
+  "Compare Stardew Valley artisan profit fast: keg vs preserves jar vs oil press with gold-per-day math, machine routing tips, and FAQ answers.";
+
+const FAQS = [
+  {
+    question: "Is keg or preserves jar better for profit?",
+    answer:
+      "For top-tier fruit like Starfruit and Ancient Fruit, kegs usually win long-run total value. Preserves jars finish faster and often win when your bottleneck is machine count, not crop quality. Many farms get the best result by running kegs for premium fruit and jars for overflow.",
+  },
+  {
+    question: "What is the best early machine mix?",
+    answer:
+      "Start with preserves jars if you are short on resources and need faster turnover, then add kegs as your fruit supply becomes stable. A practical transition is jars first for consistency, then kegs for higher-value weekly output.",
+  },
+  {
+    question: "Does the Artisan profession matter for this calculator?",
+    answer:
+      "Yes. Artisan adds 40% sell value to artisan goods, which usually flips close comparisons in favor of processing over selling raw crops. If artisan goods are your main income, this profession is one of the highest-impact upgrades.",
+  },
+  {
+    question: "Should every crop be processed into artisan goods?",
+    answer:
+      "Not always. Process your highest-value crops first and sell low-value overflow raw when machines are full. The best strategy is keeping machines continuously busy with your best inputs instead of waiting for perfect batches.",
+  },
+] as const;
 
 export const metadata: Metadata = {
-  title: "Artisan Goods Profit Guide – Keg, Jar & Press | StardewProfit",
-  description:
-    "Compare artisan processing profit for Keg, Preserve Jar, and Oil Press. Find which crops give the best gold-per-day with artisan machines.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: PAGE_PATH,
+    canonical: `${SITE_URL}${PAGE_PATH}`,
+  },
+  openGraph: {
+    type: "article",
+    url: `${SITE_URL}${PAGE_PATH}`,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
   },
 };
 
@@ -113,6 +146,7 @@ export default function ArtisanProfitPage() {
             { name: "Artisan Profit", href: PAGE_PATH },
           ]}
         />
+        <FaqJsonLd faqs={FAQS.map((item) => ({ ...item }))} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -139,13 +173,29 @@ export default function ArtisanProfitPage() {
             Artisan Goods Profit Guide
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-            Compare Keg, Preserve Jar, and Oil Press outputs using a quick gold-per-day lens. This highlights where
-            each machine wins based on cycle speed and processed value.
+            Best default for most farms: run kegs on your highest-value fruit, use preserves jars for overflow, and
+            ignore oil press unless your inputs are specifically oil-focused. This routing usually gives the highest
+            practical gold-per-day with stable machine uptime.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-            Artisan profession adds <span className="font-semibold text-[#4a321e]">+40%</span> to artisan goods. For
-            example, Starfruit Wine rises from {formatGold(2250)} to {formatGold(starfruitWineArtisan)}.
+            Take Artisan profession when artisan goods are a core income source, because the{" "}
+            <span className="font-semibold text-[#4a321e]">+40%</span> bonus usually beats raw selling by a large
+            margin. For example, Starfruit Wine jumps from {formatGold(2250)} to {formatGold(starfruitWineArtisan)}.
           </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link href="/calculator" className={SECONDARY_CTA_CLASS}>
+              Profit Calculator
+            </Link>
+            <Link href="/tools/keg-vs-preserves-jar" className={SECONDARY_CTA_CLASS}>
+              Keg vs Jar Tool
+            </Link>
+            <Link href="/guides/best-keg-items" className={SECONDARY_CTA_CLASS}>
+              Best Keg Items
+            </Link>
+            <Link href="/guides/best-preserves-jar-items" className={SECONDARY_CTA_CLASS}>
+              Best Preserves Jar Items
+            </Link>
+          </div>
         </header>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
@@ -187,6 +237,18 @@ export default function ArtisanProfitPage() {
             <Link href="/calculator" className={PRIMARY_CTA_CLASS}>
               Open Profit Calculator
             </Link>
+          </div>
+        </section>
+
+        <section id="faq" className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">FAQ</h2>
+          <div className="mt-4 space-y-3">
+            {FAQS.map((item) => (
+              <details key={item.question} className="rounded-xl border border-[#7c4d2e]/60 bg-[#f8ecc8] p-4">
+                <summary className="cursor-pointer font-semibold text-[#4a321e]">{item.question}</summary>
+                <p className="mt-2 leading-7 text-[#5f4228]/90">{item.answer}</p>
+              </details>
+            ))}
           </div>
         </section>
 
