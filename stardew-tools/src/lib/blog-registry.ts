@@ -35,7 +35,9 @@ export function getAllBlogSlugs(): string[] {
  * Dynamically import an existing blog module by slug.
  * This keeps all page content + metadata exactly as-is.
  */
-export async function getBlogModule(slug: string): Promise<any> {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+export async function getBlogModule(slug: string): Promise<{
+  default: unknown;
+  metadata?: unknown;
+}> {
   return await import(`@/app/blog/${slug}/page`);
 }
