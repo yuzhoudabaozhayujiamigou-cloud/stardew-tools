@@ -538,7 +538,7 @@ export default function CommunitycenterVsJojaPage() {
           <section id="when-joja" className={CARD}>
             <h2 className={H2}>6) When to Choose Joja</h2>
             <p className={P}>
-              The Joja route is not the "wrong" choice — it is the right choice for specific
+              The Joja route is not the &quot;wrong&quot; choice — it is the right choice for specific
               situations. Here are the cases where buying the Joja Membership makes genuine sense.
             </p>
 
