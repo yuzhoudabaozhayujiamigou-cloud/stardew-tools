@@ -412,6 +412,7 @@ export default function SpeedGroWhenToUsePage() {
         </section>
 
         <BlogReadNext posts={readNext} />
+        </article>
       </main>
       <SiteFooter />
     </>
