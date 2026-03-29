@@ -57,17 +57,18 @@ const START_HERE_ARTICLES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator (1.6) | StardewProfit",
+  title: "Stardew Valley Profit Calculator (1.6) — Best Crops, Kegs & Jars | StardewProfit",
   description:
-    "Compare gold/day for every Stardew Valley crop by season, fertilizer & profession. Free crop profit calculator — find the best crop in seconds.",
+    "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
+  // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Crop Profit Calculator (1.6) | StardewProfit",
+    title: "Stardew Valley Profit Calculator (1.6) — Best Crops, Kegs & Jars | StardewProfit",
     description:
-      "Compare gold/day for every Stardew Valley crop by season, fertilizer & profession. Free crop profit calculator — find the best crop in seconds.",
+      "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
     type: "website",
     images: [
       {
@@ -80,9 +81,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Crop Calculator (1.6) - Stardew Valley Profit Calculator | StardewProfit",
+    title: "Stardew Valley Profit Calculator (1.6) — Crops, Kegs & ROI | StardewProfit",
     description:
-      "Use this Stardew crop calculator and Stardew Valley profit calculator to compare gold/day, ROI, season timing, and professions. Find the best crop in seconds.",
+      "Compare crops, kegs and jars to maximize gold/day. Calculate ROI, season timing, and best choices for Stardew Valley 1.6 in seconds.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -204,8 +205,8 @@ export default function CalculatorPage() {
             Compare crops by gold/day and ROI — in seconds
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            This Stardew crop calculator is built for players searching "stardew valley crop calculator" or
-            "stardew valley profit calculator" and needing a practical answer fast. Enter your season, days left, and
+            This Stardew crop calculator is built for players searching “stardew valley crop calculator” or
+            “stardew valley profit calculator” and needing a practical answer fast. Enter your season, days left, and
             setup to see the best crops ranked by gold/day and payback speed.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
