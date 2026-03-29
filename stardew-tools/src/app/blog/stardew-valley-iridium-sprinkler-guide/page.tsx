@@ -271,7 +271,7 @@ W  W  W  W  W
             <p className={P}>
               Because the pattern is symmetric, you can tile Iridium Sprinklers in a grid with a
               spacing of 5 tiles (center-to-center) and achieve gapless coverage on large rectangular
-              fields. Each sprinkler "owns" a 5×5 block of farmland.
+              fields. Each sprinkler &quot;owns&quot; a 5×5 block of farmland.
             </p>
             <h3 className={`${H3} mt-5`}>Pressure Nozzle upgrade</h3>
             <p className={P}>
