@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 import { getAllBlogSlugs, getBlogModule } from "@/lib/blog-registry";
 
 /* -----------------------------------------
@@ -33,7 +34,7 @@ export default async function BlogSlugPage(
 ) {
   const { slug } = await params;
   const mod = await getBlogModule(slug);
-  const Page = mod.default;
+  const Page = mod.default as ComponentType;
 
   if (!Page) {
     // If the module doesn't export default, throw to show 500 and surface error.

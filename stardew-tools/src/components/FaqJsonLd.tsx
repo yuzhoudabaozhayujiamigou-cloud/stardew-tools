@@ -1,7 +1,7 @@
 export default function FaqJsonLd({
   faqs,
 }: {
-  faqs: { question: string; answer: string }[];
+  faqs: ReadonlyArray<{ question: string; answer: string }>;
 }) {
   const jsonLd = {
     "@context": "https://schema.org",

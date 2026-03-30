@@ -57,18 +57,18 @@ const START_HERE_ARTICLES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profit Calculator (1.6) — Best Crops, Kegs & Jars | StardewProfit",
+  title: "Stardew Valley Profit Calculator (1.6) | StardewProfit",
   description:
-    "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
+    "Stardew Valley Profit Calculator for 1.6. Enter season, days left, quality, and professions to rank crops by gold/day, total profit, and ROI.",
   // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Profit Calculator (1.6) — Best Crops, Kegs & Jars | StardewProfit",
+    title: "Stardew Valley Profit Calculator (1.6) | StardewProfit",
     description:
-      "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
+      "Stardew Valley Profit Calculator for 1.6. Enter season, days left, quality, and professions to rank crops by gold/day, total profit, and ROI.",
     type: "website",
     images: [
       {
@@ -81,9 +81,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Profit Calculator (1.6) — Crops, Kegs & ROI | StardewProfit",
+    title: "Stardew Valley Profit Calculator (1.6) | Crop ROI",
     description:
-      "Compare crops, kegs and jars to maximize gold/day. Calculate ROI, season timing, and best choices for Stardew Valley 1.6 in seconds.",
+      "Stardew Valley Profit Calculator for 1.6. Compare crop outcomes by gold/day, total profit, and ROI from your current season setup.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -104,7 +104,7 @@ export default function CalculatorPage() {
         name: "What are the most profitable crops in Stardew Valley?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Starfruit and Ancient Fruit usually lead once you process into wine, but your best raw crop depends on season length and regrow timing. Run your current scenario in this crop calculator, then use https://www.stardewprofit.com/blog/farm-profit-pillars and https://www.stardewprofit.com/blog/stardew-valley-artisan-profit-guide to lock in a full profit plan.",
+          text: "Starfruit and Ancient Fruit often lead long-term profit once processed, but the best raw crop changes with season length, regrow timing, and your machine capacity. Enter your current season and days left to get the most reliable ranking for your save.",
         },
       },
       {
@@ -112,7 +112,7 @@ export default function CalculatorPage() {
         name: "Should I use kegs or jars for my crops?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Kegs usually win on top-tier fruit if you can wait, while jars often return gold faster in early and mid game. Choose based on machine-day value and throughput limits, then follow https://www.stardewprofit.com/blog/stardew-valley-keg-jar-artisan-profit-system for exact decision rules.",
+          text: "Use kegs when you can wait for higher value per unit, and use jars when faster turnaround helps cash flow. The right choice depends on machine-day value, processing speed, and how many machines you can keep running.",
         },
       },
       {
@@ -120,7 +120,7 @@ export default function CalculatorPage() {
         name: "How do I maximize greenhouse profits?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Keep greenhouse slots on repeat-harvest crops that fit your harvesting cadence and processing capacity. Pair crop choice with your keg/jar pipeline using https://www.stardewprofit.com/blog/farm-profit-pillars and https://www.stardewprofit.com/blog/stardew-valley-artisan-profit-guide.",
+          text: "Prioritize repeat-harvest crops and match harvest output to your keg or jar throughput. Test longer windows, such as 28 to 56 days, to find the setup that gives stable weekly profit for your machine count.",
         },
       },
       {
@@ -128,7 +128,7 @@ export default function CalculatorPage() {
         name: "What's the best crop for each season?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "There is no single best crop for every account state because budget, days left, and processing setup all matter. Use this calculator for season-specific comparisons, then use https://www.stardewprofit.com/blog/farm-profit-pillars for a full season-by-season framework.",
+          text: "There is no universal winner because seed budget, days left, professions, and processing setup all change the ranking. Compare crops by season first, then lock in the option that fits your current farm constraints.",
         },
       },
       {
@@ -152,7 +152,7 @@ export default function CalculatorPage() {
         name: "Should I start from the homepage or jump straight to the calculator?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "If you already know your season and days left, jump straight to this calculator. If not, use the homepage quick answer at https://www.stardewprofit.com/ to choose a route first.",
+          text: "If you already know your season and days left, start directly in the calculator. If your strategy is still unclear, review a quick overview first, then return and run your scenario with concrete inputs.",
         },
       },
     ],
@@ -373,6 +373,63 @@ export default function CalculatorPage() {
             >
               Artisan Profit Guide
             </Link>
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Next Steps</p>
+          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Choose your decision path</h2>
+          <div className="mt-4 grid gap-3 text-sm leading-6 text-[#5f4228]/90">
+            <p>
+              If you need the best crop for each season, read{" "}
+              <Link
+                href="/blog/farm-profit-pillars"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                Farm Profit Pillars
+              </Link>
+              .
+            </p>
+            <p>
+              If you already have kegs or jars, read{" "}
+              <Link
+                href="/blog/stardew-valley-keg-jar-artisan-profit-system"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                Keg, Jar, and Artisan Profit System
+              </Link>
+              .
+            </p>
+            <p>
+              If your greenhouse is unlocked, read{" "}
+              <Link
+                href="/blog/best-greenhouse-crops-stardew-valley"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                Best Greenhouse Crops Guide
+              </Link>
+              .
+            </p>
+            <p>
+              If your bottleneck is processing throughput, read{" "}
+              <Link
+                href="/blog/stardew-valley-artisan-profit-guide"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                Artisan Profit Guide
+              </Link>
+              .
+            </p>
+            <p>
+              If you are optimizing Year 1 cash flow, read{" "}
+              <Link
+                href="/blog/year-1-spring-crops-profit-guide"
+                className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+              >
+                Year 1 Spring Crops Profit Guide
+              </Link>
+              .
+            </p>
           </div>
         </section>
 
