@@ -144,14 +144,14 @@ export default async function IridiumSprinklerGuidePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <FaqJsonLd items={FAQ_ITEMS} />
+      <FaqJsonLd faqs={FAQ_ITEMS} />
 
       <main className="mx-auto max-w-3xl px-4 pb-20 pt-6 sm:px-6">
         <Breadcrumb
           items={[
-            { label: "Home", href: "/" },
-            { label: "Blog", href: "/blog" },
-            { label: "Iridium Sprinkler Guide" },
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+            { name: "Iridium Sprinkler Guide" },
           ]}
         />
 

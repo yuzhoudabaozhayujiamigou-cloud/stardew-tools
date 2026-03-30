@@ -50,9 +50,9 @@ export default async function SpeedGroWhenToUsePage() {
   return (
     <>
       <PwaRegisterScript />
-      <FaqJsonLd items={FAQ_ITEMS} />
+      <FaqJsonLd faqs={FAQ_ITEMS} />
       <main className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: "Speed-Gro Guide" }]} />
+        <Breadcrumb items={[{ name: "Home", href: "/" }, { name: "Blog", href: "/blog" }, { name: "Speed-Gro Guide" }]} />
         <h1 className="mt-6 text-2xl font-bold leading-snug text-[#3f2a22] sm:text-3xl">{TITLE}</h1>
         <p className={P}>Speed-Gro fertilizer is often used on every crop or ignored entirely. The correct question is whether the days you save are worth more than the fertilizer costs. This guide gives you the formula and the scenarios where each tier pays back.</p>
         <div className="mt-6 flex flex-wrap gap-3">
@@ -181,7 +181,7 @@ export default async function SpeedGroWhenToUsePage() {
             ))}
           </div>
         </section>
-        <BlogReadNext posts={readNext} />
+        <BlogReadNext posts={readNext} currentSlug="stardew-valley-speed-gro-when-to-use" />
       </main>
       <SiteFooter />
     </>

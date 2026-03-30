@@ -164,9 +164,9 @@ export default async function ArtisanProfessionROIPage() {
       <main className="mx-auto max-w-3xl px-4 pb-16 pt-8 sm:px-6">
         <Breadcrumb
           items={[
-            { label: "Home", href: "/" },
-            { label: "Blog", href: "/blog" },
-            { label: "Artisan Profession ROI Guide" },
+            { name: "Home", href: "/" },
+            { name: "Blog", href: "/blog" },
+            { name: "Artisan Profession ROI Guide" },
           ]}
         />
 
@@ -553,7 +553,7 @@ export default async function ArtisanProfessionROIPage() {
         <BlogReadNext posts={readNextPosts} currentSlug="stardew-valley-artisan-profession-roi-guide" />
       </main>
 
-      <FaqJsonLd items={FAQ_ITEMS} />
+      <FaqJsonLd faqs={FAQ_ITEMS} />
       <SiteFooter />
     </div>
   );

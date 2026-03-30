@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
   description:
-    "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
+    "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
   alternates: {
     canonical: "/",
   },
@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     url: "/",
     title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
     description:
-      "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
+      "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
   },
   twitter: {
     card: "summary",
     title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
     description:
-      "Your hub for stardew profit guides, crop comparisons, secret note solutions, and quick answers. Find the best crops by season and maximize your farm gold.",
+      "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
   },
 };
 
@@ -80,14 +80,14 @@ const HOME_FAQ_ITEMS = [
       "Yes. Late-season windows often punish slow crops. Use day-limited presets first, then validate with one guide before buying seeds.",
   },
   {
-    question: "Should I check Secret Note 22 for profit planning?",
+    question: "How do I calculate profit per day in Stardew Valley?",
     answer:
-      "Secret Note 22 unlocks a key quest path, so many players reference it alongside farm planning. Use the quick answer page to avoid tunnel-panel mistakes.",
+      "Set your season and days left, then compare crops by gold/day. After you pick a crop, validate the plan against your keg/jar capacity so you don't bottleneck processing.",
   },
   {
-    question: "How is Secret Note 19 related to progression?",
+    question: "Does this calculator include kegs and preserves jars?",
     answer:
-      "Secret Note 19 gives the Solid Gold Lewis statue path solution and helps clear a common progression blocker while you optimize the rest of your farm route.",
+      "Yes. Use the calculator for crop rankings, then use the artisan tools and guides to decide whether kegs or jars are the better match for your current throughput.",
   },
   {
     question: "Where should I start if I am new to Stardew Valley profit planning?",
