@@ -57,18 +57,18 @@ const START_HERE_ARTICLES = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profit Calculator (1.6) | StardewProfit",
+  title: "Stardew Profit Calculator (Best Crops & Artisan ROI) — StardewProfit",
   description:
-    "Stardew Valley Profit Calculator for 1.6. Enter season, days left, quality, and professions to rank crops by gold/day, total profit, and ROI.",
+    "Calculate the most profitable crops, keg vs jar returns, and greenhouse ROI. Use ready-made presets to get the best Stardew profits in seconds.",
   // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Profit Calculator (1.6) | StardewProfit",
+    title: "Stardew Profit Calculator (Best Crops & Artisan ROI) — StardewProfit",
     description:
-      "Stardew Valley Profit Calculator for 1.6. Enter season, days left, quality, and professions to rank crops by gold/day, total profit, and ROI.",
+      "Calculate the most profitable crops, keg vs jar returns, and greenhouse ROI. Use ready-made presets to get the best Stardew profits in seconds.",
     type: "website",
     images: [
       {
@@ -81,14 +81,23 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Profit Calculator (1.6) | Crop ROI",
+    title: "Stardew Profit Calculator — Best Crops, Keg vs Jar, ROI",
     description:
-      "Stardew Valley Profit Calculator for 1.6. Compare crop outcomes by gold/day, total profit, and ROI from your current season setup.",
+      "Calculate the most profitable crops, keg vs jar returns, and greenhouse ROI. Use presets to get the best Stardew profits in seconds.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
 
 export default function CalculatorPage() {
+  // Quick promise: answer fast, reduce bounce.
+  const heroValueProp =
+    "Get the best Stardew profits fast: compare crops and processing (keg vs jar) with real numbers.";
+  const heroSteps = [
+    "Choose Season and Crop",
+    "Choose Processing (None / Keg / Jar)",
+    "See Profit per Day + break-even instantly",
+  ] as const;
+
   const initialSeason: Season = "spring";
   const initialResults = (crops as Crop[])
     .filter((crop) => crop.season.includes(initialSeason))
@@ -210,20 +219,27 @@ export default function CalculatorPage() {
             setup to see the best crops ranked by gold/day and payback speed.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            It includes quality, fertilizer, regrowth timing, and Tiller/Artisan assumptions so you can move from
-            guesswork to clear profit decisions without scanning wiki tables.
+            {heroValueProp}
           </p>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Want the overview first?
+
+          <ol className="mt-3 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-3">
+            {heroSteps.map((step) => (
+              <li key={step} className="rounded-xl border border-[#8a5b3a]/30 bg-white/35 px-3 py-2 shadow-sm">
+                {step}
+              </li>
+            ))}
+          </ol>
+
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
+            Or start with a preset: one click to load proven setups.
             {" "}
             <Link
               href="/"
               className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
             >
-              Return to the homepage quick answer
+              (See the homepage quick answer)
             </Link>
-            {" "}
-            before tuning presets.
+            .
           </p>
           <ul className="mt-4 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-2">
             <li>• Gold per day (profit/day)</li>
