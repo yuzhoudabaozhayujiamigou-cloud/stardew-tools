@@ -156,6 +156,25 @@ export default function StardewValleyProfitGuide2026Page() {
             </nav>
           </section>
 
+          <section className="rounded-[28px] border-4 border-[#2f6a3a]/45 bg-[#e6f8d8] p-5 shadow-[0_12px_28px_rgba(47,106,58,0.22)] ring-1 ring-[#2f6a3a]/20 sm:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f6b2e]/80">Next crop shortcut</p>
+            <p className="mt-2 text-sm leading-6 text-[#245631] sm:text-base">
+              If you want a clear &quot;what should I plant next?&quot; answer, open the Profit Calculator and compare your options
+              with your season, days left, and profession.
+            </p>
+            <div className="mt-4">
+              <TrackedBlogCtaLink
+                href="/calculator"
+                fromPath={fromPath}
+                ctaName="profit_guide_intro_next_crop_calculator"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/45 bg-[#f4ffe9] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/70 hover:bg-[#ecffd8]"
+              >
+                <span aria-hidden className="inline-flex items-center leading-none opacity-90">🧮</span>
+                Open Profit Calculator
+              </TrackedBlogCtaLink>
+            </div>
+          </section>
+
           <section
             id="how-profit-actually-works"
             className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7"

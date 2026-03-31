@@ -426,6 +426,30 @@ export default function BestCropsEverySeasonPage() {
             </div>
           </header>
 
+          <section className="rounded-[28px] border-4 border-[#2f6a3a]/45 bg-[#e6f8d8] p-5 shadow-[0_12px_28px_rgba(47,106,58,0.22)] ring-1 ring-[#2f6a3a]/20 sm:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f6b2e]/80">
+              Fastest answer
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#245631] sm:text-base">
+              Want the fastest answer for your farm? Open the Profit
+              Calculator, set your season and days left, then compare crop
+              routes in one view.
+            </p>
+            <div className="mt-4">
+              <TrackedBlogCtaLink
+                href="/calculator"
+                fromPath={fromPath}
+                ctaName="best_crops_every_season_intro_calculator_block"
+                className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/45 bg-[#f4ffe9] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/70 hover:bg-[#ecffd8]"
+              >
+                <span aria-hidden className="inline-flex items-center leading-none opacity-90">
+                  🧮
+                </span>
+                Open Profit Calculator
+              </TrackedBlogCtaLink>
+            </div>
+          </section>
+
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">
               Quick comparison (Top 3 per season)
