@@ -282,27 +282,25 @@ function AnimalTable({
   );
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: url },
+  openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    alternates: { canonical: url },
-    openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
-      url,
-      type: "article",
-      publishedTime,
-      modifiedTime,
-      images: [`${url}/opengraph-image`],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: TITLE,
-      description: DESCRIPTION,
-    },
-  };
-}
+    url,
+    type: "article",
+    publishedTime,
+    modifiedTime,
+    images: [`${url}/opengraph-image`],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
 
 export default async function StardewValleyPigTruffleProfitGuidePage() {
   const readNextPosts = getBlogReadNextPosts("stardew-valley-pig-truffle-profit-guide", 3);

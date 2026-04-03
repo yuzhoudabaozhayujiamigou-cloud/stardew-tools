@@ -19,21 +19,59 @@ const CARD_CLASS =
 const LINK_CLASS =
   "inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-white/60 px-4 py-2.5 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-white/80 sm:w-auto";
 
+const DISABLED_LINK_CLASS =
+  "inline-flex min-h-11 w-full items-center justify-center rounded-2xl border border-dashed border-[#8a5b3a]/35 bg-white/40 px-4 py-2.5 text-sm font-semibold text-[#5c3d23]/70 sm:w-auto";
+
 const FAQS = [
   {
-    question: "How is minimum target amount calculated?",
+    question: "What is the best day to sell scrap for quota?",
     answer:
-      "Minimum target amount is max(quota - current funds, 0). It is the smallest additional credited value needed to clear quota.",
+      "Under this calculator's assumptions, Day 2 is usually better because it needs less raw value than Day 1 for the same credited target.",
   },
   {
-    question: "Why only sell to exact target or target plus gear budget?",
+    question: "What payout rate does Day 1 use vs Day 2?",
     answer:
-      "This keeps high-value inventory for higher-payout days and avoids overselling. The calculator defaults to exact target first, then adds a capped gear budget only when needed.",
+      "The day comparison in this tool uses Day 1 = 50% payout and Day 2 = 80% payout.",
   },
   {
-    question: "What does Day 1 vs Day 2 delta show?",
+    question: "How do I calculate minimum quota target with current funds?",
     answer:
-      "It compares how much raw sale value is needed to reach the same credited target under Day 1 and Day 2 payout assumptions. The gap is the cost of selling too early.",
+      "It is max(quota - current funds, 0).",
+  },
+  {
+    question: "Should I sell extra scrap after clearing quota?",
+    answer:
+      "Not by default. The recommendation is to avoid extra selling unless you need immediate purchase cash.",
+  },
+  {
+    question: "What is the Quadratic Quota formula?",
+    answer:
+      "This page references: Quota = 100 + 100 * (1 + (DaysPassed / 12)^2).",
+  },
+  {
+    question: "Does the quota calculator compute quadratic quota automatically?",
+    answer:
+      "No. You enter the current quota manually, and the tool plans sell targets from that input.",
+  },
+  {
+    question: "Which terminal commands help with quota runs?",
+    answer:
+      "The guide section lists SCAN, STORE, and VIEW MONITOR as core commands.",
+  },
+  {
+    question: "What should I do if I only have 1 day left?",
+    answer:
+      "Sell today and keep sales close to the exact target unless essential gear is mandatory.",
+  },
+  {
+    question: "How much budget should I reserve for essential gear?",
+    answer:
+      "Use min(dailyRequired, minimumTarget * 0.3), so gear budget is capped by both your daily pace target and 30% of the minimum target.",
+  },
+  {
+    question: "What changes if an update alters selling rates or command behavior?",
+    answer:
+      "Recalculate with current run assumptions and review patch notes and terminal guides before locking your sell plan.",
   },
 ] as const;
 
@@ -114,7 +152,7 @@ export default function QuotaCalculatorPage() {
           <div className="mt-4 space-y-6 text-sm leading-7 text-[#5f4228]/90 sm:text-base">
             <div>
               <h3 className="font-bold text-[#4a321e]">1. Day 1 vs Day 2 selling rates</h3>
-              <p>Searching for a <strong>Lethal Company quota calculator</strong>? Understanding the risk vs. reward of selling on different days is the key to high-quota runs. Day 1 and Day 2 selling rates are often reduced to 0% or 50%, while the Deadline (Day 3) pays 100%.</p>
+              <p>Searching for a <strong>Lethal Company quota calculator</strong>? Understanding the risk vs. reward of selling on different days is the key to high-quota runs. This tool uses Day 1 = 50% and Day 2 = 80% payout assumptions, which is why waiting for Day 2 usually requires less raw scrap value than selling on Day 1.</p>
             </div>
             <div>
               <h3 className="font-bold text-[#4a321e]">2. Quadratic Quota Formula explained</h3>
@@ -142,17 +180,38 @@ export default function QuotaCalculatorPage() {
         </section>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">FAQ</h2>
+          <div className="mt-4 space-y-3">
+            {FAQS.map((faq) => (
+              <details
+                key={faq.question}
+                open
+                className="rounded-2xl border border-[#8a5b3a]/40 bg-white/55 px-4 py-3 text-[#5f4228]/95"
+              >
+                <summary className="cursor-pointer text-sm font-semibold leading-6 text-[#4a321e] sm:text-base">
+                  {faq.question}
+                </summary>
+                <p className="mt-2 text-sm leading-6 sm:text-base">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
           <h2 className="text-lg font-semibold text-[#4a321e] sm:text-xl">Related Pages</h2>
           <div className="mt-4 grid gap-3 sm:flex sm:flex-wrap sm:gap-2">
-            <Link href="/calculator" className={LINK_CLASS}>
-              Profit Calculator
+            <Link href="/tools/lethal-company/patch-notes/v45" className={LINK_CLASS}>
+              Lethal Company Patch Notes v45
             </Link>
-            <Link href="/tools/artisan-profit" className={LINK_CLASS}>
-              Artisan Profit Guide
+            <Link href="/guides/lethal-company/terminal-commands-list" className={LINK_CLASS}>
+              Terminal Commands List
             </Link>
-            <Link href="/tools/keg-vs-preserves-jar" className={LINK_CLASS}>
-              Keg vs Preserves Jar
+            <Link href="/guides/lethal-company" className={LINK_CLASS}>
+              Lethal Company Guides Hub
             </Link>
+            <span className={DISABLED_LINK_CLASS} aria-disabled="true">
+              /tools/lethal-company/terminal-commands (route pending)
+            </span>
           </div>
         </section>
 

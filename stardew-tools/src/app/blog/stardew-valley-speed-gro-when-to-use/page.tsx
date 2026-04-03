@@ -26,14 +26,24 @@ const FAQ_ITEMS = [
   { question: "Does fertilizer affect regrow crops after the first harvest?", answer: "No. Speed-Gro only affects the initial growth period. Once a regrow crop has produced its first harvest, the regrow timer is fixed and fertilizer has no effect." },
 ] as const;
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: url },
+  openGraph: { 
+    title: TITLE, 
+    description: DESCRIPTION, 
+    url, 
+    type: "article", 
+    publishedTime, 
+    modifiedTime 
+  },
+  twitter: {
+    card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    alternates: { canonical: url },
-    openGraph: { title: TITLE, description: DESCRIPTION, url, type: "article", publishedTime, modifiedTime },
-  };
-}
+  },
+};
 
 const CARD = "rounded-[28px] border-4 border-[#7c4d2e]/70 bg-[#fff3da]/92 p-5 shadow-[0_14px_34px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/15 sm:p-7";
 const H2 = "text-xl font-semibold text-[#4a321e] sm:text-2xl";

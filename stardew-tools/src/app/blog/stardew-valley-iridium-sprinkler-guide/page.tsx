@@ -19,6 +19,25 @@ const TITLE =
 const DESCRIPTION =
   "Complete Iridium Sprinkler guide for Stardew Valley — 24-tile coverage, crafting cost, ROI vs Quality Sprinkler, optimal farm layouts, and when to upgrade.";
 
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: url },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url,
+    type: "article",
+    publishedTime,
+    modifiedTime,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+};
+
 const FAQ_ITEMS = [
   {
     question: "How many tiles does the Iridium Sprinkler cover?",
@@ -79,26 +98,7 @@ const SPRINKLER_COMPARE = [
   },
 ] as const;
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: TITLE,
-    description: DESCRIPTION,
-    alternates: { canonical: url },
-    openGraph: {
-      title: TITLE,
-      description: DESCRIPTION,
-      url,
-      type: "article",
-      publishedTime,
-      modifiedTime,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: TITLE,
-      description: DESCRIPTION,
-    },
-  };
-}
+
 
 // ── Style constants (identical to site-wide blog style) ──────────────────────
 const CARD = "rounded-3xl border border-[#7c4d2e]/20 bg-white/50 p-5 shadow-sm sm:p-7";

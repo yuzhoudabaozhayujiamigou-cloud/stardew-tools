@@ -278,6 +278,16 @@ export default function HomePage() {
             </p>
           </Link>
 
+          <Link href="/tools/quota-calculator" className={ENTRY_LINK_CLASS}>
+            <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
+              📦
+            </div>
+            <h2 className={ENTRY_TITLE_CLASS}>Quota Calculator</h2>
+            <p className={ENTRY_DESC_CLASS}>
+              Lethal Company specialized targets: Day 1 vs Day 2 payout delta, gear budget, and exact-sell strategy.
+            </p>
+          </Link>
+
           <Link href="/blog" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
               📘
