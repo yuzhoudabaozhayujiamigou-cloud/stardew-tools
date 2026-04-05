@@ -110,6 +110,17 @@
     "yieldPerHarvest": 1
   },
   {
+    "id": "carrot",
+    "name": "Carrot",
+    "season": ["spring"],
+    "seedCost": 15,
+    "sellPrice": 35,
+    "growthDays": 3,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
     "id": "blueberry",
     "name": "Blueberry",
     "season": ["summer"],
@@ -140,6 +151,17 @@
     "growthDays": 12,
     "regrowDays": 0,
     "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "summer_squash",
+    "name": "Summer Squash",
+    "season": ["summer"],
+    "seedCost": 20,
+    "sellPrice": 45,
+    "growthDays": 6,
+    "regrowDays": 3,
+    "isRegrowing": true,
     "yieldPerHarvest": 1
   },
   {
@@ -217,6 +239,17 @@
     "growthDays": 13,
     "regrowDays": 0,
     "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "broccoli",
+    "name": "Broccoli",
+    "season": ["fall"],
+    "seedCost": 40,
+    "sellPrice": 70,
+    "growthDays": 8,
+    "regrowDays": 4,
+    "isRegrowing": true,
     "yieldPerHarvest": 1
   },
   {
@@ -335,6 +368,17 @@
     "season": ["winter"],
     "seedCost": 60,
     "sellPrice": 0,
+    "growthDays": 7,
+    "regrowDays": 0,
+    "isRegrowing": false,
+    "yieldPerHarvest": 1
+  },
+  {
+    "id": "powdermelon",
+    "name": "Powdermelon",
+    "season": ["winter"],
+    "seedCost": 20,
+    "sellPrice": 60,
     "growthDays": 7,
     "regrowDays": 0,
     "isRegrowing": false,
