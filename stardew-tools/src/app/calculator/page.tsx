@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 
 import { CalculatorClient } from "@/components/CalculatorClient";
 import { FaqGuideCard } from "@/components/calculator/FaqGuideCard";
@@ -11,19 +12,19 @@ import { calculateSeasonProfit, type Crop, type Season } from "@/lib/calculatePr
 
 const QUICK_PRESET_LINKS = [
   {
-    href: "/calculator?preset=best-spring-10-days-left",
+    href: "/calculator?preset=best-spring-10-days-left#calculator",
     label: "Spring Best",
     icon: "🌸",
     track: "calculator_preset_header_spring_best",
   },
   {
-    href: "/calculator?preset=best-summer-10-days-left",
+    href: "/calculator?preset=best-summer-10-days-left#calculator",
     label: "Summer Panic",
     icon: "☀️",
     track: "calculator_preset_header_summer_panic",
   },
   {
-    href: "/calculator?preset=ancient-vs-starfruit-greenhouse",
+    href: "/calculator?preset=ancient-vs-starfruit-greenhouse#calculator",
     label: "Greenhouse Strategy",
     icon: "🏡",
     track: "calculator_preset_header_greenhouse_strategy",
@@ -458,21 +459,21 @@ export default function CalculatorPage() {
           </p>
           <div className="mt-4 flex flex-wrap gap-2.5">
             <TrackLink
-              href="/calculator?preset=best-spring-10-days-left"
+              href="/calculator?preset=best-spring-10-days-left#calculator"
               className={QUICK_PRESET_LINK_CLASS}
               trackEvent="calculator_preset_section_spring_10_days"
             >
               🌸 Spring (10 days left)
             </TrackLink>
             <TrackLink
-              href="/calculator?preset=best-summer-10-days-left"
+              href="/calculator?preset=best-summer-10-days-left#calculator"
               className={QUICK_PRESET_LINK_CLASS}
               trackEvent="calculator_preset_section_summer_panic"
             >
               ☀️ Summer panic
             </TrackLink>
             <TrackLink
-              href="/calculator?preset=ancient-vs-starfruit-greenhouse"
+              href="/calculator?preset=ancient-vs-starfruit-greenhouse#calculator"
               className={QUICK_PRESET_LINK_CLASS}
               trackEvent="calculator_preset_section_greenhouse_benchmark"
             >
@@ -489,11 +490,13 @@ export default function CalculatorPage() {
         </section>
 
         <section id="calculator" className="mt-8 grid gap-6 scroll-mt-4">
-          <CalculatorClient
-            crops={crops as Crop[]}
-            initialSeason={initialSeason}
-            initialResults={initialResults}
-          />
+          <Suspense fallback={null}>
+            <CalculatorClient
+              crops={crops as Crop[]}
+              initialSeason={initialSeason}
+              initialResults={initialResults}
+            />
+          </Suspense>
           <FaqGuideCard />
 
           <details className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

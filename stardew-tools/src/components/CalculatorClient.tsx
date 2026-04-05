@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 import { InputForm, type InputFormValue } from "@/components/InputForm";
 import { DaysLeftInput } from "@/components/calculator/DaysLeftInput";
@@ -84,6 +85,52 @@ function parseQueryDaysLeft(rawDaysLeft: string | null): number | null {
   return clampSeasonDays(parsed);
 }
 
+type QueryState = {
+  lang: CalculatorLang;
+  compareSelection: [string, string] | null;
+  form: InputFormValue;
+  daysLeft: number;
+};
+
+function getDefaultQueryState(initialSeason: Season): QueryState {
+  return {
+    lang: "en",
+    compareSelection: null,
+    form: {
+      season: initialSeason,
+      quality: "normal",
+      hasTiller: false,
+      profession: "none",
+    },
+    daysLeft: 28,
+  };
+}
+
+function resolveQueryState(params: URLSearchParams, initialSeason: Season): QueryState {
+  const preset = getPresetById(params.get("preset"));
+  const nextSeason = parseQuerySeason(params.get("season"));
+  const nextProfession = parseQueryProfession(params.get("profession") ?? params.get("skill"));
+  const nextLang = parseCalculatorLang(params.get("lang"));
+  const explicitCompare = parseQueryCompare(params.get("compare"));
+  const nextCompare = explicitCompare ?? preset?.defaultCompare ?? null;
+  const nextDaysLeft = parseQueryDaysLeft(params.get("daysLeft"));
+  const resolvedDaysLeft =
+    nextDaysLeft ??
+    (typeof preset?.defaultDaysLeft === "number" ? clampSeasonDays(preset.defaultDaysLeft) : 28);
+
+  return {
+    lang: nextLang,
+    compareSelection: nextCompare,
+    form: {
+      season: nextSeason ?? preset?.defaultSeason ?? initialSeason,
+      quality: "normal",
+      hasTiller: false,
+      profession: nextProfession ?? preset?.defaultProfession ?? "none",
+    },
+    daysLeft: resolvedDaysLeft,
+  };
+}
+
 function fmt(n: number) {
   return new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(n);
 }
@@ -93,59 +140,17 @@ export function CalculatorClient(props: {
   initialSeason: Season;
   initialResults: ProfitResult[];
 }) {
+  const searchParams = useSearchParams();
   const initialQuery = (() => {
-    if (typeof window === "undefined") {
-      return {
-        lang: "en" as CalculatorLang,
-        compareSelection: null as [string, string] | null,
-        form: {
-          season: props.initialSeason,
-          quality: "normal",
-          hasTiller: false,
-          profession: "none",
-        } satisfies InputFormValue,
-        daysLeft: 28,
-      };
-    }
-
     try {
-      const params = new URLSearchParams(window.location.search);
-
-      const preset = getPresetById(params.get("preset"));
-      const nextSeason = parseQuerySeason(params.get("season"));
-      const nextProfession = parseQueryProfession(params.get("profession") ?? params.get("skill"));
-      const nextLang = parseCalculatorLang(params.get("lang"));
-      const explicitCompare = parseQueryCompare(params.get("compare"));
-      const nextCompare = explicitCompare ?? preset?.defaultCompare ?? null;
-      const nextDaysLeft = parseQueryDaysLeft(params.get("daysLeft"));
-      const resolvedDaysLeft =
-        nextDaysLeft ??
-        (typeof preset?.defaultDaysLeft === "number" ? clampSeasonDays(preset.defaultDaysLeft) : null);
-
-      return {
-        lang: nextLang,
-        compareSelection: nextCompare,
-        form: {
-          season: nextSeason ?? preset?.defaultSeason ?? props.initialSeason,
-          quality: "normal",
-          hasTiller: false,
-          profession: nextProfession ?? preset?.defaultProfession ?? "none",
-        } satisfies InputFormValue,
-        daysLeft: resolvedDaysLeft ?? 28,
-      };
+      if (typeof window !== "undefined") {
+        return resolveQueryState(new URLSearchParams(window.location.search), props.initialSeason);
+      }
     } catch {
-      return {
-        lang: "en" as CalculatorLang,
-        compareSelection: null as [string, string] | null,
-        form: {
-          season: props.initialSeason,
-          quality: "normal",
-          hasTiller: false,
-          profession: "none",
-        } satisfies InputFormValue,
-        daysLeft: 28,
-      };
+      return getDefaultQueryState(props.initialSeason);
     }
+
+    return getDefaultQueryState(props.initialSeason);
   })();
 
   const [daysLeft, setDaysLeft] = useState<number>(initialQuery.daysLeft);
@@ -153,11 +158,28 @@ export function CalculatorClient(props: {
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
   const [shareTextState, setShareTextState] = useState<"idle" | "copied" | "error">("idle");
   const [compareCopyState, setCompareCopyState] = useState<"idle" | "copied" | "error">("idle");
-  const [compareSelection] = useState<[string, string] | null>(initialQuery.compareSelection);
+  const [compareSelection, setCompareSelection] = useState<[string, string] | null>(initialQuery.compareSelection);
 
   const [formValue, setFormValue] = useState<InputFormValue>(initialQuery.form);
   const [showAllResults, setShowAllResults] = useState(false);
   const [resultsLinkCopied, setResultsLinkCopied] = useState(false);
+  const searchParamsKey = searchParams.toString();
+
+  useEffect(() => {
+    try {
+      const nextQueryState = resolveQueryState(new URLSearchParams(searchParamsKey), props.initialSeason);
+      setLang(nextQueryState.lang);
+      setCompareSelection(nextQueryState.compareSelection);
+      setFormValue(nextQueryState.form);
+      setDaysLeft(nextQueryState.daysLeft);
+    } catch {
+      const fallbackState = getDefaultQueryState(props.initialSeason);
+      setLang(fallbackState.lang);
+      setCompareSelection(fallbackState.compareSelection);
+      setFormValue(fallbackState.form);
+      setDaysLeft(fallbackState.daysLeft);
+    }
+  }, [props.initialSeason, searchParamsKey]);
 
   useEffect(() => {
     if (copyState === "idle") {
