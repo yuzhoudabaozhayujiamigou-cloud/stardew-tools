@@ -123,6 +123,14 @@ export default function Year1SpringCropsProfitGuidePage() {
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Strawberry Timing Warning (Year 1)</h2>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <strong>Strawberry Seeds are only sold on Spring 13 at the Egg Festival.</strong> In Year 1 this creates
+              a narrow planting window, so treat Strawberry as a mid-Spring spike rather than a full-season default.
+            </p>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Start Here: 3 Constraints</h2>
             <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <p>

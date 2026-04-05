@@ -115,6 +115,24 @@ export default function StardewValleyProfitGuide2026Page() {
           </header>
 
           <section className={CARD_CLASS}>
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Critical Unlock Warnings</h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5c4033]/90 sm:text-base">
+              <li>
+                <strong>Starfruit requires Desert access:</strong> unlock the Bus first (Vault bundles total 42,500g)
+                or complete Community Center progression before treating Starfruit as core summer income.
+              </li>
+              <li>
+                <strong>Ancient Fruit needs Greenhouse for winter output:</strong> outdoor plants die in Winter, so
+                year-round production depends on Greenhouse tiles.
+              </li>
+              <li>
+                <strong>Strawberry seeds are Egg Festival only:</strong> buy on Spring 13, otherwise you miss the main
+                Year 1 Strawberry timing window.
+              </li>
+            </ul>
+          </section>
+
+          <section className={CARD_CLASS}>
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Best Crops by Season (Quick Links)</h2>
             <p className="mt-3 text-sm leading-6 text-[#5c4033]/90 sm:text-base">
               If you only want the short answer: the best crop changes by season, by how many days you have left, and by

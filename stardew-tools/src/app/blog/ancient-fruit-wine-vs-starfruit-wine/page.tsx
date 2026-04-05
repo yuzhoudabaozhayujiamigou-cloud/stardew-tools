@@ -202,6 +202,22 @@ export default function AncientFruitWineVsStarfruitWinePage() {
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
+              Access Requirements You Should Not Skip
+            </h2>
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <strong>Starfruit pipeline needs Desert unlock:</strong> fix the Bus first (Vault bundles total
+                42,500g) or complete Community Center progression before planning Starfruit as a core crop.
+              </li>
+              <li>
+                <strong>Ancient Fruit year-round loops need Greenhouse:</strong> outdoor Ancient Fruit dies in Winter,
+                so winter wine supply requires Greenhouse planting.
+              </li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
               Side-by-Side Comparison
             </h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">

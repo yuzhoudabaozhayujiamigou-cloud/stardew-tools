@@ -128,6 +128,20 @@ export default function AncientFruitVsStarfruitPage() {
           </header>
 
           <section className={CARD}>
+            <h2 className={H2}>Before You Commit: Unlock Requirements</h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <strong>Starfruit needs Desert access:</strong> you must unlock the Bus (Vault bundles total
+                42,500g) or finish Community Center route progress before consistent Starfruit runs.
+              </li>
+              <li>
+                <strong>Ancient Fruit needs Greenhouse for winter continuity:</strong> outdoor Ancient Fruit dies in
+                Winter, so year-round weekly harvest loops require Greenhouse tiles.
+              </li>
+            </ul>
+          </section>
+
+          <section className={CARD}>
             <h2 className={H2}>TL;DR: The simplest rule</h2>
             <p className={P}>
               If you want the easiest long-term loop (especially in the greenhouse), pick <strong>Ancient Fruit</strong>.
