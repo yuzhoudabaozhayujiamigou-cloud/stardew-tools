@@ -58,6 +58,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/year-1-spring-crops-profit-guide",
         permanent: true,
       },
+      {
+        source: "/guides/keg-vs-jar",
+        destination: "/blog/keg-vs-jar-profit-guide",
+        permanent: true,
+      },
     ];
   },
 };
