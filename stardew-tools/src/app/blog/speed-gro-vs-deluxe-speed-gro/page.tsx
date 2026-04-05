@@ -61,15 +61,13 @@ function formatRegrowLabel(crop: Crop) {
 
 function growthWithMultiplier(crop: Crop, growthMultiplier: number): string {
   const adjustedGrowthDays = Math.max(1, Math.ceil(crop.growthDays * growthMultiplier));
-  const adjustedRegrowDays = crop.isRegrowing
-    ? Math.max(1, Math.ceil(crop.regrowDays * growthMultiplier))
-    : 0;
 
   if (!crop.isRegrowing) {
     return `${adjustedGrowthDays}d`;
   }
 
-  return `${adjustedGrowthDays}d + regrow ${adjustedRegrowDays}d`;
+  // Speed fertilizer changes time to first harvest, not post-first-harvest regrow ticks.
+  return `${adjustedGrowthDays}d + regrow ${crop.regrowDays}d`;
 }
 
 export default function SpeedGroVsDeluxeSpeedGroPage() {
@@ -104,7 +102,7 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
     const deluxeDelta = Math.max(0, baseGrowth - deluxeGrowth);
 
     const whyItMatters = crop.isRegrowing
-      ? `Often adds 1 extra harvest when you're timing-limited. Also speeds regrow (base regrow ${baseRegrow}d).`
+      ? `Often adds 1 extra harvest when you're timing-limited by pulling first harvest earlier (base regrow ${baseRegrow}d stays fixed).`
       : `Main value is squeezing in an extra harvest when daysLeft is tight (+${speedGroDelta}d / +${deluxeDelta}d).`;
 
     return {
@@ -176,7 +174,8 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
               <p>
                 <strong>Deluxe Speed-Gro</strong> is the better choice when you’re trying to
                 <strong> force an extra harvest</strong> (late-season planting, tight greenhouse cycles, or any
-                situation where 1 day matters). It’s especially strong for regrowing crops.
+                situation where 1 day matters). It’s especially useful on regrowing crops when an earlier first
+                harvest can create one extra pickup before season end.
               </p>
               <p>
                 <strong>Speed-Gro</strong> is the better “default” when you want a cheaper timing boost across a large
@@ -194,7 +193,8 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
               Table uses crop timings from <code>src/data/crops.json</code> (base growth + regrow). The exact rounding
               behavior for Speed-Gro in-game can be fiddly; for planning, validate your exact setup using the calculator
-              presets below.
+              presets below. For regrowing crops, Speed-Gro changes first-harvest timing only and does not shorten the
+              fixed regrow interval.
             </p>
 
             <div className="relative mt-4 overflow-x-auto">
