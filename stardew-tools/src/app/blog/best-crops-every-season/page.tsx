@@ -348,7 +348,7 @@ export default function BestCropsEverySeasonPage() {
               Best Crops for Every Season in Stardew Valley
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              不管你在哪个季节，这篇指南告诉你种什么最赚。I&apos;ll give you the
+              No matter which season you&apos;re in, this guide tells you what to plant for maximum profit. I&apos;ll give you the
               best crops each season (Spring/Summer/Fall/Winter) with quick
               profit/day logic, plus a Greenhouse section for endgame planning.
             </p>
