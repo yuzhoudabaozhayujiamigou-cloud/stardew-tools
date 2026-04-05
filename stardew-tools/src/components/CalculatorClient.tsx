@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { InputForm, type InputFormValue } from "@/components/InputForm";
+import { InputForm, type InputFormValue, type ProcessingMode } from "@/components/InputForm";
 import { DaysLeftInput } from "@/components/calculator/DaysLeftInput";
 import { ResultTable } from "@/components/calculator/ResultTable";
 import {
@@ -34,6 +34,7 @@ const VALID_QUERY_SEASONS = new Set<Season>([
   "winter",
   "greenhouse",
 ]);
+const VALID_QUERY_PROCESSING = new Set<ProcessingMode>(["none", "keg", "jar"]);
 
 function parseQuerySeason(rawSeason: string | null): Season | null {
   if (!rawSeason) {
@@ -53,6 +54,18 @@ function parseQueryProfession(rawProfession: string | null): Profession | null {
   }
 
   return null;
+}
+
+function parseQueryProcessing(rawProcessing: string | null): ProcessingMode | null {
+  if (!rawProcessing) {
+    return null;
+  }
+
+  if (!VALID_QUERY_PROCESSING.has(rawProcessing as ProcessingMode)) {
+    return null;
+  }
+
+  return rawProcessing as ProcessingMode;
 }
 
 function parseQueryCompare(rawCompare: string | null): [string, string] | null {
@@ -98,6 +111,7 @@ function getDefaultQueryState(initialSeason: Season): QueryState {
     compareSelection: null,
     form: {
       season: initialSeason,
+      processing: "none",
       quality: "normal",
       hasTiller: false,
       profession: "none",
@@ -110,6 +124,7 @@ function resolveQueryState(params: URLSearchParams, initialSeason: Season): Quer
   const preset = getPresetById(params.get("preset"));
   const nextSeason = parseQuerySeason(params.get("season"));
   const nextProfession = parseQueryProfession(params.get("profession") ?? params.get("skill"));
+  const nextProcessing = parseQueryProcessing(params.get("processing"));
   const nextLang = parseCalculatorLang(params.get("lang"));
   const explicitCompare = parseQueryCompare(params.get("compare"));
   const nextCompare = explicitCompare ?? preset?.defaultCompare ?? null;
@@ -123,6 +138,7 @@ function resolveQueryState(params: URLSearchParams, initialSeason: Season): Quer
     compareSelection: nextCompare,
     form: {
       season: nextSeason ?? preset?.defaultSeason ?? initialSeason,
+      processing: nextProcessing ?? "none",
       quality: "normal",
       hasTiller: false,
       profession: nextProfession ?? preset?.defaultProfession ?? "none",
@@ -229,7 +245,7 @@ export function CalculatorClient(props: {
     return () => window.clearTimeout(timeoutId);
   }, [resultsLinkCopied]);
 
-  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}`;
+  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}`;
 
 
   const text = useMemo(() => getCalculatorText(lang), [lang]);
@@ -246,8 +262,34 @@ export function CalculatorClient(props: {
           profession: formValue.profession,
         }),
       )
+      .map((result) => {
+        if (formValue.processing === "none" || !result.artisanGoodsProfit) {
+          return result;
+        }
+
+        const totalSeedCost = result.totalRevenue - result.totalProfit;
+        const processedProfit =
+          formValue.processing === "keg"
+            ? result.artisanGoodsProfit.kegs
+            : result.artisanGoodsProfit.preservesJars;
+
+        return {
+          ...result,
+          totalRevenue: totalSeedCost + processedProfit,
+          totalProfit: processedProfit,
+          goldPerDay: processedProfit / daysLeft,
+        };
+      })
       .sort((a, b) => b.goldPerDay - a.goldPerDay);
-  }, [daysLeft, formValue.hasTiller, formValue.profession, formValue.quality, formValue.season, props.crops]);
+  }, [
+    daysLeft,
+    formValue.hasTiller,
+    formValue.processing,
+    formValue.profession,
+    formValue.quality,
+    formValue.season,
+    props.crops,
+  ]);
 
   const resultsById = useMemo(() => {
     const lookup = new Map<string, ProfitResult>();

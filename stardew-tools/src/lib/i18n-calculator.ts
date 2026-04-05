@@ -54,6 +54,12 @@ type CalculatorText = {
     winter: string;
     greenhouse: string;
   };
+  processingLabel: string;
+  processingOptions: {
+    none: string;
+    keg: string;
+    jar: string;
+  };
   qualityLabel: string;
   qualityOptions: {
     normal: string;
@@ -145,6 +151,12 @@ const CALCULATOR_TEXT: Record<CalculatorLang, CalculatorText> = {
       winter: "Winter",
       greenhouse: "Greenhouse",
     },
+    processingLabel: "Processing",
+    processingOptions: {
+      none: "None (Sell Raw Crop)",
+      keg: "Keg (Wine/Juice)",
+      jar: "Jar (Jelly/Pickles)",
+    },
     qualityLabel: "Crop Quality",
     qualityOptions: {
       normal: "Normal",
@@ -234,6 +246,12 @@ const CALCULATOR_TEXT: Record<CalculatorLang, CalculatorText> = {
       winter: "冬季",
       greenhouse: "温室",
     },
+    processingLabel: "加工方式",
+    processingOptions: {
+      none: "不加工（直接卖作物）",
+      keg: "Keg（酒/果汁）",
+      jar: "Jar（果酱/腌菜）",
+    },
     qualityLabel: "作物品质",
     qualityOptions: {
       normal: "普通",
@@ -278,4 +296,3 @@ export function parseCalculatorLang(rawLang: string | null): CalculatorLang {
 export function getCalculatorText(lang: CalculatorLang): CalculatorText {
   return CALCULATOR_TEXT[lang];
 }
-

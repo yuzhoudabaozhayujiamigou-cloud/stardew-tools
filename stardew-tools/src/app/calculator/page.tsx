@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 
-import { CalculatorClient } from "@/components/CalculatorClient";
+import { CalculatorClient } from "@/components/CalculatorClientWrapper";
 import { FaqGuideCard } from "@/components/calculator/FaqGuideCard";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -490,13 +489,11 @@ export default function CalculatorPage() {
         </section>
 
         <section id="calculator" className="mt-8 grid gap-6 scroll-mt-4">
-          <Suspense fallback={null}>
-            <CalculatorClient
-              crops={crops as Crop[]}
-              initialSeason={initialSeason}
-              initialResults={initialResults}
-            />
-          </Suspense>
+          <CalculatorClient
+            crops={crops as Crop[]}
+            initialSeason={initialSeason}
+            initialResults={initialResults}
+          />
           <FaqGuideCard />
 
           <details className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

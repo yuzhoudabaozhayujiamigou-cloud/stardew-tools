@@ -8,8 +8,11 @@ import {
 } from "@/lib/calculateProfit";
 import { getCalculatorText, type CalculatorLang } from "@/lib/i18n-calculator";
 
+export type ProcessingMode = "none" | "keg" | "jar";
+
 export type InputFormValue = {
   season: Season;
+  processing: ProcessingMode;
   quality: CropQuality;
   hasTiller: boolean;
   profession: Profession;
@@ -71,6 +74,7 @@ export function InputForm(props: {
         <label className="grid gap-2">
           <span className="text-sm font-medium text-[#5a3d25]">{text.seasonLabel}</span>
           <select
+            id="calculator-season-select"
             value={value.season}
             onChange={(event) => onChange({ ...value, season: event.target.value as Season })}
             className="h-11 rounded-2xl border border-[#a87a4d]/50 bg-[#fff8e7] px-4 text-sm text-[#4b331f] shadow-sm focus:border-[#7f5731] focus:outline-none"
@@ -80,6 +84,27 @@ export function InputForm(props: {
             <option value="fall">{text.seasonOptions.fall}</option>
             <option value="winter">{text.seasonOptions.winter}</option>
             <option value="greenhouse">{text.seasonOptions.greenhouse}</option>
+          </select>
+        </label>
+      </div>
+
+      <div className="mt-4">
+        <label className="grid gap-2">
+          <span className="text-sm font-medium text-[#5a3d25]">{text.processingLabel}</span>
+          <select
+            id="calculator-processing-select"
+            value={value.processing}
+            onChange={(event) =>
+              onChange({
+                ...value,
+                processing: event.target.value as ProcessingMode,
+              })
+            }
+            className="h-11 rounded-2xl border border-[#a87a4d]/50 bg-[#fff8e7] px-4 text-sm text-[#4b331f] shadow-sm focus:border-[#7f5731] focus:outline-none"
+          >
+            <option value="none">{text.processingOptions.none}</option>
+            <option value="keg">{text.processingOptions.keg}</option>
+            <option value="jar">{text.processingOptions.jar}</option>
           </select>
         </label>
       </div>
