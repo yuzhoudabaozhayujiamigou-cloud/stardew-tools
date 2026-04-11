@@ -30,6 +30,9 @@ const LABEL_OVERRIDES: Record<string, string> = {
   "money-making-guide": "Money Making Guide – From Broke to Rich",
   "best-crops-every-season": "Best Crops for Every Season",
   "stardew-valley-fishing-profit-guide": "Complete Fishing Profit Guide",
+  "stardew-valley-fall-planting-guide-by-day": "Fall Planting Guide by Day",
+  "stardew-valley-fall-day-15-what-to-plant": "Fall Day 15: What to Plant",
+  "stardew-valley-fall-day-20-is-it-too-late": "Fall Day 20: Is It Too Late?",
 };
 
 function getBlogSlugs(): string[] {
@@ -79,6 +82,9 @@ const TOPIC_TAGS: Record<string, string[]> = {
   "stardew-valley-artisan-profit-guide": ["artisan", "honey", "keg", "jar", "profit"],
   "greenhouse-layout-guide": ["greenhouse", "layout", "sprinkler", "ancient-fruit", "starfruit"],
   "best-fall-crops-quick-answer": ["fall", "timing", "cranberry", "pumpkin"],
+  "stardew-valley-fall-planting-guide-by-day": ["fall", "timing", "late-season", "threshold", "day-by-day"],
+  "stardew-valley-fall-day-15-what-to-plant": ["fall", "timing", "threshold", "day-15"],
+  "stardew-valley-fall-day-20-is-it-too-late": ["fall", "timing", "late-season", "threshold", "day-20"],
   "best-crops-year-1": ["year-1", "beginner", "spring", "summer", "fall", "winter", "profit", "guide"],
   "stardew-valley-year-1-profit-guide-complete": [
     "year-1",
