@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { NoteEmbedCard } from "@/components/secret-notes/NoteEmbedCard";
@@ -20,8 +20,6 @@ type SecretNoteDetailPageProps = {
   }>;
 };
 
-const MIN_SECRET_NOTE_ID = 1;
-const MAX_SECRET_NOTE_ID = 25;
 const DEFAULT_SITE_URL = SITE_ORIGIN;
 const ARTICLE_AUTHOR_NAME = "Stardew Tools Guide";
 const SECRET_NOTES_PUBLISHED_AT = "2026-02-15T00:00:00.000Z";
@@ -97,10 +95,6 @@ function parseNoteId(input: string): number | null {
   }
 
   return parsed;
-}
-
-function isInValidRange(noteId: number): boolean {
-  return noteId >= MIN_SECRET_NOTE_ID && noteId <= MAX_SECRET_NOTE_ID;
 }
 
 function getNoteById(noteId: number) {
@@ -248,7 +242,7 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
   const { noteId } = await props.params;
   const parsedNoteId = parseNoteId(noteId);
 
-  if (parsedNoteId === null || !isInValidRange(parsedNoteId)) {
+  if (parsedNoteId === null) {
     return {
       title: "Stardew Valley Secret Notes Finder",
       description: "Browse Stardew Valley Secret Notes and decode every clue.",
@@ -332,6 +326,8 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
   };
 }
 
+export const dynamicParams = false;
+
 export default async function SecretNoteDetailPage(props: SecretNoteDetailPageProps) {
   const { noteId } = await props.params;
   const resolvedSearchParams = props.searchParams ? await props.searchParams : undefined;
@@ -342,14 +338,14 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
   const isCompactEmbedCard = isEmbedCard && isCompact;
   const parsedNoteId = parseNoteId(noteId);
 
-  if (parsedNoteId === null || !isInValidRange(parsedNoteId)) {
-    redirect("/secret-notes");
+  if (parsedNoteId === null) {
+    notFound();
   }
 
   const note = getNoteById(parsedNoteId);
 
   if (!note) {
-    redirect("/secret-notes");
+    notFound();
   }
 
   const articleJsonLd = !isEmbedCard ? buildArticleJsonLd(note) : null;

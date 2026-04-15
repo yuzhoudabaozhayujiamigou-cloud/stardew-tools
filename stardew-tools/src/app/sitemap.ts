@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 import type { MetadataRoute } from "next";
 
+import { secretNotes } from "@/data/secretNotes";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const STATIC_ENTRIES = [
@@ -76,16 +77,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const secretNotesEntries: MetadataRoute.Sitemap = Array.from({ length: 25 }, (_, index) => {
-    const noteId = index + 1;
-
-    return {
-      url: `${SITE_ORIGIN}/secret-notes/${noteId}`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    } satisfies MetadataRoute.Sitemap[number];
-  });
+  const secretNotesEntries: MetadataRoute.Sitemap = secretNotes.map((note) => ({
+    url: `${SITE_ORIGIN}/secret-notes/${note.id}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: note.id === 19 || note.id === 22 ? 0.7 : 0.5,
+  } satisfies MetadataRoute.Sitemap[number]));
 
   return [...staticEntries, ...blogEntries, ...secretNotesEntries].filter(
     (entry) => !hasDynamicRoutePlaceholder(entry.url),
