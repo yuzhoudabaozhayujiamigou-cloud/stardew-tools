@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 import { getAllBlogSlugs, getBlogModule } from "@/lib/blog-registry";
 
@@ -16,6 +17,8 @@ import { getAllBlogSlugs, getBlogModule } from "@/lib/blog-registry";
  * To keep SSG, we provide generateStaticParams for all known slugs.
  * ----------------------------------------- */
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
@@ -24,22 +27,30 @@ export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const { slug } = await params;
-  const mod = await getBlogModule(slug);
-  // If a page module exports metadata, reuse it.
-  return (mod.metadata as Metadata) || {};
+
+  try {
+    const mod = await getBlogModule(slug);
+    return (mod.metadata as Metadata) || {};
+  } catch {
+    notFound();
+  }
 }
 
 export default async function BlogSlugPage(
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-  const mod = await getBlogModule(slug);
-  const Page = mod.default as ComponentType;
 
-  if (!Page) {
-    // If the module doesn't export default, throw to show 500 and surface error.
-    throw new Error(`Blog module for slug "${slug}" has no default export`);
+  try {
+    const mod = await getBlogModule(slug);
+    const Page = mod.default as ComponentType;
+
+    if (!Page) {
+      throw new Error(`Blog module for slug "${slug}" has no default export`);
+    }
+
+    return <Page />;
+  } catch {
+    notFound();
   }
-
-  return <Page />;
 }
