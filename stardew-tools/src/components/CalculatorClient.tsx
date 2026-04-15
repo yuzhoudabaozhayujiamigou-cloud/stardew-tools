@@ -180,22 +180,20 @@ export function CalculatorClient(props: {
   const [showAllResults, setShowAllResults] = useState(false);
   const [resultsLinkCopied, setResultsLinkCopied] = useState(false);
   const searchParamsKey = searchParams.toString();
-
-  useEffect(() => {
+  const queryState = useMemo(() => {
     try {
-      const nextQueryState = resolveQueryState(new URLSearchParams(searchParamsKey), props.initialSeason);
-      setLang(nextQueryState.lang);
-      setCompareSelection(nextQueryState.compareSelection);
-      setFormValue(nextQueryState.form);
-      setDaysLeft(nextQueryState.daysLeft);
+      return resolveQueryState(new URLSearchParams(searchParamsKey), props.initialSeason);
     } catch {
-      const fallbackState = getDefaultQueryState(props.initialSeason);
-      setLang(fallbackState.lang);
-      setCompareSelection(fallbackState.compareSelection);
-      setFormValue(fallbackState.form);
-      setDaysLeft(fallbackState.daysLeft);
+      return getDefaultQueryState(props.initialSeason);
     }
   }, [props.initialSeason, searchParamsKey]);
+
+  useEffect(() => {
+    setLang(queryState.lang);
+    setCompareSelection(queryState.compareSelection);
+    setFormValue(queryState.form);
+    setDaysLeft(queryState.daysLeft);
+  }, [queryState]);
 
   useEffect(() => {
     if (copyState === "idle") {

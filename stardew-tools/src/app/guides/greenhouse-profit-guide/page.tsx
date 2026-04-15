@@ -246,6 +246,21 @@ export default function Page() {
             Want a data-driven comparison with your professions and chosen processing? Use the main calculator and
             lock it to “greenhouse” assumptions (seasonless, consistent watering) to compare crops apples-to-apples.
           </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-2">
+            <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
+              <p className="text-sm font-semibold text-slate-900">Need the numbers first?</p>
+              <p className="mt-2 text-sm leading-6 text-slate-800">Run the calculator with greenhouse assumptions before you commit to Ancient Fruit, Starfruit, or a mixed setup.</p>
+              <Link href="/calculator" className="mt-3 inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Open Crop Calculator →</Link>
+            </div>
+            <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
+              <p className="text-sm font-semibold text-slate-900">Need the broader money loop?</p>
+              <p className="mt-2 text-sm leading-6 text-slate-800">After greenhouse planning, map it back into your whole farm economy and seasonal strategy.</p>
+              <div className="mt-3 flex flex-col gap-2">
+                <Link href="/blog/money-making-guide" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Read Money Making Guide →</Link>
+                <Link href="/blog/best-crops-every-season" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Read Best Crops Every Season →</Link>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="sprinkler-layouts" className="mt-10">

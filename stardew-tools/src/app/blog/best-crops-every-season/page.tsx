@@ -448,6 +448,18 @@ export default function BestCropsEverySeasonPage() {
                 Open Profit Calculator
               </TrackedBlogCtaLink>
             </div>
+            <div className="mt-5 grid gap-3 md:grid-cols-2">
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-white/70 p-4">
+                <p className="text-sm font-semibold text-[#1f6b2e]">Next for broader strategy</p>
+                <p className="mt-2 text-sm leading-6 text-[#245631]">If you want the full farm economy after seasonal crop picks, continue with the big-picture money plan.</p>
+                <Link href="/blog/money-making-guide" className="mt-3 inline-flex items-center gap-2 font-semibold text-[#1f6b2e] underline decoration-[#1f6b2e]/35 underline-offset-4 hover:text-[#174f23]">Read Money Making Guide →</Link>
+              </div>
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-white/70 p-4">
+                <p className="text-sm font-semibold text-[#1f6b2e]">Next for long-term scaling</p>
+                <p className="mt-2 text-sm leading-6 text-[#245631]">If your next bottleneck is greenhouse planning, compare the season winners against your long-run indoor setup.</p>
+                <Link href="/guides/greenhouse-profit-guide" className="mt-3 inline-flex items-center gap-2 font-semibold text-[#1f6b2e] underline decoration-[#1f6b2e]/35 underline-offset-4 hover:text-[#174f23]">Open Greenhouse Profit Guide →</Link>
+              </div>
+            </div>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

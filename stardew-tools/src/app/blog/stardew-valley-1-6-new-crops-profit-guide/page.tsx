@@ -7,7 +7,6 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
-import { SITE_ORIGIN } from "@/lib/site";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const fromPath = "/blog/stardew-valley-1-6-new-crops-profit-guide";
@@ -79,7 +78,7 @@ export default async function Page() {
               Stardew Valley 1.6 added <strong>four</strong> new crops, not eight:{" "}
               <strong>Carrot, Summer Squash, Broccoli, and Powdermelon</strong>. If you are
               optimizing your farm for gold, this matters, because any strategy built on the old
-              "8 new crops" claim will push you into bad decisions and broken calculations.
+              &quot;8 new crops&quot; claim will push you into bad decisions and broken calculations.
             </p>
 
             <p>
@@ -132,7 +131,7 @@ export default async function Page() {
               <strong>
                 Preserves Jar products are generally more machine-efficient than Keg products
               </strong>{" "}
-              for these four crops under this guide's required processing-time assumptions.
+              for these four crops under this guide&apos;s required processing-time assumptions.
             </p>
 
             <p>
@@ -264,7 +263,7 @@ export default async function Page() {
 
             <p>
               Practical takeaway: seed availability in Year 1 is spikier than normal Pierre crops.
-              Plan around your actual seed inventory, not a theoretical "I can buy 500 tomorrow"
+              Plan around your actual seed inventory, not a theoretical &quot;I can buy 500 tomorrow&quot;
               assumption.
             </p>
 
@@ -277,18 +276,18 @@ export default async function Page() {
                 <strong>Time window:</strong> 28-day season.
               </li>
               <li>
-                <strong>Planting day:</strong> Day 1 of the crop's season.
+                <strong>Planting day:</strong> Day 1 of the crop&apos;s season.
               </li>
               <li>
                 <strong>Watering:</strong> Every day (no missed growth).
               </li>
               <li>
-                <strong>Seed-cost model (default):</strong> We use each seed's{" "}
+                <strong>Seed-cost model (default):</strong> We use each seed&apos;s{" "}
                 <strong>sell price as opportunity cost</strong> (Carrot 15g, Summer Squash 20g,
                 Broccoli 40g, Powdermelon 20g from seed pages).
               </li>
               <li>
-                <strong>Alternative model:</strong> If you treat found seeds as "free," use the
+                <strong>Alternative model:</strong> If you treat found seeds as &quot;free,&quot; use the
                 gross model (shown alongside net where useful).
               </li>
               <li>
@@ -732,7 +731,7 @@ export default async function Page() {
             </div>
 
             <p>
-              If you switch to a "seeds are free drops" model, subtract the seed-cost column from
+              If you switch to a &quot;seeds are free drops&quot; model, subtract the seed-cost column from
               your decision process. That boosts all four, but does not change the core behavior
               pattern: Summer Squash and Broccoli remain the strongest season-long tile earners.
             </p>

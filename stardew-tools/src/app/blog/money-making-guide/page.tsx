@@ -265,6 +265,12 @@ export default function MoneyMakingGuidePage() {
               >
                 🧮 Calculate my best crop today
               </PillLink>
+              <PillLink href="/blog/best-crops-every-season">
+                Read: Best Crops Every Season
+              </PillLink>
+              <PillLink href="/guides/greenhouse-profit-guide">
+                Read: Greenhouse Profit Guide
+              </PillLink>
               <PillLink href="/blog/stardew-valley-profit-guide-2026">
                 Read: Stardew Valley Profit Guide 2026
               </PillLink>

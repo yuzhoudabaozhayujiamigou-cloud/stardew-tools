@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "seo:audit": "node scripts/seo-audit.mjs",
     "analyze": "ANALYZE=true next build"
   },

@@ -35,40 +35,88 @@ const QUICK_PRESET_LINK_CLASS =
 
 const QUICK_PRESET_ICON_CLASS = "inline-flex w-4 shrink-0 items-center justify-center leading-none opacity-85";
 
-const START_HERE_ARTICLES = [
+const NEXT_STEP_PATHS = [
   {
-    href: "/blog/stardew-valley-keg-jar-artisan-profit-system",
-    title: "Keg, Jar, and Artisan Profit System",
+    title: "Make Money Fast",
     description:
-      "Understand the full processing system: when kegs beat jars, when jars are the faster payback choice, and how artisan multipliers reshape your profit stack.",
+      "Get quick answers for the current season, pick the best cash-flow crop, and avoid wasting the last 7-15 days of a season.",
+    links: [
+      {
+        href: "/blog/best-crops-every-season",
+        label: "Best Crops Every Season",
+        track: "calculator_next_make_money_fast_best_crops",
+      },
+      {
+        href: "/blog/money-making-guide",
+        label: "Money Making Guide",
+        track: "calculator_next_make_money_fast_money_guide",
+      },
+      {
+        href: "/blog/best-crops-year-1",
+        label: "Best Crops Year 1",
+        track: "calculator_next_make_money_fast_year1",
+      },
+    ],
   },
   {
-    href: "/blog/farm-profit-pillars",
-    title: "Farm Profit Pillars",
+    title: "Build Long-Term Profit",
     description:
-      "Build a complete farm economy with seasonal crops, greenhouse planning, artisan throughput, and daily decision rules that hold up from Year 1 to endgame.",
+      "Plan the farm you actually want to scale: greenhouse choices, artisan throughput, and the crop systems that compound over time.",
+    links: [
+      {
+        href: "/guides/greenhouse-profit-guide",
+        label: "Greenhouse Profit Guide",
+        track: "calculator_next_long_term_greenhouse",
+      },
+      {
+        href: "/blog/ancient-fruit-vs-starfruit",
+        label: "Ancient Fruit vs Starfruit",
+        track: "calculator_next_long_term_ancient_vs_starfruit",
+      },
+      {
+        href: "/blog/stardew-valley-artisan-profit-guide",
+        label: "Artisan Profit Guide",
+        track: "calculator_next_long_term_artisan_guide",
+      },
+    ],
   },
   {
-    href: "/blog/stardew-valley-artisan-profit-guide",
-    title: "Stardew Valley Artisan Profit Guide",
+    title: "Compare More Setups",
     description:
-      "Use machine-day logic to choose what to process first, scale your keg/jar setup, and convert raw crops into consistent high-margin stardew profits.",
+      "Keep modeling scenarios with presets, processing guides, and related tools when one answer is not enough.",
+    links: [
+      {
+        href: "/presets",
+        label: "Open All Presets",
+        track: "calculator_next_compare_presets",
+      },
+      {
+        href: "/blog/keg-vs-jar-profit-guide",
+        label: "Keg vs Jar Profit Guide",
+        track: "calculator_next_compare_keg_vs_jar",
+      },
+      {
+        href: "/tools/artisan-profit",
+        label: "Artisan Profit Tool",
+        track: "calculator_next_compare_artisan_tool",
+      },
+    ],
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Profit Calculator (Best Crops & Artisan ROI) — StardewProfit",
+  title: "Stardew Valley Crop Profit Calculator (Best Crops & ROI)",
   description:
-    "Calculate the most profitable crops, keg vs jar returns, and greenhouse ROI. Use ready-made presets to get the best Stardew profits in seconds.",
+    "Use this Stardew Valley crop profit calculator to compare best crops, keg vs jar returns, and greenhouse ROI in seconds.",
   // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Profit Calculator (Best Crops & Artisan ROI) — StardewProfit",
+    title: "Stardew Valley Crop Profit Calculator (Best Crops & ROI)",
     description:
-      "Calculate the most profitable crops, keg vs jar returns, and greenhouse ROI. Use ready-made presets to get the best Stardew profits in seconds.",
+      "Use this Stardew Valley crop profit calculator to compare best crops, keg vs jar returns, and greenhouse ROI in seconds.",
     type: "website",
     images: [
       {
@@ -81,9 +129,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Profit Calculator — Best Crops, Keg vs Jar, ROI",
+    title: "Stardew Valley Crop Profit Calculator — Best Crops & ROI",
     description:
-      "Calculate the most profitable crops, keg vs jar returns, and greenhouse ROI. Use presets to get the best Stardew profits in seconds.",
+      "Use this Stardew Valley crop profit calculator to compare best crops, keg vs jar returns, and greenhouse ROI in seconds.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -616,26 +664,33 @@ export default function CalculatorPage() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Start Here</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Next Step</p>
+            <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">What do you want to optimize next?</h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-              Read these three pillar guides next, then come back to this crop calculator to apply the strategy to your
-              farm state.
+              Use this crop calculator for the numbers, then choose the path that matches your farm stage. These routes
+              are designed to move you from a quick answer to a better profit system.
             </p>
             <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {START_HERE_ARTICLES.map((article) => (
+              {NEXT_STEP_PATHS.map((path) => (
                 <article
-                  key={article.href}
+                  key={path.title}
                   className="rounded-2xl border border-[#8a5b3a]/40 bg-white/45 p-4 shadow-sm"
                 >
-                  <h3 className="text-base font-semibold text-[#4a321e]">
-                    <Link
-                      href={article.href}
-                      className="underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#5b2d0f]"
-                    >
-                      {article.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{article.description}</p>
+                  <h3 className="text-base font-semibold text-[#4a321e]">{path.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{path.description}</p>
+                  <div className="mt-4 flex flex-col gap-2">
+                    {path.links.map((link) => (
+                      <TrackLink
+                        key={link.href}
+                        href={link.href}
+                        trackEvent={link.track}
+                        className="inline-flex min-h-8 items-center justify-between gap-2 rounded-xl border border-[#8a5b3a]/40 bg-[#fff8e7] px-3 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition-colors duration-150 hover:border-[#7c4d2e]/65 hover:bg-[#fce8b1]"
+                      >
+                        <span>{link.label}</span>
+                        <span aria-hidden="true" className="opacity-70">→</span>
+                      </TrackLink>
+                    ))}
+                  </div>
                 </article>
               ))}
             </div>
