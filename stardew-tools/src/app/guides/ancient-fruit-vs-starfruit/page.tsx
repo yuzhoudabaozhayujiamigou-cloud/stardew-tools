@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/guides/ancient-fruit-vs-starfruit";
 
-const PAGE_TITLE = "Ancient Fruit vs Starfruit Guide | StardewProfit";
+const PAGE_TITLE = "Ancient Fruit vs Starfruit: Complete Profit Comparison | StardewProfit";
 const PAGE_DESCRIPTION =
   "Compare Ancient Fruit and Starfruit in Stardew Valley with clear tradeoffs for setup cost, labor, wine value, and long-term greenhouse profit.";
 
@@ -56,6 +56,11 @@ const FAQS = [
     question: "Which crop makes more money in kegs: Ancient Fruit or Starfruit?",
     answer:
       "Starfruit wine has the highest value per bottle, while Ancient Fruit wins on convenience and automation because it regrows weekly and does not need replanting.",
+  },
+  {
+    question: "How long does it take to grow Ancient Fruit vs Starfruit?",
+    answer:
+      "Ancient Fruit takes 28 days for the first harvest, then regrows every 7 days. Starfruit takes 13 days per harvest and must be replanted each time. Over a full season, Ancient Fruit provides more harvests with less replanting work.",
   },
   {
     question: "Is Ancient Fruit better for the greenhouse?",
