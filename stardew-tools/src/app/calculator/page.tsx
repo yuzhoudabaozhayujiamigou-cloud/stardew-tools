@@ -37,68 +37,68 @@ const QUICK_PRESET_ICON_CLASS = "inline-flex w-4 shrink-0 items-center justify-c
 
 const NEXT_STEP_PATHS = [
   {
-    title: "Make Money Fast",
+    title: "Need better processing profit?",
     description:
-      "Get quick answers for the current season, pick the best cash-flow crop, and avoid wasting the last 7-15 days of a season.",
+      "You already know the crop. Now decide whether raw selling, kegs, or preserves jars give the best real return for your machine slots.",
+    links: [
+      {
+        href: "/tools/artisan-profit",
+        label: "Open Artisan Profit Tool",
+        track: "calculator_next_processing_artisan_tool",
+      },
+      {
+        href: "/tools/keg-vs-preserves-jar",
+        label: "Compare Keg vs Preserves Jar",
+        track: "calculator_next_processing_keg_vs_jar",
+      },
+      {
+        href: "/guides/best-keg-items",
+        label: "Best Keg Items Guide",
+        track: "calculator_next_processing_best_keg_items",
+      },
+    ],
+  },
+  {
+    title: "Planning greenhouse profit?",
+    description:
+      "Use this when your next question is no longer seasonal cash flow, but long-term greenhouse output, machine throughput, and repeat-harvest strategy.",
+    links: [
+      {
+        href: "/guides/greenhouse-profit-guide",
+        label: "See Greenhouse Profit Guide",
+        track: "calculator_next_greenhouse_guide",
+      },
+      {
+        href: "/guides/ancient-fruit-vs-starfruit",
+        label: "Ancient Fruit vs Starfruit",
+        track: "calculator_next_greenhouse_ancient_vs_starfruit",
+      },
+      {
+        href: "/presets",
+        label: "Open Greenhouse Presets",
+        track: "calculator_next_greenhouse_presets",
+      },
+    ],
+  },
+  {
+    title: "Still deciding what to plant?",
+    description:
+      "If you want a simpler answer than raw numbers, jump to seasonal guides and quick decision pages built around common crop questions.",
     links: [
       {
         href: "/blog/best-crops-every-season",
         label: "Best Crops Every Season",
-        track: "calculator_next_make_money_fast_best_crops",
+        track: "calculator_next_planting_best_crops",
       },
       {
         href: "/blog/money-making-guide",
         label: "Money Making Guide",
-        track: "calculator_next_make_money_fast_money_guide",
+        track: "calculator_next_planting_money_guide",
       },
       {
         href: "/blog/best-crops-year-1",
         label: "Best Crops Year 1",
-        track: "calculator_next_make_money_fast_year1",
-      },
-    ],
-  },
-  {
-    title: "Build Long-Term Profit",
-    description:
-      "Plan the farm you actually want to scale: greenhouse choices, artisan throughput, and the crop systems that compound over time.",
-    links: [
-      {
-        href: "/guides/greenhouse-profit-guide",
-        label: "Greenhouse Profit Guide",
-        track: "calculator_next_long_term_greenhouse",
-      },
-      {
-        href: "/blog/ancient-fruit-vs-starfruit",
-        label: "Ancient Fruit vs Starfruit",
-        track: "calculator_next_long_term_ancient_vs_starfruit",
-      },
-      {
-        href: "/blog/stardew-valley-artisan-profit-guide",
-        label: "Artisan Profit Guide",
-        track: "calculator_next_long_term_artisan_guide",
-      },
-    ],
-  },
-  {
-    title: "Compare More Setups",
-    description:
-      "Keep modeling scenarios with presets, processing guides, and related tools when one answer is not enough.",
-    links: [
-      {
-        href: "/presets",
-        label: "Open All Presets",
-        track: "calculator_next_compare_presets",
-      },
-      {
-        href: "/blog/keg-vs-jar-profit-guide",
-        label: "Keg vs Jar Profit Guide",
-        track: "calculator_next_compare_keg_vs_jar",
-      },
-      {
-        href: "/tools/artisan-profit",
-        label: "Artisan Profit Tool",
-        track: "calculator_next_compare_artisan_tool",
+        track: "calculator_next_planting_year1",
       },
     ],
   },
