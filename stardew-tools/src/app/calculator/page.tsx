@@ -105,18 +105,18 @@ const NEXT_STEP_PATHS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator (Best Crops & ROI)",
+  title: "Stardew Valley Crop Profit Calculator & Profit Calculator (Best Crops & ROI)",
   description:
-    "Use this Stardew Valley crop profit calculator to compare best crops, keg vs jar returns, and greenhouse ROI in seconds.",
+    "Use this Stardew Valley crop profit calculator and profit calculator to compare best crops, keg vs jar returns, greenhouse ROI, and season-specific profit in seconds.",
   // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Crop Profit Calculator (Best Crops & ROI)",
+    title: "Stardew Valley Crop Profit Calculator & Profit Calculator (Best Crops & ROI)",
     description:
-      "Use this Stardew Valley crop profit calculator to compare best crops, keg vs jar returns, and greenhouse ROI in seconds.",
+      "Use this Stardew Valley crop profit calculator and profit calculator to compare best crops, keg vs jar returns, greenhouse ROI, and season-specific profit in seconds.",
     type: "website",
     images: [
       {
@@ -129,9 +129,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Crop Profit Calculator — Best Crops & ROI",
+    title: "Stardew Valley Crop Profit Calculator & Profit Calculator — Best Crops & ROI",
     description:
-      "Use this Stardew Valley crop profit calculator to compare best crops, keg vs jar returns, and greenhouse ROI in seconds.",
+      "Use this Stardew Valley crop profit calculator and profit calculator to compare best crops, keg vs jar returns, greenhouse ROI, and season-specific profit in seconds.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -194,6 +194,14 @@ export default function CalculatorPage() {
         acceptedAnswer: {
           "@type": "Answer",
           text: "Start with season and days left, then adjust quality and profession assumptions. That gives the most realistic ranking before you optimize finer details.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What factors does this Stardew Valley profit calculator consider?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "This calculator considers season, days left, crop quality, professions, and the effect of processing choices such as kegs or jars. Those inputs change which crop is actually best for your farm.",
         },
       },
       {
@@ -264,7 +272,7 @@ export default function CalculatorPage() {
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             This Stardew crop calculator is built for players searching “stardew valley crop calculator” or
             “stardew valley profit calculator” and needing a practical answer fast. Enter your season, days left, and
-            setup to see the best crops ranked by gold/day and payback speed.
+            setup to see the best crops ranked by gold/day and payback speed across all seasons.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             {heroValueProp}
