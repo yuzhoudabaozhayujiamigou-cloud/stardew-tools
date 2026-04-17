@@ -76,11 +76,16 @@ const ARTISAN_ROWS: ArtisanRow[] = [
 
 const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/tools/artisan-profit";
-const PAGE_TITLE = "Stardew Valley Artisan Profit Calculator: Keg vs Jar vs Oil Press | StardewProfit";
+const PAGE_TITLE = "Stardew Valley Artisan Profit Calculator (Keg vs Jar vs Oil Press) | StardewProfit";
 const PAGE_DESCRIPTION =
   "Compare Stardew Valley artisan profit fast: keg vs preserves jar vs oil press with gold-per-day math, machine routing tips, and FAQ answers.";
 
 const FAQS = [
+  {
+    question: "How does this Stardew Valley artisan profit calculator work?",
+    answer:
+      "This calculator compares raw crop value against processed value, then turns that difference into gold per day based on machine time. Use it to decide whether a crop belongs in a keg, preserves jar, or oil press.",
+  },
   {
     question: "Is keg or preserves jar better for profit?",
     answer:
@@ -170,12 +175,12 @@ export default function ArtisanProfitPage() {
         <header className={CARD_CLASS}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Tools</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Artisan Goods Profit Guide
+            Stardew Valley Artisan Profit Calculator
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-            Best default for most farms: run kegs on your highest-value fruit, use preserves jars for overflow, and
-            ignore oil press unless your inputs are specifically oil-focused. This routing usually gives the highest
-            practical gold-per-day with stable machine uptime.
+            Compare keg vs preserves jar vs oil press with simple gold-per-day math. If you want the fastest answer:
+            use kegs for premium fruit, use preserves jars for overflow and faster turnover, and only use oil press for
+            specific oil-focused inputs.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
             Take Artisan profession when artisan goods are a core income source, because the{" "}
@@ -197,6 +202,15 @@ export default function ArtisanProfitPage() {
             </Link>
           </div>
         </header>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Quick answer</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[#5f4228]/90 sm:text-base">
+            <li><span className="font-semibold text-[#4a321e]">Kegs win</span> when you have high-value fruit like Starfruit or Ancient Fruit.</li>
+            <li><span className="font-semibold text-[#4a321e]">Preserves jars win</span> when machine slots are tight and you need faster turnover.</li>
+            <li><span className="font-semibold text-[#4a321e]">Oil press is niche</span> and usually not the default money maker for most farms.</li>
+          </ul>
+        </section>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
           <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Processing comparison</h2>
