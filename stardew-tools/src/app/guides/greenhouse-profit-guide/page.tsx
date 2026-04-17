@@ -101,6 +101,27 @@ export default function Page() {
             greenhouse profit really works, which crops are best (and why), how to plan sprinkler layouts, and how
             to decide between kegs and jars without getting stuck in spreadsheet paralysis.
           </p>
+          <p className="mt-4 leading-7 text-slate-800">
+            If you came here from the crop calculator, this is your next step after finding a profitable crop. Use this
+            page to turn a good seasonal result into a stable long-term greenhouse plan.
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
+              <p className="text-sm font-semibold text-slate-900">Need the raw crop numbers?</p>
+              <p className="mt-2 text-sm leading-6 text-slate-800">Go back to the calculator and compare greenhouse candidates with your own assumptions.</p>
+              <Link href="/calculator" className="mt-3 inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Open Crop Calculator →</Link>
+            </div>
+            <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
+              <p className="text-sm font-semibold text-slate-900">Need processing math?</p>
+              <p className="mt-2 text-sm leading-6 text-slate-800">Compare keg vs jar decisions before you lock in your greenhouse machine pipeline.</p>
+              <Link href="/tools/artisan-profit" className="mt-3 inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Open Artisan Profit Tool →</Link>
+            </div>
+            <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
+              <p className="text-sm font-semibold text-slate-900">Choosing between late-game staples?</p>
+              <p className="mt-2 text-sm leading-6 text-slate-800">Use the side-by-side breakdown for Ancient Fruit vs Starfruit before you commit the whole greenhouse.</p>
+              <Link href="/guides/ancient-fruit-vs-starfruit" className="mt-3 inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Compare Ancient Fruit vs Starfruit →</Link>
+            </div>
+          </div>
           <div className="mt-5 flex flex-wrap gap-3 text-sm">
             <span className="rounded-full bg-amber-100 px-3 py-1 text-amber-900">SEO pillar</span>
             <span className="rounded-full bg-emerald-100 px-3 py-1 text-emerald-900">Profit guide</span>
@@ -161,7 +182,7 @@ export default function Page() {
             </p>
           </div>
           <p className="mt-4 leading-7 text-slate-800">
-            If you want precise numbers, use calculators instead of guessing. Start here:
+            If you want precise numbers, use calculators instead of guessing. Start here — especially if you are moving from a seasonal crop decision into a greenhouse decision:
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-6">
             <li>
@@ -312,6 +333,14 @@ export default function Page() {
           <p className="mt-4 leading-7 text-slate-800">
             A good “real life” compromise is a split pipeline:
           </p>
+          <div className="mt-4 rounded-2xl border border-amber-200 bg-white/70 p-5">
+            <p className="text-sm font-semibold text-slate-900">Want the exact machine-side answer instead of rules of thumb?</p>
+            <p className="mt-2 text-sm leading-6 text-slate-800">Run your greenhouse candidates through the artisan profit tool, then use the keg vs jar comparison if you need a simpler machine decision.</p>
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <Link href="/tools/artisan-profit" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Open Artisan Profit Tool →</Link>
+              <Link href="/tools/keg-vs-preserves-jar" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Compare Keg vs Preserves Jar →</Link>
+            </div>
+          </div>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-800">
             <li>
               Put your <strong>top-tier fruit</strong> (Ancient Fruit / Starfruit) into <strong>kegs</strong>.
