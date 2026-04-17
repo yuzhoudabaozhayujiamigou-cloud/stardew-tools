@@ -23,17 +23,17 @@ function hasDynamicRoutePlaceholder(value: string): boolean {
   return value.includes("[") || value.includes("]");
 }
 
-function getBlogDirectories(): string[] {
-  const blogDirectory = join(process.cwd(), "src", "app", "blog");
+function getRouteDirectories(section: "blog" | "guides" | "tools"): string[] {
+  const sectionDirectory = join(process.cwd(), "src", "app", section);
 
-  if (!existsSync(blogDirectory)) {
+  if (!existsSync(sectionDirectory)) {
     return [];
   }
 
-  return readdirSync(blogDirectory, { withFileTypes: true })
+  return readdirSync(sectionDirectory, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .filter((entry) => !hasDynamicRoutePlaceholder(entry.name))
-    .filter((entry) => existsSync(join(blogDirectory, entry.name, "page.tsx")))
+    .filter((entry) => existsSync(join(sectionDirectory, entry.name, "page.tsx")))
     .map((entry) => entry.name)
     .sort((left, right) => left.localeCompare(right));
 }
@@ -70,11 +70,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: entry.priority,
   }));
 
-  const blogEntries: MetadataRoute.Sitemap = getBlogDirectories().map((slug) => ({
+  const blogEntries: MetadataRoute.Sitemap = getRouteDirectories("blog").map((slug) => ({
     url: `${SITE_ORIGIN}/blog/${slug}`,
     lastModified: getBlogLastModified(slug, now),
     changeFrequency: "monthly",
     priority: 0.7,
+  }));
+
+  const guideEntries: MetadataRoute.Sitemap = getRouteDirectories("guides").map((slug) => ({
+    url: `${SITE_ORIGIN}/guides/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const toolEntries: MetadataRoute.Sitemap = getRouteDirectories("tools").map((slug) => ({
+    url: `${SITE_ORIGIN}/tools/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.8,
   }));
 
   const secretNotesEntries: MetadataRoute.Sitemap = secretNotes.map((note) => ({
@@ -84,7 +98,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: note.id === 19 || note.id === 22 ? 0.7 : 0.5,
   } satisfies MetadataRoute.Sitemap[number]));
 
-  return [...staticEntries, ...blogEntries, ...secretNotesEntries].filter(
+  return [...staticEntries, ...blogEntries, ...guideEntries, ...toolEntries, ...secretNotesEntries].filter(
     (entry) => !hasDynamicRoutePlaceholder(entry.url),
   );
 }
