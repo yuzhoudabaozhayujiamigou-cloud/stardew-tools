@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/tools/keg-vs-preserves-jar";
 
-const PAGE_TITLE = "Keg vs Preserves Jar Tool | StardewProfit";
+const PAGE_TITLE = "Keg vs Preserves Jar Calculator (Which Is Better?) | StardewProfit";
 const PAGE_DESCRIPTION =
   "Compare keg and preserves jar outputs in Stardew Valley with clear formulas, per-day value estimates, and machine routing guidance.";
 
@@ -39,6 +39,11 @@ const KEG_DAYS = 7;
 const JAR_DAYS = 3;
 
 const FAQS = [
+  {
+    question: "Which is better in Stardew Valley: keg or preserves jar?",
+    answer:
+      "Kegs are usually better for high-value fruit like Starfruit and Ancient Fruit because they create the highest-value artisan goods. Preserves jars are better when you need faster machine turnover or want to process overflow crops efficiently.",
+  },
   {
     question: "What are the core formulas for kegs and preserves jars?",
     answer:
@@ -101,12 +106,22 @@ export default function KegVsPreservesJarPage() {
         <FaqJsonLd faqs={FAQS.map((item) => ({ ...item }))} />
 
         <header className={`${CARD_CLASS} mt-6`}>
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Keg vs Preserves Jar</h1>
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Keg vs Preserves Jar Calculator</h1>
           <p className="mt-4 text-base leading-7 text-[#5f4228]/90 md:text-lg">
-            This tool compares both machines using the same crop inputs so you can decide by value,
-            throughput, and your current farm constraints.
+            Compare both machines with the same crop inputs so you can decide by value, throughput,
+            and your current farm constraints. Short answer: kegs usually win for premium fruit,
+            while preserves jars win on faster turnover and overflow handling.
           </p>
         </header>
+
+        <section className={CARD_CLASS}>
+          <h2 className="text-2xl font-semibold">Quick answer</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 leading-7 text-[#5f4228]/90">
+            <li><span className="font-semibold text-[#4a321e]">Use kegs</span> for Starfruit, Ancient Fruit, and other premium fruit.</li>
+            <li><span className="font-semibold text-[#4a321e]">Use preserves jars</span> when you need faster batch cycles or want to process overflow.</li>
+            <li><span className="font-semibold text-[#4a321e]">Best practical setup:</span> kegs for top-tier fruit, jars for everything else that would otherwise sit idle.</li>
+          </ul>
+        </section>
 
         <section className={CARD_CLASS}>
           <h2 className="text-2xl font-semibold">Formula Snapshot</h2>
