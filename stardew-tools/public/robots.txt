@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /ops/events
+
+Sitemap: https://www.stardewprofit.com/sitemap.xml
+Host: https://www.stardewprofit.com
