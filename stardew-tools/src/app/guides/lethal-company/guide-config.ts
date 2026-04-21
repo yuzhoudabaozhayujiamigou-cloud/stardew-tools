@@ -542,6 +542,114 @@ export const LETHAL_GUIDES: readonly LethalGuide[] = [
       },
     ],
   },
+  {
+    slug: "fastest-money-route-2026",
+    shortTitle: "Fastest Money Route 2026",
+    title: "Lethal Company Fastest Money Route 2026 | StardewProfit",
+    description:
+      "Learn the fastest money-making route in Lethal Company 2026. Moon priority table, scrap value optimization, and risk-reward balance for maximum quota efficiency.",
+    keywords: [
+      "lethal company fastest money route",
+      "lethal company best money route 2026",
+      "lethal company moon priority",
+      "lethal company scrap farming",
+      "lethal company quota strategy",
+      ...BASE_KEYWORDS,
+    ],
+    h1: "Lethal Company Fastest Money Route 2026",
+    intro:
+      "The fastest money route in Lethal Company balances scrap density, extraction speed, and survival rate. This guide shows you which moons to prioritize and how to optimize your runs for maximum quota efficiency.",
+    sections: [
+      {
+        heading: "Moon Priority Table (2026)",
+        paragraphs: [
+          "Not all moons are equal. Some offer high scrap density with manageable risk, while others waste time with low returns or excessive danger.",
+          "Use this priority table to plan your route based on your current quota gap and team skill level.",
+        ],
+        bullets: [
+          "Tier S (Best ROI): Experimentation, Assurance - High scrap density, moderate risk, fast extraction.",
+          "Tier A (Solid): Vow, March - Good scrap value, slightly higher risk or longer routes.",
+          "Tier B (Situational): Offense, Dine - Higher risk, use only when quota pressure is extreme.",
+          "Tier C (Avoid): Rend, Titan - Very high risk, slow extraction, only for experienced teams with specific strategies.",
+        ],
+      },
+      {
+        heading: "Route Optimization Strategy",
+        paragraphs: [
+          "The fastest money route is not about visiting every moon. It's about hitting the right moons in the right order to maximize scrap per hour while minimizing deaths.",
+          "Start with Tier S moons for your first 2-3 runs, then move to Tier A if you need more value. Only touch Tier B/C when you're confident in your team's survival skills.",
+        ],
+        bullets: [
+          "Day 1-2: Focus on Experimentation or Assurance for safe, high-value hauls.",
+          "Day 2-3: Add Vow or March if quota gap is still large.",
+          "Deadline Day: Prioritize extraction speed over greed - sell what you have.",
+        ],
+      },
+      {
+        heading: "Scrap Value Optimization",
+        paragraphs: [
+          "Not all scrap is worth carrying. High-value items like Gold Bars, Paintings, and Cash Registers should be prioritized over low-value junk.",
+          "Use the SCAN command to identify high-value targets quickly, then coordinate with your team to extract them first.",
+        ],
+        bullets: [
+          "Prioritize items worth 100+ credits per slot.",
+          "Leave low-value items (< 50 credits) unless you have spare capacity.",
+          "Coordinate with ship-side player to track total haul value in real-time.",
+        ],
+      },
+      {
+        heading: "Risk-Reward Balance",
+        paragraphs: [
+          "The fastest route is useless if your team dies repeatedly. Balance scrap value against survival probability.",
+          "If a moon has high scrap but your team keeps dying, drop down a tier. Consistent small wins beat risky big losses.",
+        ],
+        bullets: [
+          "Track your team's survival rate per moon (aim for 70%+ to stay profitable).",
+          "If deaths exceed 30%, switch to safer moons immediately.",
+          "Use early runs to learn enemy patterns, then scale up to higher-risk moons.",
+        ],
+      },
+      {
+        heading: "Common Mistakes to Avoid",
+        paragraphs: [
+          "Most teams fail the fastest money route by overextending on high-risk moons or wasting time on low-value scrap.",
+        ],
+        bullets: [
+          "Mistake 1: Rushing to Tier C moons without mastering Tier S/A first.",
+          "Mistake 2: Carrying every piece of scrap instead of prioritizing high-value items.",
+          "Mistake 3: Ignoring extraction timing and dying with full inventory.",
+          "Mistake 4: Not using SCAN command to identify valuable scrap quickly.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the fastest moon for making money in Lethal Company?",
+        answer:
+          "Experimentation and Assurance are the fastest Tier S moons for consistent money. They offer high scrap density with moderate risk and fast extraction routes.",
+      },
+      {
+        question: "Should I always go to the highest-value moon?",
+        answer:
+          "No. High-value moons often have extreme risk. If your team's survival rate drops below 70%, you'll lose more money from deaths than you gain from scrap.",
+      },
+      {
+        question: "How do I know which scrap to prioritize?",
+        answer:
+          "Use the SCAN command to identify high-value items (100+ credits). Prioritize Gold Bars, Paintings, and Cash Registers over low-value junk.",
+      },
+      {
+        question: "What if my team keeps dying on Tier S moons?",
+        answer:
+          "Drop down to easier moons or focus on learning enemy patterns first. Consistent survival on lower-tier moons beats risky failures on high-tier ones.",
+      },
+      {
+        question: "How many runs should I do per quota cycle?",
+        answer:
+          "Aim for 2-3 runs on Tier S moons (Day 1-2), then 1-2 runs on Tier A if needed (Day 2-3). Prioritize extraction speed on deadline day.",
+      },
+    ],
+  },
 ];
 
 export function guidePath(slug: string): string {
