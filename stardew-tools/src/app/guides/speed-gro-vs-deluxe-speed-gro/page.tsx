@@ -8,9 +8,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/guides/speed-gro-vs-deluxe-speed-gro";
 
-const PAGE_TITLE = "Speed Gro vs Deluxe Speed Gro Stardew Valley | StardewProfit";
+const PAGE_TITLE = "Speed-Gro vs Deluxe Speed-Gro: Which Fertilizer is Worth It? (2026 Guide) | StardewProfit";
 const PAGE_DESCRIPTION =
-  "Compare speed gro vs deluxe speed gro Stardew Valley with cost, availability, crop cycle impact, and quick rules for deciding when each fertilizer is worth it.";
+  "Compare Speed-Gro vs Deluxe Speed-Gro in Stardew Valley. See cost, growth boost, and when each fertilizer adds extra harvests. Quick decision table included.";
 
 const CARD_CLASS =
   "mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.25)] ring-1 ring-yellow-900/20 sm:p-7";
@@ -79,12 +79,33 @@ const FAQS = [
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
+  keywords: [
+    "speed-gro vs deluxe speed-gro",
+    "stardew valley speed-gro",
+    "deluxe speed-gro worth it",
+    "speed fertilizer stardew valley",
+    "best fertilizer stardew valley",
+    "speed-gro or deluxe speed-gro",
+    "stardew valley fertilizer guide",
+    "speed-gro cost",
+    "deluxe speed-gro cost",
+    "fertilizer comparison stardew",
+    "speed-gro extra harvest",
+    "deluxe speed-gro greenhouse",
+    "speed fertilizer worth it",
+    "stardew valley farming guide",
+  ],
   alternates: {
     canonical: `${SITE_URL}${PAGE_PATH}`,
   },
   openGraph: {
     type: "article",
     url: `${SITE_URL}${PAGE_PATH}`,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
@@ -105,12 +126,39 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
         <FaqJsonLd faqs={FAQS.map((item) => ({ ...item }))} />
 
         <header className={`${CARD_CLASS} mt-6`}>
-          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Speed-Gro vs Deluxe Speed-Gro</h1>
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Speed-Gro vs Deluxe Speed-Gro: Which Fertilizer is Worth It?</h1>
           <p className="mt-4 text-base leading-7 text-[#5f4228]/90 md:text-lg">
-            For speed gro vs deluxe speed gro Stardew Valley planning, the real question is not only fertilizer
-            strength. You need to compare cost, availability, and whether crop cycle shortening actually creates
-            one additional harvest window.
+            <strong>Quick Answer:</strong> Use Speed-Gro when you need a small timing push for one extra harvest. Use Deluxe Speed-Gro when missing a harvest cycle would be expensive and the 25% boost changes your total harvest count.
           </p>
+          <p className="mt-3 text-base leading-7 text-[#5f4228]/90 md:text-lg">
+            The real question isn&apos;t just fertilizer strength—it&apos;s whether the growth reduction actually adds a harvest or saves a wasted planting.
+          </p>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-[#2f6a3a]/30 bg-[#e6f8d8] p-4">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl" aria-hidden>🌱</span>
+                <h2 className="text-lg font-bold text-[#1f6b2e]">Speed-Gro</h2>
+              </div>
+              <p className="mt-2 text-sm font-semibold text-[#245631]">10% faster growth</p>
+              <p className="mt-1 text-xs text-[#245631]/80">Best for: Early game, low cash, small timing push</p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#2f6a3a]/30 bg-[#e6f8d8] p-4">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl" aria-hidden>✨</span>
+                <h2 className="text-lg font-bold text-[#1f6b2e]">Deluxe Speed-Gro</h2>
+              </div>
+              <p className="mt-2 text-sm font-semibold text-[#245631]">25% faster growth</p>
+              <p className="mt-1 text-xs text-[#245631]/80">Best for: Expensive crops, tight schedules, greenhouse</p>
+            </div>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/calculator" className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]">
+              Test in Calculator
+            </Link>
+            <Link href="#faq" className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]">
+              Jump to FAQ
+            </Link>
+          </div>
         </header>
 
         <section className={CARD_CLASS}>
@@ -195,32 +243,42 @@ export default function SpeedGroVsDeluxeSpeedGroPage() {
           <h2 className="text-2xl font-semibold">Related Guides and Tools</h2>
           <ul className="mt-4 space-y-2 leading-7 text-[#5f4228]/90">
             <li>
-              <Link href="/tools/seed-maker" className={LINK_CLASS}>
-                Seed Maker Tool
-              </Link>
+              <Link href="/calculator" className={LINK_CLASS}>
+                Stardew Valley Profit Calculator
+              </Link>{" "}
+              — Test crop cycles with different fertilizers
             </li>
             <li>
-              <Link href="/tools/sprinkler-coverage-calculator" className={LINK_CLASS}>
-                Sprinkler Coverage Calculator
-              </Link>
-            </li>
-            <li>
-              <Link href="/guides/fertilizer-profit-guide" className={LINK_CLASS}>
-                Fertilizer Profit Guide
-              </Link>
-            </li>
-            <li>
-              <Link href="/guides/best-crops-every-season" className={LINK_CLASS}>
+              <Link href="/blog/best-crops-every-season" className={LINK_CLASS}>
                 Best Crops Every Season
-              </Link>
+              </Link>{" "}
+              — Find which crops benefit most from speed fertilizer
+            </li>
+            <li>
+              <Link href="/guides/ancient-fruit-vs-starfruit" className={LINK_CLASS}>
+                Ancient Fruit vs Starfruit
+              </Link>{" "}
+              — Compare greenhouse crops with speed-gro impact
+            </li>
+            <li>
+              <Link href="/tools/artisan-profit" className={LINK_CLASS}>
+                Artisan Profit Calculator
+              </Link>{" "}
+              — Calculate processing profit with faster crop cycles
+            </li>
+            <li>
+              <Link href="/blog/money-making-guide" className={LINK_CLASS}>
+                Money Making Guide
+              </Link>{" "}
+              — Full farm economy strategy
             </li>
           </ul>
           <div className="mt-5 rounded-2xl border border-[#7c4d2e]/60 bg-[#f8ecc8] p-4">
             <p className="text-sm leading-6 text-[#5f4228]/90">
-              Want to test full-season outcomes with your exact crop plan?
+              Want to test full-season outcomes with your exact crop plan and fertilizer choice?
             </p>
             <Link href="/calculator" className={`${LINK_CLASS} mt-2 inline-block font-semibold`}>
-              Open the Stardew Valley Profit Calculator
+              Open the Stardew Valley Profit Calculator →
             </Link>
           </div>
         </section>
