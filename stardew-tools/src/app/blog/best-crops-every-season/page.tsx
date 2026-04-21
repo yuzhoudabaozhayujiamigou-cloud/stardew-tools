@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-28T00:00:00+08:00",
-    modifiedTime: "2026-02-28T00:00:00+08:00",
+    modifiedTime: "2026-04-21T00:00:00+08:00",
     url: "https://www.stardewprofit.com/blog/best-crops-every-season",
     title:
       "Best Crops for Every Season in Stardew Valley (Complete 2026 Guide)",
@@ -30,12 +30,26 @@ export const metadata: Metadata = {
     "best crops stardew valley",
     "best crops each season stardew",
     "stardew valley crop guide",
-    "spring crops",
-    "summer crops",
-    "fall crops",
-    "winter seeds",
-    "greenhouse crops",
+    "spring crops stardew valley",
+    "summer crops stardew valley",
+    "fall crops stardew valley",
+    "winter seeds stardew valley",
+    "greenhouse crops stardew valley",
+    "most profitable crops stardew",
+    "stardew valley farming guide",
+    "best crops year 1 stardew",
+    "stardew valley crop profit",
+    "ancient fruit vs starfruit",
+    "strawberry vs blueberry stardew",
+    "cranberry profit stardew valley",
   ],
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Best Crops for Every Season in Stardew Valley (Complete 2026 Guide)",
+    description:
+      "Complete crop guide for Spring, Summer, Fall & Winter. See the best crops each season with gold/day + Greenhouse picks.",
+  },
 };
 
 const fromPath = "/blog/best-crops-every-season";
@@ -428,13 +442,61 @@ export default function BestCropsEverySeasonPage() {
 
           <section className="rounded-[28px] border-4 border-[#2f6a3a]/45 bg-[#e6f8d8] p-5 shadow-[0_12px_28px_rgba(47,106,58,0.22)] ring-1 ring-[#2f6a3a]/20 sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f6b2e]/80">
-              Fastest answer
+              Quick Answer
             </p>
-            <p className="mt-2 text-sm leading-6 text-[#245631] sm:text-base">
-              Want the fastest answer for your farm? Open the Profit
-              Calculator, set your season and days left, then compare crop
-              routes in one view.
-            </p>
+            <h2 className="mt-2 text-2xl font-bold text-[#1f6b2e] sm:text-3xl">
+              Best Crop Each Season (2026)
+            </h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-2xl border-2 border-[#2f6a3a]/30 bg-white/90 p-4 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl" aria-hidden>🌱</span>
+                  <h3 className="text-lg font-bold text-[#1f6b2e]">Spring</h3>
+                </div>
+                <p className="mt-2 text-sm font-semibold text-[#245631]">
+                  Strawberry (after day 13)
+                </p>
+                <p className="mt-1 text-xs text-[#245631]/80">
+                  or Potato (before day 13)
+                </p>
+              </div>
+              <div className="rounded-2xl border-2 border-[#2f6a3a]/30 bg-white/90 p-4 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl" aria-hidden>☀️</span>
+                  <h3 className="text-lg font-bold text-[#1f6b2e]">Summer</h3>
+                </div>
+                <p className="mt-2 text-sm font-semibold text-[#245631]">
+                  Blueberry or Starfruit
+                </p>
+                <p className="mt-1 text-xs text-[#245631]/80">
+                  (Blueberry easier, Starfruit higher ceiling)
+                </p>
+              </div>
+              <div className="rounded-2xl border-2 border-[#2f6a3a]/30 bg-white/90 p-4 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl" aria-hidden>🍂</span>
+                  <h3 className="text-lg font-bold text-[#1f6b2e]">Fall</h3>
+                </div>
+                <p className="mt-2 text-sm font-semibold text-[#245631]">
+                  Cranberry or Pumpkin
+                </p>
+                <p className="mt-1 text-xs text-[#245631]/80">
+                  (Cranberry for fields, Pumpkin for jars)
+                </p>
+              </div>
+              <div className="rounded-2xl border-2 border-[#2f6a3a]/30 bg-white/90 p-4 shadow-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl" aria-hidden>❄️</span>
+                  <h3 className="text-lg font-bold text-[#1f6b2e]">Winter</h3>
+                </div>
+                <p className="mt-2 text-sm font-semibold text-[#245631]">
+                  Winter Seeds + infrastructure
+                </p>
+                <p className="mt-1 text-xs text-[#245631]/80">
+                  (Build Kegs/Jars for next year)
+                </p>
+              </div>
+            </div>
             <div className="mt-4">
               <TrackedBlogCtaLink
                 href="/calculator"
@@ -567,16 +629,16 @@ export default function BestCropsEverySeasonPage() {
                 Keg vs Jar Profit Guide
               </Link>
               <Link
-                href="/blog/greenhouse-layout-guide"
+                href="/guides/speed-gro-vs-deluxe-speed-gro"
                 className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
               >
-                Greenhouse Layout Guide
+                Speed-Gro vs Deluxe Speed-Gro
               </Link>
               <Link
-                href="/blog/stardew-valley-profit-guide-2026"
+                href="/tools/artisan-profit"
                 className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
               >
-                Stardew Valley Profit Guide 2026
+                Artisan Profit Calculator
               </Link>
             </div>
           </section>
