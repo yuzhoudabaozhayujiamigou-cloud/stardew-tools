@@ -17,15 +17,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-28T00:00:00+08:00",
-    modifiedTime: "2026-04-21T00:00:00+08:00",
+    modifiedTime: "2026-04-22T00:00:00+08:00",
     url: "https://www.stardewprofit.com/blog/best-crops-every-season",
     title:
-      "Best Crops for Every Season in Stardew Valley (Complete 2026 Guide)",
+      "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026)",
   },
   title:
-    "Best Crops for Every Season in Stardew Valley (Complete 2026 Guide) | StardewProfit",
+    "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026) | StardewProfit",
   description:
-    "A complete Stardew Valley crop guide for Spring, Summer, Fall, and Winter. See the best crops each season with gold/day, plus Greenhouse picks and a quick comparison table.",
+    "Complete Stardew Valley crop guide for every season: Strawberry/Potato (Spring), Blueberry/Starfruit (Summer), Cranberry/Pumpkin (Fall), plus Greenhouse picks. Quick profit/day comparison + calculator.",
   keywords: [
     "best crops stardew valley",
     "best crops each season stardew",
@@ -42,13 +42,15 @@ export const metadata: Metadata = {
     "ancient fruit vs starfruit",
     "strawberry vs blueberry stardew",
     "cranberry profit stardew valley",
+    "best crops every season stardew valley",
+    "stardew valley best crops per season",
   ],
   twitter: {
     card: "summary_large_image",
     title:
-      "Best Crops for Every Season in Stardew Valley (Complete 2026 Guide)",
+      "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026)",
     description:
-      "Complete crop guide for Spring, Summer, Fall & Winter. See the best crops each season with gold/day + Greenhouse picks.",
+      "Strawberry/Potato (Spring), Blueberry/Starfruit (Summer), Cranberry/Pumpkin (Fall), plus Greenhouse picks. Quick profit/day comparison.",
   },
 };
 
@@ -249,6 +251,11 @@ const faqEn = [
       "Spring: Strawberry (after Spring 13), Potato, Rhubarb. Summer: Blueberry, Starfruit, Hops. Fall: Cranberry, Pumpkin, Grape. Winter: Winter Seeds (plus upgrading tools and building Kegs/Jars).",
   },
   {
+    question: "What is the best crop for every season in Stardew Valley?",
+    answer:
+      "The best crop for every season depends on your farm stage. Spring: Strawberry or Potato. Summer: Blueberry or Starfruit. Fall: Cranberry or Pumpkin. Winter: Winter Seeds or infrastructure building. Use the calculator to compare profit/day for your exact setup.",
+  },
+  {
     question: "Is Strawberry still the best Spring crop in Year 1?",
     answer:
       "Yes for raw profit/day after the Egg Festival, but you only get it on Spring 13. Before that, Potato is usually the best easy pick for most farms.",
@@ -257,6 +264,11 @@ const faqEn = [
     question: "Should I plant Starfruit or Ancient Fruit in the Greenhouse?",
     answer:
       "Ancient Fruit is the best long-term set-and-forget choice. Starfruit can win in short bursts if you have enough Kegs and want higher spikes.",
+  },
+  {
+    question: "What are the most profitable crops in Stardew Valley per season?",
+    answer:
+      "Most profitable crops per season (with processing): Spring: Strawberry wine. Summer: Starfruit wine or Hops (Pale Ale). Fall: Pumpkin pickles or Cranberry wine. Greenhouse: Ancient Fruit wine for long-term, Starfruit wine for burst profit.",
   },
   {
     question: "How do I maximize gold/day if I plant late in the season?",
@@ -277,34 +289,34 @@ const faqEn = [
 
 const faqZh = [
   {
-    question: "星露谷每个季节最赚的作物是什么？",
+    question: "星露谷每个季节最赚的作物是什么?",
     answer:
-      "春季：草莓（13 号之后）、土豆、甜菜根（沙漠）。夏季：蓝莓、杨桃、啤酒花。秋季：蔓越莓、南瓜、葡萄。冬季：冬季种子（同时抓紧做洒水器/桶/罐子）。",
+      "春季:草莓(13 号之后)、土豆、甜菜根(沙漠)。夏季:蓝莓、杨桃、啤酒花。秋季:蔓越莓、南瓜、葡萄。冬季:冬季种子(同时抓紧做洒水器/桶/罐子)。",
   },
   {
-    question: "第一年春天还是草莓最强吗？",
+    question: "第一年春天还是草莓最强吗?",
     answer:
-      "是的，但前提是你能在春 13 蛋节买到种子并尽早铺开田地；在此之前土豆通常更稳、更适合新手。",
+      "是的,但前提是你能在春 13 蛋节买到种子并尽早铺开田地;在此之前土豆通常更稳、更适合新手。",
   },
   {
-    question: "温室种远古水果还是杨桃？",
+    question: "温室种远古水果还是杨桃?",
     answer:
-      "远古水果更适合长期稳定收益（省事、持续产出）；杨桃更适合短期冲高收益（但更吃桶/Keg 数量）。",
+      "远古水果更适合长期稳定收益(省事、持续产出);杨桃更适合短期冲高收益(但更吃桶/Keg 数量)。",
   },
   {
-    question: "季节快结束了，怎么选作物最赚？",
+    question: "季节快结束了,怎么选作物最赚?",
     answer:
-      "看剩余天数，优先选生长快或可重复收获的作物，并对比 gold/day。你也可以直接用 StardewProfit 计算器按季节筛选对比。",
+      "看剩余天数,优先选生长快或可重复收获的作物,并对比 gold/day。你也可以直接用 StardewProfit 计算器按季节筛选对比。",
   },
   {
-    question: "第一年最稳的无脑赚钱种植路线是什么？",
+    question: "第一年最稳的无脑赚钱种植路线是什么?",
     answer:
-      "可以用这条稳健路线：春季土豆 -> 草莓，夏季蓝莓，秋季蔓越莓；冬天把重心放在工具升级和桶/罐子产能建设。上限高、容错也高。",
+      "可以用这条稳健路线:春季土豆 -> 草莓,夏季蓝莓,秋季蔓越莓;冬天把重心放在工具升级和桶/罐子产能建设。上限高、容错也高。",
   },
   {
-    question: "桶和罐子不多时，要不要硬玩杨桃/啤酒花？",
+    question: "桶和罐子不多时,要不要硬玩杨桃/啤酒花?",
     answer:
-      "不建议。加工产能不足时，先用好养、可重复收获的主力作物更稳。等你桶/罐子数量能稳定消化收成，再切到杨桃/啤酒花会更赚。",
+      "不建议。加工产能不足时,先用好养、可重复收获的主力作物更稳。等你桶/罐子数量能稳定消化收成,再切到杨桃/啤酒花会更赚。",
   },
 ];
 
@@ -426,9 +438,20 @@ export default function BestCropsEverySeasonPage() {
               </TrackedBlogCtaLink>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
+            <div className="mt-6 rounded-2xl border-2 border-[#2f6a3a]/40 bg-[#e6f8d8] p-5">
+              <div className="flex items-center gap-2">
+                <span className="text-xl" aria-hidden>💡</span>
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#1f6b2e]">
+                  Updated for Stardew Valley 1.6.9
+                </p>
+              </div>
+              <p className="mt-2 text-sm leading-6 text-[#245631]">
+                This guide is current for Stardew Valley 1.6.9 (2026). The seasonal crop winners remain stable: Strawberry/Potato (Spring), Blueberry/Starfruit (Summer), Cranberry/Pumpkin (Fall), and Ancient Fruit/Starfruit (Greenhouse).
+              </p>
+            </div>
+            <div className="mt-4 rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
               <p className="text-sm leading-6 text-[#5f4228]/90">
-                Want the “best crop” for your exact day, sprinklers, profession,
+                Want the &quot;best crop&quot; for your exact day, sprinklers, profession,
                 and processing chain? Use the calculator:{" "}
                 <Link
                   href="/calculator"
@@ -529,7 +552,7 @@ export default function BestCropsEverySeasonPage() {
               Quick comparison (Top 3 per season)
             </h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-              This table is a fast “what should I plant” answer. For exact
+              This table is a fast &quot;what should I plant&quot; answer. For exact
               numbers, run the season calculator (and toggle Artisan/Tiller).
             </p>
 
@@ -714,7 +737,7 @@ export default function BestCropsEverySeasonPage() {
                   Related reads
                 </p>
                 <p className="mt-1 text-sm leading-6 text-[#5f4228]/90">
-                  If you&apos;re mid-season, use the “days left” guides like{" "}
+                  If you&apos;re mid-season, use the &quot;days left&quot; guides like{" "}
                   <Link
                     href="/blog/best-crops-10-days-left-quick-answer"
                     className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]"
@@ -824,7 +847,7 @@ export default function BestCropsEverySeasonPage() {
                   Fall: top crops (profit/day focus)
                 </h2>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Fall is the best “set it and harvest” season. Cranberries
+                  Fall is the best &quot;set it and harvest&quot; season. Cranberries
                   dominate fields; Pumpkins dominate jars.
                 </p>
               </div>
@@ -905,7 +928,7 @@ export default function BestCropsEverySeasonPage() {
               Winter: Winter Seeds strategy
             </h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-              Winter has no normal crops, but it&apos;s not a “dead season.” If
+              Winter has no normal crops, but it&apos;s not a &quot;dead season.&quot; If
               you want farming profit in Winter, your main option is{" "}
               <strong>Winter Seeds</strong>
               (crafted from winter foraging). You can plant a huge field with
@@ -971,8 +994,8 @@ export default function BestCropsEverySeasonPage() {
               Greenhouse: Ancient Fruit vs Starfruit
             </h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-              The Greenhouse ignores seasons. That means the “best crops stardew
-              valley” question changes: you want crops that scale forever and
+              The Greenhouse ignores seasons. That means the &quot;best crops stardew
+              valley&quot; question changes: you want crops that scale forever and
               feed your processing.
             </p>
 
@@ -1039,8 +1062,8 @@ export default function BestCropsEverySeasonPage() {
                 </p>
                 <p className="mt-1 text-sm leading-6 text-[#5f4228]/90">
                   Most farms aren&apos;t limited by crops. They&apos;re limited
-                  by Kegs/Jars. If you want the true endgame answer, your “best
-                  crop” is the one that matches your processing capacity.
+                  by Kegs/Jars. If you want the true endgame answer, your &quot;best
+                  crop&quot; is the one that matches your processing capacity.
                 </p>
                 <p className="mt-2 text-sm">
                   <Link
@@ -1094,7 +1117,7 @@ export default function BestCropsEverySeasonPage() {
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">
-              常见问题（中文）
+              常见问题(中文)
             </h2>
             <div className="mt-3 space-y-4">
               {faqZh.map((item) => (

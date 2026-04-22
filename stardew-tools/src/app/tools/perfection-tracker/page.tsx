@@ -8,9 +8,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/tools/perfection-tracker";
 
-const PAGE_TITLE = "Stardew Perfection Tracker (1.6) | StardewProfit";
+const PAGE_TITLE = "Stardew Valley Perfection Tracker: Track 100% Completion Progress (1.6.9) | StardewProfit";
 const PAGE_DESCRIPTION =
-  "Track Stardew Valley 1.6 perfection progress in your browser with a simple checklist for skills, walnuts, friendships, crafting, cooking, and late-game goals.";
+  "Track your Stardew Valley 1.6.9 perfection progress with this browser-based checklist. Skills, stardrops, golden walnuts, crafting, cooking, friendships, and late-game goals. Auto-saves locally.";
 
 const CARD_CLASS =
   "mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.25)] ring-1 ring-yellow-900/20 sm:p-7";
@@ -125,6 +125,21 @@ const FAQS = [
     question: "Is this tracker meant to replace in-game perfection tracking?",
     answer:
       "No. It is a planning layer that helps you avoid missing categories. You should still confirm final status in-game for official perfection completion.",
+  },
+  {
+    question: "What counts toward 100% perfection in Stardew Valley 1.6.9?",
+    answer:
+      "Perfection in Stardew Valley 1.6.9 requires: all skills at level 10, all stardrops collected, all monster slayer goals completed, all crafting and cooking recipes made at least once, all 130 golden walnuts found, all obelisks built, the Golden Clock purchased, and full friendship with all villagers and pets.",
+  },
+  {
+    question: "How do I track golden walnuts progress?",
+    answer:
+      "This tracker includes a Golden Walnuts section with region-based hints. For detailed walnut locations, check the Golden Walnuts Guide linked below the checklist.",
+  },
+  {
+    question: "Can I reset my perfection tracker progress?",
+    answer:
+      "Yes. Use the Reset button at the bottom of the checklist to clear all progress in your current browser. This action cannot be undone.",
   },
 ] as const;
 
@@ -261,12 +276,26 @@ const TRACKER_SCRIPT = `
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
+  keywords: [
+    "stardew valley perfection tracker",
+    "stardew perfection checklist",
+    "stardew valley 100 percent completion",
+    "stardew valley perfection guide",
+    "golden walnuts tracker",
+    "stardew valley 1.6.9 perfection",
+    "stardew valley late game checklist",
+  ],
   alternates: {
     canonical: `${SITE_URL}${PAGE_PATH}`,
   },
   openGraph: {
     type: "article",
     url: `${SITE_URL}${PAGE_PATH}`,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
@@ -289,11 +318,50 @@ export default function PerfectionTrackerPage() {
         <FaqJsonLd faqs={FAQS.map((item) => ({ ...item }))} />
 
         <header className={`${CARD_CLASS} mt-6`}>
+          <div className="mb-4 rounded-2xl border-2 border-[#2f6a3a]/40 bg-[#e6f8d8] p-4">
+            <div className="flex items-center gap-2">
+              <span className="text-xl" aria-hidden>✨</span>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#1f6b2e]">
+                Updated for Stardew Valley 1.6.9
+              </p>
+            </div>
+            <p className="mt-2 text-sm leading-6 text-[#245631]">
+              This perfection tracker is current for Stardew Valley 1.6.9 (2026). All categories match the latest perfection requirements: skills, stardrops, monster slayer, crafting, cooking, golden walnuts, obelisks, Golden Clock, and friendships.
+            </p>
+          </div>
           <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Perfection Tracker</h1>
           <p className="mt-4 text-base leading-7 text-[#5f4228]/90 md:text-lg">
-            Simple browser-based checklist for Stardew Valley 1.6 perfection progress. No account, no
+            Simple browser-based checklist for Stardew Valley 1.6.9 perfection progress. No account, no
             backend, and auto-save in localStorage.
           </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
+              <p className="text-sm font-semibold text-[#4a321e]">When to use this tracker</p>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                Use this when you&apos;re in late game and want a clean checklist to avoid missing perfection categories. It&apos;s especially helpful for tracking golden walnuts, crafting/cooking recipes, and friendship goals.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
+              <p className="text-sm font-semibold text-[#4a321e]">How it works</p>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                Check off items as you complete them. Progress saves automatically to your browser (localStorage). No account needed, but progress won&apos;t sync across devices.
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <Link
+              href="/guides/perfection-checklist-1-6"
+              className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/30 bg-[#e6f8d8] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/60 hover:bg-[#d9f2c7]"
+            >
+              📋 Read Full Perfection Guide
+            </Link>
+            <Link
+              href="/guides/golden-walnuts-guide"
+              className="inline-flex items-center gap-2 rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/70 hover:bg-[#fce8b1]"
+            >
+              🥥 Golden Walnuts Guide
+            </Link>
+          </div>
         </header>
 
         <section className={CARD_CLASS}>
