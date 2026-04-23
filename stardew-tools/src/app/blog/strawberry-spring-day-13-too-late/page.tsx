@@ -83,19 +83,6 @@ export default function StrawberrySpringDay13TooLatePage() {
   const fromPath = "/blog/strawberry-spring-day-13-too-late";
   const pageUrl = `${SITE_ORIGIN}/blog/strawberry-spring-day-13-too-late`;
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -338,11 +325,6 @@ export default function StrawberrySpringDay13TooLatePage() {
         <BlogReadNext posts={readNextPosts} currentSlug="strawberry-spring-day-13-too-late" />
 
         <SiteFooter className="mt-8" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}

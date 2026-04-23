@@ -103,20 +103,6 @@ export default function StardewValleyIsItTooLateToPlantOnSummerDay25Page() {
   const fromPath = "/blog/stardew-valley-is-it-too-late-to-plant-on-summer-day-25";
   const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-is-it-too-late-to-plant-on-summer-day-25`;
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-
-  };
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -341,11 +327,6 @@ export default function StardewValleyIsItTooLateToPlantOnSummerDay25Page() {
         <BlogReadNext posts={readNextPosts} currentSlug="stardew-valley-is-it-too-late-to-plant-on-summer-day-25" />
 
         <SiteFooter className="mt-8" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}

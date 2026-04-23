@@ -114,20 +114,6 @@ export default function StardewValleySummerDay1MaximumProfitGuidePage() {
   const fromPath = "/blog/stardew-valley-summer-day-1-maximum-profit-guide";
   const pageUrl = `${SITE_ORIGIN}/blog/stardew-valley-summer-day-1-maximum-profit-guide`;
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-
-  };
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -351,11 +337,6 @@ export default function StardewValleySummerDay1MaximumProfitGuidePage() {
         <BlogReadNext posts={readNextPosts} currentSlug="stardew-valley-summer-day-1-maximum-profit-guide" />
 
         <SiteFooter className="mt-8" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}

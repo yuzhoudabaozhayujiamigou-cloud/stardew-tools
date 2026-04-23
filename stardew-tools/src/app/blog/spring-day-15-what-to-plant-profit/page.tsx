@@ -114,20 +114,6 @@ export default function SpringDay15WhatToPlantProfitPage() {
   const fromPath = "/blog/spring-day-15-what-to-plant-profit";
   const pageUrl = `${SITE_ORIGIN}/blog/spring-day-15-what-to-plant-profit`;
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-
-  };
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -366,11 +352,6 @@ export default function SpringDay15WhatToPlantProfitPage() {
         <BlogReadNext posts={readNextPosts} currentSlug="spring-day-15-what-to-plant-profit" />
 
         <SiteFooter className="mt-8" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}

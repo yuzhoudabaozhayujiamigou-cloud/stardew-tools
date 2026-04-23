@@ -108,20 +108,6 @@ export default function BestSpringCrops10DaysLeftPage() {
   const fromPath = "/blog/best-spring-crops-10-days-left";
   const pageUrl = `${SITE_ORIGIN}/blog/best-spring-crops-10-days-left`;
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-
-  };
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -356,11 +342,6 @@ export default function BestSpringCrops10DaysLeftPage() {
         <BlogReadNext posts={readNextPosts} currentSlug="best-spring-crops-10-days-left" />
 
         <SiteFooter className="mt-8" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}

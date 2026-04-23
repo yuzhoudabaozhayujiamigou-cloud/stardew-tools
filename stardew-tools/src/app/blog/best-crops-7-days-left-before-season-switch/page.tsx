@@ -138,20 +138,6 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
   const fromPath = "/blog/best-crops-7-days-left-before-season-switch";
   const pageUrl = `${SITE_ORIGIN}/blog/best-crops-7-days-left-before-season-switch`;
 
-  const faqLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-
-  };
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -461,11 +447,6 @@ export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {
         <BlogReadNext posts={readNextPosts} currentSlug="best-crops-7-days-left-before-season-switch" />
 
         <SiteFooter className="mt-8" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
