@@ -76,9 +76,9 @@ export default function Stardew17UpdatePage() {
     <>
       <Breadcrumb
         items={[
-          { label: "Home", href: "/" },
-          { label: "Blog", href: "/blog" },
-          { label: "Stardew Valley 1.7 Update", href: url },
+          { name: "Home", href: "/" },
+          { name: "Blog", href: "/blog" },
+          { name: "Stardew Valley 1.7 Update", href: url },
         ]}
       />
 
@@ -256,7 +256,7 @@ export default function Stardew17UpdatePage() {
         </div>
       </article>
 
-      <FaqJsonLd items={FAQ_ITEMS} />
+      <FaqJsonLd faqs={FAQ_ITEMS} />
     </>
   );
 }
