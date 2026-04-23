@@ -13,20 +13,33 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-28T00:00:00+08:00",
-    modifiedTime: "2026-02-28T00:00:00+08:00",
+    modifiedTime: "2026-04-23T00:00:00+08:00",
+    images: [
+      {
+        url: "https://www.stardewprofit.com/api/og?title=Money+Making+Guide&subtitle=From+Broke+to+Rich&type=guide",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stardew Valley Money Making Guide 1.6 – From Broke to Rich | StardewProfit",
+    description:
+      "Best early crops, mid-game processing, late-game wine pipelines, and the calculator-first strategy that actually grows your gold.",
+    images: ["https://www.stardewprofit.com/api/og?title=Money+Making+Guide&subtitle=From+Broke+to+Rich&type=guide"],
   },
   title:
-    "Stardew Valley Money Making Guide (2026) – From Broke to Rich | StardewProfit",
+    "Stardew Valley Money Making Guide 1.6 – From Broke to Rich | StardewProfit",
   description:
-    "A universal Stardew Valley money making guide for any year: best early crops, mid-game processing, late-game wine pipelines, plus pro tips and a profit calculator.",
+    "Stardew Valley 1.6 money making guide: best early crops, mid-game processing, late-game wine pipelines, plus pro tips and a profit calculator.",
   keywords: [
     "stardew valley money making guide",
     "how to make money stardew valley",
     "stardew valley gold guide",
-    "best crops",
+    "best crops stardew valley 1.6",
     "keg vs jar",
     "ancient fruit wine",
     "starfruit wine",
+    "greenhouse profit stardew valley",
   ],
   alternates: {
     canonical: "https://www.stardewprofit.com/blog/money-making-guide",
@@ -164,6 +177,10 @@ export default function MoneyMakingGuidePage() {
 
         <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-[#6f8b3c]/60 bg-[#e7f1c8] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#5b6f2f] shadow-sm">
+              <span aria-hidden="true">✓</span>
+              Updated for Stardew Valley 1.6.9
+            </div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
               Stardew Valley Gold Guide (2026)
             </p>
@@ -213,9 +230,9 @@ export default function MoneyMakingGuidePage() {
               </TrackedBlogCtaLink>
             </div>
 
-            <div className="mt-6 rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
+            <div className="mt-6 rounded-2xl border-2 border-[#6f8b3c]/60 bg-gradient-to-br from-[#e7f1c8] to-[#d4e5b5] p-4">
               <p className="text-sm font-semibold text-[#4a321e]">
-                Quick map (use this if you&apos;re lost)
+                Quick Answer (use this if you&apos;re lost)
               </p>
               <div className="mt-2 grid gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-2">
                 <p>
@@ -271,8 +288,8 @@ export default function MoneyMakingGuidePage() {
               <PillLink href="/guides/greenhouse-profit-guide">
                 Read: Greenhouse Profit Guide
               </PillLink>
-              <PillLink href="/blog/stardew-valley-profit-guide-2026">
-                Read: Stardew Valley Profit Guide 2026
+              <PillLink href="/blog/keg-vs-jar-profit-guide">
+                Read: Keg vs Jar Profit Guide
               </PillLink>
             </div>
           </Card>
@@ -391,14 +408,14 @@ export default function MoneyMakingGuidePage() {
               <PillLink href="/blog/keg-vs-jar-profit-guide">
                 Read: Keg vs Jar profit guide
               </PillLink>
-              <PillLink href="/blog/artisan-vs-tiller-quick-answer">
-                Read: Artisan vs Tiller (quick answer)
+              <PillLink href="/blog/keg-vs-jar-profit-guide">
+                Read: Keg vs Jar profit guide
               </PillLink>
-              <PillLink href="/blog/wine-vs-juice-quick-answer">
-                Read: Wine vs Juice
+              <PillLink href="/tools/artisan-profit">
+                Open: Artisan Profit Tool
               </PillLink>
-              <PillLink href="/blog/how-many-kegs-do-i-need-quick-answer">
-                Read: How many Kegs do I need?
+              <PillLink href="/guides/quality-sprinklers-guide">
+                Read: Quality Sprinklers Guide
               </PillLink>
             </div>
 
@@ -483,14 +500,14 @@ export default function MoneyMakingGuidePage() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <PillLink href="/blog/starfruit-vs-ancient-fruit-wine-quick-answer">
-                Read: Starfruit vs Ancient Fruit Wine
+              <PillLink href="/guides/ancient-fruit-vs-starfruit">
+                Read: Ancient Fruit vs Starfruit
               </PillLink>
-              <PillLink href="/blog/greenhouse-layout-guide">
-                Read: Greenhouse layout guide
+              <PillLink href="/guides/greenhouse-profit-guide">
+                Read: Greenhouse Profit Guide
               </PillLink>
-              <PillLink href="/blog/best-greenhouse-crops-quick-answer">
-                Read: Best Greenhouse crops
+              <PillLink href="/blog/keg-vs-jar-profit-guide">
+                Read: Keg vs Jar Profit Guide
               </PillLink>
             </div>
 
@@ -566,8 +583,8 @@ export default function MoneyMakingGuidePage() {
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
-              <PillLink href="/blog/winter-seeds-profit-guide">
-                Read: Winter Seeds profit guide
+              <PillLink href="/blog/best-crops-every-season">
+                Read: Best Crops Every Season
               </PillLink>
               <PillLink href="/blog/auto-petter-worth-it">
                 Read: Is Auto-Petter worth it?
@@ -587,7 +604,7 @@ export default function MoneyMakingGuidePage() {
                   missing the last harvest.
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <PillLink href="/blog/best-crops-10-days-left-quick-answer">
+                  <PillLink href="/blog/best-spring-crops-10-days-left">
                     Best crops with 10 days left
                   </PillLink>
                   <PillLink href="/blog/best-crops-7-days-left-before-season-switch">
@@ -626,7 +643,7 @@ export default function MoneyMakingGuidePage() {
                   “saving money” easily.
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <PillLink href="/blog/speed-gro-vs-deluxe-speed-gro">
+                  <PillLink href="/guides/speed-gro-vs-deluxe-speed-gro">
                     Speed-Gro vs Deluxe Speed-Gro
                   </PillLink>
                 </div>
@@ -693,17 +710,17 @@ export default function MoneyMakingGuidePage() {
               <PillLink href="/blog/stardew-valley-spring-profit-guide-2026">
                 Stardew Valley Spring Profit Guide 2026
               </PillLink>
-              <PillLink href="/blog/stardew-valley-profit-guide-2026">
-                Stardew Valley Profit Guide 2026
+              <PillLink href="/blog/keg-vs-jar-profit-guide">
+                Keg vs Jar Profit Guide
               </PillLink>
               <PillLink href="/guides/multiplayer-crossplay">
                 Multiplayer Crossplay Guide
               </PillLink>
-              <PillLink href="/blog/keg-vs-jar-quick-answer">
-                Keg vs Jar (quick answer)
+              <PillLink href="/guides/ancient-fruit-vs-starfruit">
+                Ancient Fruit vs Starfruit
               </PillLink>
-              <PillLink href="/blog/ancient-fruit-wine-vs-starfruit-wine">
-                Ancient Fruit Wine vs Starfruit Wine
+              <PillLink href="/guides/greenhouse-profit-guide">
+                Greenhouse Profit Guide
               </PillLink>
               <PillLink href="/blog/hops-vs-starfruit-quick-answer">
                 Hops vs Starfruit
