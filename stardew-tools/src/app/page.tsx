@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profit Guide, Calculator & Best Crops Hub | StardewProfit",
+  title: "Stardew Valley Profit Calculator & Guides (Free, 2026)",
   description:
-    "Stardew Valley profit hub: start with the crop calculator, then compare best crops, keg vs jar, greenhouse profit, and money-making guides for 1.6.",
+    "Free Stardew Valley profit calculator + guides for 1.6. Compare crops, kegs, jars, greenhouse layouts. No signup. Get your best crop in 10 seconds.",
   alternates: {
     canonical: "/",
   },

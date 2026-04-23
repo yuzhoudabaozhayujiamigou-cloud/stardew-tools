@@ -105,9 +105,9 @@ const NEXT_STEP_PATHS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator 1.6 | Compare Best Crops & ROI",
+  title: "Stardew Profit Calculator (Free) - Crops, Kegs & Jars 1.6",
   description:
-    "Use the Stardew Valley crop profit calculator to compare exact crop ROI, gold per day, season timing, and processing choices for your current farm.",
+    "Calculate best crops for every season in Stardew Valley 1.6. Instant ROI, gold/day, keg vs jar profits. Free tool, no signup, updated 2026.",
   // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
