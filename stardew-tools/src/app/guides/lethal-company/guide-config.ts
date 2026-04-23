@@ -670,6 +670,10 @@ export function createGuideMetadata(guide: LethalGuide): Metadata {
     title: guide.title,
     description: guide.description,
     keywords: [...guide.keywords],
+    robots: {
+      index: false,
+      follow: false,
+    },
     alternates: {
       canonical: `${SITE_URL}${path}`,
     },

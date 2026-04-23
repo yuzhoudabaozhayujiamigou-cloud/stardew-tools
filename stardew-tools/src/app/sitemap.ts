@@ -33,6 +33,15 @@ function getRouteDirectories(section: "blog" | "guides" | "tools"): string[] {
   return readdirSync(sectionDirectory, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .filter((entry) => !hasDynamicRoutePlaceholder(entry.name))
+    .filter((entry) => {
+      if (section === "guides" && entry.name === "lethal-company") {
+        return false;
+      }
+      if (section === "tools" && (entry.name === "quota-calculator" || entry.name === "lethal-company")) {
+        return false;
+      }
+      return true;
+    })
     .filter((entry) => existsSync(join(sectionDirectory, entry.name, "page.tsx")))
     .map((entry) => entry.name)
     .sort((left, right) => left.localeCompare(right));

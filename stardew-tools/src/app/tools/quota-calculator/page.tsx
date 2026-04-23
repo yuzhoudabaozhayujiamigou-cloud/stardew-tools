@@ -78,6 +78,10 @@ const FAQS = [
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
+  robots: {
+    index: false,
+    follow: false,
+  },
   alternates: {
     canonical: `${SITE_URL}${PAGE_PATH}`,
   },

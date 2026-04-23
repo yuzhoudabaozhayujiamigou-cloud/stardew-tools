@@ -48,6 +48,10 @@ export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
   keywords: [...PAGE_KEYWORDS],
+  robots: {
+    index: false,
+    follow: false,
+  },
   alternates: {
     canonical: `${SITE_URL}${GUIDE_HUB_PATH}`,
   },
