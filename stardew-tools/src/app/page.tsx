@@ -159,38 +159,6 @@ export default function HomePage() {
           </div>
         </header>
 
-        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Quick Answer</p>
-          <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">
-            Best first move for Stardew Valley profit
-          </h2>
-          <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-            Short answer: run your current season in the
-            {" "}
-            <Link
-              href="/calculator"
-              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-            >
-              crop profit calculator
-            </Link>
-            , pick the best gold/day crop that still finishes on time, then confirm edge cases with one focused guide.
-          </p>
-          <ul className="mt-3 grid gap-2 text-sm leading-6 text-[#5f4228]/90 sm:grid-cols-2">
-            <li>• Use days-left presets to avoid crops that cannot finish this season.</li>
-            <li>• Validate high-value routes with keg/jar throughput before scaling.</li>
-            <li>• Keep one quick reference for secret-note detours that affect route efficiency.</li>
-            <li>• Re-check crop rankings whenever your profession or machine count changes.</li>
-          </ul>
-          <div className="mt-4 flex flex-wrap gap-2.5">
-            <Link
-              href="/calculator"
-              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff2c8] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#fce8b1]"
-            >
-              Open calculator
-            </Link>
-          </div>
-        </section>
-
         <section className="mt-8 grid gap-4 sm:grid-cols-3">
           <Link href="/blog/best-crops-year-1" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">

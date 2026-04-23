@@ -86,10 +86,10 @@ export default function PrivacyPolicyPage() {
           <p className="mt-2">
             For privacy questions, contact us at{" "}
             <a
-              href="mailto:yuzhoudabaozhayujiamigou@gmail.com"
+              href="mailto:hello@stardewprofit.com"
               className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
             >
-              yuzhoudabaozhayujiamigou@gmail.com
+              hello@stardewprofit.com
             </a>
             .
           </p>
