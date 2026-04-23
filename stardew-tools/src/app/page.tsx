@@ -30,39 +30,6 @@ const ENTRY_TITLE_CLASS = "text-lg font-semibold text-[#4a321e] sm:text-xl";
 
 const ENTRY_DESC_CLASS = "mt-2 text-sm leading-6 text-[#5f4228]/90";
 
-const POPULAR_GUIDES = [
-  {
-    href: "/blog/money-making-guide",
-    title: "Money Making Guide",
-    description: "The best overall path from early cashflow to greenhouse wine income.",
-  },
-  {
-    href: "/blog/keg-vs-jar-profit-guide",
-    title: "Keg vs Jar Guide",
-    description: "See when to process with kegs vs jars for the best gold per day.",
-  },
-  {
-    href: "/guides/greenhouse-profit-guide",
-    title: "Greenhouse Profit Guide",
-    description: "Plan long-term greenhouse output, crop choice, and machine throughput.",
-  },
-  {
-    href: "/blog/best-crops-every-season",
-    title: "Best Crops Every Season",
-    description: "A simple season-by-season crop plan you can apply immediately.",
-  },
-  {
-    href: "/guides/ancient-fruit-vs-starfruit",
-    title: "Ancient Fruit vs Starfruit",
-    description: "Compare long-term wine profit, effort, and seasonal flexibility.",
-  },
-  {
-    href: "/guides/quality-sprinklers-guide",
-    title: "Quality Sprinklers Guide",
-    description: "Unlock better layouts and automate faster so profit scales sooner.",
-  },
-] as const;
-
 const HOME_FAQ_ITEMS = [
   {
     question: "What is the fastest way to improve Stardew profit?",
@@ -189,12 +156,6 @@ export default function HomePage() {
             >
               Browse Guides
             </Link>
-            <a
-              href="#popular-guides"
-              className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-white/40 px-5 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:bg-white/60"
-            >
-              ↓ Popular Guides
-            </a>
           </div>
         </header>
 
@@ -227,85 +188,39 @@ export default function HomePage() {
             >
               Open calculator
             </Link>
-            <Link
-              href="/secret-notes/22"
-              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
-            >
-              Secret Note 22 answer
-            </Link>
-            <Link
-              href="/secret-notes/19"
-              className="inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-[#fff8e8]/90 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-[#f6ebcf]"
-            >
-              Secret Note 19 answer
-            </Link>
           </div>
         </section>
 
-        <section id="popular-guides" className="mt-8 rounded-[28px] border-4 border-[#6f8b3c]/80 bg-[#e7f1c8]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/20 sm:p-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#5b6f2f]/80">Popular Guides</p>
-          <h2 className="mt-1 text-xl font-semibold text-[#3f2d1b] sm:text-2xl">Read these first</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#4d3c28]/90">
-            Six high-signal blog guides for better crop choices, artisan processing, and greenhouse profit.
-          </p>
-
-          <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {POPULAR_GUIDES.map((guide) => (
-              <Link
-                key={guide.href}
-                href={guide.href}
-                className="group rounded-2xl border-2 border-[#7c4d2e]/60 bg-[#fff8e8]/80 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-[#6f8b3c]/80 hover:bg-[#fffef4]"
-              >
-                <h3 className="text-base font-semibold text-[#4a321e]">{guide.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{guide.description}</p>
-                <span className="mt-4 inline-flex text-sm font-semibold text-[#3f6f2c] transition group-hover:translate-x-0.5">
-                  Read Guide →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Link href="/calculator" className={ENTRY_LINK_CLASS}>
+        <section className="mt-8 grid gap-4 sm:grid-cols-3">
+          <Link href="/blog/best-crops-year-1" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              🧮
+              🌱
             </div>
-            <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">Start here</span>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Calculator</h2>
+            <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">Year 1</span>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Year 1 Money Guide</h2>
             <p className={ENTRY_DESC_CLASS}>
-              Compare crops by gold/day, season, and growth time. Find the best pick for your exact day and setup.
+              Best crops and strategies for your first year. Start here if you&apos;re new or restarting.
             </p>
           </Link>
 
-          <Link href="/blog/money-making-guide" className={ENTRY_LINK_CLASS}>
+          <Link href="/guides/greenhouse-profit-guide" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              💰
+              🏡
             </div>
-            <span className="inline-flex rounded-full border border-[#7c4d2e]/35 bg-white/55 px-2.5 py-1 text-xs font-semibold text-[#5c3d23]">Most useful guide</span>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Money Making Guide</h2>
+            <span className="inline-flex rounded-full border border-[#7c4d2e]/35 bg-white/55 px-2.5 py-1 text-xs font-semibold text-[#5c3d23]">Long-term</span>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Greenhouse Strategy</h2>
             <p className={ENTRY_DESC_CLASS}>
-              The best overview if you want the full path from early cashflow to greenhouse wine income.
+              Plan long-term greenhouse output, crop choice, and machine throughput for stable income.
             </p>
           </Link>
 
-          <Link href="/blog" className={ENTRY_LINK_CLASS}>
+          <Link href="/blog/keg-vs-jar-profit-guide" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              📘
+              ⚗️
             </div>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-8`}>Guides</h2>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-8`}>Keg vs Jar Guide</h2>
             <p className={ENTRY_DESC_CLASS}>
-              Quick answers and deeper strategy posts. Use this when you need a decision, not just raw numbers.
-            </p>
-          </Link>
-
-          <Link href="/secret-notes" className={ENTRY_LINK_CLASS}>
-            <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              🗒️
-            </div>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-8`}>Secret Notes</h2>
-            <p className={ENTRY_DESC_CLASS}>
-              Search and decode Secret Notes, track progress, and jump straight to popular note answers.
+              Decide when to use kegs vs preserves jars for the best gold per day return.
             </p>
           </Link>
         </section>
