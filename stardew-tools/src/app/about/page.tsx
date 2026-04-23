@@ -37,14 +37,27 @@ export default function AboutPage() {
             StardewProfit is a fan-made project focused on practical crop profit tools and strategy guides for Stardew
             Valley players.
           </p>
-          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: March __, 2026</p>
+          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: April 24, 2026</p>
         </header>
 
         <section className={SECTION_CLASS}>
           <h2 className="text-base font-semibold text-[#4a321e]">What We Do</h2>
           <p className="mt-2">
-            We build calculator workflows, quick answers, and long-form guides to help players make clearer farming
-            decisions.
+            This site focuses on Stardew Valley profit calculation and planting decisions. We provide a crop profit
+            calculator, seasonal guides, and processing strategy comparisons to help you make faster, clearer farming
+            choices.
+          </p>
+          <p className="mt-2">
+            Data is based on the current maintained version of Stardew Valley and is continuously verified. Our goal is
+            to deliver quick, clear, and actionable planting references.
+          </p>
+        </section>
+
+        <section className={SECTION_CLASS}>
+          <h2 className="text-base font-semibold text-[#4a321e]">Maintenance</h2>
+          <p className="mt-2">
+            This site is maintained by an independent developer and continuously updated. We aim to keep data accurate
+            and tools reliable for the Stardew Valley community.
           </p>
         </section>
 

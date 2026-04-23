@@ -37,7 +37,7 @@ export default function TermsPage() {
           <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
             These terms govern your use of the StardewProfit website and related content.
           </p>
-          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: March __, 2026</p>
+          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: April 24, 2026</p>
         </header>
 
         <section className={SECTION_CLASS}>

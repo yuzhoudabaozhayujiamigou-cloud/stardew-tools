@@ -35,30 +35,23 @@ export default function ContactPage() {
           <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
             For support, policy, or correction requests, send us an email and include the page URL if relevant.
           </p>
-          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: March __, 2026</p>
+          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: April 24, 2026</p>
         </header>
 
         <section className={SECTION_CLASS}>
-          <h2 className="text-base font-semibold text-[#4a321e]">Support Email</h2>
+          <h2 className="text-base font-semibold text-[#4a321e]">Contact Email</h2>
           <p className="mt-2">
             Email:{" "}
             <a
-              href="mailto:yuzhoudabaozhayujiamigou@gmail.com"
+              href="mailto:hello@stardewprofit.com"
               className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
             >
-              yuzhoudabaozhayujiamigou@gmail.com
+              hello@stardewprofit.com
             </a>
           </p>
-          <p className="mt-2">We usually reply as soon as possible, depending on queue volume.</p>
-        </section>
-
-        <section className={SECTION_CLASS}>
-          <h2 className="text-base font-semibold text-[#4a321e]">Request Types</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>General support and site feedback</li>
-            <li>Privacy and cookie questions</li>
-            <li>Terms and disclaimer clarifications</li>
-          </ul>
+          <p className="mt-2">
+            Use this email for bug reports, feature suggestions, data corrections, or partnership inquiries.
+          </p>
         </section>
 
         <SiteFooter className="mt-10" />
