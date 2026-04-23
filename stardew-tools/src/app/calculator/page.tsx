@@ -105,18 +105,18 @@ const NEXT_STEP_PATHS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator & Profit Calculator (Best Crops & ROI)",
+  title: "Stardew Valley Crop Profit Calculator 1.6 | Compare Best Crops & ROI",
   description:
-    "Use this Stardew Valley crop profit calculator and profit calculator to compare best crops, keg vs jar returns, greenhouse ROI, and season-specific profit in seconds.",
+    "Use the Stardew Valley crop profit calculator to compare exact crop ROI, gold per day, season timing, and processing choices for your current farm.",
   // NOTE: keep marketing copy lint-safe for JSX contexts
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Crop Profit Calculator & Profit Calculator (Best Crops & ROI)",
+    title: "Stardew Valley Crop Profit Calculator 1.6 | Compare Best Crops & ROI",
     description:
-      "Use this Stardew Valley crop profit calculator and profit calculator to compare best crops, keg vs jar returns, greenhouse ROI, and season-specific profit in seconds.",
+      "Use the Stardew Valley crop profit calculator to compare exact crop ROI, gold per day, season timing, and processing choices for your current farm.",
     type: "website",
     images: [
       {
@@ -129,9 +129,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Crop Profit Calculator & Profit Calculator — Best Crops & ROI",
+    title: "Stardew Valley Crop Profit Calculator 1.6 | Compare Best Crops & ROI",
     description:
-      "Use this Stardew Valley crop profit calculator and profit calculator to compare best crops, keg vs jar returns, greenhouse ROI, and season-specific profit in seconds.",
+      "Use the Stardew Valley crop profit calculator to compare exact crop ROI, gold per day, season timing, and processing choices for your current farm.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -139,7 +139,7 @@ export const metadata: Metadata = {
 export default function CalculatorPage() {
   // Quick promise: answer fast, reduce bounce.
   const heroValueProp =
-    "Get the best Stardew profits fast: compare crops and processing (keg vs jar) with real numbers.";
+    "Get exact Stardew crop ROI fast: compare crops, processing, and season timing with real numbers.";
   const heroSteps = [
     "Choose Season and Crop",
     "Choose Processing (None / Keg / Jar)",

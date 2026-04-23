@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
+  title: "Stardew Valley Profit Guide, Calculator & Best Crops Hub | StardewProfit",
   description:
-    "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
+    "Stardew Valley profit hub: start with the crop calculator, then compare best crops, keg vs jar, greenhouse profit, and money-making guides for 1.6.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
+    title: "Stardew Valley Profit Guide, Calculator & Best Crops Hub | StardewProfit",
     description:
-      "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
+      "Stardew Valley profit hub: start with the crop calculator, then compare best crops, keg vs jar, greenhouse profit, and money-making guides for 1.6.",
   },
   twitter: {
     card: "summary",
-    title: "Stardew Valley Crop Profit Calculator | StardewProfit.com",
+    title: "Stardew Valley Profit Guide, Calculator & Best Crops Hub | StardewProfit",
     description:
-      "Instantly compare the most profitable crops and artisan goods. Calculate gold/day, ROI, and season timing for Stardew Valley 1.6 in seconds.",
+      "Stardew Valley profit hub: start with the crop calculator, then compare best crops, keg vs jar, greenhouse profit, and money-making guides for 1.6.",
   },
 };
 
@@ -165,16 +165,15 @@ export default function HomePage() {
             StardewProfit.com
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Stardew Valley Profit Guide and Calculator
+            Stardew Valley Profit Hub: Guides, Best Crops & Calculator
           </h1>
           <p className="mt-3 max-w-4xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Looking for better stardew profit, stardew profits routes, or a fast stardew valley profit answer? Start
-            here. This homepage combines quick answers, route-specific note pages, and the crop calculator so you can
-            decide what to plant in under a minute.
+            Start here if you want the fastest route to better Stardew Valley profit. This homepage is the hub: use it
+            to choose between the crop calculator, best-crop guides, greenhouse strategy, and artisan profit decisions.
           </p>
           <p className="mt-2 max-w-4xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Check the calculator first, then use one guide to confirm machine throughput and season timing before you
-            spend seeds or artisan capacity.
+            Use the calculator when you want exact numbers. Use the guides when you need a decision framework for Year 1,
+            keg vs jar, greenhouse planning, or long-term money making.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">
