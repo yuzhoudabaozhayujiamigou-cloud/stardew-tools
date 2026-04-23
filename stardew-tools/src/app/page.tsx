@@ -32,9 +32,9 @@ const ENTRY_DESC_CLASS = "mt-2 text-sm leading-6 text-[#5f4228]/90";
 
 const POPULAR_GUIDES = [
   {
-    href: "/blog/best-crops-every-season",
-    title: "Best Crops Every Season",
-    description: "A simple season-by-season crop plan you can apply immediately.",
+    href: "/blog/money-making-guide",
+    title: "Money Making Guide",
+    description: "The best overall path from early cashflow to greenhouse wine income.",
   },
   {
     href: "/blog/keg-vs-jar-profit-guide",
@@ -42,24 +42,24 @@ const POPULAR_GUIDES = [
     description: "See when to process with kegs vs jars for the best gold per day.",
   },
   {
-    href: "/blog/year-1-spring-crops-profit-guide",
-    title: "Year 1 Spring",
-    description: "An early-game planting strategy built for realistic cash flow.",
+    href: "/guides/greenhouse-profit-guide",
+    title: "Greenhouse Profit Guide",
+    description: "Plan long-term greenhouse output, crop choice, and machine throughput.",
   },
   {
-    href: "/blog/greenhouse-layout-guide",
-    title: "Greenhouse Layout",
-    description: "Layout ideas that maximize regrowth crops and machine throughput.",
+    href: "/blog/best-crops-every-season",
+    title: "Best Crops Every Season",
+    description: "A simple season-by-season crop plan you can apply immediately.",
   },
   {
-    href: "/blog/ancient-fruit-vs-starfruit",
+    href: "/guides/ancient-fruit-vs-starfruit",
     title: "Ancient Fruit vs Starfruit",
     description: "Compare long-term wine profit, effort, and seasonal flexibility.",
   },
   {
-    href: "/blog/stardew-valley-artisan-profit-guide",
-    title: "Artisan Guide",
-    description: "Build a full artisan pipeline that scales from early to late game.",
+    href: "/guides/quality-sprinklers-guide",
+    title: "Quality Sprinklers Guide",
+    description: "Unlock better layouts and automate faster so profit scales sooner.",
   },
 ] as const;
 
@@ -266,24 +266,26 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="mt-8 grid gap-4 sm:grid-cols-3">
+        <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Link href="/calculator" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
               🧮
             </div>
-            <h2 className={ENTRY_TITLE_CLASS}>Calculator</h2>
+            <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">Start here</span>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Calculator</h2>
             <p className={ENTRY_DESC_CLASS}>
-              Compare crops by gold/day, season, and growth time. Find the best picks for your current day.
+              Compare crops by gold/day, season, and growth time. Find the best pick for your exact day and setup.
             </p>
           </Link>
 
-          <Link href="/tools/quota-calculator" className={ENTRY_LINK_CLASS}>
+          <Link href="/blog/money-making-guide" className={ENTRY_LINK_CLASS}>
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              📦
+              💰
             </div>
-            <h2 className={ENTRY_TITLE_CLASS}>Quota Calculator</h2>
+            <span className="inline-flex rounded-full border border-[#7c4d2e]/35 bg-white/55 px-2.5 py-1 text-xs font-semibold text-[#5c3d23]">Most useful guide</span>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Money Making Guide</h2>
             <p className={ENTRY_DESC_CLASS}>
-              Lethal Company specialized targets: Day 1 vs Day 2 payout delta, gear budget, and exact-sell strategy.
+              The best overview if you want the full path from early cashflow to greenhouse wine income.
             </p>
           </Link>
 
@@ -291,9 +293,9 @@ export default function HomePage() {
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
               📘
             </div>
-            <h2 className={ENTRY_TITLE_CLASS}>Guides</h2>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-8`}>Guides</h2>
             <p className={ENTRY_DESC_CLASS}>
-              Quick answers and deeper strategy posts. Each one points back to calculator-friendly presets.
+              Quick answers and deeper strategy posts. Use this when you need a decision, not just raw numbers.
             </p>
           </Link>
 
@@ -301,9 +303,9 @@ export default function HomePage() {
             <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
               🗒️
             </div>
-            <h2 className={ENTRY_TITLE_CLASS}>Secret Notes</h2>
+            <h2 className={`${ENTRY_TITLE_CLASS} mt-8`}>Secret Notes</h2>
             <p className={ENTRY_DESC_CLASS}>
-              Search and decode Secret Notes, track progress, and jump straight to popular notes.
+              Search and decode Secret Notes, track progress, and jump straight to popular note answers.
             </p>
           </Link>
         </section>
