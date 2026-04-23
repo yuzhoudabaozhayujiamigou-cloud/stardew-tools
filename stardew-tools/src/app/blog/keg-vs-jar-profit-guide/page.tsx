@@ -6,12 +6,12 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
 
 const publishedTime = "2026-02-27T00:00:00Z";
-const modifiedTime = "2026-02-27T00:00:00Z";
+const modifiedTime = "2026-04-23T00:00:00Z";
 const url = "https://www.stardewprofit.com/blog/keg-vs-jar-profit-guide";
 
-const TITLE = "Keg vs Preserve Jar (Profit Guide): What to Build First in Stardew Valley";
+const TITLE = "Keg vs Jar Profit Guide Stardew Valley 1.6: What to Build First";
 const DESCRIPTION =
-  "A complete keg vs preserve jar profit guide: what earns more, what scales faster, and how to decide based on your crop mix, time, and machine bottlenecks.";
+  "Stardew Valley 1.6 keg vs preserve jar guide: what to build first, which earns more, and how to choose based on crop mix, cashflow, and machine bottlenecks.";
 
 const FAQ = [
   {
@@ -44,14 +44,30 @@ const FAQ = [
 export const metadata: Metadata = {
   title: `${TITLE} | Stardew Profit`,
   description: DESCRIPTION,
+  keywords: [
+    "keg vs jar stardew valley",
+    "keg vs preserve jar stardew valley",
+    "stardew valley keg or preserve jar",
+    "what to build first kegs or jars",
+    "artisan profit stardew valley",
+    "stardew valley 1.6 keg guide",
+    "preserve jar profit stardew valley",
+    "keg profit stardew valley",
+  ],
   openGraph: {
     title: `${TITLE} | Stardew Profit`,
     description: DESCRIPTION,
     type: "article",
     url,
-    images: [{ url: `${url}/opengraph-image` }],
+    images: [{ url: "https://www.stardewprofit.com/api/og?title=Keg+vs+Jar&subtitle=What+to+Build+First&type=guide" }],
     publishedTime,
     modifiedTime,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${TITLE} | Stardew Profit`,
+    description: DESCRIPTION,
+    images: ["https://www.stardewprofit.com/api/og?title=Keg+vs+Jar&subtitle=What+to+Build+First&type=guide"],
   },
 };
 
@@ -105,6 +121,10 @@ export default function KegVsJarProfitGuidePage() {
 
         <article className="mt-6 space-y-6">
           <header className="rounded-[32px] border-4 border-[#7c4d2e]/80 bg-[#fff3da]/95 p-6 shadow-[0_16px_40px_rgba(56,41,23,0.24)] ring-1 ring-yellow-900/15 sm:p-9">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-[#6f8b3c]/60 bg-[#e7f1c8] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#5b6f2f] shadow-sm">
+              <span aria-hidden="true">✓</span>
+              Updated for Stardew Valley 1.6.9
+            </div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
               Artisan Profit Guide
             </p>
@@ -127,6 +147,40 @@ export default function KegVsJarProfitGuidePage() {
               </span>
             </div>
           </header>
+
+          <section className="rounded-[28px] border-4 border-[#6f8b3c]/70 bg-gradient-to-br from-[#e7f1c8] to-[#d4e5b5] p-5 shadow-[0_14px_34px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/15 sm:p-7">
+            <div className="flex items-start gap-3">
+              <span className="text-3xl" aria-hidden="true">🍷</span>
+              <div>
+                <h2 className="text-2xl font-bold text-[#4a321e]">Quick Answer</h2>
+                <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
+                  <strong>Build preserve jars first for early cashflow</strong> → <strong>shift to kegs when your crop supply is stable</strong> → use a <strong>mixed setup</strong> once you have greenhouse fruit, vegetables, and enough machine slots to route items efficiently.
+                </p>
+              </div>
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-4 shadow-sm">
+                <h3 className="font-semibold text-[#4a321e]">💰 Best for Early Cashflow</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Preserve jars finish faster, smooth income, and are easier to keep busy when your farm is still ramping.
+                </p>
+              </div>
+              <div className="rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-4 shadow-sm">
+                <h3 className="font-semibold text-[#4a321e]">🏆 Best for Late-Game Profit</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Kegs usually win once greenhouse fruit and artisan capacity are stable enough to avoid idle machine time.
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link className={CTA_CLASS} href="/calculator">
+                Compare crop profit first
+              </Link>
+              <Link className={SUB_CTA_CLASS} href="/tools/artisan-profit">
+                Run exact artisan math
+              </Link>
+            </div>
+          </section>
 
           <section className={CARD}>
             <h2 className={H2}>Table of contents</h2>
@@ -194,8 +248,8 @@ export default function KegVsJarProfitGuidePage() {
               <Link className={CTA_CLASS} href="/calculator">
                 Open the Profit Calculator
               </Link>
-              <Link className={SUB_CTA_CLASS} href="/blog/greenhouse-layout-guide">
-                Greenhouse layout guide
+              <Link className={SUB_CTA_CLASS} href="/guides/greenhouse-profit-guide">
+                Greenhouse profit guide
               </Link>
             </div>
           </section>
@@ -269,8 +323,8 @@ export default function KegVsJarProfitGuidePage() {
             </div>
             <p className="mt-4 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               For a connected season-by-season plan that includes artisan processing, see{" "}
-              <Link href="/blog/stardew-valley-profit-guide-2026" className={LINK}>
-                Stardew Valley Profit Guide 2026
+              <Link href="/blog/money-making-guide" className={LINK}>
+                Money Making Guide
               </Link>
               .
             </p>
@@ -303,8 +357,8 @@ export default function KegVsJarProfitGuidePage() {
             <p className="mt-4 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               If you’re planning around the greenhouse, you will usually prefer a keg-heavy
               strategy because the greenhouse gives you consistent input. Our{" "}
-              <Link href="/blog/greenhouse-layout-guide" className={LINK}>
-                Greenhouse Layout Guide
+              <Link href="/guides/greenhouse-profit-guide" className={LINK}>
+                Greenhouse Profit Guide
               </Link>
               {" "}helps you set up a layout that supports that pipeline.
             </p>
@@ -324,8 +378,8 @@ export default function KegVsJarProfitGuidePage() {
             </ol>
             <p className="mt-4 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               If you want a dedicated deep dive, start with{" "}
-              <Link href="/blog/how-many-kegs-do-i-need-quick-answer" className={LINK}>
-                How Many Kegs Do I Need? (Quick Answer)
+              <Link href="/tools/artisan-profit" className={LINK}>
+                Artisan Profit Tool
               </Link>
               .
             </p>
@@ -340,20 +394,20 @@ export default function KegVsJarProfitGuidePage() {
             </p>
             <ul className="mt-3 space-y-2 text-sm leading-7 sm:text-base">
               <li>
-                <Link href="/blog/best-greenhouse-crops-quick-answer" className={LINK}>
-                  Best Greenhouse Crops (Quick Answer)
+                <Link href="/guides/greenhouse-profit-guide" className={LINK}>
+                  Greenhouse Profit Guide
                 </Link>
                 {" "}for a fast recommendation.
               </li>
               <li>
-                <Link href="/blog/ancient-fruit-vs-starfruit" className={LINK}>
+                <Link href="/guides/ancient-fruit-vs-starfruit" className={LINK}>
                   Ancient Fruit vs Starfruit (Full Guide)
                 </Link>
                 {" "}for the baseline decision (profit vs effort).
               </li>
               <li>
-                <Link href="/blog/ancient-fruit-wine-vs-starfruit-wine" className={LINK}>
-                  Ancient Fruit Wine vs Starfruit Wine
+                <Link href="/blog/best-keg-items" className={LINK}>
+                  Best Keg Items Guide
                 </Link>
                 {" "}for the classic endgame comparison.
               </li>
@@ -392,6 +446,9 @@ export default function KegVsJarProfitGuidePage() {
 
           <section id="faq" className={CARD}>
             <h2 className={H2}>FAQ</h2>
+            <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
+              💡 <strong>Pro tip:</strong> If your kegs stay empty, you built them too early. If your jars are overloaded every week, you are ready to shift more of the farm toward kegs.
+            </p>
             <div className="mt-4 space-y-4">
               {FAQ.map((item) => (
                 <details
@@ -422,10 +479,10 @@ export default function KegVsJarProfitGuidePage() {
                 Use the Crop Profit Calculator
               </Link>
               <Link
-                href="/blog/stardew-valley-profit-guide-2026"
+                href="/blog/money-making-guide"
                 className="inline-flex items-center justify-center rounded-2xl border-2 border-[#7c4d2e]/65 bg-white/45 px-5 py-2.5 text-sm font-semibold text-[#5c4033] shadow-sm transition hover:-translate-y-0.5 hover:bg-white/60"
               >
-                Read Profit Guide 2026
+                Read Money Making Guide
               </Link>
             </div>
           </section>
