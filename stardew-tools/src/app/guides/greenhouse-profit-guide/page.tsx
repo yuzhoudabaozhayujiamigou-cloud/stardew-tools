@@ -7,16 +7,16 @@ import { SITE_ORIGIN } from "@/lib/site";
 const SITE_URL = SITE_ORIGIN;
 
 const publishedTime = "2026-03-08T00:00:00.000Z";
-const modifiedTime = "2026-03-08T00:00:00.000Z";
+const modifiedTime = "2026-04-23T00:00:00.000Z";
 
 export const metadata: Metadata = {
-  title: "Greenhouse Profit Guide (Stardew Valley): Best Crops, Layouts & Daily Gold",
+  title: "Greenhouse Profit Guide Stardew Valley 1.6 | Best Crops, Ancient Fruit vs Starfruit",
   description:
-    "A complete greenhouse profit guide for Stardew Valley: the best crops by seasonless ROI, optimal sprinkler layouts, and artisan strategies to maximize daily gold—plus FAQs and calculators.",
+    "Complete greenhouse profit guide for Stardew Valley 1.6.9: best crops (Ancient Fruit vs Starfruit), optimal layouts, keg vs jar decisions, and daily gold strategies.",
   openGraph: {
-    title: "Greenhouse Profit Guide (Stardew Valley): Best Crops, Layouts & Daily Gold",
+    title: "Greenhouse Profit Guide Stardew Valley 1.6 | Best Crops, Ancient Fruit vs Starfruit",
     description:
-      "Plan a high-profit greenhouse with the best crops, proven sprinkler layouts, and artisan processing rules of thumb. Includes FAQs and internal calculators.",
+      "Plan a high-profit greenhouse with the best crops, proven sprinkler layouts, and artisan processing rules. Ancient Fruit vs Starfruit comparison included.",
     url: `${SITE_URL}/guides/greenhouse-profit-guide`,
     siteName: "Stardew Profit",
     type: "article",
@@ -24,16 +24,33 @@ export const metadata: Metadata = {
     modifiedTime,
     images: [
       {
-        url: `${SITE_URL}/og/greenhouse-profit-guide.png`,
+        url: `${SITE_URL}/api/og?title=Greenhouse+Profit+Guide&subtitle=Ancient+Fruit+Starfruit&type=guide`,
         width: 1200,
         height: 630,
-        alt: "Greenhouse Profit Guide for Stardew Valley",
+        alt: "Greenhouse Profit Guide for Stardew Valley 1.6",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Greenhouse Profit Guide Stardew Valley 1.6 | Best Crops, Ancient Fruit vs Starfruit",
+    description:
+      "Complete greenhouse profit guide for Stardew Valley 1.6.9: best crops (Ancient Fruit vs Starfruit), optimal layouts, keg vs jar decisions, and daily gold strategies.",
+    images: [`${SITE_URL}/api/og?title=Greenhouse+Profit+Guide&subtitle=Ancient+Fruit+Starfruit&type=guide`],
   },
   alternates: {
     canonical: `${SITE_URL}/guides/greenhouse-profit-guide`,
   },
+  keywords: [
+    "greenhouse profit stardew valley",
+    "best greenhouse crops stardew valley",
+    "ancient fruit greenhouse",
+    "starfruit greenhouse",
+    "greenhouse layout stardew valley",
+    "greenhouse strategy stardew valley",
+    "stardew valley 1.6 greenhouse",
+    "ancient fruit vs starfruit greenhouse",
+  ],
 };
 
 const toc = [
@@ -55,24 +72,49 @@ const faqs = [
       "For most players, Ancient Fruit is the best greenhouse staple because it regrows, has strong base value, and becomes extremely profitable when processed in kegs. Starfruit can beat it in raw value per harvest, but requires replanting and more active management.",
   },
   {
+    question: "Should I use Ancient Fruit or Starfruit in my greenhouse?",
+    answer:
+      "Ancient Fruit wins for passive income (regrows every 7 days, no replanting). Starfruit wins for max profit (higher gold/day but needs replanting every 13 days). Match your choice to keg capacity and playstyle.",
+  },
+  {
     question: "Is it better to use kegs or preserves jars for greenhouse crops?",
     answer:
       "It depends on your bottleneck. Kegs usually win on total profit for high-value fruits (Ancient Fruit, Starfruit) but take longer. Preserves jars finish faster and can produce more gold per day when you have limited machines or want quick turnover. Many optimal setups use kegs for your top-tier fruit and jars for overflow.",
   },
   {
+    question: "How many kegs do I need for a full greenhouse?",
+    answer:
+      "For a full Ancient Fruit greenhouse (116 tiles), you need ~116 kegs to process one weekly harvest. Start with 30-50 kegs and expand gradually. Sell overflow raw until your keg fleet catches up.",
+  },
+  {
+    question: "What is the best greenhouse layout for profit?",
+    answer:
+      "Use iridium sprinklers in a simple grid pattern to maximize tilled tiles (up to 116). Avoid complex layouts that create blocked tiles or annoying harvest routes. Optimize for your daily routine, not theoretical maximum tiles.",
+  },
+  {
+    question: "When should I unlock the greenhouse?",
+    answer:
+      "Unlock the greenhouse as soon as you complete the Community Center Pantry bundle (or buy it from Joja for 35,000g). The earlier you unlock it, the sooner you can start building your seasonless profit engine.",
+  },
+  {
+    question: "Can I use quality sprinklers in the greenhouse?",
+    answer:
+      "Yes, quality sprinklers work in the greenhouse, but you&apos;ll lose some tiles to coverage gaps. Upgrade to iridium sprinklers when possible to maximize tilled tiles and simplify your layout.",
+  },
+  {
     question: "Do I need deluxe speed-gro in the greenhouse?",
     answer:
-      "Often, no. The greenhouse is seasonless and already efficient. Speed-Gro matters most for crops where an extra harvest over time changes the math, or when you’re racing for early-game cash. If your limiting factor is processing capacity (kegs/jars), fertilizer won’t fix that.",
+      "Often, no. The greenhouse is seasonless and already efficient. Speed-Gro matters most for crops where an extra harvest over time changes the math, or when you&apos;re racing for early-game cash. If your limiting factor is processing capacity (kegs/jars), fertilizer won&apos;t fix that.",
   },
   {
     question: "Can fruit trees in the greenhouse increase profit?",
     answer:
-      "Yes. Fruit trees grow on the greenhouse perimeter and don’t consume tilled crop tiles. They add steady daily fruit once mature, which can be eaten, gifted, or processed (jars are common). They’re a solid passive supplement rather than your main profit driver.",
+      "Yes. Fruit trees grow on the greenhouse perimeter and don&apos;t consume tilled crop tiles. They add steady daily fruit once mature, which can be eaten, gifted, or processed (jars are common). They're a solid passive supplement rather than your main profit driver.",
   },
   {
     question: "How many crop tiles are in the greenhouse?",
     answer:
-      "The plantable soil area is 116 tiles. That number matters because it’s the basis for estimating daily gold and planning processing capacity.",
+      "The plantable soil area is 116 tiles. That number matters because it&apos;s the basis for estimating daily gold and planning processing capacity.",
   },
 ];
 
@@ -91,9 +133,13 @@ export default function Page() {
         <FaqJsonLd faqs={faqs} />
 
         <header className="mt-6 rounded-2xl border border-amber-200 bg-white/60 p-6 shadow-sm">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-[#6f8b3c]/60 bg-[#e7f1c8] px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#5b6f2f] shadow-sm">
+            <span aria-hidden="true">✓</span>
+            Updated for Stardew Valley 1.6.9
+          </div>
           <p className="text-sm text-slate-600">Updated: {new Date(modifiedTime).toISOString().slice(0, 10)}</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-            Greenhouse Profit Guide (Stardew Valley): Best Crops, Layouts & Daily Gold
+            Greenhouse Profit Guide: Best Crops, Layouts & Daily Gold Strategies
           </h1>
           <p className="mt-4 text-lg leading-7 text-slate-700">
             The greenhouse is the closest thing Stardew Valley has to a money printer: 116 seasonless crop tiles,
@@ -105,6 +151,37 @@ export default function Page() {
             If you came here from the crop calculator, this is your next step after finding a profitable crop. Use this
             page to turn a good seasonal result into a stable long-term greenhouse plan.
           </p>
+
+          {/* Quick Answer Section */}
+          <section className="mt-6 rounded-2xl border-2 border-[#6f8b3c]/70 bg-gradient-to-br from-[#e7f1c8] to-[#d4e5b5] p-6 shadow-sm">
+            <div className="flex items-start gap-3">
+              <span className="text-3xl" aria-hidden="true">🏡</span>
+              <div>
+                <h2 className="text-2xl font-bold text-[#4a321e]">Quick Answer</h2>
+                <p className="mt-3 text-base leading-7 text-[#5f4228]/90">
+                  <strong>Ancient Fruit wins for passive income</strong> (regrows every 7 days, no replanting) → 
+                  <strong>Starfruit wins for active profit</strong> (higher gold/day but needs replanting) → 
+                  Match your choice to <strong>keg capacity</strong> and <strong>playstyle</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-4 shadow-sm">
+                <h3 className="font-semibold text-[#4a321e]">🎯 Best for Passive Income</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Ancient Fruit: Plant once, harvest weekly, perfect for low-maintenance farms.
+                </p>
+              </div>
+              <div className="rounded-xl border-2 border-[#7c4d2e]/50 bg-white/70 p-4 shadow-sm">
+                <h3 className="font-semibold text-[#4a321e]">💰 Best for Max Profit</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  Starfruit: Higher gold/day but requires replanting every 13 days.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <div className="mt-5 grid gap-3 md:grid-cols-3">
             <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
               <p className="text-sm font-semibold text-slate-900">Need the raw crop numbers?</p>
@@ -158,12 +235,15 @@ export default function Page() {
             </li>
             <li>
               <strong>Compounding upgrades:</strong> sprinklers, artisan machines, and skill bonuses scale better
-              when your crop plan doesn’t reset every season.
+              when your crop plan doesn&apos;t reset every season.
             </li>
           </ul>
           <p className="mt-4 leading-7 text-slate-800">
-            The trick is that the greenhouse doesn’t magically create profit. It creates <em>capacity</em>. Your job
+            The trick is that the greenhouse doesn&apos;t magically create profit. It creates <em>capacity</em>. Your job
             is to allocate that capacity to the crop + processing pipeline that matches your current bottleneck.
+          </p>
+          <p className="mt-4 text-sm leading-6 text-slate-700">
+            💡 <strong>Pro tip:</strong> Start with Ancient Fruit for stable income, then add Starfruit when you have 100+ kegs.
           </p>
         </section>
 
@@ -186,10 +266,10 @@ export default function Page() {
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-6">
             <li>
-              <Link className="text-sky-800 hover:underline" href="/">
-                Stardew Profit Calculator (set crop, artisan, professions)
+              <Link className="text-sky-800 hover:underline" href="/calculator">
+                Crop Profit Calculator
               </Link>
-              <span className="text-slate-700"> — fastest way to compare crops with your rules.</span>
+              <span className="text-slate-700"> — Calculate exact profit for your greenhouse setup</span>
             </li>
             <li>
               <Link className="text-sky-800 hover:underline" href="/blog/keg-vs-jar-profit-guide">
@@ -201,7 +281,7 @@ export default function Page() {
               <Link className="text-sky-800 hover:underline" href="/blog/best-crops-every-season">
                 Best Crops guide
               </Link>
-              <span className="text-slate-700"> — broad seasonal context when you’re not greenhouse-ready yet.</span>
+              <span className="text-slate-700"> — Compare greenhouse crops with seasonal options</span>
             </li>
           </ul>
         </section>
@@ -209,15 +289,15 @@ export default function Page() {
         <section id="best-crops" className="mt-10">
           <h2 className="text-2xl font-semibold">Best Greenhouse Crops (Shortlist + When to Use Each)</h2>
           <p className="mt-4 leading-7 text-slate-800">
-            A profitable greenhouse plan isn’t just “pick the best crop.” It’s “pick the best crop for your
-            current stage.” Here’s the shortlist that covers nearly every playthrough.
+            A profitable greenhouse plan isn&apos;t just &quot;pick the best crop.&quot; It&apos;s &quot;pick the best crop for your
+            current stage.&quot; Here&apos;s the shortlist that covers nearly every playthrough.
           </p>
 
           <div className="mt-6 grid gap-4">
             <div className="rounded-2xl border border-amber-200 bg-white/65 p-6">
               <h3 className="text-xl font-semibold">Ancient Fruit (the default late-game answer)</h3>
               <p className="mt-3 leading-7 text-slate-800">
-                If you can commit to a greenhouse staple, Ancient Fruit is the king of “low effort, high output.”
+                If you can commit to a greenhouse staple, Ancient Fruit is the king of &quot;low effort, high output.&quot;
                 It regrows, scales extremely well with kegs, and turns your greenhouse into a steady weekly harvest.
                 The only downside: ramp-up time. You need seeds (often via seed maker or artifact luck) and patience.
               </p>
@@ -229,7 +309,7 @@ export default function Page() {
             <div className="rounded-2xl border border-amber-200 bg-white/65 p-6">
               <h3 className="text-xl font-semibold">Starfruit (high value, higher maintenance)</h3>
               <p className="mt-3 leading-7 text-slate-800">
-                Starfruit is the premium “active” greenhouse crop. It doesn’t regrow, so your profit includes the
+                Starfruit is the premium &quot;active&quot; greenhouse crop. It doesn&apos;t regrow, so your profit includes the
                 invisible cost of replanting and seed sourcing. But each harvest is massive, and starfruit wine is a
                 classic endgame money-maker.
               </p>
@@ -242,8 +322,8 @@ export default function Page() {
               <h3 className="text-xl font-semibold">Cranberries / Blueberries (early greenhouse stability)</h3>
               <p className="mt-3 leading-7 text-slate-800">
                 If your greenhouse comes online before you have an artisan empire, multi-harvest berries give you
-                consistent raw sales without needing huge machine counts. They’re rarely optimal in the long run,
-                but they’re extremely practical.
+                consistent raw sales without needing huge machine counts. They&apos;re rarely optimal in the long run,
+                but they&apos;re extremely practical.
               </p>
               <p className="mt-3 leading-7 text-slate-800">
                 <strong>Best when:</strong> you want low setup, have limited kegs/jars, and need steady cashflow.
@@ -258,14 +338,14 @@ export default function Page() {
                 to coffee can pay for itself indirectly.
               </p>
               <p className="mt-3 leading-7 text-slate-800">
-                <strong>Best when:</strong> you’re optimizing play tempo, mining, or daily route efficiency.
+                <strong>Best when:</strong> you&apos;re optimizing play tempo, mining, or daily route efficiency.
               </p>
             </div>
           </div>
 
           <p className="mt-6 leading-7 text-slate-800">
             Want a data-driven comparison with your professions and chosen processing? Use the main calculator and
-            lock it to “greenhouse” assumptions (seasonless, consistent watering) to compare crops apples-to-apples.
+            lock it to &quot;greenhouse&quot; assumptions (seasonless, consistent watering) to compare crops apples-to-apples.
           </p>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
             <div className="rounded-2xl border border-amber-200 bg-white/70 p-4">
@@ -277,8 +357,8 @@ export default function Page() {
               <p className="text-sm font-semibold text-slate-900">Need the broader money loop?</p>
               <p className="mt-2 text-sm leading-6 text-slate-800">After greenhouse planning, map it back into your whole farm economy and seasonal strategy.</p>
               <div className="mt-3 flex flex-col gap-2">
-                <Link href="/blog/money-making-guide" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Read Money Making Guide →</Link>
-                <Link href="/blog/best-crops-every-season" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Read Best Crops Every Season →</Link>
+                <Link href="/blog/money-making-guide" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Scale greenhouse profit into full farm income →</Link>
+                <Link href="/blog/best-crops-every-season" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Compare with seasonal options →</Link>
               </div>
             </div>
           </div>
@@ -288,33 +368,36 @@ export default function Page() {
           <h2 className="text-2xl font-semibold">Sprinkler Layouts & Space Planning</h2>
           <p className="mt-4 leading-7 text-slate-800">
             The greenhouse has 116 plantable soil tiles. Your goal is to water all of them automatically while
-            keeping your harvest route simple. That’s why most greenhouse layouts converge on a few patterns:
+            keeping your harvest route simple. That&apos;s why most greenhouse layouts converge on a few patterns:
           </p>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-800">
             <li>
-              <strong>Quality Sprinklers:</strong> workable mid-game, but you’ll lose tiles to coverage gaps.
+              <strong>Quality Sprinklers:</strong> workable mid-game, but you&apos;ll lose tiles to coverage gaps.
             </li>
             <li>
               <strong>Iridium Sprinklers:</strong> best-in-slot for maximizing tilled tiles and minimizing hassle.
             </li>
             <li>
-              <strong>Pressure Nozzles:</strong> niche but powerful; can simplify some patterns if you’re min-maxing.
+              <strong>Pressure Nozzles:</strong> niche but powerful; can simplify some patterns if you&apos;re min-maxing.
             </li>
           </ul>
           <p className="mt-4 leading-7 text-slate-800">
             Practical advice: optimize for <em>your route</em>, not theoretical maximum tiles. If a layout saves you
-            a few tiles but makes harvesting annoying, you’ll lose more profit by procrastinating harvest days.
+            a few tiles but makes harvesting annoying, you&apos;ll lose more profit by procrastinating harvest days.
           </p>
           <p className="mt-4 leading-7 text-slate-800">
-            If you’re unsure, start with a clean iridium-based layout, then adjust once you’ve lived with it for a
+            If you&apos;re unsure, start with a clean iridium-based layout, then adjust once you&apos;ve lived with it for a
             week in-game.
+          </p>
+          <p className="mt-4 text-sm leading-6 text-slate-700">
+            💡 <strong>Pro tip:</strong> Use quality sprinklers until iridium is abundant—they work perfectly in greenhouse.
           </p>
         </section>
 
         <section id="artisan-path" className="mt-10">
           <h2 className="text-2xl font-semibold">Artisan Processing: Kegs vs Jars in a Greenhouse Run</h2>
           <p className="mt-4 leading-7 text-slate-800">
-            Most greenhouse guides stop at “plant Ancient Fruit, make wine.” That’s directionally correct—but your
+            Most greenhouse guides stop at &quot;plant Ancient Fruit, make wine.&quot; That&apos;s directionally correct—but your
             real decision is a capacity question:
           </p>
           <div className="mt-4 rounded-2xl border border-amber-200 bg-white/70 p-6">
@@ -325,19 +408,19 @@ export default function Page() {
                 and sell overflow raw or jar it.
               </li>
               <li>
-                <strong>Are you short on time?</strong> If you can’t keep up with reload cycles, you want fewer,
+                <strong>Are you short on time?</strong> If you can&apos;t keep up with reload cycles, you want fewer,
                 higher-impact reloads (again, often kegs), or simplify your crop plan.
               </li>
             </ol>
           </div>
           <p className="mt-4 leading-7 text-slate-800">
-            A good “real life” compromise is a split pipeline:
+            A good &quot;real life&quot; compromise is a split pipeline:
           </p>
           <div className="mt-4 rounded-2xl border border-amber-200 bg-white/70 p-5">
             <p className="text-sm font-semibold text-slate-900">Want the exact machine-side answer instead of rules of thumb?</p>
             <p className="mt-2 text-sm leading-6 text-slate-800">Run your greenhouse candidates through the artisan profit tool, then use the keg vs jar comparison if you need a simpler machine decision.</p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              <Link href="/tools/artisan-profit" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Open Artisan Profit Tool →</Link>
+              <Link href="/tools/artisan-profit" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Optimize keg/jar processing →</Link>
               <Link href="/tools/keg-vs-preserves-jar" className="inline-flex items-center gap-2 font-semibold text-sky-800 underline decoration-sky-800/35 underline-offset-4 hover:text-sky-700">Compare Keg vs Preserves Jar →</Link>
             </div>
           </div>
@@ -349,7 +432,7 @@ export default function Page() {
               Put <strong>secondary fruit</strong> (tree fruit, berries overflow) into <strong>preserves jars</strong>.
             </li>
             <li>
-              If you’re drowning in harvest, sell a portion raw to keep your schedule sane.
+              If you&apos;re drowning in harvest, sell a portion raw to keep your schedule sane.
             </li>
           </ul>
           <p className="mt-4 leading-7 text-slate-800">
@@ -368,7 +451,7 @@ export default function Page() {
         <section id="daily-routine" className="mt-10">
           <h2 className="text-2xl font-semibold">A Practical Daily Routine (So You Actually Earn the Gold)</h2>
           <p className="mt-4 leading-7 text-slate-800">
-            The best greenhouse plan is the one you can execute every week without burning out. Here’s a routine
+            The best greenhouse plan is the one you can execute every week without burning out. Here&apos;s a routine
             that works for most players:
           </p>
           <div className="mt-5 grid gap-4 md:grid-cols-2">
@@ -381,7 +464,7 @@ export default function Page() {
             <div className="rounded-2xl border border-slate-200 bg-white/70 p-6">
               <h3 className="font-semibold">2) Match machines to output</h3>
               <p className="mt-2 text-slate-800 leading-7">
-                If your harvest outpaces kegs, you’re not “losing”—you’re just under-built. Expand gradually or sell
+                If your harvest outpaces kegs, you&apos;re not &quot;losing&quot;—you&apos;re just under-built. Expand gradually or sell
                 overflow raw.
               </p>
             </div>
@@ -401,7 +484,7 @@ export default function Page() {
           </div>
           <p className="mt-6 leading-7 text-slate-800">
             The goal is to prevent a common failure mode: you build an optimal greenhouse on paper, then avoid it
-            because it’s annoying to run. Profit is a habit.
+            because it&apos;s annoying to run. Profit is a habit.
           </p>
         </section>
 
@@ -411,7 +494,7 @@ export default function Page() {
             Once your greenhouse is stable, upgrades should target your bottleneck.
           </p>
           <div className="mt-5 rounded-2xl border border-amber-200 bg-white/65 p-6">
-            <h3 className="text-xl font-semibold">If you’re time-limited</h3>
+            <h3 className="text-xl font-semibold">If you&apos;re time-limited</h3>
             <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-800">
               <li>Standardize your crop (fewer different harvest rhythms).</li>
               <li>Move machines closer, reduce walking, add storage buffers.</li>
@@ -419,7 +502,7 @@ export default function Page() {
             </ul>
           </div>
           <div className="mt-4 rounded-2xl border border-amber-200 bg-white/65 p-6">
-            <h3 className="text-xl font-semibold">If you’re machine-limited</h3>
+            <h3 className="text-xl font-semibold">If you&apos;re machine-limited</h3>
             <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-800">
               <li>Craft more kegs/jars (oak resin farms pay for themselves).</li>
               <li>Prioritize high-value inputs for kegs first.</li>
@@ -427,11 +510,11 @@ export default function Page() {
             </ul>
           </div>
           <div className="mt-4 rounded-2xl border border-amber-200 bg-white/65 p-6">
-            <h3 className="text-xl font-semibold">If you’re crop-limited</h3>
+            <h3 className="text-xl font-semibold">If you&apos;re crop-limited</h3>
             <ul className="mt-3 list-disc space-y-2 pl-6 text-slate-800">
               <li>Convert greenhouse to Ancient Fruit over time via seed makers.</li>
               <li>Add perimeter fruit trees for passive daily yield.</li>
-              <li>Stop wasting tiles on “testing” once you’ve picked a plan—commit for a month.</li>
+              <li>Stop wasting tiles on &quot;testing&quot; once you&apos;ve picked a plan—commit for a month.</li>
             </ul>
           </div>
           <p className="mt-6 leading-7 text-slate-800">
@@ -447,7 +530,7 @@ export default function Page() {
           <h2 className="text-2xl font-semibold">Common Mistakes That Cut Greenhouse Profit</h2>
           <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-800">
             <li>
-              <strong>Over-optimizing tiles:</strong> if a layout annoys you, you’ll skip harvests and lose more gold.
+              <strong>Over-optimizing tiles:</strong> if a layout annoys you, you&apos;ll skip harvests and lose more gold.
             </li>
             <li>
               <strong>Building crops before machines:</strong> a full Ancient Fruit greenhouse without kegs is a
@@ -493,7 +576,7 @@ export default function Page() {
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               className="rounded-xl bg-sky-700 px-4 py-2 text-white hover:bg-sky-800"
-              href="/"
+              href="/calculator"
             >
               Open Profit Calculator
             </Link>
@@ -503,12 +586,18 @@ export default function Page() {
             >
               Compare Keg vs Jar
             </Link>
+            <Link
+              className="rounded-xl border border-sky-700 bg-white/60 px-4 py-2 text-sky-800 hover:bg-white"
+              href="/guides/ancient-fruit-vs-starfruit"
+            >
+              Ancient Fruit vs Starfruit
+            </Link>
           </div>
         </section>
 
         <footer className="mt-10 text-sm text-slate-600">
           <p>
-            Disclosure: This guide focuses on practical, repeatable profit. Exact “best” results vary by profession
+            Disclosure: This guide focuses on practical, repeatable profit. Exact &quot;best&quot; results vary by profession
             choices, machine counts, and how often you reload artisan equipment.
           </p>
         </footer>
