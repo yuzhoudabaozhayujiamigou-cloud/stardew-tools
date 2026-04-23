@@ -550,6 +550,117 @@ export default function CalculatorPage() {
             initialSeason={initialSeason}
             initialResults={initialResults}
           />
+
+          {/* Quick Next Steps - Positioned right after calculator results */}
+          <section className="rounded-[28px] border-4 border-[#6f8b3c]/70 bg-gradient-to-br from-[#e7f1c8] to-[#d4e5b5] p-6 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-2 ring-[#6f8b3c]/30 sm:p-8">
+            <div className="flex items-start gap-3">
+              <span className="text-3xl" aria-hidden="true">🎯</span>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#5b6f2f]/80">You Got the Numbers</p>
+                <h2 className="mt-1 text-2xl font-bold text-[#4a321e] sm:text-3xl">What&apos;s Your Next Move?</h2>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+                  Most players need one of these three paths after seeing crop rankings. Pick yours:
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {/* Path 1: Processing */}
+              <article className="group relative overflow-hidden rounded-2xl border-2 border-[#7c4d2e]/50 bg-white p-5 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-[#6f8b3c]/70 hover:shadow-xl">
+                <div className="absolute right-3 top-3 rounded-full bg-[#ff6b6b]/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+                  Most Popular
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-4xl" aria-hidden="true">🍷</span>
+                  <h3 className="text-lg font-bold text-[#4a321e]">Processing Profit</h3>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-[#5f4228]/90">
+                  You know the crop. Now decide: <strong>raw selling, kegs, or jars?</strong> Get the real ROI for your machine slots.
+                </p>
+                <div className="mt-4 flex flex-col gap-2">
+                  <TrackLink
+                    href="/tools/artisan-profit"
+                    trackEvent="calculator_quick_next_artisan_tool"
+                    className="inline-flex items-center justify-between gap-2 rounded-xl border-2 border-[#7c4d2e]/60 bg-[#5c8a3e] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#4e7a32] hover:shadow-md"
+                  >
+                    <span>Artisan Profit Tool</span>
+                    <span aria-hidden="true">→</span>
+                  </TrackLink>
+                  <TrackLink
+                    href="/guides/best-keg-items"
+                    trackEvent="calculator_quick_next_best_keg"
+                    className="inline-flex items-center justify-between gap-2 rounded-xl border border-[#8a5b3a]/40 bg-[#fff8e7] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition-all hover:bg-[#fce8b1]"
+                  >
+                    <span>Best Keg Items Guide</span>
+                    <span aria-hidden="true" className="opacity-70">→</span>
+                  </TrackLink>
+                </div>
+              </article>
+
+              {/* Path 2: Greenhouse */}
+              <article className="group relative overflow-hidden rounded-2xl border-2 border-[#7c4d2e]/50 bg-white p-5 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-[#6f8b3c]/70 hover:shadow-xl">
+                <div className="flex items-center gap-3">
+                  <span className="text-4xl" aria-hidden="true">🏡</span>
+                  <h3 className="text-lg font-bold text-[#4a321e]">Greenhouse Strategy</h3>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-[#5f4228]/90">
+                  Planning <strong>long-term greenhouse output?</strong> Get repeat-harvest strategy, machine throughput, and Ancient Fruit vs Starfruit.
+                </p>
+                <div className="mt-4 flex flex-col gap-2">
+                  <TrackLink
+                    href="/guides/greenhouse-profit-guide"
+                    trackEvent="calculator_quick_next_greenhouse_guide"
+                    className="inline-flex items-center justify-between gap-2 rounded-xl border-2 border-[#7c4d2e]/60 bg-[#5c8a3e] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#4e7a32] hover:shadow-md"
+                  >
+                    <span>Greenhouse Profit Guide</span>
+                    <span aria-hidden="true">→</span>
+                  </TrackLink>
+                  <TrackLink
+                    href="/guides/ancient-fruit-vs-starfruit"
+                    trackEvent="calculator_quick_next_ancient_vs_starfruit"
+                    className="inline-flex items-center justify-between gap-2 rounded-xl border border-[#8a5b3a]/40 bg-[#fff8e7] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition-all hover:bg-[#fce8b1]"
+                  >
+                    <span>Ancient Fruit vs Starfruit</span>
+                    <span aria-hidden="true" className="opacity-70">→</span>
+                  </TrackLink>
+                </div>
+              </article>
+
+              {/* Path 3: Seasonal Planning */}
+              <article className="group relative overflow-hidden rounded-2xl border-2 border-[#7c4d2e]/50 bg-white p-5 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-[#6f8b3c]/70 hover:shadow-xl">
+                <div className="flex items-center gap-3">
+                  <span className="text-4xl" aria-hidden="true">🌱</span>
+                  <h3 className="text-lg font-bold text-[#4a321e]">Seasonal Planning</h3>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-[#5f4228]/90">
+                  Still deciding <strong>what to plant?</strong> Get simpler seasonal guides and quick decision pages for common crop questions.
+                </p>
+                <div className="mt-4 flex flex-col gap-2">
+                  <TrackLink
+                    href="/blog/best-crops-every-season"
+                    trackEvent="calculator_quick_next_best_crops"
+                    className="inline-flex items-center justify-between gap-2 rounded-xl border-2 border-[#7c4d2e]/60 bg-[#5c8a3e] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#4e7a32] hover:shadow-md"
+                  >
+                    <span>Best Crops Every Season</span>
+                    <span aria-hidden="true">→</span>
+                  </TrackLink>
+                  <TrackLink
+                    href="/blog/money-making-guide"
+                    trackEvent="calculator_quick_next_money_guide"
+                    className="inline-flex items-center justify-between gap-2 rounded-xl border border-[#8a5b3a]/40 bg-[#fff8e7] px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition-all hover:bg-[#fce8b1]"
+                  >
+                    <span>Money Making Guide</span>
+                    <span aria-hidden="true" className="opacity-70">→</span>
+                  </TrackLink>
+                </div>
+              </article>
+            </div>
+
+            <p className="mt-6 text-center text-xs text-[#5f4228]/75">
+              💡 Tip: Most players pick one path, optimize it, then come back for the next.
+            </p>
+          </section>
+
           <FaqGuideCard />
 
           <details className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
