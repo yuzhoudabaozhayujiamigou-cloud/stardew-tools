@@ -29,9 +29,9 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Greenhouse Layout Guide (116 Tiles)",
+  title: "Stardew Valley Greenhouse Layout Guide – Best Crop & Sprinkler Setup",
   description:
-    "A practical Stardew Valley greenhouse layout guide for 116 planting tiles: sprinkler placement, best greenhouse crops ranked, and Ancient Fruit vs Starfruit decisions with calculator presets.",
+    "Plan the best Stardew Valley greenhouse layout with sprinkler placement, crop choices, fruit trees, and profit-focused setup tips for long-term farming.",
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",

@@ -11,6 +11,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 export const metadata: Metadata = {
+  title: "Best Crops for Every Season in Stardew Valley – Profit & ROI Guide",
+  description:
+    "Compare the best Stardew Valley crops for Spring, Summer, Fall, and Winter by profit, ROI, regrowth, seed cost, and planting timing.",
   alternates: {
     canonical: "https://www.stardewprofit.com/blog/best-crops-every-season",
   },
@@ -22,10 +25,6 @@ export const metadata: Metadata = {
     title:
       "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026)",
   },
-  title:
-    "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026) | StardewProfit",
-  description:
-    "Complete Stardew Valley crop guide for every season: Strawberry/Potato (Spring), Blueberry/Starfruit (Summer), Cranberry/Pumpkin (Fall), plus Greenhouse picks. Quick profit/day comparison + calculator.",
   keywords: [
     "best crops stardew valley",
     "best crops each season stardew",

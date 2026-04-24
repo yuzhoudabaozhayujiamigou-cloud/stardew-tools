@@ -27,9 +27,9 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Best Crops Year 1 in Stardew Valley (By Season)",
+  title: "Best Crops for Year 1 in Stardew Valley – Spring to Fall Planting Guide",
   description:
-    "A first year farming guide for Stardew Valley: best crops for Spring, Summer, Fall, and Winter Year 1, plus budget tips and calculator presets.",
+    "See the best Year 1 crops for Spring, Summer, and Fall in Stardew Valley. Compare early-game profit, seed cost, timing, and safe planting choices.",
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
