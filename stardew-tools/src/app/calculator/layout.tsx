@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 
 const NEXT_GUIDES = [
   {
-    href: "/blog/best-crops-every-season",
-    title: "Best Crops Every Season",
-    description: "Compare broader seasonal crop choices after you rank your current options.",
+    href: "/blog/stardew-valley-profit-guide",
+    title: "Profit Guide",
+    description: "Use this if you want broader crop planning beyond the calculator result.",
   },
   {
     href: "/guides/greenhouse-profit-guide",
@@ -44,33 +44,27 @@ export default function CalculatorLayout({ children }: CalculatorLayoutProps) {
             >
               Jump to Calculator
             </a>
-            <Link
-              href="/blog/stardew-valley-profit-guide"
-              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
-            >
-              Profit Guide
-            </Link>
           </div>
-          <nav
-            aria-label="Next step guides"
-            className="mt-4 grid gap-2 sm:grid-cols-2"
-          >
+        </div>
+      </section>
+      <div id="profit-calculator">{children}</div>
+      <section className="mx-auto w-full max-w-6xl px-4 pb-2 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-sm sm:p-6">
+          <p className="text-sm font-semibold text-slate-900">Related guides</p>
+          <nav aria-label="Related guides" className="mt-3 grid gap-2 sm:grid-cols-3">
             {NEXT_GUIDES.map((guide) => (
               <Link
                 key={guide.href}
                 href={guide.href}
-                className="rounded-xl border border-slate-200 bg-white/90 p-3 transition hover:border-emerald-300 hover:bg-white"
+                className="rounded-xl border border-slate-200 bg-white p-3 transition hover:border-emerald-300 hover:bg-slate-50"
               >
                 <p className="text-sm font-semibold text-slate-900">{guide.title}</p>
-                <p className="mt-1 text-xs text-slate-600 sm:text-sm">
-                  {guide.description}
-                </p>
+                <p className="mt-1 text-xs text-slate-600 sm:text-sm">{guide.description}</p>
               </Link>
             ))}
           </nav>
         </div>
       </section>
-      <div id="profit-calculator">{children}</div>
     </div>
   );
 }

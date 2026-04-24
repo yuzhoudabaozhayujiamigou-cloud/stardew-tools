@@ -506,6 +506,24 @@ export function CalculatorClient(props: {
 
   const topPickRevenuePerHarvest = topPick && topPick.harvestCount > 0 ? topPick.totalRevenue / topPick.harvestCount : 0;
   const topPickSeedCost = topPick ? topPick.totalRevenue - topPick.totalProfit : 0;
+  const whyThisCropWins = useMemo(() => {
+    if (!topPick) return null;
+
+    if (topPick.harvestCount > 1) {
+      return "This crop wins because there is enough time left for its regrowth cycle to pay off.";
+    }
+
+    if (daysLeft <= 10) {
+      return "This crop wins because faster harvest timing matters more when there are only a few days left.";
+    }
+
+    const roi = topPickSeedCost > 0 ? topPick.totalProfit / topPickSeedCost : 0;
+    if (roi >= 2) {
+      return "This crop is efficient because it returns strong profit relative to seed cost.";
+    }
+
+    return "This crop wins because it can finish before the season ends and produces strong gold per day in your remaining window.";
+  }, [daysLeft, topPick, topPickSeedCost]);
 
   const topArtisanBest = compareTop?.artisanGoodsProfit
     ? Math.max(compareTop.artisanGoodsProfit.kegs, compareTop.artisanGoodsProfit.preservesJars)
@@ -612,10 +630,8 @@ export function CalculatorClient(props: {
       <div className="mt-5 grid content-start gap-5 transition-opacity duration-200 motion-reduce:transition-none">
         {topPick ? (
           <section className="rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] p-4 text-sm text-[#5f4228]/90 shadow-sm">
-            <h3 className="text-base font-semibold text-[#4a321e]">{text.explainTitle}</h3>
-            <p className="mt-2 leading-6">
-              {text.explainSummaryPrefix}: <strong>{topPick.cropName}</strong>
-            </p>
+            <h3 className="text-base font-semibold text-[#4a321e]">Why this crop wins</h3>
+            <p className="mt-2 leading-6">{whyThisCropWins}</p>
             <ul className="mt-3 list-disc space-y-2 pl-5 leading-6">
               <li>
                 <strong>{text.explainFormula}:</strong> {fmt(topPick.totalRevenue)} - {fmt(topPickSeedCost)} = {fmt(topPick.totalProfit)}
@@ -626,14 +642,6 @@ export function CalculatorClient(props: {
               <li>
                 <strong>{text.explainSeedCost}:</strong> {fmt(topPickSeedCost)}
               </li>
-            </ul>
-            <p className="mt-3 font-medium text-[#4a321e]">{text.explainFactors}</p>
-            <ul className="mt-2 list-disc space-y-1.5 pl-5 leading-6">
-              <li>{text.explainFactorSeason}: {formValue.season} · {daysLeft}</li>
-              <li>{text.explainFactorQuality}: {formValue.quality}</li>
-              <li>{text.explainFactorTiller}: {formValue.hasTiller ? "on" : "off"}</li>
-              <li>{text.explainFactorProfession}: {formValue.profession}</li>
-              <li>{text.explainFactorArtisan}</li>
             </ul>
           </section>
         ) : null}

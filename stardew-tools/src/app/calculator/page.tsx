@@ -209,7 +209,7 @@ export default function CalculatorPage() {
             <li>• Gold per day (profit/day)</li>
             <li>• ROI / break-even days</li>
             <li>• Best crop by season</li>
-            <li>• Tiller vs Artisan impact</li>
+            <li>• Tiller bonus impact</li>
           </ul>
           <div className="mt-5 flex flex-wrap items-center gap-2.5">
             <a
