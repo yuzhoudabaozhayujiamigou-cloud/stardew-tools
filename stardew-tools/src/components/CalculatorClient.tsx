@@ -334,7 +334,6 @@ export function CalculatorClient(props: {
     : tableSourceResults.slice(0, RESULTS_COLLAPSED_LIMIT);
 
   const topPick = results[0];
-  const quickAnswerPick = topPick ?? tableSourceResults[0];
   const compareTop = comparePair?.[0];
   const compareRunnerUp = comparePair?.[1];
 
@@ -435,10 +434,6 @@ export function CalculatorClient(props: {
       : compareCopyState === "error"
         ? text.copyFailed
         : text.compareLinkButton;
-
-  const quickAnswerTitle = lang === "zh" ? "快速答案" : "Quick Answer";
-  const quickAnswerBestCropLabel = lang === "zh" ? "最佳作物" : "Best Crop";
-  const quickAnswerGoldPerDayLabel = lang === "zh" ? "金币/天" : "gold/day";
 
   const resultToggleLabel = showAllResults
     ? lang === "zh"
@@ -552,18 +547,6 @@ export function CalculatorClient(props: {
       <InputForm value={formValue} lang={lang} onChange={setFormValue} />
 
       <DaysLeftInput value={daysLeft} onChange={setDaysLeft} />
-
-      {quickAnswerPick ? (
-        <section className="mt-4 rounded-2xl border border-[#8a5b3a]/50 bg-[#fff2c8] px-4 py-3 text-sm text-[#5f4228]/95 shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6b4a2c]/80">{quickAnswerTitle}</p>
-          <p className="mt-1 text-base font-semibold text-[#4a321e]">
-            {quickAnswerBestCropLabel}: {quickAnswerPick.cropName}
-          </p>
-          <p className="mt-1 text-sm text-[#5f4228]">
-            {fmt(quickAnswerPick.goldPerDay)} {quickAnswerGoldPerDayLabel}
-          </p>
-        </section>
-      ) : null}
 
       <div className="mt-4 flex flex-wrap items-center gap-3 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8] px-4 py-3 text-sm text-[#5f4228]/90 shadow-sm">
         <button
