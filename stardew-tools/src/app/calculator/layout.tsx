@@ -5,22 +5,17 @@ const NEXT_GUIDES = [
   {
     href: "/blog/best-crops-every-season",
     title: "Best Crops Every Season",
-    description: "Pick the best target crop after you compare ROI in the calculator.",
-  },
-  {
-    href: "/blog/stardew-valley-profit-guide",
-    title: "Stardew Valley Profit Guide",
-    description: "Use this when you want a full farm profit plan after the calculator result.",
+    description: "Compare broader seasonal crop choices after you rank your current options.",
   },
   {
     href: "/guides/greenhouse-profit-guide",
-    title: "Greenhouse Profit Guide",
-    description: "Turn calculator winners into stable year-round greenhouse income.",
+    title: "Greenhouse Guide",
+    description: "Use this if you want a longer-term greenhouse crop plan.",
   },
   {
     href: "/blog/keg-vs-jar-profit-guide",
-    title: "Keg vs Jar Profit Guide",
-    description: "Decide the best processing path for the crop you just selected.",
+    title: "Keg vs Jar Guide",
+    description: "Review this separately if you later decide to compare processing routes.",
   },
 ];
 
@@ -37,11 +32,10 @@ export default function CalculatorLayout({ children }: CalculatorLayoutProps) {
             Start Here
           </p>
           <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
-            Get your best crop answer fast, then move to the right profit guide.
+            Find the best raw crop for your remaining season in seconds.
           </h2>
           <p className="mt-2 text-sm text-slate-700 sm:text-base">
-            Use the calculator first. Then continue with the exact guide that matches
-            your next decision.
+            Use the calculator first, then explore related guides only if you need more context.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             <a
@@ -54,7 +48,7 @@ export default function CalculatorLayout({ children }: CalculatorLayoutProps) {
               href="/blog/stardew-valley-profit-guide"
               className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
             >
-              Read Profit Guide
+              Profit Guide
             </Link>
           </div>
           <nav
