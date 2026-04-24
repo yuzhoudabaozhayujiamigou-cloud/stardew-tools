@@ -90,66 +90,50 @@ export default function CalculatorPage() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What are the most profitable crops in Stardew Valley?",
+        name: "What does this Stardew crop calculator optimize?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Starfruit and Ancient Fruit often lead long-term profit once processed, but the best raw crop changes with season length, regrow timing, and your machine capacity. Enter your current season and days left to get the most reliable ranking for your save.",
+          text: "It ranks raw crop choices by season, days left, gold per day, total profit, and ROI. It is designed for quick planting decisions, not full artisan processing planning.",
         },
       },
       {
         "@type": "Question",
-        name: "Should I use kegs or jars for my crops?",
+        name: "Why does the best crop change when I change days left?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Use kegs when you can wait for higher value per unit, and use jars when faster turnaround helps cash flow. The right choice depends on machine-day value, processing speed, and how many machines you can keep running.",
+          text: "Some crops need more days before the first harvest, while regrow crops need enough time to pay off. Changing days left can make a slower high-profit crop worse than a faster crop.",
         },
       },
       {
         "@type": "Question",
-        name: "How do I maximize greenhouse profits?",
+        name: "Should I turn Tiller on?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Prioritize repeat-harvest crops and match harvest output to your keg or jar throughput. Test longer windows, such as 28 to 56 days, to find the setup that gives stable weekly profit for your machine count.",
+          text: "Turn Tiller on only if your farmer already has the Tiller profession. Leave it off for early-game or neutral comparisons.",
         },
       },
       {
         "@type": "Question",
-        name: "What's the best crop for each season?",
+        name: "What does ROI mean here?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "There is no universal winner because seed budget, days left, professions, and processing setup all change the ranking. Compare crops by season first, then lock in the option that fits your current farm constraints.",
+          text: "ROI compares profit against seed cost. A high ROI crop pays back its seed cost efficiently, while gold per day shows how much value it creates over the remaining season.",
         },
       },
       {
         "@type": "Question",
-        name: "What inputs should I set in this Stardew crop calculator first?",
+        name: "Does this include kegs, jars, or wine?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Start with season and days left, then adjust quality and profession assumptions. That gives the most realistic ranking before you optimize finer details.",
+          text: "No. This calculator focuses on direct crop selling value. Use it first to choose a strong crop, then evaluate processing separately if you want an artisan route.",
         },
       },
       {
         "@type": "Question",
-        name: "What factors does this Stardew Valley profit calculator consider?",
+        name: "What should I enter first?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "This calculator considers season, days left, crop quality, and professions. It focuses on raw crop selling value to help you make fast planting decisions.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Does this Stardew Valley profit calculator work for version 1.6?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Yes, this page is maintained as a 1.6 crop profit calculator. Re-check major updates after game patches and adjust assumptions to match your save.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Should I start from the homepage or jump straight to the calculator?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "If you already know your season and days left, start directly in the calculator. If your strategy is still unclear, review a quick overview first, then return and run your scenario with concrete inputs.",
+          text: "Start with season and days left. Those two inputs decide which crops can still finish before the season ends.",
         },
       },
     ],
@@ -271,116 +255,44 @@ export default function CalculatorPage() {
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Frequently Asked Questions</h2>
             <div className="mt-4 grid gap-3">
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">
-                  What are the most profitable crops in Stardew Valley?
-                </h3>
+                <h3 className="text-base font-semibold text-[#4a321e]">What does this Stardew crop calculator optimize?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Starfruit and Ancient Fruit usually dominate once you process into wine, but the best raw crop shifts
-                  with days left and regrow windows. Use this crop calculator for your current season, then follow{' '}
-                  <Link
-                    href="/blog/farm-profit-pillars"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Farm Profit Pillars
-                  </Link>
-                  {' '}and the{' '}
-                  <Link
-                    href="/blog/stardew-valley-artisan-profit-guide"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Artisan Profit Guide
-                  </Link>
-                  {' '}to map your long-term stardew profits.
+                  It ranks raw crop choices by season, days left, gold per day, total profit, and ROI. It is designed for quick planting decisions, not full artisan processing planning.
                 </p>
               </article>
 
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">Should I use kegs or jars for my crops?</h3>
+                <h3 className="text-base font-semibold text-[#4a321e]">Why does the best crop change when I change days left?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Kegs are usually stronger for top fruit when you can afford longer processing time, while jars often
-                  pay back faster in early and mid game. The real answer depends on value per machine-day and how many
-                  machines you can keep fed. Use the{' '}
-                  <Link
-                    href="/blog/stardew-valley-keg-jar-artisan-profit-system"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Keg/Jar/Artisan Profit System
-                  </Link>
-                  {' '}for a direct decision rule.
+                  Some crops need more days before the first harvest, while regrow crops need enough time to pay off. Changing days left can make a slower high-profit crop worse than a faster crop.
                 </p>
               </article>
 
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">How do I maximize greenhouse profits?</h3>
+                <h3 className="text-base font-semibold text-[#4a321e]">Should I turn Tiller on?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Greenhouse profit is mostly a throughput problem: pick repeat-harvest crops, then match harvest cadence
-                  to your keg/jar capacity. Ancient Fruit pipelines are a common baseline, but your best setup depends on
-                  machine count and weekly time budget. Start with{' '}
-                  <Link
-                    href="/blog/farm-profit-pillars"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Farm Profit Pillars
-                  </Link>
-                  {' '}and optimize processing via the{' '}
-                  <Link
-                    href="/blog/stardew-valley-artisan-profit-guide"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Artisan Profit Guide
-                  </Link>
-                  .
+                  Turn Tiller on only if your farmer already has the Tiller profession. Leave it off for early-game or neutral comparisons.
                 </p>
               </article>
 
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">What&apos;s the best crop for each season?</h3>
+                <h3 className="text-base font-semibold text-[#4a321e]">What does ROI mean here?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  There is no single best crop for every save because seed budget, unlocked professions, and days
-                  remaining all shift the ranking. Use the calculator with season presets first, then use{' '}
-                  <Link
-                    href="/blog/farm-profit-pillars"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Farm Profit Pillars
-                  </Link>
-                  {' '}for season-by-season recommendations you can actually execute.
+                  ROI compares profit against seed cost. A high ROI crop pays back its seed cost efficiently, while gold per day shows how much value it creates over the remaining season.
                 </p>
               </article>
 
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">What should I input first in this calculator?</h3>
+                <h3 className="text-base font-semibold text-[#4a321e]">Does this include kegs, jars, or wine?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Always set season and days left first, because that changes which crops can realistically finish.
-                  Then adjust quality and profession assumptions for a more accurate ranking.
+                  No. This calculator focuses on direct crop selling value. Use it first to choose a strong crop, then evaluate processing separately if you want an artisan route.
                 </p>
               </article>
 
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">Should I use homepage guidance before this tool?</h3>
+                <h3 className="text-base font-semibold text-[#4a321e]">What should I enter first?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  If you are unsure which route to optimize, start with the{' '}
-                  <Link
-                    href="/"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    homepage quick answer
-                  </Link>
-                  {' '}then come back here with a clear season goal.
-                </p>
-              </article>
-
-              <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-                <h3 className="text-base font-semibold text-[#4a321e]">How do I avoid overplanting for machine capacity?</h3>
-                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
-                  Use calculator output as the shortlist, then compare processing constraints with the{' '}
-                  <Link
-                    href="/blog/stardew-valley-keg-jar-artisan-profit-system"
-                    className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
-                  >
-                    Keg/Jar/Artisan Profit System
-                  </Link>
-                  {' '}to keep kegs and jars fed without backlog.
+                  Start with season and days left. Those two inputs decide which crops can still finish before the season ends.
                 </p>
               </article>
             </div>
