@@ -87,10 +87,6 @@ export default function BestCropsYear1Page() {
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               星露谷第一年种什么最赚？（按季节快速推荐）
             </p>
-            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              Keywords: <strong>stardew valley best crops year 1</strong>,{" "}
-              <strong>first year farming guide</strong>
-            </p>
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

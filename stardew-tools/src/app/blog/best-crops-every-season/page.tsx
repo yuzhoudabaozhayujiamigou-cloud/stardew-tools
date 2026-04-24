@@ -450,8 +450,7 @@ export default function BestCropsEverySeasonPage() {
             </div>
             <div className="mt-4 rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] p-4">
               <p className="text-sm leading-6 text-[#5f4228]/90">
-                Want the &quot;best crop&quot; for your exact day, sprinklers, profession,
-                and processing chain? Use the calculator:{" "}
+                Want the best raw crop for your exact days left and season? Use the calculator:{" "}
                 <Link
                   href="/calculator"
                   className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]"
@@ -552,7 +551,7 @@ export default function BestCropsEverySeasonPage() {
             </h2>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
               This table is a fast &quot;what should I plant&quot; answer. For exact
-              numbers, run the season calculator (and toggle Artisan/Tiller).
+              numbers, run the season calculator with your days left and Tiller bonus.
             </p>
 
             <div className="mt-4 grid gap-4 md:grid-cols-2">
