@@ -41,9 +41,9 @@ const FAQ_ITEMS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Ancient Fruit vs Starfruit (Profit, Effort, and Greenhouse Loop)",
+  title: "Ancient Fruit vs Starfruit Wine – Which is More Profitable in Stardew Valley?",
   description:
-    "Ancient Fruit vs Starfruit in Stardew Valley: which crop is better for profit? This guide compares profit, effort (replanting), greenhouse loops, and keg/jar throughput.",
+    "Ancient Fruit or Starfruit wine for max profit? Compare raw crops, wine value, replanting effort, and greenhouse ROI. See which wins for your farm setup.",
   openGraph: {
     type: "article",
     publishedTime: "2026-03-03T00:00:00+08:00",

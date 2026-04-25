@@ -31,7 +31,7 @@ const FAQ_ZH = [
 export const metadata: Metadata = {
   title: "Stardew Valley Greenhouse Layout Guide – Best Crop & Sprinkler Setup",
   description:
-    "Plan the best Stardew Valley greenhouse layout with sprinkler placement, crop choices, fruit trees, and profit-focused setup tips for long-term farming.",
+    "Maximize your 116-tile Stardew Valley greenhouse with the best sprinkler layout, crop placement, and fruit tree setup. Compare Ancient Fruit vs Starfruit for long-term profit.",
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
