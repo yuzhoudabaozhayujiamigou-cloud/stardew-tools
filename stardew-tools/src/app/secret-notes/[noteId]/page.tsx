@@ -274,9 +274,9 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
     description =
       "Secret Note 19 leads to the Solid Gold Lewis statue. Start at 1 Willow Lane, follow the arrow sequence until blocked, and collect the statue. Full solution with troubleshooting tips.";
   } else if (note.id === 22) {
-    title = "Secret Note 22 — Battery Pack + Bus Tunnel Panel (Stardew Valley)";
+    title = "Secret Note 22 Stardew Valley – Bus Tunnel Battery Pack Location & Reward";
     description =
-      "Secret Note 22: bring a Battery Pack to the Bus Tunnel panel to start the Mysterious Qi quest. Step-by-step location, trigger guide & common fix.";
+      "Where is Secret Note 22? Bring a Battery Pack to the Bus Tunnel panel to unlock Mysterious Qi quest. Full location guide, trigger steps, and troubleshooting.";
   } else if (note.id === 23) {
     title = "Secret Note 23 Bear Guide - Maple Syrup & Berry Profit";
     description =
