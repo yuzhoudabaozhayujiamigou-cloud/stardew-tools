@@ -33,8 +33,16 @@ const ENTRY_DESC_CLASS = "mt-2 text-sm leading-6 text-[#5f4228]/90";
 const HOME_FAQ_ITEMS = [
   {
     question: "What is the fastest way to improve Stardew profit?",
-    answer:
-      "Open the calculator, set your season and days left, then pick the crop with the best gold/day that still fits your schedule and processing setup.",
+    answer: (
+      <>
+        Open the calculator, set your season and days left, then pick the crop with the best gold/day that still fits
+        your schedule and processing setup. Check our{" "}
+        <Link href="/blog/money-making-guide" className="text-[#5c8a3e] underline hover:text-[#4e7a32]">
+          money-making guide
+        </Link>{" "}
+        for detailed strategies.
+      </>
+    ),
   },
   {
     question: "What does this Stardew Valley profit calculator include?",
@@ -43,8 +51,15 @@ const HOME_FAQ_ITEMS = [
   },
   {
     question: "Is stardew profits strategy different with only 10 days left?",
-    answer:
-      "Yes. Late-season windows often punish slow crops. Use day-limited presets first, then validate with one guide before buying seeds.",
+    answer: (
+      <>
+        Yes. Late-season windows often punish slow crops. Use day-limited presets first, then validate with our{" "}
+        <Link href="/blog/best-crops-every-season" className="text-[#5c8a3e] underline hover:text-[#4e7a32]">
+          best crops guide
+        </Link>{" "}
+        before buying seeds.
+      </>
+    ),
   },
   {
     question: "How do I calculate profit per day in Stardew Valley?",
@@ -53,13 +68,27 @@ const HOME_FAQ_ITEMS = [
   },
   {
     question: "Does this calculator include kegs and preserves jars?",
-    answer:
-      "Yes. Use the calculator for crop rankings, then use the artisan tools and guides to decide whether kegs or jars are the better match for your current throughput.",
+    answer: (
+      <>
+        Yes. Use the calculator for crop rankings, then use the artisan tools and{" "}
+        <Link href="/blog/keg-vs-jar-profit-guide" className="text-[#5c8a3e] underline hover:text-[#4e7a32]">
+          keg vs jar guide
+        </Link>{" "}
+        to decide whether kegs or jars are the better match for your current throughput.
+      </>
+    ),
   },
   {
     question: "Where should I start if I am new to Stardew Valley profit planning?",
-    answer:
-      "Start with the calculator for your current season, then read one focused guide to confirm whether your plan should prioritize raw crops, kegs, or jars.",
+    answer: (
+      <>
+        Start with the calculator for your current season, then read our{" "}
+        <Link href="/blog/best-crops-year-1" className="text-[#5c8a3e] underline hover:text-[#4e7a32]">
+          Year 1 guide
+        </Link>{" "}
+        to confirm whether your plan should prioritize raw crops, kegs, or jars.
+      </>
+    ),
   },
 ] as const;
 
@@ -86,7 +115,7 @@ export default function HomePage() {
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: typeof item.answer === 'string' ? item.answer : item.question,
       },
     })),
   };
