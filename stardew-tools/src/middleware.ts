@@ -13,6 +13,7 @@ const GONE_PATHS = new Set([
   "/guides/lethal-company/store-command-guide",
   "/guides/lethal-company/terminal-commands-list",
   "/guides/lethal-company/view-monitor-and-bestiary",
+  "/tools/lethal-company",
   "/tools/lethal-company/patch-notes/v45",
 ]);
 
