@@ -249,6 +249,28 @@ export default function CalculatorPage() {
             initialResults={initialResults}
           />
 
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Related Guides</p>
+            <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Maximize Your Profit</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
+              Finished comparing crops? Use one of these guides as the next step so you can turn a single calculation into a stronger full-season plan.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <Link href="/blog/best-crops-every-season" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
+                <h3 className="text-base font-semibold text-[#4a321e]">Best Crops Every Season</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">See the fastest season-by-season crop picks after you check your exact numbers.</p>
+              </Link>
+              <Link href="/guides/greenhouse-profit-guide" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
+                <h3 className="text-base font-semibold text-[#4a321e]">Greenhouse Profit Guide</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Turn crop results into a longer-term greenhouse strategy when you want steady profit.</p>
+              </Link>
+              <Link href="/blog/best-crops-year-1" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
+                <h3 className="text-base font-semibold text-[#4a321e]">Best Crops Year 1</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Use this if you want a simple early-game planting plan after checking the calculator.</p>
+              </Link>
+            </div>
+          </section>
+
           <FaqGuideCard />
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

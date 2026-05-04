@@ -29,6 +29,8 @@ const ENTRY_LINK_CLASS =
 const ENTRY_TITLE_CLASS = "text-lg font-semibold text-[#4a321e] sm:text-xl";
 
 const ENTRY_DESC_CLASS = "mt-2 text-sm leading-6 text-[#5f4228]/90";
+const HUB_CARD_CLASS =
+  "rounded-[26px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 transition hover:-translate-y-0.5 hover:bg-[#f7efda] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5c8a3e] sm:p-6";
 
 const HOME_FAQ_ITEMS = [
   {
@@ -188,38 +190,44 @@ export default function HomePage() {
           </div>
         </header>
 
-        <section className="mt-8 grid gap-4 sm:grid-cols-3">
-          <Link href="/blog/best-crops-year-1" className={ENTRY_LINK_CLASS}>
-            <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              🌱
+        <section className="mt-8 grid gap-4 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+          <Link href="/calculator" className={HUB_CARD_CLASS}>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Profit Calculator</p>
+                <h2 className="mt-2 text-2xl font-semibold text-[#4a321e] sm:text-3xl">Find the best crop before you plant</h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+                  Jump straight into the calculator when you want exact gold/day, ROI, and season-specific crop rankings.
+                </p>
+              </div>
+              <div aria-hidden className="text-3xl sm:text-4xl">🧮</div>
             </div>
-            <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">Year 1</span>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Year 1 Money Guide</h2>
-            <p className={ENTRY_DESC_CLASS}>
-              Best crops and strategies for your first year. Start here if you&apos;re new or restarting.
-            </p>
+            <div className="mt-5 inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-[#5c8a3e] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4e7a32]">
+              Open Profit Calculator
+            </div>
           </Link>
 
-          <Link href="/guides/greenhouse-profit-guide" className={ENTRY_LINK_CLASS}>
-            <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              🏡
+          <section className="rounded-[26px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Top Guides</p>
+            <h2 className="mt-2 text-2xl font-semibold text-[#4a321e]">Pick your next read</h2>
+            <div className="mt-4 grid gap-3">
+              <Link href="/blog/best-crops-every-season" className={ENTRY_LINK_CLASS}>
+                <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">Most useful</span>
+                <h3 className={`${ENTRY_TITLE_CLASS} mt-3`}>Best Crops Every Season</h3>
+                <p className={ENTRY_DESC_CLASS}>The fastest answer if you want the best crop by season without overthinking the math.</p>
+              </Link>
+              <Link href="/blog/best-crops-year-1" className={ENTRY_LINK_CLASS}>
+                <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">Beginner</span>
+                <h3 className={`${ENTRY_TITLE_CLASS} mt-3`}>Best Crops Year 1</h3>
+                <p className={ENTRY_DESC_CLASS}>A simple Year 1 money plan for players who need early-game crop decisions and cash flow.</p>
+              </Link>
+              <Link href="/blog/stardew-valley-year-2-farming-strategy" className={ENTRY_LINK_CLASS}>
+                <span className="inline-flex rounded-full border border-[#7c4d2e]/35 bg-white/55 px-2.5 py-1 text-xs font-semibold text-[#5c3d23]">Scale up</span>
+                <h3 className={`${ENTRY_TITLE_CLASS} mt-3`}>Year 2 Farming Strategy</h3>
+                <p className={ENTRY_DESC_CLASS}>Move from survival mode into a bigger profit system with stronger crop and farm planning.</p>
+              </Link>
             </div>
-            <span className="inline-flex rounded-full border border-[#7c4d2e]/35 bg-white/55 px-2.5 py-1 text-xs font-semibold text-[#5c3d23]">Long-term</span>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-3`}>Greenhouse Strategy</h2>
-            <p className={ENTRY_DESC_CLASS}>
-              Plan long-term greenhouse output, crop choice, and machine throughput for stable income.
-            </p>
-          </Link>
-
-          <Link href="/blog/keg-vs-jar-profit-guide" className={ENTRY_LINK_CLASS}>
-            <div aria-hidden className="absolute right-4 top-4 text-xl opacity-80 transition group-hover:scale-110">
-              ⚗️
-            </div>
-            <h2 className={`${ENTRY_TITLE_CLASS} mt-8`}>Keg vs Jar Guide</h2>
-            <p className={ENTRY_DESC_CLASS}>
-              Decide when to use kegs vs preserves jars for the best gold per day return.
-            </p>
-          </Link>
+          </section>
         </section>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
