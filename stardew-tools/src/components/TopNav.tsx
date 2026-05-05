@@ -12,7 +12,7 @@ type NavLink = {
 const NAV_LINKS: NavLink[] = [
   {
     href: "/calculator",
-    label: "Calculator",
+    label: "Crop Calculator",
     icon: "🧮",
   },
   {

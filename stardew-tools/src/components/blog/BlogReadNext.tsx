@@ -38,7 +38,7 @@ export function BlogReadNext({ posts, currentSlug }: BlogReadNextProps) {
           href="/calculator"
           className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
         >
-          Crop Profit Calculator
+          Stardew Valley Crop Profit Calculator
         </Link>
       </p>
     </section>

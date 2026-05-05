@@ -5,7 +5,7 @@ type SiteFooterProps = {
 };
 
 const FOOTER_LINKS = [
-  { href: "/calculator", label: "Crop Calculator" },
+  { href: "/calculator", label: "Crop Profit Calculator" },
   { href: "/blog", label: "Guides" },
   { href: "/secret-notes", label: "Secret Notes Finder" },
   { href: "/privacy-policy", label: "Privacy Policy" },

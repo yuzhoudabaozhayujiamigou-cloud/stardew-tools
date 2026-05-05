@@ -27,13 +27,16 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Best Crops for Year 1 in Stardew Valley – Spring to Fall Planting Guide",
+  title: "Best Year 1 Crops in Stardew Valley | Spring, Summer & Fall Guide",
   description:
-    "See the best Year 1 crops for Spring, Summer, and Fall in Stardew Valley. Compare early-game profit, seed cost, timing, and safe planting choices.",
+    "Find the best Year 1 crops in Stardew Valley for Spring, Summer, and Fall. Compare profit, growth time, and beginner-friendly farming choices.",
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
     modifiedTime: "2026-02-27T00:00:00+08:00",
+    title: "Best Year 1 Crops in Stardew Valley | Spring, Summer & Fall Guide",
+    description:
+      "Find the best Year 1 crops in Stardew Valley for Spring, Summer, and Fall. Compare profit, growth time, and beginner-friendly farming choices.",
   },
 };
 
@@ -82,10 +85,10 @@ export default function BestCropsYear1Page() {
               Quick Answer
             </p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-              Best Crops Year 1 in Stardew Valley
+              Best Year 1 Crops in Stardew Valley
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              星露谷第一年种什么最赚？（按季节快速推荐）
+              Quick answer: Potato into Strawberry in Spring, Blueberry in Summer, and Cranberry in Fall are the safest Year 1 profit picks.
             </p>
           </header>
 
@@ -93,16 +96,14 @@ export default function BestCropsYear1Page() {
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Quick Answer</h2>
             <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <p>
-                In <strong>Year 1</strong>, the “best” crop isn’t only about raw profit — it’s about{" "}
-                <strong>seed cost</strong>, <strong>how early you unlock it</strong>, and whether you can{" "}
-                <strong>process it</strong> (kegs/jars) yet.
+                For most <strong>Year 1</strong> farms, the best crops are the ones that balance{" "}
+                <strong>profit</strong>, <strong>seed cost</strong>, and <strong>how quickly they start paying you back</strong>.
               </p>
               <p>
-                If you want a simple default plan: <strong>Parsnip → Potato/Kale</strong> in early Spring,
-                then <strong>Strawberry</strong> after the Egg Festival; in Summer go <strong>Blueberry</strong>
-                for steady cash (or <strong>Melon</strong> if you can afford fewer, bigger harvests); in Fall,
-                <strong> Cranberry</strong> is the easiest high-profit pick, while <strong>Pumpkin</strong>
-                becomes amazing once you can process it.
+                A simple default route is <strong>Parsnip → Potato or Kale</strong> in early Spring, then{" "}
+                <strong>Strawberry</strong> after the Egg Festival. In Summer, <strong>Blueberry</strong> is the safest
+                beginner money crop, and in Fall <strong>Cranberry</strong> is the easiest repeat-harvest winner while{" "}
+                <strong>Pumpkin</strong> gets much stronger once you can process it.
               </p>
               <p>
                 For Winter Year 1, you generally can’t grow normal crops outdoors. Use Winter for
@@ -117,8 +118,7 @@ export default function BestCropsYear1Page() {
               Year 1 decision tool
             </p>
             <p className="mt-2 text-sm leading-6 text-[#245631] sm:text-base">
-              Year 1 profit is all about speed and cash flow. Open the Profit Calculator to check what pays best for your remaining
-              days before you commit seed gold.
+              Year 1 profit is mostly about timing and cash flow. Use the Stardew Valley Crop Profit Calculator to compare what still pays off before you commit seed gold.
             </p>
             <div className="mt-4">
               <TrackedBlogCtaLink
@@ -128,7 +128,7 @@ export default function BestCropsYear1Page() {
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/45 bg-[#f4ffe9] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/70 hover:bg-[#ecffd8]"
               >
                 <span aria-hidden className="inline-flex items-center leading-none opacity-90">🧮</span>
-                Open Profit Calculator
+                Compare Year 1 crop profits
               </TrackedBlogCtaLink>
             </div>
           </section>
@@ -261,7 +261,7 @@ export default function BestCropsYear1Page() {
                 className={CTA_CLASS}
               >
                 <span aria-hidden className="inline-flex items-center leading-none opacity-85">🌷</span>
-                Spring (Full 28 days)
+                Compare Spring crop profits
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
@@ -271,7 +271,7 @@ export default function BestCropsYear1Page() {
                 className={CTA_CLASS}
               >
                 <span aria-hidden className="inline-flex items-center leading-none opacity-85">☀️</span>
-                Summer (Full 28 days)
+                Compare Summer crop profits
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
@@ -281,7 +281,7 @@ export default function BestCropsYear1Page() {
                 className={CTA_CLASS}
               >
                 <span aria-hidden className="inline-flex items-center leading-none opacity-85">🍂</span>
-                Fall (Full 28 days)
+                Compare Fall crop profits
               </TrackedBlogCtaLink>
             </div>
             <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
@@ -296,7 +296,7 @@ export default function BestCropsYear1Page() {
                 className={CTA_CLASS}
               >
                 <span aria-hidden className="inline-flex items-center leading-none opacity-85">🏆</span>
-                Fall + Artisan
+                Compare Fall crops with Artisan
               </TrackedBlogCtaLink>
             </div>
           </section>

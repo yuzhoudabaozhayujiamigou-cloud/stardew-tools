@@ -11,9 +11,9 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 export const metadata: Metadata = {
-  title: "Best Crops for Every Season in Stardew Valley – Profit & ROI Guide",
+  title: "Best Crops for Every Season in Stardew Valley | Profit Guide",
   description:
-    "Compare the best Stardew Valley crops for Spring, Summer, Fall, and Winter by profit, ROI, regrowth, seed cost, and planting timing.",
+    "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
   alternates: {
     canonical: "https://www.stardewprofit.com/blog/best-crops-every-season",
   },
@@ -22,8 +22,9 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-28T00:00:00+08:00",
     modifiedTime: "2026-04-22T00:00:00+08:00",
     url: "https://www.stardewprofit.com/blog/best-crops-every-season",
-    title:
-      "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026)",
+    title: "Best Crops for Every Season in Stardew Valley | Profit Guide",
+    description:
+      "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
   },
   keywords: [
     "best crops stardew valley",
@@ -46,10 +47,9 @@ export const metadata: Metadata = {
   ],
   twitter: {
     card: "summary_large_image",
-    title:
-      "Best Crops Every Season in Stardew Valley: Spring, Summer, Fall & Greenhouse Guide (2026)",
+    title: "Best Crops for Every Season in Stardew Valley | Profit Guide",
     description:
-      "Strawberry/Potato (Spring), Blueberry/Starfruit (Summer), Cranberry/Pumpkin (Fall), plus Greenhouse picks. Quick profit/day comparison.",
+      "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
   },
 };
 
@@ -373,9 +373,7 @@ export default function BestCropsEverySeasonPage() {
               Best Crops for Every Season in Stardew Valley
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              No matter which season you&apos;re in, this guide tells you what to plant for maximum profit. I&apos;ll give you the
-              best crops each season (Spring/Summer/Fall/Winter) with quick
-              profit/day logic, plus a Greenhouse section for endgame planning.
+              Short answer: Strawberry or Potato in Spring, Blueberry or Starfruit in Summer, Cranberry or Pumpkin in Fall, Winter Seeds in Winter, and Ancient Fruit or Starfruit in the Greenhouse. Use the crop calculator when days left, seed budget, or processing changes the answer.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-3">
@@ -385,7 +383,7 @@ export default function BestCropsEverySeasonPage() {
                 ctaName="best_crops_every_season_hero_utm"
                 className="inline-flex items-center gap-2 rounded-2xl border border-[#2f6a3a]/30 bg-[#e6f8d8] px-4 py-2 text-sm font-semibold text-[#1f6b2e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#2f6a3a]/60 hover:bg-[#d9f2c7]"
               >
-                🚀 Open Full Crop Planner
+                🚀 Use the crop calculator
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
@@ -397,7 +395,7 @@ export default function BestCropsEverySeasonPage() {
                 <span aria-hidden className="opacity-85">
                   🌱
                 </span>
-                Open Spring Calculator
+                Compare Spring crop profits
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
@@ -409,7 +407,7 @@ export default function BestCropsEverySeasonPage() {
                 <span aria-hidden className="opacity-85">
                   ☀️
                 </span>
-                Open Summer Calculator
+                Compare Summer crop profits
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
@@ -421,7 +419,7 @@ export default function BestCropsEverySeasonPage() {
                 <span aria-hidden className="opacity-85">
                   🍂
                 </span>
-                Open Fall Calculator
+                Compare Fall crop profits
               </TrackedBlogCtaLink>
 
               <TrackedBlogCtaLink
@@ -433,7 +431,7 @@ export default function BestCropsEverySeasonPage() {
                 <span aria-hidden className="opacity-85">
                   🌿
                 </span>
-                Greenhouse Optimizer
+                Compare Greenhouse crop profits
               </TrackedBlogCtaLink>
             </div>
 
@@ -455,7 +453,7 @@ export default function BestCropsEverySeasonPage() {
                   href="/calculator"
                   className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]"
                 >
-                  https://www.stardewprofit.com/calculator
+                  Stardew Valley Crop Profit Calculator
                 </Link>
               </p>
             </div>
@@ -981,7 +979,7 @@ export default function BestCropsEverySeasonPage() {
                   href="/calculator"
                   className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]"
                 >
-                  https://www.stardewprofit.com/calculator
+                  calculate crop profit by season
                 </Link>
               </p>
             </div>
