@@ -327,7 +327,7 @@ export default function Page() {
               </ul>
               <p className="mt-4 text-amber-950/85">
                 If you want to sanity-check your pipeline, run your numbers in the
-                <Link className="underline underline-offset-4" href="/artisan">
+                <Link className="underline underline-offset-4" href="/tools/artisan-profit">
                   {" "}
                   Artisan calculator
                 </Link>
@@ -488,7 +488,7 @@ export default function Page() {
             <p className="mt-4 text-amber-950/85">
               If you’re deciding “keg vs jar” for your specific crop mix, the
               fastest way is to plug the inputs into the
-              <Link className="underline underline-offset-4" href="/artisan">
+              <Link className="underline underline-offset-4" href="/tools/artisan-profit">
                 {" "}
                 Artisan calculator
               </Link>

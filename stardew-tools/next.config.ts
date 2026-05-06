@@ -63,6 +63,42 @@ const nextConfig: NextConfig = {
         destination: "/blog/keg-vs-jar-profit-guide",
         permanent: true,
       },
+      // URL 清理 Batch 1: 旧短路径/404 路径 → 目标页
+      {
+        source: "/artisan",
+        destination: "/tools/artisan-profit",
+        permanent: true,
+      },
+      {
+        source: "/greenhouse",
+        destination: "/guides/greenhouse-profit-guide",
+        permanent: true,
+      },
+      {
+        source: "/animals",
+        destination: "/blog/animal-profit-guide",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-summer-crops",
+        destination: "/blog/best-summer-crops-quick-answer",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-fall-crops",
+        destination: "/blog/best-fall-crops-quick-answer",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-keg-items",
+        destination: "/guides/best-keg-items",
+        permanent: true,
+      },
+      {
+        source: "/blog/stardew-valley-quality-sprinklers-guide",
+        destination: "/guides/quality-sprinklers-guide",
+        permanent: true,
+      },
     ];
   },
 };
