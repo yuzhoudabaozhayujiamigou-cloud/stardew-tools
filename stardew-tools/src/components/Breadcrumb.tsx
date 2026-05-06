@@ -3,6 +3,8 @@ export default function Breadcrumb({
 }: {
   items: { name: string; href?: string }[];
 }) {
+  const BROKEN_HUBS = ["/guides", "/tools", "/best-crops"];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -10,7 +12,7 @@ export default function Breadcrumb({
       "@type": "ListItem",
       position: i + 1,
       name: item.name,
-      ...(item.href ? { item: `https://www.stardewprofit.com${item.href}` } : {}),
+      ...(item.href && !BROKEN_HUBS.includes(item.href) ? { item: `https://www.stardewprofit.com${item.href}` } : {}),
     })),
   };
 
@@ -24,7 +26,7 @@ export default function Breadcrumb({
         {items.map((item, i) => (
           <span key={i}>
             {i > 0 && <span className="mx-1">›</span>}
-            {item.href ? (
+            {item.href && !BROKEN_HUBS.includes(item.href) ? (
               <a
                 href={item.href}
                 className="inline-flex min-h-[44px] items-center px-1 hover:text-gray-800"
