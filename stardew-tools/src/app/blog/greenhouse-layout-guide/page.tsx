@@ -19,23 +19,35 @@ const FAQ_EN = [
   "Should I plant fruit trees inside the greenhouse?",
 ] as const;
 
-const FAQ_ZH = [
-  "温室最好的布局是什么？",
-  "温室一共有多少块可种植地块？",
-  "温室里古代果实和杨桃哪个好？",
-  "酒桶不够时温室种什么更好？",
-  "温室洒水器怎么摆最省格子？",
-  "温室里要不要种果树？",
+const FAQ_ANSWERS = [
+  "The best all-around greenhouse layout uses 116 planting tiles with 6 Iridium Sprinklers and a simple center path so every crop tile is watered without wasting space.",
+  "The standard Stardew Valley greenhouse has 116 usable planting tiles. That comes from the 10 by 12 soil area minus the 4 blocked center-adjacent tiles.",
+  "Ancient Fruit is better if you want steady weekly profit with less maintenance. Starfruit is better if you have strong keg capacity and want the highest per-keg value.",
+  "If you do not have many kegs yet, Cranberry is one of the best raw-profit choices. Ancient Fruit is also strong once established, while Hops is best only if you can process it.",
+  "Place 6 Iridium Sprinklers in two rows of three, spaced evenly across the greenhouse soil. That pattern covers all 116 planting tiles and still leaves a workable harvest path.",
+  "Yes. Fruit trees fit well on the outer border walkway, so you can grow them without giving up the main 116 crop tiles in the center.",
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Greenhouse Layout Guide – Best Crop & Sprinkler Setup",
+  title: "Stardew Valley Greenhouse Layout: 116 Tiles, Best Sprinkler Setup & Crops",
   description:
-    "Maximize your 116-tile Stardew Valley greenhouse with the best sprinkler layout, crop placement, and fruit tree setup. Compare Ancient Fruit vs Starfruit for long-term profit.",
+    "Step-by-step greenhouse layout for Stardew Valley: 116 planting tiles, 6 Iridium Sprinkler pattern, best crops ranked, and fruit tree placement tips.",
+  alternates: {
+    canonical: "/blog/greenhouse-layout-guide",
+  },
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-02-27T00:00:00+08:00",
+    modifiedTime: "2026-05-10T00:00:00+08:00",
+    title: "Stardew Valley Greenhouse Layout: 116 Tiles, Best Sprinkler Setup & Crops",
+    description:
+      "Step-by-step greenhouse layout for Stardew Valley: 116 planting tiles, 6 Iridium Sprinkler pattern, best crops ranked, and fruit tree placement tips.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stardew Valley Greenhouse Layout: 116 Tiles, Best Sprinkler Setup & Crops",
+    description:
+      "Step-by-step greenhouse layout for Stardew Valley: 116 planting tiles, 6 Iridium Sprinkler pattern, best crops ranked, and fruit tree placement tips.",
   },
 };
 
@@ -132,7 +144,7 @@ export default function GreenhouseLayoutGuidePage() {
         <FaqJsonLd
           faqs={FAQ_EN.map((question, index) => ({
             question,
-            answer: FAQ_ZH[index] ?? "",
+            answer: FAQ_ANSWERS[index] ?? "",
           }))}
         />
 
@@ -152,7 +164,7 @@ export default function GreenhouseLayoutGuidePage() {
               Stardew Valley Greenhouse Layout Guide
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              温室怎么摆才不浪费格子？洒水器放哪最省？
+              The complete guide to your 116-tile greenhouse: best sprinkler pattern, top crops ranked, and Ancient Fruit vs Starfruit — with calculator presets.
             </p>
           </header>
 
@@ -353,10 +365,10 @@ export default function GreenhouseLayoutGuidePage() {
               ))}
             </ul>
 
-            <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
+            <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">Answers</h3>
             <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
+              {FAQ_ANSWERS.map((answer) => (
+                <li key={answer}>{answer}</li>
               ))}
             </ul>
           </section>

@@ -37,18 +37,17 @@ const QUICK_PRESET_ICON_CLASS = "inline-flex w-4 shrink-0 items-center justify-c
 
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator | Compare Crops by Season",
+  title: "Stardew Valley Crop Profit Calculator | Free ROI Tool",
   description:
-    "Calculate Stardew Valley crop profits by season, seed cost, growth time, regrowth, and harvests. Compare crops before you plant.",
-  // NOTE: keep marketing copy lint-safe for JSX contexts
+    "Compare Stardew Valley crops by profit, gold per day, and ROI in seconds. Pick your season, enter days left, and find the best crop fast. Free, no signup.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Crop Profit Calculator | Compare Crops by Season",
+    title: "Stardew Valley Crop Profit Calculator | Free ROI Tool",
     description:
-      "Calculate Stardew Valley crop profits by season, seed cost, growth time, regrowth, and harvests. Compare crops before you plant.",
+      "Compare Stardew Valley crops by profit, gold per day, and ROI in seconds. Pick your season, enter days left, and find the best crop fast. Free, no signup.",
     type: "website",
     images: [
       {
@@ -61,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Crop Profit Calculator | Compare Crops by Season",
+    title: "Stardew Valley Crop Profit Calculator | Free ROI Tool",
     description:
-      "Calculate Stardew Valley crop profits by season, seed cost, growth time, regrowth, and harvests. Compare crops before you plant.",
+      "Compare Stardew Valley crops by profit, gold per day, and ROI in seconds. Pick your season, enter days left, and find the best crop fast. Free, no signup.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -183,11 +182,7 @@ export default function CalculatorPage() {
             Stardew Valley Crop Profit Calculator
           </h1>
           <p className="mt-1 text-lg font-medium text-[#5c3d23]/90 sm:text-xl">
-            Compare crop profit by season, seed cost, growth time, and regrowth.
-          </p>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Calculate Stardew Valley crop profits by season, seed cost, growth time, regrowth, and expected harvests.
-            Enter your days left to compare crops before you plant.
+            Compare gold per day, total profit, and ROI before you plant — free, no sign-up.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             {heroValueProp}

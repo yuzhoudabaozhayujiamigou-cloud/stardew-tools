@@ -17,26 +17,35 @@ const FAQ_EN = [
   "What can I grow in Winter of Year 1?",
 ] as const;
 
-const FAQ_ZH = [
-  "星露谷第一年最推荐种哪些作物？",
-  "第一年要优先赚钱还是优先献祭（Bundles）？",
-  "第一年春天草莓值得种吗？",
-  "第一年夏天蓝莓仍然是最强选择吗？",
-  "第一年秋天该种蔓越莓还是南瓜？",
-  "第一年冬天还能种什么？",
+const FAQ_ANSWERS = [
+  "For most Year 1 farms, start with Parsnip into Potato or Kale in early Spring, buy Strawberries after the Egg Festival, switch to Blueberries in Summer, and plant Cranberries in Fall.",
+  "Prioritize bundles if they unlock key tools or the Greenhouse soon, but pure gold per day usually matters more when you need fast cash flow for seeds, upgrades, and sprinklers.",
+  "Yes. Strawberries are one of the best Spring Year 1 crops if you can buy them at the Egg Festival and still get multiple harvests before the season ends.",
+  "Usually yes. Blueberry is the safest early-game Summer crop because it keeps paying out after the first harvest, while Melon and Hops are better only in more specific setups.",
+  "Plant Cranberries if you want the easiest repeat-harvest raw profit. Plant Pumpkins if you want stronger single-harvest value or you plan to process them later.",
+  "In Winter Year 1, focus on mines, tool upgrades, and farm setup. If you have Winter Seeds unlocked, they are the main outdoor crop option worth planting.",
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Best Year 1 Crops in Stardew Valley | Spring, Summer & Fall Guide",
+  title: "Best Year 1 Crops in Stardew Valley — Potato, Blueberry, Cranberry",
   description:
-    "Find the best Year 1 crops in Stardew Valley for Spring, Summer, and Fall. Compare profit, growth time, and beginner-friendly farming choices.",
+    "Year 1 Stardew crop guide: Potato -> Strawberry for Spring, Blueberry for Summer, Cranberry for Fall. See seed costs, growth days, and beginner-friendly planting plans.",
+  alternates: {
+    canonical: "/blog/best-crops-year-1",
+  },
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-02-27T00:00:00+08:00",
-    title: "Best Year 1 Crops in Stardew Valley | Spring, Summer & Fall Guide",
+    modifiedTime: "2026-05-10T00:00:00+08:00",
+    title: "Best Year 1 Crops in Stardew Valley — Potato, Blueberry, Cranberry",
     description:
-      "Find the best Year 1 crops in Stardew Valley for Spring, Summer, and Fall. Compare profit, growth time, and beginner-friendly farming choices.",
+      "Year 1 Stardew crop guide: Potato -> Strawberry for Spring, Blueberry for Summer, Cranberry for Fall. See seed costs, growth days, and beginner-friendly planting plans.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Year 1 Crops in Stardew Valley — Potato, Blueberry, Cranberry",
+    description:
+      "Year 1 Stardew crop guide: Potato -> Strawberry for Spring, Blueberry for Summer, Cranberry for Fall. See seed costs, growth days, and beginner-friendly planting plans.",
   },
 };
 
@@ -66,7 +75,7 @@ export default function BestCropsYear1Page() {
         <FaqJsonLd
           faqs={FAQ_EN.map((question, index) => ({
             question,
-            answer: FAQ_ZH[index] ?? "",
+            answer: FAQ_ANSWERS[index] ?? "",
           }))}
         />
 
@@ -88,7 +97,7 @@ export default function BestCropsYear1Page() {
               Best Year 1 Crops in Stardew Valley
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              Quick answer: Potato into Strawberry in Spring, Blueberry in Summer, and Cranberry in Fall are the safest Year 1 profit picks.
+              Quick answer: Potato → Strawberry in Spring, Blueberry in Summer, Cranberry in Fall. See the full season-by-season breakdown with profit data below.
             </p>
           </header>
 
@@ -311,10 +320,10 @@ export default function BestCropsYear1Page() {
               ))}
             </ul>
 
-            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
+            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">Answers</h3>
             <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
+              {FAQ_ANSWERS.map((answer) => (
+                <li key={answer}>{answer}</li>
               ))}
             </ul>
           </section>
