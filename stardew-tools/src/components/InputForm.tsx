@@ -3,6 +3,7 @@
 import {
   getQualityMultiplier,
   type CropQuality,
+  type Environment,
   type Fertilizer,
   type Profession,
   type Season,
@@ -21,6 +22,8 @@ export type InputFormValue = {
   profession: Profession;
   fertilizer: Fertilizer;
   farmingLevel: number;
+  environment: Environment;
+  crossSeasonDays: number;
 };
 
 const qualityOptions: Array<{
@@ -135,6 +138,43 @@ export function InputForm(props: {
             <option value="hyper_speed_gro">Hyper Speed-Gro (200g, -33% growth)</option>
           </select>
         </label>
+      </div>
+
+      <div className="mt-4">
+        <label className="grid gap-2">
+          <span className="text-sm font-medium text-[#5a3d25]">Environment</span>
+          <select
+            id="calculator-environment-select"
+            value={value.environment ?? "outdoor"}
+            onChange={(event) =>
+              onChange({
+                ...value,
+                environment: event.target.value as Environment,
+              })
+            }
+            className="h-11 rounded-2xl border border-[#a87a4d]/50 bg-[#fff8e7] px-4 text-sm text-[#4b331f] shadow-sm focus:border-[#7f5731] focus:outline-none"
+          >
+            <option value="outdoor">Outdoor</option>
+            <option value="greenhouse">Greenhouse</option>
+            <option value="ginger_island">Ginger Island</option>
+          </select>
+        </label>
+        {value.environment === "outdoor" ? null : (
+          <div className="mt-3">
+            <label className="grid gap-2">
+              <span className="text-sm font-medium text-[#5a3d25]">Simulation Days</span>
+              <input
+                type="number"
+                min="28"
+                max="365"
+                value={value.crossSeasonDays ?? 112}
+                onChange={(event) => onChange({ ...value, crossSeasonDays: Number(event.target.value) })}
+                className="h-11 rounded-2xl border border-[#a87a4d]/50 bg-[#fff8e7] px-4 text-sm text-[#4b331f] shadow-sm focus:border-[#7f5731] focus:outline-none"
+              />
+            </label>
+            <p className="mt-1 text-xs text-[#6b4a2c]/80">28=1 season, 56=2 seasons, 112=year</p>
+          </div>
+        )}
       </div>
 
       <details className="mt-4 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8]/85 p-3">

@@ -10,6 +10,7 @@ import {
   calculateSeasonProfit,
   clampSeasonDays,
   type Crop,
+  type Environment,
   type Profession,
   type ProfitResult,
   type Season,
@@ -117,6 +118,8 @@ function getDefaultQueryState(initialSeason: Season): QueryState {
       profession: "none",
       fertilizer: "none",
       farmingLevel: 10,
+      environment: "outdoor",
+      crossSeasonDays: 112,
     },
     daysLeft: 28,
   };
@@ -146,6 +149,8 @@ function resolveQueryState(params: URLSearchParams, initialSeason: Season): Quer
       profession: nextProfession ?? preset?.defaultProfession ?? "none",
       fertilizer: "none",
       farmingLevel: 10,
+      environment: "outdoor",
+      crossSeasonDays: 112,
     },
     daysLeft: resolvedDaysLeft,
   };
@@ -247,7 +252,7 @@ export function CalculatorClient(props: {
     return () => window.clearTimeout(timeoutId);
   }, [resultsLinkCopied]);
 
-  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}-${formValue.fertilizer}-${formValue.farmingLevel}`;
+  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}-${formValue.fertilizer}-${formValue.farmingLevel}-${formValue.environment}-${formValue.crossSeasonDays}`;
 
 
   const text = useMemo(() => getCalculatorText(lang), [lang]);
@@ -264,6 +269,8 @@ export function CalculatorClient(props: {
           profession: formValue.profession,
           fertilizer: formValue.fertilizer,
           farmingLevel: formValue.farmingLevel,
+          environment: formValue.environment,
+          crossSeasonDays: formValue.crossSeasonDays,
         }),
       )
       .map((result) => {
@@ -294,6 +301,8 @@ export function CalculatorClient(props: {
     formValue.season,
     formValue.fertilizer,
     formValue.farmingLevel,
+    formValue.environment,
+    formValue.crossSeasonDays,
     props.crops,
   ]);
 

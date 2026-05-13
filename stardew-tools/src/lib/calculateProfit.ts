@@ -16,12 +16,13 @@ export const FERTILIZER_CONFIG: Record<Fertilizer, {
   cost: number;
   growthSpeedPct: number;
   minQuality: CropQuality | null;
+  isGreenhouseInfinite: boolean;
 }> = {
-  none: { label: "None", cost: 0, growthSpeedPct: 0, minQuality: null },
-  quality_fertilizer: { label: "Quality Fertilizer", cost: 10, growthSpeedPct: 0, minQuality: "silver" },
-  speed_gro: { label: "Speed-Gro", cost: 100, growthSpeedPct: 10, minQuality: null },
-  deluxe_speed_gro: { label: "Deluxe Speed-Gro", cost: 150, growthSpeedPct: 25, minQuality: null },
-  hyper_speed_gro: { label: "Hyper Speed-Gro", cost: 200, growthSpeedPct: 33, minQuality: null },
+  none: { label: "None", cost: 0, growthSpeedPct: 0, minQuality: null, isGreenhouseInfinite: true },
+  quality_fertilizer: { label: "Quality Fertilizer", cost: 10, growthSpeedPct: 0, minQuality: "silver", isGreenhouseInfinite: true },
+  speed_gro: { label: "Speed-Gro", cost: 100, growthSpeedPct: 10, minQuality: null, isGreenhouseInfinite: true },
+  deluxe_speed_gro: { label: "Deluxe Speed-Gro", cost: 150, growthSpeedPct: 25, minQuality: null, isGreenhouseInfinite: true },
+  hyper_speed_gro: { label: "Hyper Speed-Gro", cost: 200, growthSpeedPct: 33, minQuality: null, isGreenhouseInfinite: true },
 };
 
 /** Quality price multipliers */
@@ -190,6 +191,8 @@ export type Crop = {
   daysInPhase?: number[];
 };
 
+export type Environment = "outdoor" | "greenhouse" | "ginger_island";
+
 export type ProfitInput = {
   crop: Crop;
   seasonDays?: number;
@@ -199,6 +202,8 @@ export type ProfitInput = {
   useArtisanGoods?: boolean;
   fertilizer?: Fertilizer;
   farmingLevel?: number;
+  environment?: Environment;
+  crossSeasonDays?: number;
 };
 
 export function getSellPriceMultiplier(quality: CropQuality, hasTiller: boolean): number {
@@ -239,6 +244,8 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
   const useArtisanGoods = input.useArtisanGoods ?? false;
   const fertilizer = input.fertilizer ?? "none";
   const farmingLevel = input.farmingLevel ?? 10;
+  const environment = input.environment ?? "outdoor";
+  const crossSeasonDays = input.crossSeasonDays ?? seasonDays;
   const { crop } = input;
 
   // ── 1. Fertilizer config ──
@@ -246,8 +253,7 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
   const minQuality = fertConfig.minQuality;
 
   // ── 2. Quality probability ──
-  const fertLevel = fertilizer === "quality_fertilizer" ? 2 : fertilizer === "deluxe_speed_gro" || fertilizer === "hyper_speed_gro" ? 0 : 0;
-  const fertLevelQuality = fertilizer === "quality_fertilizer" ? 2 : 0;
+  const fertLevelQuality = fertilizer === "quality_fertilizer" ? 2 : fertilizer === "deluxe_speed_gro" || fertilizer === "hyper_speed_gro" ? 0 : 0;
   const selectedQuality = effectiveQuality(input.quality ?? "normal", minQuality);
   const qualityMultiplier = getQualityMultiplier(selectedQuality);
 
@@ -255,27 +261,41 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
   const hasAgriculturist = profession === "agriculturist";
   let totalSpeedPct = fertConfig.growthSpeedPct / 100;
   if (hasAgriculturist) {
-    totalSpeedPct += 0.1;  // Agriculturist is ADDITIVE, not multiplicative
+    totalSpeedPct += 0.1;
   }
 
-  // 3a. Apply iterative phase reduction to initial growth
+  // 3a. Float anomaly simulation (SDV 1.6 bug: 10% stored as ~0.10000000149)
+  // Affects when pct is exactly 10% and totalDays * pct rounds to just over integer
+  if (totalSpeedPct > 0) {
+    // Simulate C# float imprecision: multiply by (1 + 1.49e-8) for exact-10% cases
+    const exactTenth = Math.abs(totalSpeedPct - 0.1) < 0.001;
+    const exactFourth = Math.abs(totalSpeedPct - 0.25) < 0.001;
+    if (exactTenth || exactFourth) {
+      totalSpeedPct *= 1.0000000149;
+    }
+  }
+
   const dip = crop.daysInPhase ?? distributeGrowthDays(crop.growthDays);
   const reducedDip = applyGrowthSpeed(dip, totalSpeedPct);
   const effectiveGrowthDays = sumDaysInPhase(reducedDip);
 
-  // 3b. Regrow days: NOT affected by speed modifiers (SDV 1.6 game rule)
+  // 3b. Regrow days: NOT affected by speed modifiers
   const effectiveRegrowDays = crop.regrowDays;
 
-  // ── 4. Harvest count ──
+  // ── 4. Effective season days (Cross-season / greenhouse support) ──
+  const isIndoor = environment === "greenhouse" || environment === "ginger_island";
+  const effectiveDays = isIndoor ? crossSeasonDays : seasonDays;
+
+  // ── 5. Harvest count ──
   let harvestCount = 0;
 
   if (!crop.isRegrowing) {
-    if (seasonDays > effectiveGrowthDays) {
-      harvestCount = Math.floor((seasonDays - 1) / effectiveGrowthDays);
+    if (effectiveDays > effectiveGrowthDays) {
+      harvestCount = Math.floor((effectiveDays - 1) / effectiveGrowthDays);
     }
   } else {
-    if (seasonDays > effectiveGrowthDays) {
-      const remainingAfterFirst = seasonDays - (effectiveGrowthDays + 1);
+    if (effectiveDays > effectiveGrowthDays) {
+      const remainingAfterFirst = effectiveDays - (effectiveGrowthDays + 1);
       const extraHarvests =
         effectiveRegrowDays > 0 && remainingAfterFirst >= 0
           ? Math.floor(remainingAfterFirst / effectiveRegrowDays)
@@ -284,14 +304,17 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
     }
   }
 
-  // ── 5. Revenue ──
+  // ── 6. Revenue ──
   const yieldPerHarvest = crop.yieldPerHarvest ?? 1;
   const totalRevenue = harvestCount * crop.sellPrice * qualityMultiplier * (hasTiller ? TILLER_MULTIPLIER : 1) * yieldPerHarvest;
-  const totalSeedCost = (crop.isRegrowing ? crop.seedCost : harvestCount * crop.seedCost) + fertConfig.cost;
-  const totalProfit = totalRevenue - totalSeedCost;
-  const goldPerDay = totalProfit / seasonDays;
 
-  // ── 6. Artisan goods comparison ──
+  // In greenhouse/indoor: fertilizer cost is effectively zero (infinite duration)
+  const fertCost = isIndoor ? 0 : fertConfig.cost;
+  const totalSeedCost = (crop.isRegrowing ? crop.seedCost : harvestCount * crop.seedCost) + fertCost;
+  const totalProfit = totalRevenue - totalSeedCost;
+  const goldPerDay = totalProfit / (isIndoor ? effectiveDays : seasonDays);
+
+  // ── 7. Artisan goods comparison ──
   const kegsProfit = calculateArtisanGoodsProfit(crop, harvestCount, "kegs");
   const preservesJarsProfit = calculateArtisanGoodsProfit(crop, harvestCount, "preserves_jars");
   let betterOption: "kegs" | "preserves_jars" | "same" = "same";
