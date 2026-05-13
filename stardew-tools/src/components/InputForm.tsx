@@ -6,6 +6,8 @@ import {
   type Fertilizer,
   type Profession,
   type Season,
+  FERTILIZER_CONFIG,
+  calcQualityDistribution,
 } from "@/lib/calculateProfit";
 import { getCalculatorText, type CalculatorLang } from "@/lib/i18n-calculator";
 
@@ -18,6 +20,7 @@ export type InputFormValue = {
   hasTiller: boolean;
   profession: Profession;
   fertilizer: Fertilizer;
+  farmingLevel: number;
 };
 
 const qualityOptions: Array<{

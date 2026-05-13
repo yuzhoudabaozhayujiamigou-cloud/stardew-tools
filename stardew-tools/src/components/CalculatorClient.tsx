@@ -116,6 +116,7 @@ function getDefaultQueryState(initialSeason: Season): QueryState {
       hasTiller: false,
       profession: "none",
       fertilizer: "none",
+      farmingLevel: 10,
     },
     daysLeft: 28,
   };
@@ -144,6 +145,7 @@ function resolveQueryState(params: URLSearchParams, initialSeason: Season): Quer
       hasTiller: false,
       profession: nextProfession ?? preset?.defaultProfession ?? "none",
       fertilizer: "none",
+      farmingLevel: 10,
     },
     daysLeft: resolvedDaysLeft,
   };
@@ -245,7 +247,7 @@ export function CalculatorClient(props: {
     return () => window.clearTimeout(timeoutId);
   }, [resultsLinkCopied]);
 
-  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}-${formValue.fertilizer}`;
+  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}-${formValue.fertilizer}-${formValue.farmingLevel}`;
 
 
   const text = useMemo(() => getCalculatorText(lang), [lang]);
@@ -261,6 +263,7 @@ export function CalculatorClient(props: {
           hasTiller: formValue.hasTiller,
           profession: formValue.profession,
           fertilizer: formValue.fertilizer,
+          farmingLevel: formValue.farmingLevel,
         }),
       )
       .map((result) => {
@@ -290,6 +293,7 @@ export function CalculatorClient(props: {
     formValue.quality,
     formValue.season,
     formValue.fertilizer,
+    formValue.farmingLevel,
     props.crops,
   ]);
 

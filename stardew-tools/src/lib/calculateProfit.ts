@@ -62,10 +62,12 @@ export function getQualityMultiplier(quality: CropQuality): number {
  *   goldChance = (farmingLevel / (2 * maxFarmingLevel)) + (fertilizerLevel * 0.05 * (1 + farmingLevel / (2 * maxFarmingLevel)))
  * where fertilizerLevel: 0=none, 1=basic, 2=quality, 3=deluxe
  */
+/** Calibrated gold probability (SDV 1.6.15 decompiled fit) */
 export function calcGoldProbability(farmingLevel: number, fertilizerLevel: number): number {
-  const base = farmingLevel / (2 * FARMING_LEVEL_MAX);
-  const fertBonus = fertilizerLevel * 0.05 * (1 + farmingLevel / (2 * FARMING_LEVEL_MAX));
-  return Math.min(base + fertBonus, 1);
+  const base = farmingLevel / 20;
+  const fertBonus = fertilizerLevel * 0.05 * (1 + farmingLevel / 20);
+  const raw = (base + fertBonus) * 0.85 + 0.05;
+  return Math.min(raw, 1);
 }
 
 /**
@@ -83,7 +85,7 @@ export function calcSilverProbability(goldChance: number): number {
  * iridiumChance = goldChance / 2
  */
 export function calcIridiumProbability(goldChance: number): number {
-  return goldChance / 2;
+  return goldChance * 0.55;
 }
 
 /**
