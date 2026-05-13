@@ -6,20 +6,25 @@ export type Profession = "none" | "artisan" | "agriculturist";
 
 export type Fertilizer = "none" | "quality_fertilizer" | "speed_gro" | "deluxe_speed_gro" | "hyper_speed_gro";
 
+/**
+ * Stardew Valley 1.6 growth speed config:
+ *  growthSpeedPct is ADDITIVE with Agriculturist (e.g. 25% DSG + 10% Agri = 35%)
+ *  The game uses iterative phase reduction, not total-day multiplication.
+ */
 export const FERTILIZER_CONFIG: Record<Fertilizer, {
   label: string;
   cost: number;
   growthSpeedPct: number;
-  qualityBonus: "none" | "min_silver";
   minQuality: CropQuality | null;
 }> = {
-  none: { label: "None", cost: 0, growthSpeedPct: 0, qualityBonus: "none", minQuality: null },
-  quality_fertilizer: { label: "Quality Fertilizer", cost: 10, growthSpeedPct: 0, qualityBonus: "min_silver", minQuality: "silver" },
-  speed_gro: { label: "Speed-Gro", cost: 100, growthSpeedPct: 10, qualityBonus: "none", minQuality: null },
-  deluxe_speed_gro: { label: "Deluxe Speed-Gro", cost: 150, growthSpeedPct: 25, qualityBonus: "none", minQuality: null },
-  hyper_speed_gro: { label: "Hyper Speed-Gro", cost: 200, growthSpeedPct: 33, qualityBonus: "none", minQuality: null },
+  none: { label: "None", cost: 0, growthSpeedPct: 0, minQuality: null },
+  quality_fertilizer: { label: "Quality Fertilizer", cost: 10, growthSpeedPct: 0, minQuality: "silver" },
+  speed_gro: { label: "Speed-Gro", cost: 100, growthSpeedPct: 10, minQuality: null },
+  deluxe_speed_gro: { label: "Deluxe Speed-Gro", cost: 150, growthSpeedPct: 25, minQuality: null },
+  hyper_speed_gro: { label: "Hyper Speed-Gro", cost: 200, growthSpeedPct: 33, minQuality: null },
 };
 
+/** Quality price multipliers */
 const QUALITY_MULTIPLIERS: Record<CropQuality, number> = {
   normal: 1,
   silver: 1.25,
@@ -28,55 +33,147 @@ const QUALITY_MULTIPLIERS: Record<CropQuality, number> = {
 };
 
 const TILLER_MULTIPLIER = 1.1;
+const ARTISAN_MULTIPLIER = 1.4;
+const FARMING_LEVEL_MAX = 14;
+const QUALITY_PROB_CAP = 0.75;
 
-const ARTISAN_MULTIPLIER = 1.4; // 工匠技能：加工品售价 +40%
+const QUALITY_ORDER: CropQuality[] = ["normal", "silver", "gold", "iridium"];
 
-const AGRICULTURIST_SPEED_MULTIPLIER = 0.9; // 农学家：生长速度 -10%
+/** Index of a quality level (0=normal, 1=silver, 2=gold, 3=iridium) */
+function qualityIndex(q: CropQuality): number {
+  return QUALITY_ORDER.indexOf(q);
+}
+
+/** Get the effective quality (apply minQuality floor from fertilizer) */
+function effectiveQuality(selected: CropQuality, minFloor: CropQuality | null): CropQuality {
+  if (!minFloor) return selected;
+  return qualityIndex(selected) < qualityIndex(minFloor) ? minFloor : selected;
+}
 
 export function getQualityMultiplier(quality: CropQuality): number {
   return QUALITY_MULTIPLIERS[quality];
 }
 
-export function getSellPriceMultiplier(
-  quality: CropQuality,
-  hasTiller: boolean,
-  minQuality: CropQuality | null = null
-): number {
-  const effectiveQuality = minQuality
-    ? (["normal", "silver", "gold", "iridium"].indexOf(quality) < ["normal", "silver", "gold", "iridium"].indexOf(minQuality)
-      ? minQuality
-      : quality)
-    : quality;
-  return getQualityMultiplier(effectiveQuality) * (hasTiller ? TILLER_MULTIPLIER : 1);
+// ─── QUALITY PROBABILITY (Stardew Valley 1.6 cascade logic) ───
+
+/**
+ * Calculate the probability of gold quality for a single harvest.
+ * Formula based on SDV 1.6 decompiled code:
+ *   goldChance = (farmingLevel / (2 * maxFarmingLevel)) + (fertilizerLevel * 0.05 * (1 + farmingLevel / (2 * maxFarmingLevel)))
+ * where fertilizerLevel: 0=none, 1=basic, 2=quality, 3=deluxe
+ */
+export function calcGoldProbability(farmingLevel: number, fertilizerLevel: number): number {
+  const base = farmingLevel / (2 * FARMING_LEVEL_MAX);
+  const fertBonus = fertilizerLevel * 0.05 * (1 + farmingLevel / (2 * FARMING_LEVEL_MAX));
+  return Math.min(base + fertBonus, 1);
 }
 
-// 新增：计算加工品售价（Artisan 技能）
-export function getArtisanSellPrice(
-  basePrice: number,
-  quality: CropQuality,
-  hasTiller: boolean,
-  hasArtisan: boolean,
-  minQuality: CropQuality | null = null
-): number {
-  const effectiveQuality = minQuality
-    ? (["normal", "silver", "gold", "iridium"].indexOf(quality) < ["normal", "silver", "gold", "iridium"].indexOf(minQuality)
-      ? minQuality
-      : quality)
-    : quality;
-  const qualityMultiplier = getQualityMultiplier(effectiveQuality);
-  const tillerMultiplier = hasTiller ? TILLER_MULTIPLIER : 1;
-  const artisanMultiplier = hasArtisan ? ARTISAN_MULTIPLIER : 1;
-
-  return basePrice * qualityMultiplier * tillerMultiplier * artisanMultiplier;
+/**
+ * Calculate the probability of silver quality.
+ * silverChanceRaw = min(goldChance * 2, 0.75)
+ * But in cascade: actual silver probability = silverChanceRaw * (1 - goldChance)
+ */
+export function calcSilverProbability(goldChance: number): number {
+  const rawSilver = Math.min(goldChance * 2, QUALITY_PROB_CAP);
+  return rawSilver * (1 - goldChance);
 }
 
-// 新增：计算实际生长天数（Agriculturist 技能）
-export function getActualGrowthDays(baseGrowthDays: number, hasAgriculturist: boolean): number {
-  if (!hasAgriculturist || baseGrowthDays === 0) {
-    return baseGrowthDays;
+/**
+ * Calculate iridium probability (Deluxe Fertilizer only).
+ * iridiumChance = goldChance / 2
+ */
+export function calcIridiumProbability(goldChance: number): number {
+  return goldChance / 2;
+}
+
+/**
+ * Get the expected quality distribution for a single harvest.
+ * Returns expected proportions for each quality tier.
+ * For Deluxe Fertilizer (fertilizerLevel=3): normal is removed, iridium is inserted.
+ */
+export function calcQualityDistribution(farmingLevel: number, fertilizerLevel: number): Record<CropQuality, number> {
+  const gold = calcGoldProbability(farmingLevel, fertilizerLevel);
+
+  if (fertilizerLevel >= 3) {
+    // Deluxe Fertilizer: phases out normal, adds iridium to cascade
+    // Sequence: check Iridium first → Gold → Silver minimum
+    const iridium = calcIridiumProbability(gold);
+    const goldAdj = gold * (1 - iridium);
+    const silver = calcSilverProbability(gold) * (1 - iridium);
+    return { normal: 0, silver, gold: goldAdj, iridium };
   }
-  return Math.ceil(baseGrowthDays * AGRICULTURIST_SPEED_MULTIPLIER);
+
+  const silver = calcSilverProbability(gold);
+  const normal = 1 - gold - silver;
+  return { normal, silver, gold, iridium: 0 };
 }
+
+/**
+ * Compute expected sell price multiplier given farming level and fertilizer.
+ * Returns a weighted multiplier that accounts for the probability distribution.
+ */
+export function calcExpectedQualityMultiplier(farmingLevel: number, fertilizerLevel: number): number {
+  const dist = calcQualityDistribution(farmingLevel, fertilizerLevel);
+  return (
+    dist.normal * QUALITY_MULTIPLIERS.normal +
+    dist.silver * QUALITY_MULTIPLIERS.silver +
+    dist.gold * QUALITY_MULTIPLIERS.gold +
+    dist.iridium * QUALITY_MULTIPLIERS.iridium
+  );
+}
+
+// ─── GROWTH SPEED (DaysInPhase iterative reduction) ───
+
+/**
+ * Simulate the game's iterative phase reduction for Speed-Gro + Agriculturist.
+ * 
+ * The game:
+ * 1. Calculates removableDays = Math.ceil(totalGrowthDays * totalSpeedPct)
+ * 2. Iterates through daysInPhase array, removing 1 day per phase per cycle
+ * 3. Phase 1 and final phase can never go below 1
+ * 4. Middle phases can go to 0 (sprite stage is skipped)
+ * 5. Cycles wrap around until removableDays is exhausted
+ * 
+ * @param daysInPhase Array of days per growth stage
+ * @param speedPct Total speed percentage (e.g., 0.25 for 25%)
+ * @returns New daysInPhase array after reduction
+ */
+export function applyGrowthSpeed(daysInPhase: number[], speedPct: number): number[] {
+  if (speedPct <= 0 || daysInPhase.length === 0) return [...daysInPhase];
+
+  const totalDays = daysInPhase.reduce((a, b) => a + b, 0);
+  const removableDays = Math.ceil(totalDays * speedPct);
+
+  if (removableDays <= 0) return [...daysInPhase];
+
+  const result = [...daysInPhase];
+  let remaining = removableDays;
+  const lastIdx = result.length - 1;
+
+  while (remaining > 0) {
+    let madeProgress = false;
+    for (let i = 0; i < result.length && remaining > 0; i++) {
+      const isFirstOrLast = i === 0 || i === lastIdx;
+      const minDays = isFirstOrLast ? 1 : 0;
+      if (result[i] > minDays) {
+        result[i]--;
+        remaining--;
+        madeProgress = true;
+      }
+    }
+    // Safety: if no phase can be reduced further, stop
+    if (!madeProgress) break;
+  }
+
+  return result;
+}
+
+/** Total growth days from a daysInPhase array */
+export function sumDaysInPhase(daysInPhase: number[]): number {
+  return daysInPhase.reduce((a, b) => a + b, 0);
+}
+
+// ─── CROP TYPE ───
 
 export type Crop = {
   id: string;
@@ -88,17 +185,29 @@ export type Crop = {
   regrowDays: number;
   isRegrowing: boolean;
   yieldPerHarvest?: number;
+  daysInPhase?: number[];
 };
 
 export type ProfitInput = {
   crop: Crop;
-  seasonDays?: number; // default 28
+  seasonDays?: number;
   quality?: CropQuality;
   hasTiller?: boolean;
-  profession?: Profession; // 新增：专精技能
+  profession?: Profession;
   useArtisanGoods?: boolean;
-  fertilizer?: Fertilizer; // 新增：是否计算加工品收益
+  fertilizer?: Fertilizer;
+  farmingLevel?: number;
 };
+
+export function getSellPriceMultiplier(quality: CropQuality, hasTiller: boolean): number {
+  return getQualityMultiplier(quality) * (hasTiller ? TILLER_MULTIPLIER : 1);
+}
+
+// Kept for backward compatibility: calculates Agriculturist effect
+export function getActualGrowthDays(baseGrowthDays: number, hasAgriculturist: boolean): number {
+  if (!hasAgriculturist || baseGrowthDays === 0) return baseGrowthDays;
+  return Math.ceil(baseGrowthDays * 0.9);
+}
 
 export function clampSeasonDays(value: number, min = 1, max = 28) {
   return Math.max(min, Math.min(max, Math.trunc(value)));
@@ -111,82 +220,81 @@ export type ProfitResult = {
   totalRevenue: number;
   totalProfit: number;
   goldPerDay: number;
-  // 新增：加工品收益对比
+  effectiveGrowthDays: number;
   artisanGoodsProfit?: {
-    kegs: number;        // Kegs 加工收益
-    preservesJars: number; // Preserves Jars 加工收益
-    betterOption: "kegs" | "preserves_jars" | "same"; // 更优选择
+    kegs: number;
+    preservesJars: number;
+    betterOption: "kegs" | "preserves_jars" | "same";
   };
 };
 
+// ─── MAIN CALCULATION ───
+
 export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
   const seasonDays = clampSeasonDays(input.seasonDays ?? 28);
-  const quality = input.quality ?? "normal";
   const hasTiller = input.hasTiller ?? false;
   const profession = input.profession ?? "none";
   const useArtisanGoods = input.useArtisanGoods ?? false;
   const fertilizer = input.fertilizer ?? "none";
+  const farmingLevel = input.farmingLevel ?? 10;
   const { crop } = input;
 
-  // 肥料配置
+  // ── 1. Fertilizer config ──
   const fertConfig = FERTILIZER_CONFIG[fertilizer];
-
-  // 技能判断
-  const hasArtisan = profession === "artisan";
-  const hasAgriculturist = profession === "agriculturist";
-
-  // 计算实际生长天数（Speed-Gro肥料 + Agriculturist 叠加）
-  const speedGroMultiplier = 1 - fertConfig.growthSpeedPct / 100;
-  const baseGrowthAfterFert = Math.ceil(crop.growthDays * speedGroMultiplier);
-  const baseRegrowAfterFert = Math.ceil(crop.regrowDays * speedGroMultiplier);
-
-  const actualGrowthDays = getActualGrowthDays(baseGrowthAfterFert, hasAgriculturist);
-  const actualRegrowDays = getActualGrowthDays(baseRegrowAfterFert, hasAgriculturist);
-
-  // 计算售价（Quality Fertilizer 提高最低品质）
   const minQuality = fertConfig.minQuality;
-  let finalSellPrice: number;
-  if (useArtisanGoods) {
-    finalSellPrice = getArtisanSellPrice(crop.sellPrice, quality, hasTiller, hasArtisan, minQuality);
-  } else {
-    finalSellPrice = crop.sellPrice * getSellPriceMultiplier(quality, hasTiller, minQuality);
+
+  // ── 2. Quality probability ──
+  const fertLevel = fertilizer === "quality_fertilizer" ? 2 : fertilizer === "deluxe_speed_gro" || fertilizer === "hyper_speed_gro" ? 0 : 0;
+  const fertLevelQuality = fertilizer === "quality_fertilizer" ? 2 : 0;
+  const selectedQuality = effectiveQuality(input.quality ?? "normal", minQuality);
+  const qualityMultiplier = getQualityMultiplier(selectedQuality);
+
+  // ── 3. Growth speed ──
+  const hasAgriculturist = profession === "agriculturist";
+  let totalSpeedPct = fertConfig.growthSpeedPct / 100;
+  if (hasAgriculturist) {
+    totalSpeedPct += 0.1;  // Agriculturist is ADDITIVE, not multiplicative
   }
 
-  // 计算收获次数
+  // 3a. Apply iterative phase reduction to initial growth
+  const dip = crop.daysInPhase ?? distributeGrowthDays(crop.growthDays);
+  const reducedDip = applyGrowthSpeed(dip, totalSpeedPct);
+  const effectiveGrowthDays = sumDaysInPhase(reducedDip);
+
+  // 3b. Regrow days: NOT affected by speed modifiers (SDV 1.6 game rule)
+  const effectiveRegrowDays = crop.regrowDays;
+
+  // ── 4. Harvest count ──
   let harvestCount = 0;
 
   if (!crop.isRegrowing) {
-    if (seasonDays > actualGrowthDays) {
-      harvestCount = Math.floor((seasonDays - 1) / actualGrowthDays);
+    if (seasonDays > effectiveGrowthDays) {
+      harvestCount = Math.floor((seasonDays - 1) / effectiveGrowthDays);
     }
   } else {
-    if (seasonDays > actualGrowthDays) {
-      const remainingDaysAfterFirstHarvest = seasonDays - (actualGrowthDays + 1);
+    if (seasonDays > effectiveGrowthDays) {
+      const remainingAfterFirst = seasonDays - (effectiveGrowthDays + 1);
       const extraHarvests =
-        actualRegrowDays > 0 && remainingDaysAfterFirstHarvest >= 0
-          ? Math.floor(remainingDaysAfterFirstHarvest / actualRegrowDays)
+        effectiveRegrowDays > 0 && remainingAfterFirst >= 0
+          ? Math.floor(remainingAfterFirst / effectiveRegrowDays)
           : 0;
       harvestCount = 1 + extraHarvests;
     }
   }
 
+  // ── 5. Revenue ──
   const yieldPerHarvest = crop.yieldPerHarvest ?? 1;
-  const totalRevenue = harvestCount * finalSellPrice * yieldPerHarvest;
+  const totalRevenue = harvestCount * crop.sellPrice * qualityMultiplier * (hasTiller ? TILLER_MULTIPLIER : 1) * yieldPerHarvest;
   const totalSeedCost = (crop.isRegrowing ? crop.seedCost : harvestCount * crop.seedCost) + fertConfig.cost;
   const totalProfit = totalRevenue - totalSeedCost;
   const goldPerDay = totalProfit / seasonDays;
 
-  // 计算加工品收益对比（Kegs vs Preserves Jars）
-  const kegsProfit = calculateArtisanGoodsProfit(crop, harvestCount, hasTiller, hasArtisan, "kegs");
-  const preservesJarsProfit = calculateArtisanGoodsProfit(crop, harvestCount, hasTiller, hasArtisan, "preserves_jars");
-
-  // 判断更优选择
+  // ── 6. Artisan goods comparison ──
+  const kegsProfit = calculateArtisanGoodsProfit(crop, harvestCount, "kegs");
+  const preservesJarsProfit = calculateArtisanGoodsProfit(crop, harvestCount, "preserves_jars");
   let betterOption: "kegs" | "preserves_jars" | "same" = "same";
-  if (kegsProfit > preservesJarsProfit) {
-    betterOption = "kegs";
-  } else if (preservesJarsProfit > kegsProfit) {
-    betterOption = "preserves_jars";
-  }
+  if (kegsProfit > preservesJarsProfit) betterOption = "kegs";
+  else if (preservesJarsProfit > kegsProfit) betterOption = "preserves_jars";
 
   return {
     cropId: crop.id,
@@ -195,6 +303,7 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
     totalRevenue,
     totalProfit,
     goldPerDay,
+    effectiveGrowthDays,
     artisanGoodsProfit: {
       kegs: kegsProfit,
       preservesJars: preservesJarsProfit,
@@ -203,32 +312,26 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
   };
 }
 
-// 新增：计算加工品收益
+/**
+ * Fallback: distribute total growth days into approximate phases
+ * when daysInPhase isn't available in the data.
+ */
+function distributeGrowthDays(totalDays: number): number[] {
+  if (totalDays <= 3) return [1, Math.max(1, totalDays - 2), 1];
+  if (totalDays <= 6) return [1, Math.max(1, totalDays - 3), 1, 1];
+  if (totalDays <= 10) return [2, Math.ceil((totalDays - 4) / 2), Math.floor((totalDays - 4) / 2), 2];
+  return [2, 3, totalDays - 7, 2];
+}
+
 function calculateArtisanGoodsProfit(
   crop: Crop,
   harvestCount: number,
-  hasTiller: boolean,
-  hasArtisan: boolean,
   artisanType: "kegs" | "preserves_jars"
 ): number {
   const { sellPrice, yieldPerHarvest = 1 } = crop;
-
-  // 加工品倍率
   const multiplier = artisanType === "kegs" ? 3.0 : 2.25;
-
-  // Artisan 技能加成
-  const artisanBonus = hasArtisan ? 1.4 : 1.0;
-
-  // Tiller 技能加成：加工品不受 Tiller 影响（参数保留是为了接口统一）
-  void hasTiller;
-
-  // 加工品售价
-  const artisanSellPrice = sellPrice * multiplier * artisanBonus;
-
-  // 计算收益（减去种子成本）
+  const artisanSellPrice = sellPrice * multiplier;
   const totalSeedCost = crop.isRegrowing ? crop.seedCost : harvestCount * crop.seedCost;
   const totalRevenue = harvestCount * artisanSellPrice * yieldPerHarvest;
-  const totalProfit = totalRevenue - totalSeedCost;
-
-  return totalProfit;
+  return totalRevenue - totalSeedCost;
 }

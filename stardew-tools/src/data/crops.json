@@ -2,419 +2,734 @@
   {
     "id": "parsnip",
     "name": "Parsnip",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 20,
     "sellPrice": 35,
     "growthDays": 4,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      1,
+      1
+    ]
   },
   {
     "id": "potato",
     "name": "Potato",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 50,
     "sellPrice": 80,
     "growthDays": 6,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1.25
+    "yieldPerHarvest": 1.25,
+    "daysInPhase": [
+      1,
+      1,
+      2,
+      2
+    ]
   },
   {
     "id": "cauliflower",
     "name": "Cauliflower",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 80,
     "sellPrice": 175,
     "growthDays": 12,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      3,
+      4,
+      3
+    ]
   },
   {
     "id": "kale",
     "name": "Kale",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 70,
     "sellPrice": 110,
     "growthDays": 6,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "strawberry",
     "name": "Strawberry",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 100,
     "sellPrice": 120,
     "growthDays": 8,
     "regrowDays": 4,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      1,
+      2
+    ]
   },
   {
     "id": "green_beans",
     "name": "Green Bean",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 60,
     "sellPrice": 40,
     "growthDays": 10,
     "regrowDays": 3,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      3,
+      2,
+      2
+    ]
   },
   {
     "id": "coffee_bean",
     "name": "Coffee Bean",
-    "season": ["spring", "summer"],
+    "season": [
+      "spring",
+      "summer"
+    ],
     "seedCost": 2500,
     "sellPrice": 15,
     "growthDays": 10,
     "regrowDays": 2,
     "isRegrowing": true,
-    "yieldPerHarvest": 4
+    "yieldPerHarvest": 4,
+    "daysInPhase": [
+      1,
+      2,
+      3,
+      4
+    ]
   },
   {
     "id": "tulip",
     "name": "Tulip",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 20,
     "sellPrice": 30,
     "growthDays": 6,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "blue_jazz",
     "name": "Blue Jazz",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 30,
     "sellPrice": 50,
     "growthDays": 7,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      3,
+      1
+    ]
   },
   {
     "id": "garlic",
     "name": "Garlic",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 40,
     "sellPrice": 60,
     "growthDays": 4,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      1,
+      1
+    ]
   },
   {
     "id": "carrot",
     "name": "Carrot",
-    "season": ["spring"],
+    "season": [
+      "spring"
+    ],
     "seedCost": 15,
     "sellPrice": 35,
     "growthDays": 3,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      1
+    ]
   },
   {
     "id": "blueberry",
     "name": "Blueberry",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 80,
     "sellPrice": 50,
     "growthDays": 13,
     "regrowDays": 4,
     "isRegrowing": true,
-    "yieldPerHarvest": 3
+    "yieldPerHarvest": 3,
+    "daysInPhase": [
+      1,
+      2,
+      3,
+      4,
+      3
+    ]
   },
   {
     "id": "starfruit",
     "name": "Starfruit",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 400,
     "sellPrice": 750,
     "growthDays": 13,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      3,
+      4,
+      4
+    ]
   },
   {
     "id": "melon",
     "name": "Melon",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 80,
     "sellPrice": 250,
     "growthDays": 12,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      3,
+      4,
+      3
+    ]
   },
   {
     "id": "summer_squash",
     "name": "Summer Squash",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 20,
     "sellPrice": 45,
     "growthDays": 6,
     "regrowDays": 3,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      2,
+      2
+    ]
   },
   {
     "id": "hops",
     "name": "Hops",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 60,
     "sellPrice": 25,
     "growthDays": 11,
     "regrowDays": 1,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      3,
+      4,
+      1
+    ]
   },
   {
     "id": "corn",
     "name": "Corn",
-    "season": ["summer", "fall"],
+    "season": [
+      "summer",
+      "fall"
+    ],
     "seedCost": 150,
     "sellPrice": 50,
     "growthDays": 14,
     "regrowDays": 4,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      3,
+      4,
+      3,
+      2
+    ]
   },
   {
     "id": "hot_pepper",
     "name": "Hot Pepper",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 40,
     "sellPrice": 40,
     "growthDays": 6,
     "regrowDays": 3,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      2,
+      2
+    ]
   },
   {
     "id": "radish",
     "name": "Radish",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 40,
     "sellPrice": 90,
     "growthDays": 6,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "tomato",
     "name": "Tomato",
-    "season": ["summer"],
+    "season": [
+      "summer"
+    ],
     "seedCost": 50,
     "sellPrice": 60,
     "growthDays": 11,
     "regrowDays": 4,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      3,
+      3
+    ]
   },
   {
     "id": "wheat",
     "name": "Wheat",
-    "season": ["summer", "fall"],
+    "season": [
+      "summer",
+      "fall"
+    ],
     "seedCost": 10,
     "sellPrice": 25,
     "growthDays": 4,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      1,
+      1
+    ]
   },
   {
     "id": "pumpkin",
     "name": "Pumpkin",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 100,
     "sellPrice": 320,
     "growthDays": 13,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      3,
+      4,
+      4
+    ]
   },
   {
     "id": "broccoli",
     "name": "Broccoli",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 40,
     "sellPrice": 70,
     "growthDays": 8,
     "regrowDays": 4,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "cranberry",
     "name": "Cranberry",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 240,
     "sellPrice": 75,
     "growthDays": 7,
     "regrowDays": 5,
     "isRegrowing": true,
-    "yieldPerHarvest": 2
+    "yieldPerHarvest": 2,
+    "daysInPhase": [
+      1,
+      1,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "grape",
     "name": "Grape",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 60,
     "sellPrice": 80,
     "growthDays": 7,
     "regrowDays": 3,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      2
+    ]
   },
   {
     "id": "bok_choy",
     "name": "Bok Choy",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 80,
     "sellPrice": 125,
     "growthDays": 4,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      1
+    ]
   },
   {
     "id": "yam",
     "name": "Yam",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 60,
     "sellPrice": 160,
     "growthDays": 3,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      1
+    ]
   },
   {
     "id": "eggplant",
     "name": "Eggplant",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 20,
     "sellPrice": 60,
     "growthDays": 5,
     "regrowDays": 5,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      1,
+      2
+    ]
   },
   {
     "id": "artichoke",
     "name": "Artichoke",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 30,
     "sellPrice": 160,
     "growthDays": 6,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "beet",
     "name": "Beet",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 20,
     "sellPrice": 100,
     "growthDays": 6,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      1
+    ]
   },
   {
     "id": "fairy_rose",
     "name": "Fairy Rose",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 200,
     "sellPrice": 290,
     "growthDays": 8,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      2,
+      2,
+      2,
+      2
+    ]
   },
   {
     "id": "poppy",
     "name": "Poppy",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 100,
     "sellPrice": 465,
     "growthDays": 4,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      1,
+      1,
+      1
+    ]
   },
   {
     "id": "amaranth",
     "name": "Amaranth",
-    "season": ["fall"],
+    "season": [
+      "fall"
+    ],
     "seedCost": 70,
     "sellPrice": 150,
     "growthDays": 7,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      2
+    ]
   },
   {
     "id": "winter_seed",
     "name": "Winter Seed",
-    "season": ["winter"],
+    "season": [
+      "winter"
+    ],
     "seedCost": 60,
     "sellPrice": 0,
     "growthDays": 7,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      2
+    ]
   },
   {
     "id": "powdermelon",
     "name": "Powdermelon",
-    "season": ["winter"],
+    "season": [
+      "winter"
+    ],
     "seedCost": 20,
     "sellPrice": 60,
     "growthDays": 7,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      2
+    ]
   },
   {
     "id": "fiber_seed",
     "name": "Fiber Seed",
-    "season": ["winter"],
+    "season": [
+      "winter"
+    ],
     "seedCost": 10,
     "sellPrice": 0,
     "growthDays": 7,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      1,
+      2,
+      2,
+      2
+    ]
   },
   {
     "id": "tea_sapling",
     "name": "Tea Sapling",
-    "season": ["winter"],
+    "season": [
+      "winter"
+    ],
     "seedCost": 1500,
     "sellPrice": 0,
     "growthDays": 20,
     "regrowDays": 0,
     "isRegrowing": false,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      4,
+      5,
+      5,
+      6
+    ]
   },
   {
     "id": "ancient_fruit",
     "name": "Ancient Fruit",
-    "season": ["spring", "summer", "fall", "winter"],
+    "season": [
+      "spring",
+      "summer",
+      "fall",
+      "winter"
+    ],
     "seedCost": 0,
     "sellPrice": 550,
     "growthDays": 28,
     "regrowDays": 7,
     "isRegrowing": true,
-    "yieldPerHarvest": 1
+    "yieldPerHarvest": 1,
+    "daysInPhase": [
+      5,
+      7,
+      8,
+      5,
+      3
+    ]
   }
 ]
