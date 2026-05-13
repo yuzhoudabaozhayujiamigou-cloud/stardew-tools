@@ -35,46 +35,65 @@ const QUICK_PRESET_LINK_CLASS =
 
 const QUICK_PRESET_ICON_CLASS = "inline-flex w-4 shrink-0 items-center justify-center leading-none opacity-85";
 
+const HUB_ENTRY_CARDS = [
+  {
+    href: "/blog/best-crops-year-1",
+    title: "Best Crops by Season",
+    description: "Use the Year 1 season plan to pick the safest Spring, Summer, and Fall crops after you check raw profit.",
+    track: "calculator_hub_best_crops_by_season",
+  },
+  {
+    href: "/blog/keg-vs-preserves-jar",
+    title: "Keg vs Preserves Jar",
+    description: "See which crops should go into Kegs, which belong in Jars, and why Cranberries are usually not a priority keg crop.",
+    track: "calculator_hub_keg_vs_preserves_jar",
+  },
+  {
+    href: "/blog/greenhouse-layout-guide",
+    title: "Greenhouse Profit Planner",
+    description: "Move from crop math to a 116-tile greenhouse plan with sprinkler placement, fruit tree space, and year-round profit picks.",
+    track: "calculator_hub_greenhouse_profit_planner",
+  },
+] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Crop Profit Calculator | Free ROI Tool",
+  title: "Stardew Valley Profit Calculator Hub | Best Crops, Kegs, Jars & Greenhouse",
   description:
-    "Compare Stardew Valley crops by profit, gold per day, and ROI in seconds. Pick your season, enter days left, and find the best crop fast. Free, no signup.",
+    "Plan your full Stardew Valley profit route in one place. Compare crop profit, find the best crops by season, decide Keg vs Preserves Jar, and map your greenhouse profit setup.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Crop Profit Calculator | Free ROI Tool",
+    title: "Stardew Valley Profit Calculator Hub | Best Crops, Kegs, Jars & Greenhouse",
     description:
-      "Compare Stardew Valley crops by profit, gold per day, and ROI in seconds. Pick your season, enter days left, and find the best crop fast. Free, no signup.",
+      "Plan your full Stardew Valley profit route in one place. Compare crop profit, find the best crops by season, decide Keg vs Preserves Jar, and map your greenhouse profit setup.",
     type: "website",
     images: [
       {
         url: "/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator",
         width: 1200,
         height: 630,
-        alt: "Stardew Valley Crop Profit Calculator",
+        alt: "Stardew Valley Profit Calculator Hub",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Crop Profit Calculator | Free ROI Tool",
+    title: "Stardew Valley Profit Calculator Hub | Best Crops, Kegs, Jars & Greenhouse",
     description:
-      "Compare Stardew Valley crops by profit, gold per day, and ROI in seconds. Pick your season, enter days left, and find the best crop fast. Free, no signup.",
+      "Plan your full Stardew Valley profit route in one place. Compare crop profit, find the best crops by season, decide Keg vs Preserves Jar, and map your greenhouse profit setup.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
 
 export default function CalculatorPage() {
-  // Quick promise: answer fast, reduce bounce.
   const heroValueProp =
-    "See exact gold per day, total profit, and ROI for the crops that still fit your remaining season.";
+    "Check exact crop profit first, then jump straight into the best-crop, artisan processing, or greenhouse guide that matches your next decision.";
   const heroSteps = [
     "Choose Season and Days Left",
-    "Set Quality and Profession",
-    "See Profit per Day + ROI instantly",
+    "Compare Profit per Day + ROI",
+    "Open the right crop, keg, or greenhouse guide",
   ] as const;
 
   const initialSeason: Season = "spring";
@@ -176,13 +195,13 @@ export default function CalculatorPage() {
 
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
-            Stardew Valley Tool
+            Stardew Valley Profit Hub
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Stardew Valley Crop Profit Calculator
+            Stardew Valley Profit Calculator Hub
           </h1>
           <p className="mt-1 text-lg font-medium text-[#5c3d23]/90 sm:text-xl">
-            Compare gold per day, total profit, and ROI before you plant — free, no sign-up.
+            Compare crop profit, then branch into the best crop, keg, jar, or greenhouse guide without leaving the hub.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             {heroValueProp}
@@ -197,13 +216,13 @@ export default function CalculatorPage() {
           </ol>
 
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Start with your current season and days left, then use presets only if you want a fast benchmark.
+            Start with your current season and days left, then use the hub cards below to move into the exact next question players usually have.
           </p>
           <ul className="mt-4 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-2">
             <li>• Gold per day (profit/day)</li>
             <li>• ROI / break-even days</li>
             <li>• Best crop by season</li>
-            <li>• Tiller bonus impact</li>
+            <li>• Keg, jar, and greenhouse next steps</li>
           </ul>
           <div className="mt-5 flex flex-wrap items-center gap-2.5">
             <a
@@ -222,15 +241,20 @@ export default function CalculatorPage() {
             ))}
           </div>
 
-          <div className="mt-5 rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-            <p className="text-sm font-semibold text-[#4a321e]">Related guides</p>
-            <div className="mt-3 flex flex-wrap gap-2.5">
-              <Link href="/blog/best-crops-year-1" className={QUICK_PRESET_LINK_CLASS}>
-                Year 1 Guide
-              </Link>
-              <Link href="/guides/greenhouse-profit-guide" className={QUICK_PRESET_LINK_CLASS}>
-                Greenhouse Guide
-              </Link>
+          <div className="mt-6 rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+            <p className="text-sm font-semibold text-[#4a321e]">Choose your next profit question</p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-3">
+              {HUB_ENTRY_CARDS.map((card) => (
+                <TrackLink
+                  key={card.href}
+                  href={card.href}
+                  className="rounded-2xl border border-[#7c4d2e]/35 bg-white/65 p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:bg-white/85"
+                  trackEvent={card.track}
+                >
+                  <h2 className="text-base font-semibold text-[#4a321e]">{card.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">{card.description}</p>
+                </TrackLink>
+              ))}
             </div>
           </div>
         </header>
@@ -250,17 +274,17 @@ export default function CalculatorPage() {
               Finished comparing crops? Use one of these guides as the next step so you can turn a single calculation into a stronger full-season plan.
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              <Link href="/blog/best-crops-every-season" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
-                <h3 className="text-base font-semibold text-[#4a321e]">Best Crops Every Season</h3>
-                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">See the fastest season-by-season crop picks after you check your exact numbers.</p>
-              </Link>
-              <Link href="/guides/greenhouse-profit-guide" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
-                <h3 className="text-base font-semibold text-[#4a321e]">Greenhouse Profit Guide</h3>
-                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Turn crop results into a longer-term greenhouse strategy when you want steady profit.</p>
-              </Link>
               <Link href="/blog/best-crops-year-1" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
-                <h3 className="text-base font-semibold text-[#4a321e]">Best Crops Year 1</h3>
-                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Use this if you want a simple early-game planting plan after checking the calculator.</p>
+                <h3 className="text-base font-semibold text-[#4a321e]">Best Crops by Season</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Use a quick Spring to Fall route when you want a simple crop plan after checking exact numbers.</p>
+              </Link>
+              <Link href="/blog/keg-vs-preserves-jar" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
+                <h3 className="text-base font-semibold text-[#4a321e]">Keg vs Preserves Jar</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Decide which crops deserve Kegs, which belong in Jars, and why Cranberries are usually a Jar call.</p>
+              </Link>
+              <Link href="/blog/greenhouse-layout-guide" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">
+                <h3 className="text-base font-semibold text-[#4a321e]">Greenhouse Profit Planner</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Turn raw crop math into a 116-tile greenhouse layout with sprinkler and crop guidance.</p>
               </Link>
             </div>
           </section>

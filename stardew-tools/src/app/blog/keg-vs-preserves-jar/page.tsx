@@ -10,91 +10,54 @@ const SITE_URL = "https://www.stardewprofit.com";
 const PAGE_PATH = "/blog/keg-vs-preserves-jar";
 
 const PAGE_TITLE =
-  "Keg vs Preserves Jar Stardew Valley – Which Makes More Money?";
+  "Keg vs Preserves Jar: Best Choice for Every Stardew Valley Crop";
 const PAGE_DESCRIPTION =
-  "Keg vs Preserves Jar: Kegs win on high-value crops like Starfruit and Ancient Fruit. Jars win on cheap crops like Blueberries. Full comparison table + profit calculator.";
+  "Quick crop-by-crop answers for Cranberries, Ancient Fruit, Starfruit, Blueberries, and Strawberries. See when Kegs win, when Preserves Jars make money faster, and what to process first.";
 
-type ComparisonRow = {
+type DecisionRow = {
   crop: string;
-  rawPrice: string;
-  kegOutput: string;
-  kegPrice: string;
-  jarOutput: string;
-  jarPrice: string;
-  winner: string;
+  choice: string;
+  why: string;
 };
 
-const COMPARISON_ROWS: ComparisonRow[] = [
+const DECISION_ROWS: DecisionRow[] = [
   {
-    crop: "Starfruit",
-    rawPrice: "750g",
-    kegOutput: "Starfruit Wine",
-    kegPrice: "2250g",
-    jarOutput: "Starfruit Jelly",
-    jarPrice: "1550g",
-    winner: "Keg",
+    crop: "Cranberry",
+    choice: "Preserves Jar",
+    why: "Cranberry wine only beats jelly by a small margin per fruit, so most farms make better use of machine time by jarring Cranberries and saving Kegs for premium fruit.",
   },
   {
     crop: "Ancient Fruit",
-    rawPrice: "550g",
-    kegOutput: "Ancient Fruit Wine",
-    kegPrice: "1650g",
-    jarOutput: "Ancient Fruit Jelly",
-    jarPrice: "1150g",
-    winner: "Keg",
+    choice: "Keg",
+    why: "Ancient Fruit is one of the best long-term wine crops, with steady weekly harvests and strong value per keg slot.",
+  },
+  {
+    crop: "Starfruit",
+    choice: "Keg",
+    why: "Starfruit wine gives the biggest value spike per item, making it a top-tier keg crop when you can handle the replanting loop.",
   },
   {
     crop: "Blueberry",
-    rawPrice: "50g",
-    kegOutput: "Blueberry Wine",
-    kegPrice: "150g",
-    jarOutput: "Blueberry Jam",
-    jarPrice: "150g",
-    winner: "Jar (faster)",
+    choice: "Preserves Jar",
+    why: "Blueberries flood your inventory with low-base fruit, so faster Jar turnover is usually stronger than tying up Kegs.",
   },
   {
-    crop: "Cranberry",
-    rawPrice: "75g",
-    kegOutput: "Cranberry Wine",
-    kegPrice: "225g",
-    jarOutput: "Cranberry Jelly",
-    jarPrice: "200g",
-    winner: "Keg (slight)",
-  },
-  {
-    crop: "Pumpkin",
-    rawPrice: "320g",
-    kegOutput: "Pumpkin Juice",
-    kegPrice: "960g",
-    jarOutput: "Pumpkin Jam",
-    jarPrice: "690g",
-    winner: "Keg",
-  },
-  {
-    crop: "Tomato",
-    rawPrice: "60g",
-    kegOutput: "Tomato Juice",
-    kegPrice: "180g",
-    jarOutput: "Tomato Jelly",
-    jarPrice: "170g",
-    winner: "Jar (faster)",
-  },
-  {
-    crop: "Hops",
-    rawPrice: "25g",
-    kegOutput: "Pale Ale",
-    kegPrice: "300g",
-    jarOutput: "—",
-    jarPrice: "—",
-    winner: "Keg only",
+    crop: "Strawberry",
+    choice: "Preserves Jar",
+    why: "Strawberries make decent wine, but most farms get more useful throughput by jarring them and reserving Kegs for Ancient Fruit, Starfruit, or Hops.",
   },
 ];
 
 const FAQS = [
   {
+    question: "Are Cranberries good in a Keg?",
+    answer:
+      "They are okay, but not a priority. Cranberry wine only has a small edge over jelly per fruit, so Preserves Jars are usually the better real-farm choice unless you have spare Kegs.",
+  },
+  {
     question: "Is Keg or Preserves Jar better in Stardew Valley?",
     answer:
-      "Depends on crop price. Rule: crops >160g raw → Keg, below → Jar.",
+      "Kegs are better for expensive crops like Starfruit and Ancient Fruit. Preserves Jars are better for cheaper or bulk crops like Cranberries, Blueberries, and most Strawberries.",
   },
   {
     question: "Does Artisan profession affect both Keg and Jar?",
@@ -104,12 +67,12 @@ const FAQS = [
   {
     question: "Can I use both Keg and Jar on the same farm?",
     answer:
-      "Yes. Use Kegs for Starfruit/Ancient Fruit, Jars for Blueberries/Cranberries.",
+      "Yes. Use Kegs for premium fruit like Starfruit and Ancient Fruit, then route bulk berries like Blueberries and Cranberries into Preserves Jars.",
   },
   {
-    question: "Which is better for Blueberries: Keg or Jar?",
+    question: "Which is better for Blueberries or Strawberries: Keg or Jar?",
     answer:
-      "Jar. Same output price but Jar is faster (3 days vs 6 days for wine).",
+      "Usually Jar. Those crops are strong because of volume, and Jars convert that volume faster while leaving your Kegs open for higher-value fruit.",
   },
 ] as const;
 
@@ -122,6 +85,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     url: `${SITE_URL}${PAGE_PATH}`,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
     title: PAGE_TITLE,
     description: PAGE_DESCRIPTION,
   },
@@ -156,57 +124,57 @@ export default function KegVsPreservesJarPage() {
         <article className="space-y-6">
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
-              Quick Answer
+              Crop Decision Guide
             </p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-              Keg vs Preserves Jar: Which Makes More Money?
+              Keg vs Preserves Jar: Best Choice for Every Stardew Valley Crop
             </h1>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>
-                Kegs make more money on expensive crops: Starfruit, Ancient Fruit,
-                and Hops.
-              </li>
-              <li>
-                Jars make more money on cheap or abundant crops: Blueberries,
-                Cranberries, and cheap vegetables.
-              </li>
-              <li>
-                Rule of thumb: if raw crop sells for &gt;160g, use Keg. Below
-                160g, use Jar.
-              </li>
-            </ul>
+            <p className="mt-3 max-w-4xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Are Cranberries good in a Keg? <strong>They are fine, but usually not your best Keg crop.</strong> Cranberry wine only beats jelly by a small amount per fruit, so most farms should put Cranberries in a Preserves Jar and save Kegs for Ancient Fruit, Starfruit, or Hops.
+            </p>
+            <p className="mt-3 max-w-4xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Quick rule: expensive fruit usually belongs in a Keg, while cheaper or high-volume berries usually belong in a Preserves Jar because Jar throughput is easier to scale.
+            </p>
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
-              Keg vs Preserves Jar Comparison Table
+              Are Cranberries good in a Keg?
+            </h2>
+            <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <p>
+                <strong>Yes, but only as a secondary Keg crop.</strong> If you already have spare Kegs, Cranberry wine is still profitable. The problem is opportunity cost: Kegs do far more work for you when they are busy on Ancient Fruit, Starfruit, or Hops.
+              </p>
+              <p>
+                For most real farms, <strong>Preserves Jars are the better Cranberry answer</strong> because the value gap is small while the Jar route converts bulk harvests into cash faster and more consistently.
+              </p>
+            </div>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
+              Keg vs Preserves Jar quick answer
             </h2>
             <div className="mt-4 overflow-x-auto rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/85">
               <table className="min-w-full divide-y divide-[#8a5b3a]/30 text-sm text-[#5f4228]/95">
                 <thead className="bg-[#f5e6be] text-left text-xs uppercase tracking-wide text-[#6a4729]">
                   <tr>
                     <th className="px-4 py-3 font-semibold">Crop</th>
-                    <th className="px-4 py-3 font-semibold">Raw Price</th>
-                    <th className="px-4 py-3 font-semibold">Keg Output</th>
-                    <th className="px-4 py-3 font-semibold">Keg Price</th>
-                    <th className="px-4 py-3 font-semibold">Jar Output</th>
-                    <th className="px-4 py-3 font-semibold">Jar Price</th>
-                    <th className="px-4 py-3 font-semibold">Winner</th>
+                    <th className="px-4 py-3 font-semibold">Better Choice</th>
+                    <th className="px-4 py-3 font-semibold">Why</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#8a5b3a]/20">
-                  {COMPARISON_ROWS.map((row) => (
+                  {DECISION_ROWS.map((row) => (
                     <tr key={row.crop}>
                       <td className="whitespace-nowrap px-4 py-3 font-medium text-[#4a321e]">
                         {row.crop}
                       </td>
-                      <td className="whitespace-nowrap px-4 py-3">{row.rawPrice}</td>
-                      <td className="whitespace-nowrap px-4 py-3">{row.kegOutput}</td>
-                      <td className="whitespace-nowrap px-4 py-3">{row.kegPrice}</td>
-                      <td className="whitespace-nowrap px-4 py-3">{row.jarOutput}</td>
-                      <td className="whitespace-nowrap px-4 py-3">{row.jarPrice}</td>
                       <td className="whitespace-nowrap px-4 py-3 font-semibold text-[#1f6b2e]">
-                        {row.winner}
+                        {row.choice}
+                      </td>
+                      <td className="min-w-[280px] px-4 py-3 leading-6">
+                        {row.why}
                       </td>
                     </tr>
                   ))}
@@ -214,42 +182,57 @@ export default function KegVsPreservesJarPage() {
               </table>
             </div>
             <p className="mt-3 text-sm text-[#5f4228]/90">
-              Note: Artisan profession adds +40% to all values.
+              Rule of thumb: crops with premium single-item value favor Kegs, while berries that come in bulk usually favor Preserves Jars.
             </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
-              When to Use Each
+              Best crops for Kegs
             </h2>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <div className="rounded-2xl border border-[#8a5b3a]/30 bg-[#fff8e8]/85 p-4">
-                <h3 className="text-lg font-semibold text-[#4a321e]">Use Keg when</h3>
-                <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-                  <li>You are processing slow-growing, high-value crops.</li>
-                  <li>You have enough kegs to keep crop flow moving.</li>
-                  <li>You picked Artisan and want maximum value per item.</li>
-                </ul>
-              </div>
-              <div className="rounded-2xl border border-[#8a5b3a]/30 bg-[#fff8e8]/85 p-4">
-                <h3 className="text-lg font-semibold text-[#4a321e]">Use Jar when</h3>
-                <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-                  <li>You are processing fast-regrow crops in bulk.</li>
-                  <li>You have limited kegs and need immediate throughput.</li>
-                  <li>You are in early game and want easier setup.</li>
-                </ul>
-              </div>
-            </div>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li><strong>Starfruit:</strong> best high-value wine crop when you can keep replanting.</li>
+              <li><strong>Ancient Fruit:</strong> the classic weekly wine engine for long-term farms.</li>
+              <li><strong>Hops:</strong> Pale Ale is keg-only and scales hard if you can feed the machines.</li>
+              <li><strong>Pumpkin and Melon:</strong> strong vegetable or fruit picks when you want bigger value per item.</li>
+            </ul>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
-              Processing Time Note
+              Best crops for Preserves Jars
             </h2>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>Keg: 3 days for wine/juice, or 1-2 days for beer/pale ale.</li>
-              <li>Jar: 3 days for all jelly/pickle outputs.</li>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li><strong>Cranberry:</strong> great bulk harvest, but usually not worth spending premium Keg space on.</li>
+              <li><strong>Blueberry:</strong> a classic Jar crop because of heavy volume and lower base fruit price.</li>
+              <li><strong>Strawberry:</strong> solid in Jars on farms that are still Keg-limited.</li>
+              <li><strong>Tomato and other cheaper vegetables:</strong> good Jar candidates when you want dependable turnaround.</li>
             </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
+              When Kegs are better
+            </h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>You are processing <strong>expensive fruit</strong> and care about maximum value per item.</li>
+              <li>You have enough Kegs to avoid backlog, especially for <strong>Ancient Fruit</strong> or <strong>Starfruit</strong>.</li>
+              <li>You are building a late-game Artisan setup where Keg slots are your main money engine.</li>
+            </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">
+              When Jars make money faster
+            </h2>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>You are processing <strong>bulk berries</strong> like Cranberries or Blueberries and need faster turnover.</li>
+              <li>You are still <strong>Keg-limited</strong>, so every Keg needs to go to the highest-value crop possible.</li>
+              <li>You want simpler early or mid-game processing without waiting on long wine cycles.</li>
+            </ul>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              In practice, this is why Cranberries are usually better described as a <strong>Jar crop with optional spare-Keg upside</strong>, not a core Keg crop.
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -259,26 +242,26 @@ export default function KegVsPreservesJarPage() {
             <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <li>
                 <Link
-                  href="/tools/artisan-profit"
-                  className="text-[#1f6b2e] underline decoration-[#1f6b2e]/30 underline-offset-4 hover:decoration-[#1f6b2e]/60"
-                >
-                  Artisan Profit Tool
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/best-crops/greenhouse"
-                  className="text-[#1f6b2e] underline decoration-[#1f6b2e]/30 underline-offset-4 hover:decoration-[#1f6b2e]/60"
-                >
-                  Best Greenhouse Crops Guide
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/calculator"
                   className="text-[#1f6b2e] underline decoration-[#1f6b2e]/30 underline-offset-4 hover:decoration-[#1f6b2e]/60"
                 >
                   Stardew Profit Calculator
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/greenhouse-layout-guide"
+                  className="text-[#1f6b2e] underline decoration-[#1f6b2e]/30 underline-offset-4 hover:decoration-[#1f6b2e]/60"
+                >
+                  Greenhouse Layout Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog/best-crops-year-1"
+                  className="text-[#1f6b2e] underline decoration-[#1f6b2e]/30 underline-offset-4 hover:decoration-[#1f6b2e]/60"
+                >
+                  Best Crops Year 1
                 </Link>
               </li>
             </ul>

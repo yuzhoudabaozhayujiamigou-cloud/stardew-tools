@@ -4,22 +4,6 @@ export type CropQuality = "normal" | "silver" | "gold" | "iridium";
 
 export type Profession = "none" | "artisan" | "agriculturist";
 
-export type Fertilizer = "none" | "quality_fertilizer" | "speed_gro" | "deluxe_speed_gro" | "hyper_speed_gro";
-
-export const FERTILIZER_CONFIG: Record<Fertilizer, {
-  label: string;
-  cost: number;
-  growthSpeedPct: number;
-  qualityBonus: "none" | "min_silver";
-  minQuality: CropQuality | null;
-}> = {
-  none: { label: "None", cost: 0, growthSpeedPct: 0, qualityBonus: "none", minQuality: null },
-  quality_fertilizer: { label: "Quality Fertilizer", cost: 10, growthSpeedPct: 0, qualityBonus: "min_silver", minQuality: "silver" },
-  speed_gro: { label: "Speed-Gro", cost: 100, growthSpeedPct: 10, qualityBonus: "none", minQuality: null },
-  deluxe_speed_gro: { label: "Deluxe Speed-Gro", cost: 150, growthSpeedPct: 25, qualityBonus: "none", minQuality: null },
-  hyper_speed_gro: { label: "Hyper Speed-Gro", cost: 200, growthSpeedPct: 33, qualityBonus: "none", minQuality: null },
-};
-
 const QUALITY_MULTIPLIERS: Record<CropQuality, number> = {
   normal: 1,
   silver: 1.25,
@@ -37,17 +21,8 @@ export function getQualityMultiplier(quality: CropQuality): number {
   return QUALITY_MULTIPLIERS[quality];
 }
 
-export function getSellPriceMultiplier(
-  quality: CropQuality,
-  hasTiller: boolean,
-  minQuality: CropQuality | null = null
-): number {
-  const effectiveQuality = minQuality
-    ? (["normal", "silver", "gold", "iridium"].indexOf(quality) < ["normal", "silver", "gold", "iridium"].indexOf(minQuality)
-      ? minQuality
-      : quality)
-    : quality;
-  return getQualityMultiplier(effectiveQuality) * (hasTiller ? TILLER_MULTIPLIER : 1);
+export function getSellPriceMultiplier(quality: CropQuality, hasTiller: boolean): number {
+  return getQualityMultiplier(quality) * (hasTiller ? TILLER_MULTIPLIER : 1);
 }
 
 // 新增：计算加工品售价（Artisan 技能）
@@ -55,15 +30,9 @@ export function getArtisanSellPrice(
   basePrice: number,
   quality: CropQuality,
   hasTiller: boolean,
-  hasArtisan: boolean,
-  minQuality: CropQuality | null = null
+  hasArtisan: boolean
 ): number {
-  const effectiveQuality = minQuality
-    ? (["normal", "silver", "gold", "iridium"].indexOf(quality) < ["normal", "silver", "gold", "iridium"].indexOf(minQuality)
-      ? minQuality
-      : quality)
-    : quality;
-  const qualityMultiplier = getQualityMultiplier(effectiveQuality);
+  const qualityMultiplier = getQualityMultiplier(quality);
   const tillerMultiplier = hasTiller ? TILLER_MULTIPLIER : 1;
   const artisanMultiplier = hasArtisan ? ARTISAN_MULTIPLIER : 1;
 
@@ -96,8 +65,7 @@ export type ProfitInput = {
   quality?: CropQuality;
   hasTiller?: boolean;
   profession?: Profession; // 新增：专精技能
-  useArtisanGoods?: boolean;
-  fertilizer?: Fertilizer; // 新增：是否计算加工品收益
+  useArtisanGoods?: boolean; // 新增：是否计算加工品收益
 };
 
 export function clampSeasonDays(value: number, min = 1, max = 28) {
@@ -125,34 +93,27 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
   const hasTiller = input.hasTiller ?? false;
   const profession = input.profession ?? "none";
   const useArtisanGoods = input.useArtisanGoods ?? false;
-  const fertilizer = input.fertilizer ?? "none";
   const { crop } = input;
-
-  // 肥料配置
-  const fertConfig = FERTILIZER_CONFIG[fertilizer];
 
   // 技能判断
   const hasArtisan = profession === "artisan";
   const hasAgriculturist = profession === "agriculturist";
 
-  // 计算实际生长天数（Speed-Gro肥料 + Agriculturist 叠加）
-  const speedGroMultiplier = 1 - fertConfig.growthSpeedPct / 100;
-  const baseGrowthAfterFert = Math.ceil(crop.growthDays * speedGroMultiplier);
-  const baseRegrowAfterFert = Math.ceil(crop.regrowDays * speedGroMultiplier);
+  // 计算实际生长天数（Agriculturist 加成）
+  const actualGrowthDays = getActualGrowthDays(crop.growthDays, hasAgriculturist);
+  const actualRegrowDays = getActualGrowthDays(crop.regrowDays, hasAgriculturist);
 
-  const actualGrowthDays = getActualGrowthDays(baseGrowthAfterFert, hasAgriculturist);
-  const actualRegrowDays = getActualGrowthDays(baseRegrowAfterFert, hasAgriculturist);
-
-  // 计算售价（Quality Fertilizer 提高最低品质）
-  const minQuality = fertConfig.minQuality;
+  // 计算售价
   let finalSellPrice: number;
   if (useArtisanGoods) {
-    finalSellPrice = getArtisanSellPrice(crop.sellPrice, quality, hasTiller, hasArtisan, minQuality);
+    // 加工品售价（Artisan 技能）
+    finalSellPrice = getArtisanSellPrice(crop.sellPrice, quality, hasTiller, hasArtisan);
   } else {
-    finalSellPrice = crop.sellPrice * getSellPriceMultiplier(quality, hasTiller, minQuality);
+    // 原始作物售价
+    finalSellPrice = crop.sellPrice * getSellPriceMultiplier(quality, hasTiller);
   }
 
-  // 计算收获次数
+  // 计算收获次数（使用实际生长天数）
   let harvestCount = 0;
 
   if (!crop.isRegrowing) {
@@ -172,7 +133,7 @@ export function calculateSeasonProfit(input: ProfitInput): ProfitResult {
 
   const yieldPerHarvest = crop.yieldPerHarvest ?? 1;
   const totalRevenue = harvestCount * finalSellPrice * yieldPerHarvest;
-  const totalSeedCost = (crop.isRegrowing ? crop.seedCost : harvestCount * crop.seedCost) + fertConfig.cost;
+  const totalSeedCost = crop.isRegrowing ? crop.seedCost : harvestCount * crop.seedCost;
   const totalProfit = totalRevenue - totalSeedCost;
   const goldPerDay = totalProfit / seasonDays;
 

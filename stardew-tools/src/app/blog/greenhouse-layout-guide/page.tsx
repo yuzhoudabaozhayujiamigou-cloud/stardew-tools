@@ -29,25 +29,25 @@ const FAQ_ANSWERS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Greenhouse Layout: 116 Tiles, Best Sprinkler Setup & Crops",
+  title: "Best Stardew Valley Greenhouse Layout for Maximum Profit (116 Tiles)",
   description:
-    "Step-by-step greenhouse layout for Stardew Valley: 116 planting tiles, 6 Iridium Sprinkler pattern, best crops ranked, and fruit tree placement tips.",
+    "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
   alternates: {
     canonical: "/blog/greenhouse-layout-guide",
   },
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-05-10T00:00:00+08:00",
-    title: "Stardew Valley Greenhouse Layout: 116 Tiles, Best Sprinkler Setup & Crops",
+    modifiedTime: "2026-05-11T00:00:00+08:00",
+    title: "Best Stardew Valley Greenhouse Layout for Maximum Profit (116 Tiles)",
     description:
-      "Step-by-step greenhouse layout for Stardew Valley: 116 planting tiles, 6 Iridium Sprinkler pattern, best crops ranked, and fruit tree placement tips.",
+      "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Greenhouse Layout: 116 Tiles, Best Sprinkler Setup & Crops",
+    title: "Best Stardew Valley Greenhouse Layout for Maximum Profit (116 Tiles)",
     description:
-      "Step-by-step greenhouse layout for Stardew Valley: 116 planting tiles, 6 Iridium Sprinkler pattern, best crops ranked, and fruit tree placement tips.",
+      "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
   },
 };
 
@@ -161,34 +161,45 @@ export default function GreenhouseLayoutGuidePage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-              Stardew Valley Greenhouse Layout Guide
+              Best Stardew Valley Greenhouse Layout for Maximum Profit
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              The complete guide to your 116-tile greenhouse: best sprinkler pattern, top crops ranked, and Ancient Fruit vs Starfruit — with calculator presets.
+              <strong>Best overall greenhouse layout:</strong> use the 116-tile setup with 6 Iridium Sprinklers, fruit trees on the outer border, and Ancient Fruit as the default year-round profit crop unless you have enough Kegs to push Starfruit harder.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              This page gives the maximum-profit default first, then shows the easiest late-game and low-effort alternatives.
             </p>
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
-            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Quick Answer</h2>
-            <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <p>
-                If your goal is a clean, fully-irrigated <strong>stardew valley greenhouse layout</strong>,
-                design around <strong>116 planting tiles</strong>: the 10×12 soil area (120) minus the 4 permanent tiles
-                blocked by the center border/planter.
-              </p>
-              <p>
-                The most practical “always works” setup is <strong>6 Iridium Sprinklers</strong> watering every planting
-                tile while leaving a short central walkway for harvesting.
-              </p>
-              <p>
-                For crops, the classic endgame answer is <strong>Ancient Fruit</strong> for low-maintenance weekly harvests,
-                while <strong>Starfruit</strong> can win on raw value <em>if</em> you have the keg capacity and don’t mind
-                replanting.
-              </p>
-              <p>
-                If you’re still building processing, pick <strong>best greenhouse crops</strong> that are strong even when sold
-                raw (Cranberry) or scale well with a few kegs (Hops).
-              </p>
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Quick layout chooser</h2>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/90">
+              <table className="min-w-full divide-y divide-[#8a5b3a]/25 text-sm text-[#5f4228]/95">
+                <thead className="bg-[#f5e6be] text-left text-xs uppercase tracking-wide text-[#6a4729]">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Goal</th>
+                    <th className="px-4 py-3 font-semibold">Best Layout</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#8a5b3a]/20">
+                  <tr>
+                    <td className="whitespace-nowrap px-4 py-3 font-semibold text-[#4a321e]">Maximum profit</td>
+                    <td className="px-4 py-3 leading-6">116 tiles, 6 Iridium Sprinklers, fruit tree border, Ancient Fruit by default, switch to Starfruit only if your Kegs can keep up.</td>
+                  </tr>
+                  <tr>
+                    <td className="whitespace-nowrap px-4 py-3 font-semibold text-[#4a321e]">Easy setup</td>
+                    <td className="px-4 py-3 leading-6">116 tiles with a clean center path and Ancient Fruit or Cranberry so you are not forced into constant replanting.</td>
+                  </tr>
+                  <tr>
+                    <td className="whitespace-nowrap px-4 py-3 font-semibold text-[#4a321e]">Late game</td>
+                    <td className="px-4 py-3 leading-6">116 tiles, Ancient Fruit main crop, full fruit tree border, and enough Kegs to convert the weekly harvest into wine.</td>
+                  </tr>
+                  <tr>
+                    <td className="whitespace-nowrap px-4 py-3 font-semibold text-[#4a321e]">Low effort</td>
+                    <td className="px-4 py-3 leading-6">116 tiles with Ancient Fruit plus border fruit trees, because once planted it gives stable year-round profit with the fewest chores.</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
 
@@ -326,8 +337,8 @@ export default function GreenhouseLayoutGuidePage() {
             </p>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
               Next: decide your processing path.
-              <Link className="ml-1 font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-profit-guide">
-                Keg vs Preserves Jar (profit guide)
+              <Link className="ml-1 font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-preserves-jar">
+                Keg vs Preserves Jar
               </Link>
               .
             </p>
@@ -357,20 +368,14 @@ export default function GreenhouseLayoutGuidePage() {
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-4 grid gap-3">
+              {FAQ_EN.map((question, index) => (
+                <article key={question} className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+                  <h3 className="text-base font-semibold text-[#4a321e]">{question}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{FAQ_ANSWERS[index] ?? ""}</p>
+                </article>
               ))}
-            </ul>
-
-            <h3 className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">Answers</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ANSWERS.map((answer) => (
-                <li key={answer}>{answer}</li>
-              ))}
-            </ul>
+            </div>
           </section>
 
           <BlogCalculatorSprintCta

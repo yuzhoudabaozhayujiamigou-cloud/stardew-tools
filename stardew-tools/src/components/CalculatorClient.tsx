@@ -115,6 +115,7 @@ function getDefaultQueryState(initialSeason: Season): QueryState {
       quality: "normal",
       hasTiller: false,
       profession: "none",
+      fertilizer: "none",
     },
     daysLeft: 28,
   };
@@ -142,6 +143,7 @@ function resolveQueryState(params: URLSearchParams, initialSeason: Season): Quer
       quality: "normal",
       hasTiller: false,
       profession: nextProfession ?? preset?.defaultProfession ?? "none",
+      fertilizer: "none",
     },
     daysLeft: resolvedDaysLeft,
   };
@@ -243,7 +245,7 @@ export function CalculatorClient(props: {
     return () => window.clearTimeout(timeoutId);
   }, [resultsLinkCopied]);
 
-  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}`;
+  const inputsKey = `${daysLeft}-${formValue.hasTiller}-${formValue.profession}-${formValue.quality}-${formValue.season}-${formValue.processing}-${formValue.fertilizer}`;
 
 
   const text = useMemo(() => getCalculatorText(lang), [lang]);
@@ -258,6 +260,7 @@ export function CalculatorClient(props: {
           quality: formValue.quality,
           hasTiller: formValue.hasTiller,
           profession: formValue.profession,
+          fertilizer: formValue.fertilizer,
         }),
       )
       .map((result) => {
@@ -286,6 +289,7 @@ export function CalculatorClient(props: {
     formValue.profession,
     formValue.quality,
     formValue.season,
+    formValue.fertilizer,
     props.crops,
   ]);
 

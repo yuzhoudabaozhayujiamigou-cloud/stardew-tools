@@ -3,6 +3,7 @@
 import {
   getQualityMultiplier,
   type CropQuality,
+  type Fertilizer,
   type Profession,
   type Season,
 } from "@/lib/calculateProfit";
@@ -16,6 +17,7 @@ export type InputFormValue = {
   quality: CropQuality;
   hasTiller: boolean;
   profession: Profession;
+  fertilizer: Fertilizer;
 };
 
 const qualityOptions: Array<{
@@ -105,6 +107,29 @@ export function InputForm(props: {
             <option value="none">{text.processingOptions.none}</option>
             <option value="keg">{text.processingOptions.keg}</option>
             <option value="jar">{text.processingOptions.jar}</option>
+          </select>
+        </label>
+      </div>
+
+      <div className="mt-4">
+        <label className="grid gap-2">
+          <span className="text-sm font-medium text-[#5a3d25]">Fertilizer</span>
+          <select
+            id="calculator-fertilizer-select"
+            value={value.fertilizer}
+            onChange={(event) =>
+              onChange({
+                ...value,
+                fertilizer: event.target.value as Fertilizer,
+              })
+            }
+            className="h-11 rounded-2xl border border-[#a87a4d]/50 bg-[#fff8e7] px-4 text-sm text-[#4b331f] shadow-sm focus:border-[#7f5731] focus:outline-none"
+          >
+            <option value="none">None</option>
+            <option value="quality_fertilizer">Quality Fertilizer (10g, +1 quality tier)</option>
+            <option value="speed_gro">Speed-Gro (100g, -10% growth)</option>
+            <option value="deluxe_speed_gro">Deluxe Speed-Gro (150g, -25% growth)</option>
+            <option value="hyper_speed_gro">Hyper Speed-Gro (200g, -33% growth)</option>
           </select>
         </label>
       </div>

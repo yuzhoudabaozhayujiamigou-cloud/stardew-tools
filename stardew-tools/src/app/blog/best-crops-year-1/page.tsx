@@ -7,6 +7,7 @@ import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import Link from "next/link";
 
 const FAQ_EN = [
   "What are the best crops in Year 1 of Stardew Valley?",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-05-10T00:00:00+08:00",
+    modifiedTime: "2026-05-11T00:00:00+08:00",
     title: "Best Year 1 Crops in Stardew Valley — Potato, Blueberry, Cranberry",
     description:
       "Year 1 Stardew crop guide: Potato -> Strawberry for Spring, Blueberry for Summer, Cranberry for Fall. See seed costs, growth days, and beginner-friendly planting plans.",
@@ -308,24 +309,29 @@ export default function BestCropsYear1Page() {
                 Compare Fall crops with Artisan
               </TrackedBlogCtaLink>
             </div>
+            <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              If you want the next step after this Year 1 route, compare Fall processing in the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-preserves-jar">
+                Keg vs Preserves Jar guide
+              </Link>{" "}
+              or map your late-game farm with the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">
+                Greenhouse Layout Guide
+              </Link>
+              .
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-4 grid gap-3">
+              {FAQ_EN.map((question, index) => (
+                <article key={question} className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+                  <h3 className="text-base font-semibold text-[#4a321e]">{question}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{FAQ_ANSWERS[index] ?? ""}</p>
+                </article>
               ))}
-            </ul>
-
-            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">Answers</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ANSWERS.map((answer) => (
-                <li key={answer}>{answer}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 
