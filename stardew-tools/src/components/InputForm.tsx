@@ -140,6 +140,24 @@ export function InputForm(props: {
       <details className="mt-4 rounded-2xl border border-[#b88b63]/50 bg-[#fff8e8]/85 p-3">
         <summary className="cursor-pointer text-sm font-semibold text-[#5a3d25]">{advancedSettingsLabel}</summary>
 
+        <fieldset className="mt-4 grid gap-2">
+          <legend className="text-sm font-medium text-[#5a3d25]">Farming Level</legend>
+          <div className="flex items-center gap-3">
+            <input
+              type="range"
+              min="0"
+              max="14"
+              value={value.farmingLevel ?? 10}
+              onChange={(event) => onChange({ ...value, farmingLevel: Number(event.target.value) })}
+              className="h-8 w-full cursor-pointer accent-emerald-700"
+            />
+            <span className="min-w-[4rem] text-center text-sm font-semibold text-[#4a321e]">
+              {value.farmingLevel ?? 10}
+            </span>
+          </div>
+          <p className="text-xs text-[#6b4a2c]/80">Base: 0-10 (start). Bonuses from food (+3 max) and skill books.</p>
+        </fieldset>
+
         <fieldset className="mt-3 grid gap-2">
           <legend className="text-sm font-medium text-[#5a3d25]">{text.qualityLabel}</legend>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
