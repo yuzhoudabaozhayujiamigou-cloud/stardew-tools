@@ -57,43 +57,43 @@ const HUB_ENTRY_CARDS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profit Calculator Hub | Best Crops, Kegs, Jars & Greenhouse",
+  title: "Stardew Valley Profit Calculator | Best Crops, Kegs & Greenhouse",
   description:
-    "Plan your full Stardew Valley profit route in one place. Compare crop profit, find the best crops by season, decide Keg vs Preserves Jar, and map your greenhouse profit setup.",
+    "Use the Stardew Valley profit calculator to compare the best crops by season, check gold per day, and choose the right greenhouse, keg, or jar plan.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Profit Calculator Hub | Best Crops, Kegs, Jars & Greenhouse",
+    title: "Stardew Valley Profit Calculator | Best Crops, Kegs & Greenhouse",
     description:
-      "Plan your full Stardew Valley profit route in one place. Compare crop profit, find the best crops by season, decide Keg vs Preserves Jar, and map your greenhouse profit setup.",
+      "Use the Stardew Valley profit calculator to compare the best crops by season, check gold per day, and choose the right greenhouse, keg, or jar plan.",
     type: "website",
     images: [
       {
         url: "/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator",
         width: 1200,
         height: 630,
-        alt: "Stardew Valley Profit Calculator Hub",
+        alt: "Stardew Valley Profit Calculator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Profit Calculator Hub | Best Crops, Kegs, Jars & Greenhouse",
+    title: "Stardew Valley Profit Calculator | Best Crops, Kegs & Greenhouse",
     description:
-      "Plan your full Stardew Valley profit route in one place. Compare crop profit, find the best crops by season, decide Keg vs Preserves Jar, and map your greenhouse profit setup.",
+      "Use the Stardew Valley profit calculator to compare the best crops by season, check gold per day, and choose the right greenhouse, keg, or jar plan.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
 
 export default function CalculatorPage() {
   const heroValueProp =
-    "Check exact crop profit first, then jump straight into the best-crop, artisan processing, or greenhouse guide that matches your next decision.";
+    "Use the calculator for the planting decision first, then follow the best-crop, artisan processing, or greenhouse route that matches your farm.";
   const heroSteps = [
     "Choose Season and Days Left",
     "Compare Profit per Day + ROI",
-    "Open the right crop, keg, or greenhouse guide",
+    "Pick the crop and next profit route",
   ] as const;
 
   const initialSeason: Season = "spring";
@@ -195,13 +195,13 @@ export default function CalculatorPage() {
 
         <header className="rounded-[30px] border-4 border-[#8a5b3a]/75 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
-            Stardew Valley Profit Hub
+            Stardew Valley Profit Calculator
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Stardew Valley Profit Calculator Hub
+            Stardew Valley Profit Calculator
           </h1>
           <p className="mt-1 text-lg font-medium text-[#5c3d23]/90 sm:text-xl">
-            Compare crop profit, then branch into the best crop, keg, jar, or greenhouse guide without leaving the hub.
+            Find the best crop for your season, days left, seed budget, and next profit route.
           </p>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             {heroValueProp}
@@ -216,10 +216,10 @@ export default function CalculatorPage() {
           </ol>
 
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Start with your current season and days left, then use the hub cards below to move into the exact next question players usually have.
+            Start with your current season and days left, then use the next-step cards below when you are ready to plan crops, processing, or greenhouse layouts.
           </p>
           <ul className="mt-4 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-2">
-            <li>• Gold per day (profit/day)</li>
+            <li>• Gold per day</li>
             <li>• ROI / break-even days</li>
             <li>• Best crop by season</li>
             <li>• Keg, jar, and greenhouse next steps</li>
@@ -229,7 +229,7 @@ export default function CalculatorPage() {
               href="#calculator"
               className="inline-flex min-h-8 items-center gap-1.5 rounded-xl border-2 border-[#5b3a22]/75 bg-[#3f6f28] px-4 py-2 text-sm font-bold leading-5 text-white shadow-sm transition-colors duration-150 hover:bg-[#365f22] active:bg-[#2e511c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3f6f28]"
             >
-              ▶ Start Calculating
+              Start Calculating
             </a>
             {QUICK_PRESET_LINKS.map((preset) => (
               <TrackLink key={preset.href} href={preset.href} className={QUICK_PRESET_LINK_CLASS} trackEvent={preset.track}>
@@ -242,7 +242,7 @@ export default function CalculatorPage() {
           </div>
 
           <div className="mt-6 rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
-            <p className="text-sm font-semibold text-[#4a321e]">Choose your next profit question</p>
+            <p className="text-sm font-semibold text-[#4a321e]">After the calculation</p>
             <div className="mt-3 grid gap-3 sm:grid-cols-3">
               {HUB_ENTRY_CARDS.map((card) => (
                 <TrackLink
@@ -269,9 +269,9 @@ export default function CalculatorPage() {
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Related Guides</p>
-            <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Maximize Your Profit</h2>
+            <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Turn one calculation into a better farm plan</h2>
             <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
-              Finished comparing crops? Use one of these guides as the next step so you can turn a single calculation into a stronger full-season plan.
+              Once you know the best crop, use one of these guides to choose the right seasonal route, artisan path, or greenhouse setup.
             </p>
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               <Link href="/blog/best-crops-year-1" className="rounded-2xl border-2 border-[#7c4d2e]/55 bg-white/55 p-4 shadow-sm transition hover:-translate-y-0.5 hover:bg-white/75">

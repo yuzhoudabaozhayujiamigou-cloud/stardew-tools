@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Tools: Crop Profit Calculator & Farming Guides",
+  title: "Stardew Valley Profit Calculator & Best Crops Planner",
   description:
-    "Use Stardew Valley tools and guides to compare crop profits, plan your farm, and choose the best crops for every season.",
+    "Compare Stardew Valley crop profit, find the best crops by season, and plan greenhouse, keg, or jar decisions from one profit calculator.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     url: "/",
-    title: "Stardew Valley Tools: Crop Profit Calculator & Farming Guides",
+    title: "Stardew Valley Profit Calculator & Best Crops Planner",
     description:
-      "Use Stardew Valley tools and guides to compare crop profits, plan your farm, and choose the best crops for every season.",
+      "Compare Stardew Valley crop profit, find the best crops by season, and plan greenhouse, keg, or jar decisions from one profit calculator.",
   },
   twitter: {
     card: "summary",
-    title: "Stardew Valley Tools: Crop Profit Calculator & Farming Guides",
+    title: "Stardew Valley Profit Calculator & Best Crops Planner",
     description:
-      "Use Stardew Valley tools and guides to compare crop profits, plan your farm, and choose the best crops for every season.",
+      "Compare Stardew Valley crop profit, find the best crops by season, and plan greenhouse, keg, or jar decisions from one profit calculator.",
   },
 };
 
@@ -163,13 +163,13 @@ export default function HomePage() {
             StardewProfit.com
           </p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-            Stardew Valley Tools: Crop Profit Calculator and Best Crops Guides
+            Stardew Valley Profit Calculator and Best Crops Planner
           </h1>
           <p className="mt-3 max-w-4xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Start here to choose between the crop profit calculator, best-crops guides, greenhouse planning, and artisan profit decisions.
+            Compare Stardew Valley crop profit by season, find the best crop for the days you have left, and turn that answer into a greenhouse, keg, or jar plan.
           </p>
           <p className="mt-2 max-w-4xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Use the calculator when you want exact crop profit by season. Use the guides when you need Year 1, greenhouse, or longer-term farming strategy.
+            Start with the profit calculator for the fastest answer. Use the guides when you want Year 1 crop routes, greenhouse strategy, or artisan processing follow-through.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-3">
@@ -177,13 +177,13 @@ export default function HomePage() {
               href="/calculator"
               className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-[#5c8a3e] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4e7a32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5c8a3e]"
             >
-              Use the Crop Profit Calculator
+              Open the Profit Calculator
             </Link>
             <Link
               href="/blog"
               className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-white/60 px-5 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:bg-white/75"
             >
-              Browse Guides
+              See Best Crop Guides
             </Link>
           </div>
         </header>
@@ -193,15 +193,15 @@ export default function HomePage() {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Profit Calculator</p>
-                <h2 className="mt-2 text-2xl font-semibold text-[#4a321e] sm:text-3xl">Compare crop profits before you plant</h2>
+                <h2 className="mt-2 text-2xl font-semibold text-[#4a321e] sm:text-3xl">Compare the best crops before you plant</h2>
                 <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-                  Jump straight into the calculator when you want exact gold/day, ROI, and season-specific crop rankings.
+                  Jump straight into the calculator when you want exact gold per day, ROI, break-even timing, and a practical answer for your current season.
                 </p>
               </div>
               <div aria-hidden className="text-3xl sm:text-4xl">🧮</div>
             </div>
             <div className="mt-5 inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-[#5c8a3e] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4e7a32]">
-              Compare crop profits
+              Find the best crop now
             </div>
           </Link>
 
