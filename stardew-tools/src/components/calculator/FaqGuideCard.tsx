@@ -7,6 +7,11 @@ const faqItems = [
       "It compares seasonal total profit and gold per day with regrow logic, quality multipliers, and optional Tiller bonus.",
   },
   {
+    question: "Ancient Fruit vs Starfruit — which is more profitable?",
+    answer:
+      "Ancient Fruit wins per plant in the Greenhouse or Ginger Island because it regrows every 7 days with no replanting. Starfruit wins on raw gold per harvest but costs 400g per seed. Run the calculator with your days left: Ancient Fruit starts stronger across Year 1-Greenhouse, while Starfruit is the faster profit option when you only have one season of growing time.",
+  },
+  {
     question: "Does this include artisan processing profit?",
     answer:
       "Not yet. This page focuses on direct crop selling value for quick in-season planting decisions.",
