@@ -89,11 +89,11 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   const heroValueProp =
-    "Use the calculator for the planting decision first, then follow the best-crop, artisan processing, or greenhouse route that matches your farm.";
+    "Compare Stardew Valley crops by season, days left, gold per day, and ROI. Get an exact answer for your current farm before buying seeds.";
   const heroSteps = [
-    "Choose Season and Days Left",
-    "Compare Profit per Day + ROI",
-    "Pick the crop and next profit route",
+    "Choose your Season and Days Left",
+    "Compare Gold per Day + ROI",
+    "Pick the best crop for your exact window",
   ] as const;
 
   const initialSeason: Season = "spring";
