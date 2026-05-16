@@ -21,25 +21,25 @@ export const metadata: Metadata = {
     modifiedTime,
   },
   title:
-    "Keg vs Jar (Stardew Valley): The Complete Profit System + Best Use Cases (2026)",
+    "Keg vs Jar Capacity Planning (Stardew Valley): Pipeline, Throughput, and Use Cases",
   description:
-    "A complete, practical Keg vs Jar guide for Stardew Valley: which makes more gold, when each wins, how to build a processing pipeline, and what to process first—plus calculators and FAQs.",
+    "A deeper Keg vs Jar capacity-planning guide for Stardew Valley: throughput, machine bottlenecks, pipeline design, and when to scale Kegs or Preserves Jars after the main choice is already clear.",
   keywords: [
-    "stardew valley keg vs jar",
-    "keg vs preserves jar",
-    "keg vs jar profit",
-    "best artisan goods stardew valley",
+    "stardew valley keg vs jar capacity",
+    "keg throughput stardew valley",
+    "preserves jar throughput stardew valley",
+    "stardew valley artisan pipeline",
     "stardew valley wine vs juice",
     "stardew valley jelly vs pickles",
     "how many kegs do i need",
   ],
   alternates: {
-    canonical: `${SITE_URL}/blog/keg-vs-jar-complete-profit-system`,
+    canonical: `${SITE_URL}/blog/keg-vs-jar-profit-guide`,
   },
 };
 
 const toc = [
-  { id: "decision-fast", label: "Keg vs Jar (Fast Decision Rules)" },
+  { id: "decision-fast", label: "Keg vs Jar (Capacity Planning Lens)" },
   { id: "what-they-do", label: "What Kegs and Preserves Jars Actually Do" },
   { id: "profit-math", label: "The Profit Math (Simple Formulas You Can Reuse)" },
   { id: "when-keg-wins", label: "When Kegs Win (and Why)" },
@@ -231,7 +231,7 @@ export default function KegVsJarCompleteProfitSystemPage() {
           items={[
             { name: "Home", href: "/" },
             { name: "Blog", href: "/blog" },
-            { name: "Keg vs Jar" },
+            { name: "Keg vs Jar Capacity Planning" }
           ]}
         />
 
@@ -243,7 +243,7 @@ export default function KegVsJarCompleteProfitSystemPage() {
               Artisan processing pillar (2026)
             </p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
-              Keg vs Jar (Stardew Valley): The Complete Profit System
+              Keg vs Jar (Stardew Valley): Capacity Planning and Throughput
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               “Keg vs Preserves Jar” sounds like a single question, but the real problem is a system problem: what to
