@@ -67,6 +67,8 @@ export default function RootLayout({
         
         {/* Preload critical font */}
         <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Route-aware AdSense loader in <head> for standard verification signal */}
+        <AdSenseScript />
             </head>
       <body className="antialiased">
         <Suspense fallback={null}>
@@ -74,8 +76,6 @@ export default function RootLayout({
         </Suspense>
         {children}
         <Analytics />
-        {/* Route-aware AdSense loader: keep ads off policy/info pages during review */}
-        <AdSenseScript />
       </body>
     </html>
   );
