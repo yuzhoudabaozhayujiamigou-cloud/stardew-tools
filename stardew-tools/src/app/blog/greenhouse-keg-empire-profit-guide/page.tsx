@@ -51,6 +51,9 @@ const FAQ = [
 export const metadata: Metadata = {
   title: `${TITLE} | Stardew Profit`,
   description: DESCRIPTION,
+  alternates: {
+    canonical: `${SITE_ORIGIN}/blog/greenhouse-layout-guide`,
+  },
   openGraph: {
     title: `${TITLE} | Stardew Profit`,
     description: DESCRIPTION,
