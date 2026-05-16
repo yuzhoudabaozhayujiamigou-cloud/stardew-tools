@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/next";
 
 import { TopNav } from "@/components/TopNav";
+import { AdSenseScript } from "@/components/AdSenseScript";
 import { SITE_NAME, SITE_ORIGIN } from "@/lib/site";
 
 import "./globals.css";
@@ -73,12 +74,8 @@ export default function RootLayout({
         </Suspense>
         {children}
         <Analytics />
-        {/* Google AdSense - moved to body bottom to avoid render-blocking */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8196905039108849"
-          crossOrigin="anonymous"
-        />
+        {/* Route-aware AdSense loader: keep ads off policy/info pages during review */}
+        <AdSenseScript />
       </body>
     </html>
   );
