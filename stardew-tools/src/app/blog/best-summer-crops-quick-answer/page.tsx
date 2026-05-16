@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     "stardew crop profit calculator",
   ],
   alternates: {
-    canonical: url,
+    canonical: `${SITE_ORIGIN}/blog/stardew-valley-summer-profit-guide`,
   },
   openGraph: {
     title: `${TITLE} | Stardew Profit`,
