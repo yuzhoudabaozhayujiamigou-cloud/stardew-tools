@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Money Making Guide 1.6 – From Broke to Rich | StardewProfit",
+    title: "Stardew Valley Money Making Guide | Crops, Kegs & Profit Calculator 1.6",
     description:
       "Best early crops, mid-game processing, late-game wine pipelines, and the calculator-first strategy that actually grows your gold.",
     images: ["https://www.stardewprofit.com/api/og?title=Money+Making+Guide&subtitle=From+Broke+to+Rich&type=guide"],

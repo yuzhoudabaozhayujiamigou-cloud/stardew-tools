@@ -11,9 +11,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 export const metadata: Metadata = {
-  title: "Best Crops for Every Season in Stardew Valley | Profit Guide",
-  description:
-    "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
+  title: "Best Stardew Valley Crops by Season | Profit per Day & Calculator",
+  description: "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse, then use the profit calculator to compare gold per day for your exact days left.",
   alternates: {
     canonical: "https://www.stardewprofit.com/blog/best-crops-every-season",
   },
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-28T00:00:00+08:00",
     modifiedTime: "2026-04-22T00:00:00+08:00",
     url: "https://www.stardewprofit.com/blog/best-crops-every-season",
-    title: "Best Crops for Every Season in Stardew Valley | Profit Guide",
+    title: "Best Stardew Valley Crops by Season | Profit per Day & Calculator",
     description:
       "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
   },
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
   ],
   twitter: {
     card: "summary_large_image",
-    title: "Best Crops for Every Season in Stardew Valley | Profit Guide",
+    title: "Best Stardew Valley Crops by Season | Profit per Day & Calculator",
     description:
       "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
   },

@@ -76,9 +76,8 @@ const FAQ_ITEMS = [
 const PAGE_PATH = "/best-crops/spring";
 
 export const metadata: Metadata = {
-  title: "Most Profitable Spring Crops in Stardew Valley - Ranking Guide",
-  description:
-    "Find the most profitable crop options for Stardew Valley Spring. Compare sell price, growth days, and gold/day estimates, then validate with Spring calculator presets.",
+  title: "Best Spring Crops in Stardew Valley | Gold per Day & Profit Calculator",
+  description: "Compare the most profitable Spring crops by gold per day in Stardew Valley. See sell price, growth time, and ranking, then run the calculator with your real days left.",
   alternates: {
     canonical: PAGE_PATH,
   },

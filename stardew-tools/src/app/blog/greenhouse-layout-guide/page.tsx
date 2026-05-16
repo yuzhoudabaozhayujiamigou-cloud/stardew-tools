@@ -29,7 +29,7 @@ const FAQ_ANSWERS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Best Stardew Valley Greenhouse Layout for Maximum Profit (116 Tiles)",
+  title: "Best Stardew Valley Greenhouse Layout | 116 Tile Profit Planner",
   description:
     "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
   alternates: {
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
     modifiedTime: "2026-05-11T00:00:00+08:00",
-    title: "Best Stardew Valley Greenhouse Layout for Maximum Profit (116 Tiles)",
+    title: "Best Stardew Valley Greenhouse Layout | 116 Tile Profit Planner",
     description:
       "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Stardew Valley Greenhouse Layout for Maximum Profit (116 Tiles)",
+    title: "Best Stardew Valley Greenhouse Layout | 116 Tile Profit Planner",
     description:
       "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
   },
