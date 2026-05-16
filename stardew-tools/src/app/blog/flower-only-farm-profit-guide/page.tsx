@@ -87,6 +87,9 @@ const SUB_CTA_CLASS =
 export const metadata: Metadata = {
   title: `${TITLE} | Stardew Profit`,
   description: DESCRIPTION,
+  alternates: {
+    canonical: url,
+  },
   openGraph: {
     title: `${TITLE} | Stardew Profit`,
     description: DESCRIPTION,
