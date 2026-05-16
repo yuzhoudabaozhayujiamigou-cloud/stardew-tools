@@ -76,7 +76,10 @@ export const metadata: Metadata = {
   },
   title: "Spring 13: Too Late to Plant Strawberries? (Stardew)",
   description:
-    "Stardew Valley Spring Day 13 guide with the exact conversion (16 days left), no-Speed-Gro baseline, and fallback crop plans linked to the calculator.",
+    "Spring 13 is the Egg Festival strawberry decision point with 16 days left. Get the exact harvest count, Speed-Gro edge case, and fallback crop plan for late Spring profit.",
+  alternates: {
+    canonical: `${SITE_ORIGIN}/blog/strawberry-spring-day-13-too-late`,
+  },
 };
 
 export default function StrawberrySpringDay13TooLatePage() {
