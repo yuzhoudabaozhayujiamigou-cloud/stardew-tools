@@ -52,6 +52,7 @@ export const metadata: Metadata = {
   title: "Best Greenhouse Crops in Stardew Valley (Throughput-Based Guide)",
   description:
     "A practical greenhouse crop guide for Stardew Valley based on processing throughput (kegs/preserves jars) and your schedule. Pick crops that match daily play or weekend-only farming.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/best-greenhouse-crops-stardew-valley" },
 };
 
 const CTA_CLASS =

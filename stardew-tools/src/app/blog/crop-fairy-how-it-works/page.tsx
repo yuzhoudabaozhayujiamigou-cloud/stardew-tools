@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley Crop Fairy: How It Works, Chances, Best Crops",
   description:
     "Crop Fairy (作物仙子) explained: what it does, rough chances, and which crops benefit most. Includes quick calculator links to compare profit impact.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/crop-fairy-how-it-works" },
 };
 
 export default function CropFairyHowItWorksPage() {

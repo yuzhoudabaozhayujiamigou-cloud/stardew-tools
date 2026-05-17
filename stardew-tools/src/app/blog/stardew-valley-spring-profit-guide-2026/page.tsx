@@ -143,6 +143,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley Spring Profit Guide (Best Crops 2026)",
   description:
     "S-tier and A-tier spring crop recommendations with profit data table. Includes ROI breakdown and quick path back to the calculator.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-spring-profit-guide-2026" },
 };
 
 function tierBadge(tier: CropGuideRow["tier"]) {

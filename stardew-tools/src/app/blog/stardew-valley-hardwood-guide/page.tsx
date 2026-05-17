@@ -11,6 +11,7 @@ import { SITE_ORIGIN } from "@/lib/site";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const fromPath = "/blog/stardew-valley-hardwood-guide";
+const url = `${SITE_ORIGIN}${fromPath}`;
 
 const FAQ_ITEMS = [
   {
@@ -74,6 +75,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-03-21T00:00:00+08:00",
     modifiedTime: "2026-03-21T00:00:00+08:00",
   },
+  alternates: { canonical: url },
 };
 
 const CARD =

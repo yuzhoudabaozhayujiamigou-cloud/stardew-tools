@@ -97,6 +97,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Is It Too Late to Plant on Summer Day 25?",
   description:
     "Only 3 days left in Summer? Panic-template for late planting, including wheat cross-season carry logic and a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-is-it-too-late-to-plant-on-summer-day-25" },
 };
 
 export default function StardewValleyIsItTooLateToPlantOnSummerDay25Page() {

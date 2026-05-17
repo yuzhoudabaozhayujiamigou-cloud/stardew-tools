@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 1 Maximum Profit Guide",
   description:
     "Stardew Valley Summer Day 1 strategy guide with 28 days left: blueberry vs starfruit vs melon, and a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-summer-day-1-maximum-profit-guide" },
 };
 
 export default function StardewValleySummerDay1MaximumProfitGuidePage() {

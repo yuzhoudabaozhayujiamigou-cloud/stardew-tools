@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-27T00:00:00Z",
     modifiedTime: "2026-02-27T00:00:00Z",
   },
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-profit-guide-2026" },
 };
 
 const CARD_CLASS =

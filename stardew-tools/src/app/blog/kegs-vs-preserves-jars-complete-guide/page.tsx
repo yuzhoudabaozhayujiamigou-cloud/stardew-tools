@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-04-03T00:00:00+08:00",
     modifiedTime: "2026-04-03T00:00:00+08:00",
   },
+  alternates: { canonical: "https://www.stardewprofit.com/blog/kegs-vs-preserves-jars-complete-guide" },
 };
 
 const CARD =

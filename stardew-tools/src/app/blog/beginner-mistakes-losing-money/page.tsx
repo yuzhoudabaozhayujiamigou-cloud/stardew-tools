@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     "profit tips",
     "farming guide",
   ],
+  alternates: { canonical: "https://www.stardewprofit.com/blog/beginner-mistakes-losing-money" },
 };
 
 const faqEn = [

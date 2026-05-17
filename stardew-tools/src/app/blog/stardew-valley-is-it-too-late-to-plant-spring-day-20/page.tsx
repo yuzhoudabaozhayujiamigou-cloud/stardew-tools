@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Is It Too Late to Plant on Spring Day 20?",
   description:
     "Stardew Valley Spring Day 20 emergency guide for an 8-day decision window: fast crops that can still finish, with a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-is-it-too-late-to-plant-spring-day-20" },
 };
 
 export default function StardewValleyIsItTooLateToPlantSpringDay20Page() {

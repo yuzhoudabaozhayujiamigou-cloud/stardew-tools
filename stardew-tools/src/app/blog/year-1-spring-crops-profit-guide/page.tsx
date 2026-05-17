@@ -48,6 +48,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley Year 1 Spring Crops Profit Guide (With Daily Profit Calculator)",
   description:
     "A practical Year 1 Spring crop plan for Stardew Valley. Compare gold/day with calculator presets and pick the best crops for your days left, watering, and regrow cycles.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/year-1-spring-crops-profit-guide" },
 };
 
 const CTA_CLASS =

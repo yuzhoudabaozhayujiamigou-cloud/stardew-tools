@@ -97,6 +97,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Is It Too Late to Plant on Spring Day 25?",
   description:
     "Only 3 days left? Stardew Valley panic-guide for end-of-Spring planting, including the parsnip Speed-Gro edge case and a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-is-it-too-late-to-plant-on-spring-day-25" },
 };
 
 export default function StardewValleyIsItTooLateToPlantOnSpringDay25Page() {

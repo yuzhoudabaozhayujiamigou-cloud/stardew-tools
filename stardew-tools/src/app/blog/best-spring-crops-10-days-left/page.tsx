@@ -102,6 +102,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Best Spring Crops With 10 Days Left",
   description:
     "Stardew Valley late Spring guide for exactly 10 days left: compare fast crops, expected harvest count, and estimated gold/day with a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/best-spring-crops-10-days-left" },
 };
 
 export default function BestSpringCrops10DaysLeftPage() {

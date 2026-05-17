@@ -10,6 +10,7 @@ import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const PUBLISHED_TIME_ISO = "2026-03-03T00:00:00.000Z";
 const MODIFIED_TIME_ISO = "2026-03-03T00:00:00.000Z";
+const CANONICAL_URL = "https://www.stardewprofit.com/blog/stardew-valley-profit-guide";
 
 const FAQ_ITEMS = [
   {
@@ -51,6 +52,7 @@ export const metadata: Metadata = {
     publishedTime: PUBLISHED_TIME_ISO,
     modifiedTime: MODIFIED_TIME_ISO,
   },
+  alternates: { canonical: CANONICAL_URL },
 };
 
 export default function StardewValleyProfitGuide2026Page() {

@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   title: "Starfruit vs Ancient Fruit Wine (Quick Answer + Calculator)",
   description:
     "Quick answer for Starfruit Wine vs Ancient Fruit Wine with 3 calculator presets for summer, greenhouse, and short-window scenarios.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/starfruit-vs-ancient-fruit-wine-quick-answer" },
 };
 
 export default function StarfruitVsAncientFruitWineQuickAnswerPage() {

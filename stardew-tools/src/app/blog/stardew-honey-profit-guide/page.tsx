@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   title: "Stardew Honey Profit Guide: Best Flowers by Season (With Calculator)",
   description:
     "A practical honey profit guide: best flowers by season, what actually changes honey value, and quick calculator presets for bee house setups.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-honey-profit-guide" },
 };
 
 export default function StardewHoneyProfitGuidePage() {

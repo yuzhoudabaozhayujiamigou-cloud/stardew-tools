@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   title: "Spring Day 15: What To Plant for Profit (Stardew)",
   description:
     "Stardew Valley Spring Day 15 playbook with the exact conversion (14 days left), top late-season crop picks, and a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/spring-day-15-what-to-plant-profit" },
 };
 
 export default function SpringDay15WhatToPlantProfitPage() {

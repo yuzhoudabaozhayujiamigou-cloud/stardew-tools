@@ -10,6 +10,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 const fromPath = "/blog/stardew-valley-1-6-new-crops-profit-guide";
+const url = "https://www.stardewprofit.com/blog/stardew-valley-1-6-new-crops-profit-guide";
 
 const FAQ_ITEMS = [
   {
@@ -48,6 +49,7 @@ export const metadata: Metadata = {
     publishedTime: "2026-04-05T00:00:00+08:00",
     modifiedTime: "2026-04-05T00:00:00+08:00",
   },
+  alternates: { canonical: url },
 };
 
 export default async function Page() {

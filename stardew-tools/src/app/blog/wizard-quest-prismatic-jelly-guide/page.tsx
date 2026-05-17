@@ -59,6 +59,7 @@ export const metadata: Metadata = {
     publishedTime,
     modifiedTime,
   },
+  alternates: { canonical: url },
 };
 
 const CARD =

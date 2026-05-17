@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 20 — Is It Too Late?",
   description:
     "Stardew Valley Summer Day 20 panic guide with an 8-day late-window template: radish, wheat, hot pepper salvage picks and calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-summer-day-20-is-it-too-late" },
 };
 
 export default function StardewValleySummerDay20IsItTooLatePage() {

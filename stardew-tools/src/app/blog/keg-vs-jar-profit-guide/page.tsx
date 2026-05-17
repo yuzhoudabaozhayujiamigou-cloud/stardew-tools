@@ -69,6 +69,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: ["https://www.stardewprofit.com/api/og?title=Keg+vs+Jar&subtitle=What+to+Build+First&type=guide"],
   },
+  alternates: { canonical: url },
 };
 
 const CARD =

@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 7 — What Should I Plant?",
   description:
     "Stardew Valley Summer Day 7 guide with 21 days left: blueberry, corn, melon, and hops picks with a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-summer-day-7-what-to-plant" },
 };
 
 export default function StardewValleySummerDay7WhatToPlantPage() {

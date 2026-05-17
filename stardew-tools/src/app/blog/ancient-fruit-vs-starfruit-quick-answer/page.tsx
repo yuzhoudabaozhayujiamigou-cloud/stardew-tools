@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   title: "Ancient Fruit vs Starfruit (Quick Answer + Calculator)",
   description:
     "Ancient Fruit vs Starfruit quick answer with direct calculator presets for greenhouse, full season, and short-window profit comparison.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/ancient-fruit-vs-starfruit-quick-answer" },
 };
 
 export default function AncientFruitVsStarfruitQuickAnswerPage() {

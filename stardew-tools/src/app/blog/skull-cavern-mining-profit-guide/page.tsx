@@ -58,6 +58,7 @@ export const metadata: Metadata = {
     publishedTime: PUBLISHED_TIME,
     modifiedTime: MODIFIED_TIME,
   },
+  alternates: { canonical: URL },
 };
 
 const CARD_CLASS =

@@ -132,6 +132,7 @@ export const metadata: Metadata = {
   title: "Best Crops for Last 7 Days Before Season Switch - Quick Guide",
   description:
     "Maximize profit in the final week! Plant fast-growing crops, use Speed-Gro, and avoid waste. Complete guide with profit calculator.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/best-crops-7-days-left-before-season-switch" },
 };
 
 export default function BestCrops7DaysLeftBeforeSeasonSwitchPage() {

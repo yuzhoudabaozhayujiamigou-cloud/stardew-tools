@@ -108,6 +108,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley: Summer Day 15 Profit Guide",
   description:
     "Stardew Valley Summer Day 15 guide with 13 days left: radish, wheat, hot pepper picks and a direct calculator CTA.",
+  alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-valley-summer-day-15-profit-guide" },
 };
 
 export default function StardewValleySummerDay15ProfitGuidePage() {
