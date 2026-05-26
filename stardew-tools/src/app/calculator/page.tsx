@@ -57,17 +57,17 @@ const HUB_ENTRY_CARDS = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profit Calculator | Best Crops, Kegs & Greenhouse",
+  title: "Stardew Crop Calculator | Profit, Gold/Day & Best Crops",
   description:
-    "Use the Stardew Valley profit calculator to compare the best crops by season, check gold per day, and choose the right greenhouse, keg, or jar plan.",
+    "Use this Stardew crop calculator to compare profit, gold/day, season, days left, regrow crops, quality, and Tiller/Artisan toggles before planting.",
   alternates: {
     canonical: "/calculator",
   },
   openGraph: {
     url: "/calculator",
-    title: "Stardew Valley Profit Calculator | Best Crops, Kegs & Greenhouse",
+    title: "Stardew Crop Calculator | Profit, Gold/Day & Best Crops",
     description:
-      "Use the Stardew Valley profit calculator to compare the best crops by season, check gold per day, and choose the right greenhouse, keg, or jar plan.",
+      "Use this Stardew crop calculator to compare profit, gold/day, season, days left, regrow crops, quality, and Tiller/Artisan toggles before planting.",
     type: "website",
     images: [
       {
@@ -80,9 +80,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stardew Valley Profit Calculator | Best Crops, Kegs & Greenhouse",
+    title: "Stardew Crop Calculator | Profit, Gold/Day & Best Crops",
     description:
-      "Use the Stardew Valley profit calculator to compare the best crops by season, check gold per day, and choose the right greenhouse, keg, or jar plan.",
+      "Use this Stardew crop calculator to compare profit, gold/day, season, days left, regrow crops, quality, and Tiller/Artisan toggles before planting.",
     images: ["/api/og?title=Crop+Profit+Calculator&subtitle=Compare+Gold+per+Day&type=calculator"],
   },
 };
@@ -214,6 +214,15 @@ export default function CalculatorPage() {
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
             {heroValueProp}
           </p>
+
+          <section className="mt-4 max-w-3xl rounded-2xl border border-[#8a5b3a]/35 bg-white/40 p-4 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">
+              Quick Answer
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              This Stardew crop calculator compares crop profit, gold/day, season, days left, regrow harvests, quality, and profession toggles so you can pick the best crop before planting.
+            </p>
+          </section>
 
           <ol className="mt-3 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-3">
             {heroSteps.map((step) => (
