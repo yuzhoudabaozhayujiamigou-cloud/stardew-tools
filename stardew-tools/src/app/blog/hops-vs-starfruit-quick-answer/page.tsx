@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -104,6 +105,7 @@ export default function HopsVsStarfruitQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Hops vs Starfruit: Profit Verdict First
             </h1>
+            <BlogArticleMeta published="2026-02-24" updated="2026-05-30" />
 
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               Verdict: Hops is usually better when your goal is steady, frequent keg throughput. Starfruit is usually

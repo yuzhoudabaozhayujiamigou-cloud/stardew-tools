@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -11,7 +12,7 @@ import { getBlogReadNextPosts } from "@/lib/read-next";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const publishedTime = "2026-02-26T00:00:00+08:00";
-const modifiedTime = "2026-03-07T00:00:00+08:00";
+const modifiedTime = "2026-06-01T00:00:00+08:00";
 const fromPath = "/blog/best-fall-crops-quick-answer";
 const url = `${SITE_ORIGIN}${fromPath}`;
 
@@ -166,7 +167,17 @@ export default function BestFallCropsQuickAnswerPage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer • Fall Crop SEO</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">Best Fall Crops in Stardew Valley</h1>
+            <BlogArticleMeta published="2026-02-26" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">This guide gives the fast Fall crop answer while keeping the decision tied to days left and processing reality.</p>
+
+            <div className="mt-5 rounded-2xl border border-[#7c4d2e]/30 bg-[#fff8e8] p-4 text-sm leading-6 text-[#5f4228]/90">
+              <p className="font-semibold text-[#4a321e]">How to use this quick answer</p>
+              <p className="mt-2">
+                Treat Cranberry as the safe default, then adjust for your real constraint: seed cash, days left,
+                and whether your kegs or preserve jars are already full. If the calculator shows Pumpkin winning but
+                your jars are idle and your kegs are backed up, split the field instead of forcing one theoretical best crop.
+              </p>
+            </div>
 
             <div className="mt-5 flex flex-wrap gap-3">
               <TrackedBlogCtaLink
@@ -224,7 +235,11 @@ export default function BestFallCropsQuickAnswerPage() {
               <Link href="/blog/stardew-valley-artisan-profit-guide" className={LINK}>
                 Artisan Profit Guide
               </Link>
-              .
+              . If you are planning beyond Fall, compare the same logic against the{" "}
+              <Link href="/calculator" className={LINK}>
+                Stardew Valley crop calculator
+              </Link>
+              {" "}so the answer reflects your exact remaining days and profession bonuses.
             </p>
           </section>
 

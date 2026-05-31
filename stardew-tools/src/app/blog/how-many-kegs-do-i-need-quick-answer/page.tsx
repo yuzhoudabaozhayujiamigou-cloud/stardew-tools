@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -86,6 +87,7 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">How Many Kegs Do I Need?</h1>
+            <BlogArticleMeta published="2026-02-23" updated="2026-05-30" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">酒桶要做多少才够？一页看懂：小作坊 / 中等产线 / 重度产线。</p>
           </header>
 
@@ -119,6 +121,12 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
                 the crop profit calculator
               </Link>{" "}
               for fast what-if checks.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              A useful rule of thumb is to size machines for the crop you actually harvest, not for the farm you hope to
+              have later. Count the fruit sitting in chests after each harvest, then add kegs only when that backlog
+              survives the full processing cycle. This keeps oak resin, copper, and coal from getting trapped in idle
+              machines before your crop volume can support them.
             </p>
           </section>
 

@@ -11,8 +11,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 
 export const metadata: Metadata = {
-  title: "Best Stardew Valley Crops by Season | Profit per Day & Calculator",
-  description: "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse, then use the profit calculator to compare gold per day for your exact days left.",
+  title: "Best Crops Per Season in Stardew Valley | Profit Calculator",
+  description: "See the best Stardew Valley crops per season for Spring, Summer, Fall, and Greenhouse, then compare profit per day for your exact days left.",
   alternates: {
     canonical: "https://www.stardewprofit.com/blog/best-crops-every-season",
   },
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     publishedTime: "2026-02-28T00:00:00+08:00",
     modifiedTime: "2026-04-22T00:00:00+08:00",
     url: "https://www.stardewprofit.com/blog/best-crops-every-season",
-    title: "Best Stardew Valley Crops by Season | Profit per Day & Calculator",
+    title: "Best Crops Per Season in Stardew Valley | Profit Calculator",
     description:
-      "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
+      "See the best Stardew Valley crops per season for Spring, Summer, Fall, and Greenhouse, then compare profit per day for your exact days left.",
   },
   keywords: [
     "best crops stardew valley",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   ],
   twitter: {
     card: "summary_large_image",
-    title: "Best Stardew Valley Crops by Season | Profit per Day & Calculator",
+    title: "Best Crops Per Season in Stardew Valley | Profit Calculator",
     description:
-      "See the best Stardew Valley crops for Spring, Summer, Fall, and Greenhouse. Compare profit, growth time, and farming strategy by season.",
+      "See the best Stardew Valley crops per season for Spring, Summer, Fall, and Greenhouse, then compare profit per day for your exact days left.",
   },
 };
 
@@ -455,6 +455,26 @@ export default function BestCropsEverySeasonPage() {
                   Stardew Valley Crop Profit Calculator
                 </Link>
               </p>
+            </div>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-white/75 p-4">
+                <p className="text-sm font-semibold text-[#1f6b2e]">How to use this guide</p>
+                <p className="mt-2 text-sm leading-6 text-[#245631]">
+                  Start with the fast answer for your current season, then use the row-by-row notes to see whether your farm is limited by days left, seed budget, or processing capacity.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-white/75 p-4">
+                <p className="text-sm font-semibold text-[#1f6b2e]">What changes the ranking</p>
+                <p className="mt-2 text-sm leading-6 text-[#245631]">
+                  The winner changes when a crop cannot finish before season end, when a regrow crop has enough time to pay back, or when you have more Kegs/Jars than raw fruit supply.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-white/75 p-4">
+                <p className="text-sm font-semibold text-[#1f6b2e]">Best next reads</p>
+                <p className="mt-2 text-sm leading-6 text-[#245631]">
+                  For indoor scaling, compare the <Link href="/blog/greenhouse-layout-guide" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]">greenhouse layout guide</Link> and the <Link href="/blog/ancient-fruit-vs-starfruit-wine" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]">Ancient Fruit vs Starfruit Wine</Link> comparison.
+                </p>
+              </div>
             </div>
           </header>
 

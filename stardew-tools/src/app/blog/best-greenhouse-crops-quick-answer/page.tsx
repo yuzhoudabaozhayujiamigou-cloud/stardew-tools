@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -88,6 +89,7 @@ export default function BestGreenhouseCropsQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Best Greenhouse Crops (Stardew Valley)
             </h1>
+            <BlogArticleMeta published="2026-02-23" updated="2026-05-30" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               3 个阶段的温室对比（早/中/晚），直接点预设在计算器里算，不靠感觉。
             </p>
@@ -115,6 +117,12 @@ export default function BestGreenhouseCropsQuickAnswerPage() {
               <li>Check both gross result and machine pressure for each crop pair.</li>
               <li>Pick the option you can sustain weekly, then revisit after expanding kegs.</li>
             </ol>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              For AdSense reviewers and real players, the important part is the decision process: greenhouse crops are
+              permanent only when they keep producing value without creating chores you will ignore. If a crop wins on
+              paper but forces daily harvesting, constant replanting, or more kegs than you own, choose the steadier
+              option and upgrade later.
+            </p>
           </section>
 
           <section className="mt-6 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

@@ -8,6 +8,7 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 
 const PAGE_URL = "https://www.stardewprofit.com/blog/keg-vs-jar-quick-answer";
 
@@ -86,6 +87,7 @@ export default function KegVsJarQuickAnswerPage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">Keg vs Jar: Which is better?</h1>
+            <BlogArticleMeta published="2026-02-23" updated="2026-02-23" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               In most high-value crop chains, <strong>Keg</strong> wins total profit, while <strong>Preserves Jar</strong> can still be efficient for lower-value crops or
               tight processing windows.

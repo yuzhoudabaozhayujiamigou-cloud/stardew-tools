@@ -63,6 +63,9 @@ export function LethalGuidePage({ guide }: LethalGuidePageProps) {
         <header className={CARD_CLASS}>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Guides</p>
           <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">{guide.h1}</h1>
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#6f4b2a]/75">
+            By StardewProfit editorial team · Updated <time dateTime="2026-05-28">May 28, 2026</time>
+          </p>
           <p className="mt-3 max-w-4xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">{guide.intro}</p>
         </header>
 

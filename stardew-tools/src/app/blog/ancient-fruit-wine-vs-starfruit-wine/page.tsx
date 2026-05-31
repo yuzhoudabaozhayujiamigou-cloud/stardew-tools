@@ -28,9 +28,9 @@ const FAQ_ZH = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Ancient Fruit Wine vs Starfruit Wine - Which Makes More Money?",
+  title: "Ancient Fruit vs Starfruit Wine | Stardew Profit Comparison",
   description:
-    "Complete ROI comparison: Ancient Fruit wins long-term, Starfruit wins short-term. Detailed profit analysis with calculator.",
+    "Compare Ancient Fruit Wine vs Starfruit Wine profit, keg value, Artisan returns, and greenhouse reliability so you know which crop to scale.",
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
@@ -148,7 +148,7 @@ export default function AncientFruitWineVsStarfruitWinePage() {
         <FaqJsonLd
           faqs={FAQ_EN.map((question, index) => ({
             question,
-            answer: FAQ_ZH[index] ?? "",
+            answer: FAQ_ZH[index] ?? FAQ_EN[index] ?? "",
           }))}
         />
 
@@ -170,8 +170,7 @@ export default function AncientFruitWineVsStarfruitWinePage() {
               Ancient Fruit Wine vs Starfruit Wine (Deep Dive)
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              ancient fruit wine vs starfruit wine stardew valley｜古代果实酒 vs
-              杨桃酒
+              Compare Ancient Fruit Wine vs Starfruit Wine by keg value, Artisan profit, greenhouse reliability, and replanting cost so you can choose the better long-term route.
             </p>
           </header>
 
@@ -196,7 +195,7 @@ export default function AncientFruitWineVsStarfruitWinePage() {
                 In practice:{" "}
                 <strong>Starfruit wins on “value per fruit”</strong>, while{" "}
                 <strong>Ancient Fruit wins on “reliability + scale”</strong>{" "}
-                (especially in the greenhouse).
+                (especially in the greenhouse). Use the crop calculator below if your answer depends on days left, keg count, or Artisan timing.
               </p>
             </div>
           </section>
@@ -495,6 +494,15 @@ export default function AncientFruitWineVsStarfruitWinePage() {
               Try these presets to compare assumptions quickly. (You can tweak
               everything in the calculator after opening.)
             </p>
+            <div className="mt-4 rounded-2xl border border-[#7c4d2e]/35 bg-[#fff8e8] p-4 text-sm leading-6 text-[#5f4228]/90">
+              <p className="font-semibold text-[#4a321e]">How to read these presets</p>
+              <p className="mt-2">
+                Use the 112-day presets for a greenhouse-style long-run comparison, and the 28-day preset for a single summer planting window. If your farm has fewer kegs than fruit harvested each week, read the table above as a machine-bottleneck answer, not a total-farm profit promise.
+              </p>
+              <p className="mt-2">
+                For a broader crop route before you commit to wine, compare the result with the <TrackedBlogCtaLink href="/calculator" fromPath={fromPath} ctaName="ancient_vs_starfruit_inline_calculator" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/35 underline-offset-4 hover:text-[#1f6b2e]">Stardew Valley Crop Calculator</TrackedBlogCtaLink> and the <TrackedBlogCtaLink href="/blog/greenhouse-layout-guide" fromPath={fromPath} ctaName="ancient_vs_starfruit_inline_greenhouse" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/35 underline-offset-4 hover:text-[#1f6b2e]">greenhouse layout guide</TrackedBlogCtaLink>.
+              </p>
+            </div>
             <div className="mt-4 flex flex-wrap gap-3">
               <TrackedBlogCtaLink
                 href="/calculator?crop=ancient_fruit&process=keg&daysLeft=112&location=greenhouse"

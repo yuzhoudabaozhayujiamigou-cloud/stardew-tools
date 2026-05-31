@@ -8,6 +8,7 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 
 const PAGE_URL = "https://www.stardewprofit.com/blog/best-crops-10-days-left-quick-answer";
 
@@ -88,6 +89,7 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Best Crops with 10 Days Left
             </h1>
+            <BlogArticleMeta published="2026-03-06" updated="2026-03-06" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               临近换季最容易踩坑。这里给你 3 个季节的 10 天预设，直接在计算器里复现。
             </p>

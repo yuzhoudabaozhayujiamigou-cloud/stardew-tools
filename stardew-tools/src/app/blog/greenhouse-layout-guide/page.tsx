@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { BlogCalculatorSprintCta } from "@/components/blog/BlogCalculatorSprintCta";
 import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-05-11T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
     title: "Best Stardew Valley Greenhouse Layout | 116 Tile Profit Planner",
     description:
       "Best overall greenhouse layout for year-round profit: 116 tiles, 6 Iridium Sprinklers, Ancient Fruit vs Starfruit guidance, fruit tree border placement, and easy setup options.",
@@ -163,12 +164,21 @@ export default function GreenhouseLayoutGuidePage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Best Stardew Valley Greenhouse Layout for Maximum Profit
             </h1>
+            <BlogArticleMeta published="2026-02-27" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               <strong>Best overall greenhouse layout:</strong> use the 116-tile setup with 6 Iridium Sprinklers, fruit trees on the outer border, and Ancient Fruit as the default year-round profit crop unless you have enough Kegs to push Starfruit harder.
             </p>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               This page gives the maximum-profit default first, then shows the easiest late-game and low-effort alternatives.
             </p>
+            <div className="mt-5 rounded-2xl border border-[#7c4d2e]/30 bg-[#fff8e8] p-4 text-sm leading-6 text-[#5f4228]/90">
+              <p className="font-semibold text-[#4a321e]">Use this guide before rearranging your greenhouse</p>
+              <p className="mt-2">
+                The layout answer is mostly fixed; the crop answer is not. First protect the 116 crop tiles and fruit-tree border,
+                then choose Ancient Fruit, Starfruit, Cranberry, or Hops based on your keg count, harvest patience, and seed access.
+                If a crop would create more backlog than your machines can process, it is not the best layout for your farm yet.
+              </p>
+            </div>
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -275,7 +285,16 @@ export default function GreenhouseLayoutGuidePage() {
             </div>
 
             <p className="mt-4 text-sm leading-6 text-[#5f4228]/90">
-              Data notes: base sell price and growth/regrow values align with the site’s `crops.json` dataset.
+              Data notes: base sell price and growth/regrow values align with the site’s crop dataset. For a broader
+              ranking, compare this greenhouse-specific advice with the{" "}
+              <Link href="/blog/best-crops-every-season" className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]">
+                best crops by season guide
+              </Link>
+              {" "}and the{" "}
+              <Link href="/calculator" className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]">
+                Stardew Valley crop calculator
+              </Link>
+              .
             </p>
           </section>
 

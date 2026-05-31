@@ -7,6 +7,7 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 
 const FAQ_EN = [
   "Which wine is more profitable: Starfruit or Ancient Fruit?",
@@ -77,6 +78,7 @@ export default function StarfruitVsAncientFruitWineQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Starfruit vs Ancient Fruit Wine - Best Profit Pick
             </h1>
+            <BlogArticleMeta published="2026-03-06" updated="2026-03-06" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               一句话：要爆发收益看杨桃酒；要长期省心看古代果实酒。用下面 3 个预设直接在计算器里复现。
             </p>

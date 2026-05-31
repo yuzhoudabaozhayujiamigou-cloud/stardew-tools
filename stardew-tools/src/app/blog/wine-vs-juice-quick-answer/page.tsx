@@ -8,6 +8,7 @@ import { BlogReadNext } from "@/components/blog/BlogReadNext";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 
 const PAGE_URL = "https://www.stardewprofit.com/blog/wine-vs-juice-quick-answer";
 
@@ -88,6 +89,7 @@ export default function WineVsJuiceQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Stardew Wine vs Juice: Which Is More Profitable?
             </h1>
+            <BlogArticleMeta published="2026-03-06" updated="2026-03-06" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               一句话：看你的加工吞吐和作物结构。用预设快速对比，比凭感觉更稳定。
             </p>

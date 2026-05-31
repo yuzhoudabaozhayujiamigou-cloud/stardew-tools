@@ -30,11 +30,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-03-03T00:00:00+08:00",
-    modifiedTime: "2026-03-03T00:00:00+08:00",
+    modifiedTime: "2026-05-31T00:00:00+08:00",
   },
-  title: "Stardew Honey Profit Guide: Best Flowers by Season (With Calculator)",
+  title: "Stardew Honey Profit Guide | Best Flowers by Season",
   description:
-    "A practical honey profit guide: best flowers by season, what actually changes honey value, and quick calculator presets for bee house setups.",
+    "Compare Stardew honey profit by season: best flowers, Fairy Rose value, Bee House range, mead processing, and calculator presets for your setup.",
   alternates: { canonical: "https://www.stardewprofit.com/blog/stardew-honey-profit-guide" },
 };
 
@@ -80,7 +80,7 @@ export default function StardewHoneyProfitGuidePage() {
               Stardew Honey Profit Guide: Best Flowers by Season
             </h1>
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              蜂房蜂蜜怎么变值钱？这篇用最短路径给你“每个季节选什么花”和“什么时候值得上蜂蜜酒（mead）”。
+              Quick answer: Fairy Rose is the strongest fall honey flower, but your best setup depends on season, Bee House count, flower range, and whether you process honey into mead. 蜂房蜂蜜怎么变值钱？这篇用最短路径给你每季选花和什么时候值得上蜂蜜酒。
             </p>
           </header>
 

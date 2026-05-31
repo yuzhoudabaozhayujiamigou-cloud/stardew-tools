@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -81,6 +82,7 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Ancient Fruit vs Starfruit - Which Is More Profitable?
             </h1>
+            <BlogArticleMeta published="2026-02-23" updated="2026-05-30" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">古代果实 vs 杨桃：到底哪个更赚钱？</p>
           </header>
 
