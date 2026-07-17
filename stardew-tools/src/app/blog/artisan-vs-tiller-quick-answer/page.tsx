@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Decision framework for Artisan vs Tiller with practical presets and FAQ.",
     publishedTime: "2026-02-24T00:00:00+08:00",
-    modifiedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
   },
 };
 
@@ -89,7 +89,7 @@ export default function ArtisanVsTillerQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Artisan vs Tiller: Which Makes More Money?
             </h1>
-            <BlogArticleMeta published="2026-03-21" updated="2026-03-21" />
+            <BlogArticleMeta published="2026-03-21" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               Compare the Artisan and Tiller professions with a quick profit workflow and presets you can run in minutes.
             </p>
@@ -118,6 +118,12 @@ export default function ArtisanVsTillerQuickAnswerPage() {
                 the calculator baseline
               </Link>
               .
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Do not switch professions from one headline number alone. Tiller can feel better while you are selling raw crops quickly, especially before a keg shed or preserve-jar line is built. Artisan starts to pull away when a meaningful share of income flows through wine, juice, jam, or other processed goods and your machines are active instead of sitting empty.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              The answer changes if you are early Year 1, short on oak resin, or planning a greenhouse-heavy route. Compare the same season in the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">profit calculator</Link>, then sanity-check your machine bottleneck with <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-quick-answer">Keg vs Jar</Link> and the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-greenhouse-crops-quick-answer">greenhouse crop quick answer</Link>.
             </p>
           </section>
 

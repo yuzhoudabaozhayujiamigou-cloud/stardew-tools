@@ -213,6 +213,34 @@ export default function GreenhouseLayoutGuidePage() {
             </div>
           </section>
 
+          <section className="rounded-[28px] border-4 border-[#2f6a3a]/45 bg-[#e6f8d8] p-5 shadow-[0_12px_28px_rgba(47,106,58,0.22)] ring-1 ring-[#2f6a3a]/20 sm:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#1f6b2e]/80">
+              Tile count checklist
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-[#214f2b] sm:text-2xl">How to Confirm the 116-Tile Greenhouse Layout</h2>
+            <div className="mt-4 grid gap-3 text-sm leading-6 text-[#245631] sm:grid-cols-3 sm:text-base">
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-[#f4ffe9] p-4">
+                <p className="font-semibold text-[#1f6b2e]">1) Count the soil</p>
+                <p className="mt-2">Start from the 10 by 12 crop bed. That gives 120 possible soil spaces before blocked tiles.</p>
+              </div>
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-[#f4ffe9] p-4">
+                <p className="font-semibold text-[#1f6b2e]">2) Remove blocked tiles</p>
+                <p className="mt-2">The 4 center-adjacent blocked spots bring the usable planting count down to 116 tiles.</p>
+              </div>
+              <div className="rounded-2xl border border-[#2f6a3a]/25 bg-[#f4ffe9] p-4">
+                <p className="font-semibold text-[#1f6b2e]">3) Keep sprinklers efficient</p>
+                <p className="mt-2">Use 6 Iridium Sprinklers, then keep fruit trees on the outer walkway so crop tiles stay open.</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-6 text-[#245631] sm:text-base">
+              If you are still in Year 1 and have not unlocked the Greenhouse yet, use the{" "}
+              <Link className="font-semibold underline decoration-[#2f6a3a]/60 underline-offset-4 transition hover:text-[#173f21] hover:decoration-[#2f6a3a]" href="/blog/best-crops-year-1">
+                Year 1 crop guide
+              </Link>{" "}
+              to build the cash flow that gets you there faster.
+            </p>
+          </section>
+
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Best Greenhouse Layout (116 tiles)</h2>
             <div className="mt-3 space-y-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { BlogArticleMeta } from "@/components/blog/BlogArticleMeta";
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-23T00:00:00+08:00",
-    modifiedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
   },
   title: "Ancient Fruit vs Starfruit (Quick Answer + Calculator)",
   description:
@@ -82,7 +83,7 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Ancient Fruit vs Starfruit - Which Is More Profitable?
             </h1>
-            <BlogArticleMeta published="2026-02-23" updated="2026-05-30" />
+            <BlogArticleMeta published="2026-02-23" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">古代果实 vs 杨桃：到底哪个更赚钱？</p>
           </header>
 
@@ -116,6 +117,15 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
               <li>加工瓶颈：酒桶耗时/酒桶数量足不足，会直接改变结论。</li>
               <li>时间窗口：剩余天数少时，回本快可能比单次最高更重要。</li>
             </ol>
+
+            <div className="mt-5 rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/80 p-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <p>
+                This quick answer is safest when you separate <strong>crop profit</strong> from <strong>farm workload</strong>. Ancient Fruit looks weaker if you only stare at one harvest, but it improves every week you avoid buying seeds, replanting, and interrupting your greenhouse route. Starfruit looks stronger when you have cash, seed access, and enough kegs to turn the expensive fruit into wine without a long chest backlog.
+              </p>
+              <p className="mt-3">
+                The answer changes if your goal is a short Summer cash spike, a permanent greenhouse engine, or a low-maintenance farm. Before replacing crops, test the same assumptions in the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">Stardew profit calculator</Link>, then compare with the deeper <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/ancient-fruit-wine-vs-starfruit-wine">Ancient Fruit Wine vs Starfruit Wine guide</Link> and the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">greenhouse layout guide</Link>.
+              </p>
+            </div>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

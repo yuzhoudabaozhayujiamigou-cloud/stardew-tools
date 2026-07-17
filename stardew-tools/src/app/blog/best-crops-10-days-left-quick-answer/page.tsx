@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Short-window crop decisions for Spring, Summer, and Fall with preset comparisons.",
     publishedTime: "2026-02-24T00:00:00+08:00",
-    modifiedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
   },
 };
 
@@ -89,7 +89,7 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Best Crops with 10 Days Left
             </h1>
-            <BlogArticleMeta published="2026-03-06" updated="2026-03-06" />
+            <BlogArticleMeta published="2026-03-06" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               临近换季最容易踩坑。这里给你 3 个季节的 10 天预设，直接在计算器里复现。
             </p>
@@ -119,6 +119,14 @@ export default function BestCrops10DaysLeftQuickAnswerPage() {
               </Link>
               .
             </p>
+            <div className="mt-4 rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/80 p-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <p>
+                A 10-day window is not a mini version of a full season. The losing move is buying a high-value seed that cannot finish, or planting a regrower that only pays back after the season rolls over. Treat the final days as a cash-recovery problem: first confirm the crop matures, then check whether one extra harvest or processing step actually lands before day 28.
+              </p>
+              <p className="mt-3">
+                This answer changes if Speed-Gro is already down, if you can process the crop immediately, or if you need money before a festival or tool upgrade. Use the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">calculator</Link> with the exact days left, then cross-check season-specific options in the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-summer-crops-quick-answer">Summer quick answer</Link> or <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-fall-crops-quick-answer">Fall quick answer</Link>.
+              </p>
+            </div>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

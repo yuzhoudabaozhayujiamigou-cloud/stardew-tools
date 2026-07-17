@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Use-case based keg planning with presets for starter, balanced, and heavy processing setups.",
     publishedTime: "2026-02-23T00:00:00+08:00",
-    modifiedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-06-02T00:00:00+08:00",
   },
 };
 
@@ -87,7 +87,7 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">How Many Kegs Do I Need?</h1>
-            <BlogArticleMeta published="2026-02-23" updated="2026-05-30" />
+            <BlogArticleMeta published="2026-02-23" updated="2026-06-02" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">酒桶要做多少才够？一页看懂：小作坊 / 中等产线 / 重度产线。</p>
           </header>
 
@@ -127,6 +127,26 @@ export default function HowManyKegsDoINeedQuickAnswerPage() {
               have later. Count the fruit sitting in chests after each harvest, then add kegs only when that backlog
               survives the full processing cycle. This keeps oak resin, copper, and coal from getting trapped in idle
               machines before your crop volume can support them.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Do not copy a late-game keg count if your farm is still expanding. A small Starfruit patch, a full Ancient
+              Fruit greenhouse, and a daily Hops routine each create a different input rhythm. The best keg count is the
+              number that keeps valuable crops moving without forcing every other activity to wait for resin and sheds.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              If you are deciding what to build next, run your crop plan in the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">
+                profit calculator
+              </Link>
+              , compare machine choice in{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-quick-answer">
+                Keg vs Jar
+              </Link>
+              , and use the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/starfruit-vs-ancient-fruit-wine-quick-answer">
+                Starfruit vs Ancient Fruit Wine quick answer
+              </Link>{" "}
+              to avoid overbuilding around the wrong crop.
             </p>
           </section>
 

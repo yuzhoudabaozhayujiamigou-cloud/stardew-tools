@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     description:
       "Hops vs Starfruit: Hops wins on gold-per-day with enough kegs; Starfruit Wine wins per-harvest. Calculator presets for 10-day, 28-day & Greenhouse.",
     publishedTime: "2026-02-24T00:00:00+08:00",
-    modifiedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-06-02T00:00:00+08:00",
   },
 };
 
@@ -105,7 +105,7 @@ export default function HopsVsStarfruitQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Hops vs Starfruit: Profit Verdict First
             </h1>
-            <BlogArticleMeta published="2026-02-24" updated="2026-05-30" />
+            <BlogArticleMeta published="2026-02-24" updated="2026-06-02" />
 
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               Verdict: Hops is usually better when your goal is steady, frequent keg throughput. Starfruit is usually
@@ -163,6 +163,27 @@ export default function HopsVsStarfruitQuickAnswerPage() {
               <li>If you are greenhouse-focused, run the greenhouse preset as your stable baseline.</li>
               <li>Compare which crop keeps your machines busier without creating unprocessed backlog.</li>
             </ol>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Hops has a hidden cost that a simple gold-per-day table can understate: it asks for daily attention and a
+              large keg line. That is great if you enjoy tight routines and already have oak resin income, but it can
+              become stressful when you are also mining, fishing, or rebuilding the farm. Starfruit is slower and seed
+              hungry, yet the fewer harvest events make it easier to batch into wine.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              The choice changes with days left, greenhouse access, and keg count. Test both in the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">
+                calculator
+              </Link>
+              , then compare your machine capacity with{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/how-many-kegs-do-i-need-quick-answer">
+                the keg planner
+              </Link>{" "}
+              and your permanent crop route with the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/best-greenhouse-crops-quick-answer">
+                greenhouse crop quick answer
+              </Link>
+              .
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

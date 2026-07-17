@@ -74,6 +74,9 @@ const LINK =
 const TOC_LINK =
   "block rounded-xl border border-[#7c4d2e]/25 bg-white/40 px-3 py-2 text-sm font-medium text-[#4a321e] transition hover:bg-white/55";
 
+const CTA_LINK =
+  "inline-flex items-center justify-center rounded-2xl border border-[#7c4d2e]/35 bg-[#fff7e6] px-4 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:bg-white";
+
 export default function AnimalProfitGuidePage() {
   return (
     <div className="relative min-h-screen bg-[#f5e6c8] text-[#5c4033]">
@@ -130,30 +133,73 @@ export default function AnimalProfitGuidePage() {
             </div>
           </header>
 
+          <section id="quick-answer" className={CARD}>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">
+              Quick Answer
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-[#4a321e] sm:text-2xl">
+              Best Animals for Profit
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
+              The highest-profit animal is the <strong>pig</strong> when it can find truffles, but the best
+              year-round setup is usually <strong>cows for daily cheese</strong> plus <strong>chickens for early mayo</strong>.
+              Pigs are an endgame profit spike, cows are the reliable barn backbone, and chickens are the fastest
+              low-cost start.
+            </p>
+
+            <div className="mt-4 overflow-x-auto">
+              <div className="inline-block min-w-full">
+                <div className="grid min-w-[720px] grid-cols-3 gap-px rounded-2xl border border-[#7c4d2e]/25 bg-[#7c4d2e]/15 text-sm">
+                  <div className="bg-[#fff7e6] p-3 font-semibold text-[#4a321e]">Player goal</div>
+                  <div className="bg-[#fff7e6] p-3 font-semibold text-[#4a321e]">Best animal choice</div>
+                  <div className="bg-[#fff7e6] p-3 font-semibold text-[#4a321e]">Practical answer</div>
+                  <div className="bg-white/60 p-3">Fast Year 1 income</div>
+                  <div className="bg-white/60 p-3">Chicken, then cow</div>
+                  <div className="bg-white/60 p-3">Cheap entry cost, daily products, and simple mayo/cheese processing.</div>
+                  <div className="bg-white/45 p-3">Most gold per animal slot</div>
+                  <div className="bg-white/45 p-3">Pig</div>
+                  <div className="bg-white/45 p-3">Truffles beat everything in good weather, but pigs lose winter and rainy days.</div>
+                  <div className="bg-white/60 p-3">Least daily effort</div>
+                  <div className="bg-white/60 p-3">Cow-heavy barn</div>
+                  <div className="bg-white/60 p-3">Milk into cheese is steady, easy to process, and works in every season.</div>
+                  <div className="bg-white/45 p-3">Best coop value</div>
+                  <div className="bg-white/45 p-3">Chicken early, duck later</div>
+                  <div className="bg-white/45 p-3">Chickens win on speed and cost; ducks add higher-value but slower outputs.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/calculator" className={CTA_LINK}>
+                Compare crop baseline
+              </Link>
+              <Link href="/blog/auto-petter-worth-it" className={CTA_LINK}>
+                Auto-petter payoff guide
+              </Link>
+            </div>
+          </section>
+
           {/* TABLE OF CONTENTS */}
           <section className={CARD}>
             <h2 className={H2}>Table of contents</h2>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              <a className={TOC_LINK} href="#why-animals">
-                1) Why animals matter for your farm economy
-              </a>
-              <a className={TOC_LINK} href="#barn-vs-coop">
-                2) Barn vs coop: cost, capacity &amp; ROI
+              <a className={TOC_LINK} href="#quick-answer">
+                Quick animal profit answer
               </a>
               <a className={TOC_LINK} href="#animal-rankings">
-                3) Every animal ranked by gold per day
-              </a>
-              <a className={TOC_LINK} href="#artisan-processing">
-                4) Artisan processing: turning products into profit
-              </a>
-              <a className={TOC_LINK} href="#pig-truffle-deep-dive">
-                5) Pig &amp; truffle deep dive
+                Every animal ranked by gold per day
               </a>
               <a className={TOC_LINK} href="#optimal-setup">
-                6) Optimal barn &amp; coop setup by game stage
+                Profit setup by game stage
               </a>
               <a className={TOC_LINK} href="#mistakes">
-                7) Common mistakes that cost you thousands
+                Common profit mistakes
+              </a>
+              <a className={TOC_LINK} href="#why-animals">
+                Why animals matter for your farm economy
+              </a>
+              <a className={TOC_LINK} href="#barn-vs-coop">
+                Barn vs coop: cost, capacity &amp; ROI
               </a>
               <a className={TOC_LINK} href="#faq">
                 FAQ
@@ -164,7 +210,7 @@ export default function AnimalProfitGuidePage() {
           {/* SECTION 3 — ANIMAL RANKINGS */}
           <section id="animal-rankings" className={CARD}>
             <h2 className={H2}>
-              3) Every animal ranked by gold per day
+              Every animal ranked by gold per day
             </h2>
             <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               This ranking uses <strong>effective daily gold</strong> — the average income per animal
@@ -271,10 +317,72 @@ export default function AnimalProfitGuidePage() {
             </p>
           </section>
 
+          <section id="optimal-setup" className={CARD}>
+            <h2 className={H2}>Profit setup by game stage</h2>
+            <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
+              Animal profit improves when your building slots, machines, and daily routine match. A barn full of
+              cows without enough cheese presses creates backlog; a pig barn without outdoor space loses its biggest
+              advantage.
+            </p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                <p className="text-sm font-semibold text-[#4a321e]">Early game</p>
+                <p className="mt-2 text-sm leading-6">
+                  Start with chickens, add mayo machines, then buy cows when you can support daily cheese. Keep crops
+                  funding the build path with the{" "}
+                  <Link href="/blog/best-crops-year-1" className={LINK}>
+                    Year 1 crop guide
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                <p className="text-sm font-semibold text-[#4a321e]">Mid game</p>
+                <p className="mt-2 text-sm leading-6">
+                  Fill a deluxe barn with cows or a cow/pig mix. Add enough cheese presses and oil makers before buying
+                  more animals, then compare processing priorities in the{" "}
+                  <Link href="/blog/keg-vs-preserves-jar" className={LINK}>
+                    Keg vs Preserves Jar guide
+                  </Link>
+                  .
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                <p className="text-sm font-semibold text-[#4a321e]">Late game</p>
+                <p className="mt-2 text-sm leading-6">
+                  Run pigs for peak outdoor profit, keep cows for winter stability, and use auto-petters when daily
+                  petting starts blocking mining, Ginger Island, or greenhouse work.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="mistakes" className={CARD}>
+            <h2 className={H2}>Common profit mistakes</h2>
+            <div className="mt-3 grid gap-3 text-sm leading-6 sm:grid-cols-2 sm:text-base">
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff7e6]/70 p-4">
+                <p className="font-semibold text-[#4a321e]">Buying animals before machines</p>
+                <p className="mt-2">Raw milk and eggs are fine early, but the real profit comes from cheese and mayo.</p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff7e6]/70 p-4">
+                <p className="font-semibold text-[#4a321e]">Ignoring pig downtime</p>
+                <p className="mt-2">Pigs look unbeatable on sunny outdoor days, but winter and rain should be included in yearly profit.</p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff7e6]/70 p-4">
+                <p className="font-semibold text-[#4a321e]">Leaving building slots empty</p>
+                <p className="mt-2">A deluxe barn or coop is expensive. Empty slots slow the payback period.</p>
+              </div>
+              <div className="rounded-2xl border border-[#7c4d2e]/25 bg-[#fff7e6]/70 p-4">
+                <p className="font-semibold text-[#4a321e]">Letting friendship fall</p>
+                <p className="mt-2">Lower friendship means weaker quality and less reliable output, which is why automation can matter.</p>
+              </div>
+            </div>
+          </section>
+
           {/* SECTION 1 — WHY ANIMALS MATTER */}
           <section id="why-animals" className={CARD}>
             <h2 className={H2}>
-              1) Why animals matter for your farm economy
+              Why animals matter for your farm economy
             </h2>
             <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               Crops get most of the attention in profit discussions, and for good reason — they
@@ -307,7 +415,7 @@ export default function AnimalProfitGuidePage() {
           {/* SECTION 2 — BARN VS COOP */}
           <section id="barn-vs-coop" className={CARD}>
             <h2 className={H2}>
-              2) Barn vs coop: cost, capacity &amp; return on investment
+              Barn vs coop: cost, capacity &amp; return on investment
             </h2>
             <p className="mt-3 text-sm leading-7 text-[#5c4033]/95 sm:text-base">
               Before buying animals, you need a building. Here&apos;s how the two paths compare
@@ -348,6 +456,18 @@ export default function AnimalProfitGuidePage() {
                 the winter gap extends the effective payback. For a balanced approach, build the coop
                 first, then add a barn once you have stable crop income.
               </p>
+            </div>
+          </section>
+
+          <section id="faq" className={CARD}>
+            <h2 className={H2}>FAQ</h2>
+            <div className="mt-4 grid gap-3">
+              {FAQ.map((item) => (
+                <article key={item.question} className="rounded-2xl border border-[#7c4d2e]/25 bg-white/45 p-4">
+                  <h3 className="text-base font-semibold text-[#4a321e]">{item.question}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5c4033]/95">{item.answer}</p>
+                </article>
+              ))}
             </div>
           </section>
         </article>

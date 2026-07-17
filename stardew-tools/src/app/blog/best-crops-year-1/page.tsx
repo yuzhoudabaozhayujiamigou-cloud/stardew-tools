@@ -144,6 +144,60 @@ export default function BestCropsYear1Page() {
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">What to Plant by Day and Budget</h2>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              If you only need the practical Year 1 answer, use this table before buying seeds. It favors crops that
+              return gold quickly enough to fund backpacks, tool upgrades, sprinklers, and the next season&apos;s seeds.
+            </p>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/90">
+              <table className="min-w-full divide-y divide-[#8a5b3a]/25 text-sm text-[#5f4228]/95">
+                <thead className="bg-[#f5e6be] text-left text-xs uppercase tracking-wide text-[#6a4729]">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Situation</th>
+                    <th className="px-4 py-3 font-semibold">Plant This</th>
+                    <th className="px-4 py-3 font-semibold">Why It Works</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#8a5b3a]/20">
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Spring 1-6, low gold</td>
+                    <td className="px-4 py-3">Parsnip, then Potato</td>
+                    <td className="px-4 py-3 leading-6">Cheap seeds and fast returns keep your cash moving before the Egg Festival.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Spring 13 onward</td>
+                    <td className="px-4 py-3">Strawberry</td>
+                    <td className="px-4 py-3 leading-6">Buy as many as you can water; the regrowth makes them the best Spring snowball crop.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Summer day 1</td>
+                    <td className="px-4 py-3">Blueberry</td>
+                    <td className="px-4 py-3 leading-6">The safest high-profit default because one planting pays repeatedly through the season.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Fall day 1</td>
+                    <td className="px-4 py-3">Cranberry or Pumpkin</td>
+                    <td className="px-4 py-3 leading-6">Cranberry wins for easy repeat harvests; Pumpkin is stronger if you want fewer watering days or processing later.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Late season, few days left</td>
+                    <td className="px-4 py-3">Fast crops only</td>
+                    <td className="px-4 py-3 leading-6">Check remaining growth days before buying seeds, especially near the 28th.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Once crops cover your daily cash flow, the next reliable income layer is animals. If you are deciding
+              whether to spend Year 1 savings on a coop or barn, compare this route with the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/animal-profit-guide">
+                Animal Profit Guide
+              </Link>
+              .
+            </p>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Season-by-Season Breakdown</h2>
 
             <div className="mt-4 space-y-6 text-sm leading-6 text-[#5f4228]/90 sm:text-base">

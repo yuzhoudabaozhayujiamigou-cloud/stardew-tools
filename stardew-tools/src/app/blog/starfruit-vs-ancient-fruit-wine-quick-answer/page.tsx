@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TrackedBlogCtaLink } from "@/components/blog/TrackedBlogCtaLink";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-24T00:00:00+08:00",
-    modifiedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
   },
   title: "Starfruit vs Ancient Fruit Wine (Quick Answer + Calculator)",
   description:
@@ -78,7 +79,7 @@ export default function StarfruitVsAncientFruitWineQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Starfruit vs Ancient Fruit Wine - Best Profit Pick
             </h1>
-            <BlogArticleMeta published="2026-03-06" updated="2026-03-06" />
+            <BlogArticleMeta published="2026-03-06" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               一句话：要爆发收益看杨桃酒；要长期省心看古代果实酒。用下面 3 个预设直接在计算器里复现。
             </p>
@@ -107,6 +108,14 @@ export default function StarfruitVsAncientFruitWineQuickAnswerPage() {
               <li>Greenhouse long run: Ancient Fruit Wine is usually the stable default engine.</li>
               <li>If your processing line is tight, compare both with identical parameters before committing.</li>
             </ol>
+            <div className="mt-4 rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/80 p-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <p>
+                This page is a shortcut, not a universal law. Starfruit Wine is attractive when you can buy seeds, replant on schedule, and keep kegs running. Ancient Fruit Wine becomes better when you value fewer clicks, predictable weekly harvests, and a greenhouse that does not need constant seed purchases. If your kegs are already backed up, the crop with the higher wine price may not be the crop that improves this week’s cash flow.
+              </p>
+              <p className="mt-3">
+                The answer changes with Artisan, season length, and whether you are comparing one harvest or a repeatable engine. Run the exact setup in the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">calculator</Link>, read the fuller <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/ancient-fruit-wine-vs-starfruit-wine">wine comparison guide</Link>, and check <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/how-many-kegs-do-i-need-quick-answer">how many kegs you need</Link> before scaling.
+              </p>
+            </div>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "TL;DR + step-by-step Keg vs Jar decision guide with calculator presets.",
     publishedTime: "2026-02-23T00:00:00+08:00",
-    modifiedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-06-02T00:00:00+08:00",
   },
 };
 
@@ -87,7 +87,7 @@ export default function KegVsJarQuickAnswerPage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">Keg vs Jar: Which is better?</h1>
-            <BlogArticleMeta published="2026-02-23" updated="2026-02-23" />
+            <BlogArticleMeta published="2026-02-23" updated="2026-06-02" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               In most high-value crop chains, <strong>Keg</strong> wins total profit, while <strong>Preserves Jar</strong> can still be efficient for lower-value crops or
               tight processing windows.
@@ -117,6 +117,23 @@ export default function KegVsJarQuickAnswerPage() {
                 the profit calculator
               </Link>{" "}
               and adjust one variable at a time.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              The practical mistake is choosing a machine from the sell price alone. A keg can be mathematically better
+              for Starfruit, Ancient Fruit, or Hops, but it loses value when fruit waits in a chest for weeks. A jar can
+              look weaker per item while still improving your farm because it clears vegetables and mixed harvests fast.
+              If your chests are full, compare total weekly output instead of one finished good.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              For a safer plan, pair this page with the deeper{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-profit-guide">
+                Keg vs Preserve Jar profit guide
+              </Link>
+              , then check{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/how-many-kegs-do-i-need-quick-answer">
+                how many kegs you need
+              </Link>{" "}
+              before spending rare oak resin on machines that may sit idle.
             </p>
           </section>
 

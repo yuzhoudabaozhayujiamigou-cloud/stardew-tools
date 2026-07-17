@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Practical greenhouse crop comparison with preset scenarios and internal guide links.",
     publishedTime: "2026-02-23T00:00:00+08:00",
-    modifiedTime: "2026-02-23T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
   },
 };
 
@@ -89,7 +89,7 @@ export default function BestGreenhouseCropsQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Best Greenhouse Crops (Stardew Valley)
             </h1>
-            <BlogArticleMeta published="2026-02-23" updated="2026-05-30" />
+            <BlogArticleMeta published="2026-02-23" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               3 个阶段的温室对比（早/中/晚），直接点预设在计算器里算，不靠感觉。
             </p>
@@ -122,6 +122,9 @@ export default function BestGreenhouseCropsQuickAnswerPage() {
               permanent only when they keep producing value without creating chores you will ignore. If a crop wins on
               paper but forces daily harvesting, constant replanting, or more kegs than you own, choose the steadier
               option and upgrade later.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Do not use a single greenhouse ranking when your setup is still changing. A new greenhouse with few sprinklers, a mid-game greenhouse with limited kegs, and a mature ancient-fruit room are three different decisions. Start with the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">calculator</Link>, then use the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/greenhouse-layout-guide">greenhouse layout guide</Link> to confirm tile count and the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/ancient-fruit-vs-starfruit-quick-answer">Ancient Fruit vs Starfruit quick answer</Link> before committing rare seeds or fruit trees.
             </p>
           </section>
 

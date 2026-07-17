@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Quick wine vs juice decision framework with presets for real farm constraints.",
     publishedTime: "2026-02-24T00:00:00+08:00",
-    modifiedTime: "2026-02-24T00:00:00+08:00",
+    modifiedTime: "2026-06-01T00:00:00+08:00",
   },
 };
 
@@ -89,7 +89,7 @@ export default function WineVsJuiceQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Stardew Wine vs Juice: Which Is More Profitable?
             </h1>
-            <BlogArticleMeta published="2026-03-06" updated="2026-03-06" />
+            <BlogArticleMeta published="2026-03-06" updated="2026-06-01" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               一句话：看你的加工吞吐和作物结构。用预设快速对比，比凭感觉更稳定。
             </p>
@@ -118,6 +118,12 @@ export default function WineVsJuiceQuickAnswerPage() {
                 the base crop calculator
               </Link>
               .
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Wine is not automatically the best answer for every farm. It is strongest when the input crop is valuable and the seven-day keg cycle stays full without creating a giant backlog. Juice can be more practical when you are processing mixed vegetables, need faster turnover, or do not yet have enough kegs to justify a fruit-only plan.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              The answer changes if you are comparing raw sale value, processed value, or weekly cash timing. Test the crop pair in the <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">calculator</Link>, then review <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/keg-vs-jar-profit-guide">Keg vs Preserve Jar</Link> and <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/how-many-kegs-do-i-need-quick-answer">keg sizing</Link> before building another shed.
             </p>
           </section>
 
