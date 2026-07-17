@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "TL;DR + step-by-step Keg vs Jar decision guide with calculator presets.",
     publishedTime: "2026-02-23T00:00:00+08:00",
-    modifiedTime: "2026-06-02T00:00:00+08:00",
+    modifiedTime: "2026-07-18T00:00:00+08:00",
   },
 };
 
@@ -87,7 +87,7 @@ export default function KegVsJarQuickAnswerPage() {
           <header className="rounded-[30px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-6 shadow-[0_12px_30px_rgba(56,41,23,0.3)] ring-1 ring-yellow-900/20 sm:p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#6f4b2a]/75">Quick Answer</p>
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">Keg vs Jar: Which is better?</h1>
-            <BlogArticleMeta published="2026-02-23" updated="2026-06-02" />
+            <BlogArticleMeta published="2026-02-23" updated="2026-07-18" />
             <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               In most high-value crop chains, <strong>Keg</strong> wins total profit, while <strong>Preserves Jar</strong> can still be efficient for lower-value crops or
               tight processing windows.
@@ -101,6 +101,54 @@ export default function KegVsJarQuickAnswerPage() {
               <li>Jar-first is often safer if your machine count is low and you need faster cash cycles.</li>
               <li>Most farms improve with a mixed line: kegs for premium inputs, jars for overflow.</li>
             </ul>
+          </section>
+
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Decision table: Keg or Jar?</h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Pick the machine from your bottleneck, not from a single item&apos;s sell price. Then verify with a calculator preset.
+            </p>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/90">
+              <table className="min-w-full divide-y divide-[#8a5b3a]/25 text-sm text-[#5f4228]/95">
+                <thead className="bg-[#f5e6be] text-left text-xs uppercase tracking-wide text-[#6a4729]">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Your situation</th>
+                    <th className="px-4 py-3 font-semibold">Pick</th>
+                    <th className="px-4 py-3 font-semibold">Why</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#8a5b3a]/20">
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">High-value fruit (Starfruit, Ancient Fruit)</td>
+                    <td className="px-4 py-3 font-semibold text-[#2f6a3a]">Keg</td>
+                    <td className="px-4 py-3 leading-6">Wine usually has the stronger upside when kegs stay fed.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Vegetables / mixed overflow harvests</td>
+                    <td className="px-4 py-3 font-semibold text-[#2f6a3a]">Jar</td>
+                    <td className="px-4 py-3 leading-6">Faster turnaround clears chests and keeps cash moving.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Early game, few machines</td>
+                    <td className="px-4 py-3 font-semibold text-[#2f6a3a]">Jar-first</td>
+                    <td className="px-4 py-3 leading-6">You need cycles, not theoretical max wine profit.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Chests full of unprocessed crops</td>
+                    <td className="px-4 py-3 font-semibold text-[#2f6a3a]">Add Jars (or more machines)</td>
+                    <td className="px-4 py-3 leading-6">Idle inventory is lost weekly gold; capacity beats perfection.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Steady fruit supply + oak resin available</td>
+                    <td className="px-4 py-3 font-semibold text-[#2f6a3a]">Keg-heavy mix</td>
+                    <td className="px-4 py-3 leading-6">Kegs for premium fruit, jars for overflow is the durable endgame pattern.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Boundary condition: if a crop waits weeks for a free keg, the “better” machine on paper is the wrong machine on your farm.
+            </p>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

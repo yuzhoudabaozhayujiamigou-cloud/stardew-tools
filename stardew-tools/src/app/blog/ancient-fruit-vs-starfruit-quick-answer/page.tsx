@@ -10,33 +10,76 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import { getBlogReadNextPosts } from "@/lib/read-next";
 import Breadcrumb from "@/components/Breadcrumb";
 
-const FAQ_EN = [
-  "Is Ancient Fruit better than Starfruit in the greenhouse?",
-  "Does Artisan profession change the result?",
-  "What if I do not have enough kegs?",
-  "Is it worth turning Ancient Fruit / Starfruit into wine?",
-  "Which one is better for low-effort money?",
-  "How many days left in the season makes Starfruit not worth it?",
+const FAQ_ITEMS = [
+  {
+    question: "Is Ancient Fruit better than Starfruit in the greenhouse?",
+    answer:
+      "Usually yes for long greenhouse runs. Ancient Fruit regrows without replanting, so it wins when you want steady weekly output and lower maintenance. Starfruit can beat it in short high-cash windows if you can keep buying seeds.",
+  },
+  {
+    question: "Does Artisan profession change the result?",
+    answer:
+      "Artisan improves processed goods for both crops, but it does not remove the replanting difference. Compare both crops with the same profession toggle in the calculator before replacing a full greenhouse.",
+  },
+  {
+    question: "What if I do not have enough kegs?",
+    answer:
+      "If fruit piles up in chests, raw crop profit and workload matter more than wine upside. Ancient Fruit is often safer when machine capacity is the bottleneck; add kegs before forcing a full Starfruit conversion.",
+  },
+  {
+    question: "Is it worth turning Ancient Fruit / Starfruit into wine?",
+    answer:
+      "Yes when you have enough kegs to process harvests without multi-week backlog. If machines stay empty or chests stay full, fix capacity first, then re-check wine value.",
+  },
+  {
+    question: "Which one is better for low-effort money?",
+    answer:
+      "Ancient Fruit. Once established, it keeps producing with far less replanting and seed shopping than Starfruit.",
+  },
+  {
+    question: "How many days left in the season makes Starfruit not worth it?",
+    answer:
+      "If Starfruit cannot mature before the season ends, do not plant it outdoors. Always set days left in the calculator; a high sell price is worthless without a finished harvest.",
+  },
 ] as const;
 
-const FAQ_ZH = [
-  "温室里古代果实一定比杨桃强吗？",
-  "选 Artisan 会改变结论吗？",
-  "酒桶不够怎么办（瓶颈怎么考虑）？",
-  "古代果实 / 杨桃做成酒一定更赚吗？",
-  "哪个更省心、适合懒人收益？",
-  "剩余多少天时杨桃不值得种？",
+const DECISION_ROWS = [
+  {
+    situation: "Permanent greenhouse / Ginger Island",
+    pick: "Ancient Fruit",
+    why: "Regrows every week with no replanting; best long-run engine.",
+  },
+  {
+    situation: "Short outdoor cash spike (you have seed money)",
+    pick: "Starfruit",
+    why: "Higher single-harvest value when the season window is long enough.",
+  },
+  {
+    situation: "Low-effort / set-and-forget farm",
+    pick: "Ancient Fruit",
+    why: "Less seed buying, less replanting, more stable weekly gold.",
+  },
+  {
+    situation: "Strong keg line, want max wine upside",
+    pick: "Either — verify",
+    why: "Starfruit wine can spike; Ancient Fruit wine stays steadier. Run the greenhouse preset.",
+  },
+  {
+    situation: "Few days left outdoors",
+    pick: "Usually neither long crop",
+    why: "Only plant what can finish. Open the 10-days-left preset before buying seeds.",
+  },
 ] as const;
 
 export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-23T00:00:00+08:00",
-    modifiedTime: "2026-06-01T00:00:00+08:00",
+    modifiedTime: "2026-07-18T00:00:00+08:00",
   },
   title: "Ancient Fruit vs Starfruit (Quick Answer + Calculator)",
   description:
-    "Ancient Fruit vs Starfruit quick answer with direct calculator presets for greenhouse, full season, and short-window profit comparison.",
+    "Ancient Fruit vs Starfruit decision table: greenhouse, short season, low-effort, and keg bottlenecks — plus calculator presets.",
   alternates: { canonical: "https://www.stardewprofit.com/blog/ancient-fruit-vs-starfruit-quick-answer" },
 };
 
@@ -61,12 +104,7 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
 
       <main className="relative z-10 mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
         <PwaRegisterScript />
-        <FaqJsonLd
-          faqs={FAQ_EN.map((question, index) => ({
-            question,
-            answer: FAQ_ZH[index] ?? "",
-          }))}
-        />
+        <FaqJsonLd faqs={[...FAQ_ITEMS]} />
 
         
         <Breadcrumb
@@ -83,8 +121,10 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
             <h1 className="mt-1 text-3xl font-semibold tracking-tight text-[#4a321e] sm:text-5xl">
               Ancient Fruit vs Starfruit - Which Is More Profitable?
             </h1>
-            <BlogArticleMeta published="2026-02-23" updated="2026-06-01" />
-            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">古代果实 vs 杨桃：到底哪个更赚钱？</p>
+            <BlogArticleMeta published="2026-02-23" updated="2026-07-18" />
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <strong>Direct answer:</strong> Ancient Fruit usually wins long greenhouse and low-effort farms; Starfruit can win short outdoor cash spikes when seeds and days left are available. Verify with the calculator before replacing a full plot.
+            </p>
           </header>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -95,12 +135,33 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
               <li>If you can replant and optimize bursts, Starfruit often wins on peak profit per harvest (especially with kegs).</li>
               <li>Do not guess. Use the calculator with your season, days left, and Artisan to compare instantly.</li>
             </ul>
+          </section>
 
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>追求省心长期：多数情况下古代果实更适合无脑滚雪球。</li>
-              <li>追求爆发收益：能频繁补种/有产线时，杨桃常常在单次收益上更强（尤其走酒桶）。</li>
-              <li>别靠感觉：用计算器按你剩余天数/职业/产线直接对比。</li>
-            </ul>
+          <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+            <h2 className="text-xl font-semibold text-[#4a321e]">Decision table: which should you plant?</h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Use this table when you only need a fast, quotable answer. Then open a calculator preset with your real days left.
+            </p>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/90">
+              <table className="min-w-full divide-y divide-[#8a5b3a]/25 text-sm text-[#5f4228]/95">
+                <thead className="bg-[#f5e6be] text-left text-xs uppercase tracking-wide text-[#6a4729]">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Your situation</th>
+                    <th className="px-4 py-3 font-semibold">Pick</th>
+                    <th className="px-4 py-3 font-semibold">Why</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#8a5b3a]/20">
+                  {DECISION_ROWS.map((row) => (
+                    <tr key={row.situation}>
+                      <td className="px-4 py-3 font-semibold text-[#4a321e]">{row.situation}</td>
+                      <td className="px-4 py-3 font-semibold text-[#2f6a3a]">{row.pick}</td>
+                      <td className="px-4 py-3 leading-6">{row.why}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
@@ -110,12 +171,6 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
               <li>Replanting cost and effort: Ancient Fruit keeps producing; Starfruit needs replanting each cycle.</li>
               <li>Processing bottlenecks: keg time and number of kegs can flip the winner.</li>
               <li>Season and time horizon: with fewer days left, shorter ROI can matter more than max profit.</li>
-            </ol>
-
-            <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              <li>补种成本与操作：古代果实连续产出；杨桃每轮要补种。</li>
-              <li>加工瓶颈：酒桶耗时/酒桶数量足不足，会直接改变结论。</li>
-              <li>时间窗口：剩余天数少时，回本快可能比单次最高更重要。</li>
             </ol>
 
             <div className="mt-5 rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/80 p-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
@@ -175,20 +230,14 @@ export default function AncientFruitVsStarfruitQuickAnswerPage() {
 
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e]">FAQ</h2>
-
-            <h3 className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">EN</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_EN.map((question) => (
-                <li key={question}>{question}</li>
+            <div className="mt-4 grid gap-3">
+              {FAQ_ITEMS.map((item) => (
+                <article key={item.question} className="rounded-2xl border border-[#8a5b3a]/30 bg-white/45 p-4">
+                  <h3 className="text-base font-semibold text-[#4a321e]">{item.question}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{item.answer}</p>
+                </article>
               ))}
-            </ul>
-
-            <h3 className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] text-[#6f4b2a]/80">ZH</h3>
-            <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-[#5f4228]/90">
-              {FAQ_ZH.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
+            </div>
           </section>
         </article>
 

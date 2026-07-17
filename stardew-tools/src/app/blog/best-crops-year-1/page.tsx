@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "article",
     publishedTime: "2026-02-27T00:00:00+08:00",
-    modifiedTime: "2026-05-11T00:00:00+08:00",
+    modifiedTime: "2026-07-18T00:00:00+08:00",
     title: "Best Year 1 Crops in Stardew Valley — Potato, Blueberry, Cranberry",
     description:
       "Year 1 Stardew crop guide: Potato -> Strawberry for Spring, Blueberry for Summer, Cranberry for Fall. See seed costs, growth days, and beginner-friendly planting plans.",
@@ -156,6 +156,7 @@ export default function BestCropsYear1Page() {
                     <th className="px-4 py-3 font-semibold">Situation</th>
                     <th className="px-4 py-3 font-semibold">Plant This</th>
                     <th className="px-4 py-3 font-semibold">Why It Works</th>
+                    <th className="px-4 py-3 font-semibold">When NOT</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#8a5b3a]/20">
@@ -163,31 +164,49 @@ export default function BestCropsYear1Page() {
                     <td className="px-4 py-3 font-semibold text-[#4a321e]">Spring 1-6, low gold</td>
                     <td className="px-4 py-3">Parsnip, then Potato</td>
                     <td className="px-4 py-3 leading-6">Cheap seeds and fast returns keep your cash moving before the Egg Festival.</td>
+                    <td className="px-4 py-3 leading-6">Do not all-in expensive seeds before you can water and recover seed cost.</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-semibold text-[#4a321e]">Spring 13 onward</td>
                     <td className="px-4 py-3">Strawberry</td>
                     <td className="px-4 py-3 leading-6">Buy as many as you can water; the regrowth makes them the best Spring snowball crop.</td>
+                    <td className="px-4 py-3 leading-6">Skip if you cannot water the plot or buy enough seeds at the festival.</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-semibold text-[#4a321e]">Summer day 1</td>
                     <td className="px-4 py-3">Blueberry</td>
                     <td className="px-4 py-3 leading-6">The safest high-profit default because one planting pays repeatedly through the season.</td>
+                    <td className="px-4 py-3 leading-6">Melon/Hops can win later, but they are not the safest Year 1 default.</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-semibold text-[#4a321e]">Fall day 1</td>
                     <td className="px-4 py-3">Cranberry or Pumpkin</td>
                     <td className="px-4 py-3 leading-6">Cranberry wins for easy repeat harvests; Pumpkin is stronger if you want fewer watering days or processing later.</td>
+                    <td className="px-4 py-3 leading-6">Do not plant slow crops when days left cannot finish a harvest.</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 font-semibold text-[#4a321e]">Late season, few days left</td>
                     <td className="px-4 py-3">Fast crops only</td>
                     <td className="px-4 py-3 leading-6">Check remaining growth days before buying seeds, especially near the 28th.</td>
+                    <td className="px-4 py-3 leading-6">Never buy a seed that cannot mature before season end.</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-semibold text-[#4a321e]">Winter Year 1</td>
+                    <td className="px-4 py-3">Mines + upgrades (+ Winter Seeds if unlocked)</td>
+                    <td className="px-4 py-3 leading-6">Outdoor farming is limited; invest in tools, sprinklers setup, and next-year seed capital.</td>
+                    <td className="px-4 py-3 leading-6">Do not expect normal Spring/Summer crop profit outdoors in Winter.</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className="mt-4 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              Quotable Year 1 route: <strong>Parsnip/Potato → Strawberry → Blueberry → Cranberry</strong>. Then open the{" "}
+              <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/calculator">
+                profit calculator
+              </Link>{" "}
+              with your real days left before spending the next seed budget.
+            </p>
+            <p className="mt-3 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
               Once crops cover your daily cash flow, the next reliable income layer is animals. If you are deciding
               whether to spend Year 1 savings on a coop or barn, compare this route with the{" "}
               <Link className="font-semibold underline decoration-[#b77841]/60 underline-offset-4 transition hover:text-[#3f2a22] hover:decoration-[#b77841]" href="/blog/animal-profit-guide">
