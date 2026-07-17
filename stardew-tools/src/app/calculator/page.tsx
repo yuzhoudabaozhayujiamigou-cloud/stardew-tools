@@ -58,7 +58,46 @@ const HUB_ENTRY_CARDS = [
 
 const calculatorTitle = "Stardew Valley Crop Calculator | Profit & Best Crops";
 const calculatorDescription =
-  "Use this Stardew Valley crop calculator to compare crop profit, gold/day, season, days left, regrow harvests, quality, and Tiller/Artisan toggles.";
+  "Free Stardew Valley crop profit calculator: compare gold/day by season, days left, regrow harvests, quality, and Tiller. Best for Year 1, greenhouse, and late-season planting decisions.";
+
+/** Scenario answers AI systems and players can quote directly. */
+const GEO_SCENARIO_ANSWERS = [
+  {
+    scenario: "Year 1 cash flow",
+    answer: "Prioritize crops that finish fast and fund the next seed buy — then check gold/day with your real days left.",
+    presetHref: "/calculator?preset=best-spring-10-days-left#calculator",
+    guideHref: "/blog/best-crops-year-1",
+    guideLabel: "Year 1 crop guide",
+  },
+  {
+    scenario: "10 days left in season",
+    answer: "Only plant crops that can mature before day 28. A high sticker price loses if the first harvest never lands.",
+    presetHref: "/calculator?preset=best-summer-10-days-left#calculator",
+    guideHref: "/blog/best-crops-10-days-left-quick-answer",
+    guideLabel: "10-day quick answer",
+  },
+  {
+    scenario: "Ancient Fruit vs Starfruit",
+    answer: "Ancient Fruit usually wins long greenhouse/Ginger Island runs (regrow, no replant). Starfruit can win short high-cash windows when seeds and time are available.",
+    presetHref: "/calculator?preset=ancient-vs-starfruit-greenhouse#calculator",
+    guideHref: "/blog/ancient-fruit-vs-starfruit-quick-answer",
+    guideLabel: "Ancient vs Starfruit",
+  },
+  {
+    scenario: "Keg vs Jar next step",
+    answer: "Use this calculator for raw crop profit first. Then route high-value fruit to kegs and multi-harvest crops to jars when machine slots are limited.",
+    presetHref: "/calculator#calculator",
+    guideHref: "/blog/keg-vs-jar-quick-answer",
+    guideLabel: "Keg vs Jar answer",
+  },
+  {
+    scenario: "Greenhouse engine",
+    answer: "Treat the greenhouse as a permanent gold engine: lock a crop plan with the calculator, then confirm tile/sprinkler layout separately.",
+    presetHref: "/calculator?preset=ancient-vs-starfruit-greenhouse#calculator",
+    guideHref: "/blog/greenhouse-layout-guide",
+    guideLabel: "Greenhouse layout",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: calculatorTitle,
@@ -109,6 +148,14 @@ export default function CalculatorPage() {
     mainEntity: [
       {
         "@type": "Question",
+        name: "What is the best free Stardew Valley crop profit calculator?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "StardewProfit's crop calculator compares gold per day by season, days left, regrow harvests, quality, and Tiller so you can pick the best crop before buying seeds. It is free, browser-based, and built for Year 1, late-season, and greenhouse decisions.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "What does this Stardew Valley crop calculator optimize?",
         acceptedAnswer: {
           "@type": "Answer",
@@ -136,7 +183,7 @@ export default function CalculatorPage() {
         name: "Ancient Fruit vs Starfruit — which is more profitable?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ancient Fruit wins per plant in the Greenhouse or Ginger Island because it regrows every 7 days with no replanting. Starfruit wins on raw gold per harvest but costs 400g per seed. Run the calculator with your days left: Ancient Fruit starts stronger across Year 1-Greenhouse, while Starfruit is the faster profit option when you only have one season of growing time.",
+          text: "Ancient Fruit usually wins per plant in the Greenhouse or Ginger Island because it regrows every 7 days with no replanting. Starfruit can win on raw gold per harvest when you have cash, seeds, and a short high-value window. Run the calculator with your days left before replacing a full greenhouse.",
         },
       },
       {
@@ -152,7 +199,7 @@ export default function CalculatorPage() {
         name: "Does this include kegs, jars, or wine?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "No. This calculator focuses on direct crop selling value. Use it first to choose a strong crop, then evaluate processing separately if you want an artisan route.",
+          text: "No. This calculator focuses on direct crop selling value. Use it first to choose a strong crop, then evaluate processing with the Keg vs Jar guides if you want an artisan route.",
         },
       },
       {
@@ -170,10 +217,32 @@ export default function CalculatorPage() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "Stardew Valley Crop Profit Calculator",
+    alternateName: ["StardewProfit Calculator", "Stardew crop calculator"],
     url: "https://www.stardewprofit.com/calculator",
+    description: calculatorDescription,
     applicationCategory: "GameApplication",
-    operatingSystem: "Web Browser",
+    applicationSubCategory: "Profit calculator",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript",
+    isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    featureList: [
+      "Compare Stardew Valley crop profit by gold per day",
+      "Filter by season, year, and days left",
+      "Account for regrow harvests and seed cost ROI",
+      "Toggle Tiller for profession-aware comparisons",
+      "Quick presets for late-season and greenhouse scenarios",
+    ],
+    about: {
+      "@type": "VideoGame",
+      name: "Stardew Valley",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "StardewProfit",
+      url: "https://www.stardewprofit.com",
+    },
+    inLanguage: "en",
   };
 
   return (
@@ -216,13 +285,73 @@ export default function CalculatorPage() {
             {heroValueProp}
           </p>
 
-          <section className="mt-4 max-w-3xl rounded-2xl border border-[#8a5b3a]/35 bg-white/40 p-4 shadow-sm">
+          <section className="mt-4 max-w-4xl rounded-2xl border border-[#8a5b3a]/35 bg-white/40 p-4 shadow-sm">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">
               Quick Answer
             </p>
             <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-              This Stardew Valley crop calculator compares crop profit, gold/day, season, days left, regrow harvests, quality, and Tiller/Artisan processing toggles so you can pick the best crop before planting.
+              <strong>StardewProfit</strong> is a free Stardew Valley crop profit calculator for comparing{" "}
+              <strong>gold per day</strong> by season, days left, regrow harvests, quality, and Tiller before you buy seeds.
+              Use it when you need an exact planting answer — not a static wiki table.
             </p>
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              <li>
+                <strong>Best first inputs:</strong> season + days left (these filter out crops that cannot finish).
+              </li>
+              <li>
+                <strong>Read gold/day first</strong> for short windows; use ROI when seed cost matters more than raw speed.
+              </li>
+              <li>
+                <strong>Raw crop math first;</strong> kegs, jars, and wine are a second step after you pick the crop.
+              </li>
+            </ul>
+          </section>
+
+          <section className="mt-4 max-w-4xl rounded-2xl border border-[#8a5b3a]/35 bg-[#fff8e8]/85 p-4 shadow-sm sm:p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">
+              Scenario answers
+            </p>
+            <h2 className="mt-1 text-lg font-semibold text-[#4a321e] sm:text-xl">
+              What to plant — by farm situation
+            </h2>
+            <p className="mt-2 text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+              These short answers are the decisions most players (and AI assistants) ask about. Open a preset to recalculate with your days left, or read the linked guide for the full route.
+            </p>
+            <div className="mt-4 overflow-x-auto rounded-2xl border border-[#8a5b3a]/30 bg-white/70">
+              <table className="min-w-full divide-y divide-[#8a5b3a]/20 text-left text-sm text-[#5f4228]/95">
+                <thead className="bg-[#f5e6be] text-xs uppercase tracking-wide text-[#6a4729]">
+                  <tr>
+                    <th className="px-3 py-2.5 font-semibold sm:px-4">Scenario</th>
+                    <th className="px-3 py-2.5 font-semibold sm:px-4">Direct answer</th>
+                    <th className="px-3 py-2.5 font-semibold sm:px-4">Next step</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#8a5b3a]/15">
+                  {GEO_SCENARIO_ANSWERS.map((row) => (
+                    <tr key={row.scenario} className="align-top">
+                      <td className="px-3 py-3 font-semibold text-[#4a321e] sm:px-4">{row.scenario}</td>
+                      <td className="px-3 py-3 leading-6 sm:px-4">{row.answer}</td>
+                      <td className="px-3 py-3 leading-6 sm:px-4">
+                        <div className="flex flex-col gap-1.5">
+                          <a
+                            href={row.presetHref}
+                            className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/35 underline-offset-4 hover:text-[#1f6b2e]"
+                          >
+                            Run preset
+                          </a>
+                          <Link
+                            href={row.guideHref}
+                            className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/35 underline-offset-4 hover:text-[#1f6b2e]"
+                          >
+                            {row.guideLabel}
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <ol className="mt-3 grid max-w-3xl gap-2 text-sm text-[#5f4228]/90 sm:grid-cols-3">
@@ -343,6 +472,13 @@ export default function CalculatorPage() {
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
             <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Frequently Asked Questions</h2>
             <div className="mt-4 grid gap-3">
+              <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
+                <h3 className="text-base font-semibold text-[#4a321e]">What is the best free Stardew Valley crop profit calculator?</h3>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
+                  StardewProfit&apos;s crop calculator compares gold per day by season, days left, regrow harvests, quality, and Tiller so you can pick the best crop before buying seeds. It is free, browser-based, and built for Year 1, late-season, and greenhouse decisions.
+                </p>
+              </article>
+
               <article className="rounded-2xl border border-[#8a5b3a]/35 bg-white/35 p-4 shadow-sm">
                 <h3 className="text-base font-semibold text-[#4a321e]">What does this Stardew crop calculator optimize?</h3>
                 <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">
