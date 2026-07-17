@@ -32,6 +32,82 @@ const ENTRY_DESC_CLASS = "mt-2 text-sm leading-6 text-[#5f4228]/90";
 const HUB_CARD_CLASS =
   "rounded-[26px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 transition hover:-translate-y-0.5 hover:bg-[#f7efda] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#5c8a3e] sm:p-6";
 
+/** Scenario hub entries — prefer existing high-intent pages, not new slugs. */
+const HUB_SCENARIOS = [
+  {
+    tag: "Calculator",
+    title: "Open the Profit Calculator",
+    desc: "Compare gold/day by season, days left, quality, and professions before you plant.",
+    href: "/calculator",
+  },
+  {
+    tag: "Year 1",
+    title: "Best Crops Year 1",
+    desc: "Early-game cash flow plan when you need money fast without late-game machines.",
+    href: "/blog/best-crops-year-1",
+  },
+  {
+    tag: "By season",
+    title: "Best Crops Every Season",
+    desc: "Spring, summer, fall, and winter picks when you want a fast ranking.",
+    href: "/blog/best-crops-every-season",
+  },
+  {
+    tag: "Days left",
+    title: "7 Days Left — What to Plant",
+    desc: "Late-season windows punish slow crops. Use this before buying more seeds.",
+    href: "/blog/best-crops-7-days-left-before-season-switch",
+  },
+  {
+    tag: "Compare",
+    title: "Ancient Fruit vs Starfruit",
+    desc: "Quick answer for greenhouse and long-term wine routes.",
+    href: "/blog/ancient-fruit-vs-starfruit-quick-answer",
+  },
+  {
+    tag: "Artisan",
+    title: "Keg vs Jar Profit Guide",
+    desc: "Decide kegs vs preserves jars by crop type and processing capacity.",
+    href: "/blog/keg-vs-jar-profit-guide",
+  },
+  {
+    tag: "Tool",
+    title: "Keg vs Preserves Jar Tool",
+    desc: "Run the artisan comparison tool after you shortlist crops.",
+    href: "/tools/keg-vs-preserves-jar",
+  },
+  {
+    tag: "Greenhouse",
+    title: "Best Greenhouse Crops",
+    desc: "What to lock in once the greenhouse is open and space is limited.",
+    href: "/blog/best-greenhouse-crops-stardew-valley",
+  },
+  {
+    tag: "Money plan",
+    title: "Money-Making Guide",
+    desc: "Bigger picture routes beyond a single season crop pick.",
+    href: "/blog/money-making-guide",
+  },
+  {
+    tag: "Scale up",
+    title: "Year 2 Farming Strategy",
+    desc: "Move from survival cash into a stronger crop and processing system.",
+    href: "/blog/stardew-valley-year-2-farming-strategy",
+  },
+  {
+    tag: "2026",
+    title: "Profit Guide 2026",
+    desc: "Current-year money strategies with calculator follow-through.",
+    href: "/blog/stardew-valley-profit-guide-2026",
+  },
+  {
+    tag: "Update",
+    title: "Stardew 1.7 Update Notes",
+    desc: "Track patch expectations and what might change crop/profit plans.",
+    href: "/blog/stardew-1-7-update",
+  },
+] as const;
+
 const HOME_FAQ_ITEMS = [
   {
     question: "What is the fastest way to improve Stardew profit?",
@@ -226,6 +302,57 @@ export default function HomePage() {
               </Link>
             </div>
           </section>
+        </section>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Start by scenario</p>
+              <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Choose your profit path</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/85">
+                Use the calculator for an exact ranking, then jump into the guide that matches your season, greenhouse, or artisan setup.
+              </p>
+            </div>
+            <Link
+              href="/calculator"
+              className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-[#5c8a3e] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4e7a32] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5c8a3e]"
+            >
+              Open Calculator Again
+            </Link>
+          </div>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {HUB_SCENARIOS.map((item) => (
+              <Link key={item.href + item.title} href={item.href} className={ENTRY_LINK_CLASS}>
+                <span className="inline-flex rounded-full border border-[#6f8b3c]/55 bg-[#e7f1c8] px-2.5 py-1 text-xs font-semibold text-[#4f6727]">
+                  {item.tag}
+                </span>
+                <h3 className={`${ENTRY_TITLE_CLASS} mt-3`}>{item.title}</h3>
+                <p className={ENTRY_DESC_CLASS}>{item.desc}</p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link
+              href="/crops"
+              className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-white/60 px-5 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:bg-white/75"
+            >
+              Browse All Crops
+            </Link>
+            <Link
+              href="/blog"
+              className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-white/60 px-5 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:bg-white/75"
+            >
+              All Guides
+            </Link>
+            <Link
+              href="/calculator"
+              className="inline-flex min-h-10 items-center justify-center rounded-full border-2 border-[#7c4d2e]/65 bg-[#5c8a3e] px-5 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#4e7a32]"
+            >
+              Back to Calculator
+            </Link>
+          </div>
         </section>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
