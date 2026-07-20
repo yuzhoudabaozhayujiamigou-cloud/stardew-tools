@@ -2,6 +2,7 @@
 
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 const ADSENSE_CONTENT_PATHS = new Set([
   '/',
@@ -39,8 +40,21 @@ export function AdSenseScript() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const isSecretNoteEmbed = pathname.startsWith('/secret-notes/') && searchParams.has('embed');
+  const isEligible = isEligibleContentPath(pathname) && !isSecretNoteEmbed;
 
-  if (!isEligibleContentPath(pathname) || isSecretNoteEmbed) {
+  useEffect(() => {
+    const loadedAdSenseScript = document.querySelector<HTMLScriptElement>(
+      'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]',
+    );
+
+    // Next.js keeps third-party scripts after client-side navigation. Reload once so
+    // excluded routes cannot inherit Auto Ads from the previous content page.
+    if (!isEligible && loadedAdSenseScript) {
+      window.location.reload();
+    }
+  }, [isEligible]);
+
+  if (!isEligible) {
     return null;
   }
 
