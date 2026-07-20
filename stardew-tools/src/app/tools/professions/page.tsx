@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
+import { GuideVisual } from "@/components/GuideVisual";
 import { SiteFooter } from "@/components/SiteFooter";
+import { buildArticleJsonLd, EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 
 type ProfessionComparisonRow = {
   category: string;
@@ -87,11 +90,15 @@ const RECOMMENDATION_ROWS: RecommendationRow[] = [
 ];
 
 const PAGE_PATH = "/tools/professions";
+const PAGE_TITLE = "Stardew Valley Profession Guide - Tiller vs Artisan and More";
+const PAGE_DESCRIPTION =
+  "Compare Stardew Valley professions: Tiller vs Artisan, Fisher vs Angler, Miner vs Geologist. Find which profession maximizes your farm profit.";
+const PAGE_IMAGE = "/visuals/profession-paths.svg";
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Profession Guide – Tiller vs Artisan & More",
-  description:
-    "Compare Stardew Valley professions: Tiller vs Artisan, Fisher vs Angler, Miner vs Geologist. Find which profession maximizes your farm profit.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: {
     canonical: PAGE_PATH,
   },
@@ -107,6 +114,14 @@ export default function ProfessionsPage() {
             { name: "Tools", href: "/tools" },
             { name: "Professions", href: PAGE_PATH },
           ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildArticleJsonLd({ headline: PAGE_TITLE, description: PAGE_DESCRIPTION, path: PAGE_PATH, imagePath: PAGE_IMAGE }),
+            ),
+          }}
         />
         <script
           type="application/ld+json"
@@ -141,8 +156,14 @@ export default function ProfessionsPage() {
             Level 10 professions are continuations of a level 5 choice, not separate alternatives. For example,
             Artisan requires Tiller and Angler requires Fisher.
           </p>
-          <p className="mt-3 text-sm font-semibold text-[#5f4228]/90">Reviewed for Stardew Valley 1.6 mechanics: July 20, 2026</p>
+          <EditorialReview gameVersion="1.6" />
         </header>
+
+        <GuideVisual
+          src={PAGE_IMAGE}
+          alt="Profession decision tree showing level 5 choices leading to level 10 continuations"
+          caption="Original StardewProfit decision diagram. It separates level 5 choices from their level 10 continuations and records the profession mechanics reviewed for this guide."
+        />
 
         <section className={`mt-8 ${CARD_CLASS}`}>
           <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Core profession comparisons</h2>

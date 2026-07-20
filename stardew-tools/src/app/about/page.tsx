@@ -53,11 +53,16 @@ export default function AboutPage() {
           </p>
         </section>
 
-        <section className={SECTION_CLASS}>
-          <h2 className="text-base font-semibold text-[#4a321e]">Maintenance</h2>
+        <section id="editorial-team" className={`${SECTION_CLASS} scroll-mt-24`}>
+          <h2 className="text-base font-semibold text-[#4a321e]">Editorial Team and Byline</h2>
           <p className="mt-2">
-            This site is maintained by an independent developer and continuously updated. We aim to keep data accurate
-            and tools reliable for the Stardew Valley community.
+            Articles and calculation guides are published under the organizational byline StardewProfit Editorial
+            Team. This identifies the independent site maintainer and review process without inventing a named writer.
+          </p>
+          <p className="mt-2">
+            Pages carrying a reviewed date were checked on that date for calculation consistency, working links, and
+            the stated Stardew Valley version. A reviewed date is changed only after the page is checked again; it is
+            not generated automatically at build or deployment time.
           </p>
         </section>
 

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
 import { SiteFooter } from "@/components/SiteFooter";
+import { EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const PAGE_PATH = "/best-crops";
@@ -18,6 +20,7 @@ export const metadata: Metadata = {
   title: "Best Stardew Valley Crops by Season | StardewProfit",
   description:
     "Choose a Stardew Valley crop ranking for Spring, Summer, Fall, Winter, or the Greenhouse and see the assumptions behind each result.",
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: { canonical: `${SITE_ORIGIN}${PAGE_PATH}` },
 };
 
@@ -33,6 +36,7 @@ export default function BestCropsHubPage() {
             These rankings are starting points, not universal answers. Pick the relevant season, then adjust for your
             planting day, seed budget, crop quality, profession, and processing capacity in the calculator.
           </p>
+          <EditorialReview gameVersion="1.6" />
         </header>
         <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SEASONS.map(([label, href, description]) => (

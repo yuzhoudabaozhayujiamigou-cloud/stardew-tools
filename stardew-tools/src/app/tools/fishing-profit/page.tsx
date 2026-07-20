@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
 import { SiteFooter } from "@/components/SiteFooter";
+import { buildArticleJsonLd, EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 
 type FishProfitRow = {
   name: string;
@@ -35,11 +37,14 @@ const REPEATABLE_FISH: FishProfitRow[] = [
 ];
 
 const PAGE_PATH = "/tools/fishing-profit";
+const PAGE_TITLE = "Stardew Valley Fishing Profit Guide - Best Fish by Location";
+const PAGE_DESCRIPTION =
+  "Find the most profitable fish in Stardew Valley by location and season. Compare gold per fish and daily income from fishing vs farming.";
 
 export const metadata: Metadata = {
-  title: "Stardew Valley Fishing Profit Guide – Best Fish by Location",
-  description:
-    "Find the most profitable fish in Stardew Valley by location and season. Compare gold per fish and daily income from fishing vs farming.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: {
     canonical: PAGE_PATH,
   },
@@ -67,6 +72,12 @@ export default function FishingProfitPage() {
             { name: "Tools", href: "/tools" },
             { name: "Fishing Profit", href: PAGE_PATH },
           ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildArticleJsonLd({ headline: PAGE_TITLE, description: PAGE_DESCRIPTION, path: PAGE_PATH })),
+          }}
         />
         <script
           type="application/ld+json"
@@ -101,7 +112,7 @@ export default function FishingProfitPage() {
             Profession note: Fisher makes fish worth 25% more. Angler is the level 10 continuation of Fisher and makes
             fish worth 50% more in total; it is not limited to legendary fish and the bonuses are not added together.
           </p>
-          <p className="mt-3 text-sm font-semibold text-[#5f4228]/90">Reviewed for Stardew Valley 1.6 mechanics: July 20, 2026</p>
+          <EditorialReview gameVersion="1.6" />
         </header>
 
         <section className={`mt-8 ${CARD_CLASS}`}>

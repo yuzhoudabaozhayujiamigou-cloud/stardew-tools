@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
 import { SiteFooter } from "@/components/SiteFooter";
+import { EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const PAGE_PATH = "/tools";
@@ -24,6 +26,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley Calculators and Planning Tools | StardewProfit",
   description:
     "Open Stardew Valley crop, artisan, seed, sprinkler, fishing, profession, and perfection planning tools from one hub.",
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: { canonical: `${SITE_ORIGIN}${PAGE_PATH}` },
 };
 
@@ -39,6 +42,7 @@ export default function ToolsHubPage() {
             Choose a tool based on the constraint you are solving. Crop tools handle planting windows, artisan tools
             handle machine queues, and layout tools handle the tiles and equipment you can maintain.
           </p>
+          <EditorialReview gameVersion="1.6" />
         </header>
         <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map(([title, href, description]) => (

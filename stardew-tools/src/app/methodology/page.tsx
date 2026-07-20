@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
 import { SiteFooter } from "@/components/SiteFooter";
+import { EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const PAGE_PATH = "/methodology";
@@ -18,6 +20,7 @@ const LINK_CLASS =
 export const metadata: Metadata = {
   title: PAGE_TITLE,
   description: PAGE_DESCRIPTION,
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: { canonical: `${SITE_ORIGIN}${PAGE_PATH}` },
   openGraph: {
     type: "article",
@@ -62,9 +65,7 @@ export default function MethodologyPage() {
             StardewProfit turns game values into planning estimates. This page explains what the calculator counts,
             what each ranking leaves out, and how to decide whether a result applies to your farm.
           </p>
-          <p className="mt-3 text-sm font-semibold text-[#5f4228]/90">
-            Last reviewed: <time dateTime="2026-07-20">July 20, 2026</time>
-          </p>
+          <EditorialReview gameVersion="1.6" />
         </header>
 
         <section className={SECTION_CLASS}>

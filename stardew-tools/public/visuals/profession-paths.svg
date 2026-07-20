@@ -1,0 +1,37 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Stardew Valley profession path decision tree</title>
+  <desc id="desc">An original diagram showing that level 10 professions continue from level 5 choices for farming, fishing, and mining.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#315f55" />
+    </marker>
+  </defs>
+  <rect width="1200" height="675" fill="#eef3ef" />
+  <rect width="1200" height="112" fill="#233d50" />
+  <text x="54" y="54" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Profession paths: level 5 decides level 10</text>
+  <text x="54" y="87" font-family="Arial, sans-serif" font-size="18" fill="#d7e5ed">Original decision diagram - bonuses shown are total path outcomes</text>
+
+  <text x="54" y="154" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#5d5548">SKILL</text>
+  <text x="250" y="154" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#5d5548">LEVEL 5</text>
+  <text x="650" y="154" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#5d5548">LEVEL 10 CONTINUATION</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="54" y="176" width="150" height="116" rx="8" fill="#d9eabf" stroke="#527047" stroke-width="3" /><text x="129" y="226" text-anchor="middle" font-size="23" font-weight="700" fill="#30482d">Farming</text><text x="129" y="257" text-anchor="middle" font-size="16" fill="#40553b">Income path</text>
+    <rect x="250" y="176" width="286" height="116" rx="8" fill="#fff0b8" stroke="#b77b1c" stroke-width="3" /><text x="274" y="220" font-size="22" font-weight="700" fill="#6b4215">Tiller</text><text x="274" y="252" font-size="17" fill="#5d5548">+10% crop value</text>
+    <rect x="650" y="176" width="496" height="116" rx="8" fill="#f1dfeb" stroke="#8c5b7c" stroke-width="3" /><text x="676" y="220" font-size="22" font-weight="700" fill="#5f3d56">Artisan</text><text x="676" y="252" font-size="17" fill="#5f3d56">+40% artisan goods value - best for processing</text>
+
+    <rect x="54" y="320" width="150" height="116" rx="8" fill="#c9ddeb" stroke="#3f78a8" stroke-width="3" /><text x="129" y="370" text-anchor="middle" font-size="23" font-weight="700" fill="#233d50">Fishing</text><text x="129" y="401" text-anchor="middle" font-size="16" fill="#40545f">Sale path</text>
+    <rect x="250" y="320" width="286" height="116" rx="8" fill="#fff0b8" stroke="#b77b1c" stroke-width="3" /><text x="274" y="364" font-size="22" font-weight="700" fill="#6b4215">Fisher</text><text x="274" y="396" font-size="17" fill="#5d5548">+25% fish value</text>
+    <rect x="650" y="320" width="496" height="116" rx="8" fill="#dce9f0" stroke="#3f78a8" stroke-width="3" /><text x="676" y="364" font-size="22" font-weight="700" fill="#233d50">Angler</text><text x="676" y="396" font-size="17" fill="#40545f">+50% fish value total - not +25% plus +50%</text>
+
+    <rect x="54" y="464" width="150" height="116" rx="8" fill="#d9b1a6" stroke="#9f4e3d" stroke-width="3" /><text x="129" y="514" text-anchor="middle" font-size="23" font-weight="700" fill="#6d3024">Mining</text><text x="129" y="545" text-anchor="middle" font-size="16" fill="#6d3024">Gem path</text>
+    <rect x="250" y="464" width="286" height="116" rx="8" fill="#fff0b8" stroke="#b77b1c" stroke-width="3" /><text x="274" y="508" font-size="22" font-weight="700" fill="#6b4215">Geologist</text><text x="274" y="540" font-size="17" fill="#5d5548">Chance for paired gems</text>
+    <rect x="650" y="464" width="496" height="116" rx="8" fill="#e4efd3" stroke="#527047" stroke-width="3" /><text x="676" y="508" font-size="22" font-weight="700" fill="#30482d">Gemologist or Excavator</text><text x="676" y="540" font-size="17" fill="#40553b">Choose value bonus or more geode finds</text>
+  </g>
+  <g stroke="#315f55" stroke-width="6" fill="none" marker-end="url(#arrow)">
+    <path d="M546 234 H638" /><path d="M546 378 H638" /><path d="M546 522 H638" />
+  </g>
+  <rect x="54" y="610" width="1092" height="42" rx="8" fill="#ffffff" stroke="#62829a" stroke-width="2" />
+  <text x="78" y="638" font-family="Arial, sans-serif" font-size="17" fill="#233d50">Changed your farm plan? The Statue of Uncertainty resets one skill's professions for 10,000g.</text>
+  <text x="920" y="669" font-family="Arial, sans-serif" font-size="14" fill="#5d5548">Reviewed July 20, 2026</text>
+</svg>

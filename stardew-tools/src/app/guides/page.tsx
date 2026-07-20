@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
 import { SiteFooter } from "@/components/SiteFooter";
+import { EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const PAGE_PATH = "/guides";
@@ -48,6 +50,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley Planning Guides | StardewProfit",
   description:
     "Browse Stardew Valley crop, artisan, greenhouse, progression, and completion guides organized by the decision you need to make.",
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: { canonical: `${SITE_ORIGIN}${PAGE_PATH}` },
 };
 
@@ -63,6 +66,7 @@ export default function GuidesHubPage() {
             Start with the decision in front of you: what to plant, what to process, or which upgrade unlocks the next
             income step. Each group below leads to a focused guide and then back to a working calculator.
           </p>
+          <EditorialReview gameVersion="1.6" />
         </header>
 
         {GUIDE_GROUPS.map((group) => (

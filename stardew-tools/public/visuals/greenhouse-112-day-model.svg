@@ -1,0 +1,55 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Greenhouse 112-day profit model</title>
+  <desc id="desc">An original calculation diagram showing seed cost, harvest schedule, direct-sale profit, gold per day, and the separate machine-capacity decision.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#315f55" />
+    </marker>
+  </defs>
+  <rect width="1200" height="675" fill="#f7f1de" />
+  <rect width="1200" height="112" fill="#315f55" />
+  <text x="54" y="54" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Greenhouse ranking: reproducible 112-day model</text>
+  <text x="54" y="87" font-family="Arial, sans-serif" font-size="18" fill="#dceee8">One tile - normal quality - no Tiller - direct sales first</text>
+
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="54" y="154" width="252" height="112" rx="8" fill="#fff0b8" stroke="#b77b1c" stroke-width="3" />
+    <text x="180" y="194" font-size="21" font-weight="700" fill="#6b4215">1. Seed plan</text>
+    <text x="180" y="226" font-size="17" fill="#5d5548">One seed for regrowth</text>
+    <text x="180" y="250" font-size="17" fill="#5d5548">New seed for each replant</text>
+
+    <rect x="348" y="154" width="252" height="112" rx="8" fill="#dce9f0" stroke="#3f78a8" stroke-width="3" />
+    <text x="474" y="194" font-size="21" font-weight="700" fill="#233d50">2. Harvest schedule</text>
+    <text x="474" y="226" font-size="17" fill="#40545f">First growth + regrowth</text>
+    <text x="474" y="250" font-size="17" fill="#40545f">Count every harvest that fits</text>
+
+    <rect x="642" y="154" width="252" height="112" rx="8" fill="#e4efd3" stroke="#527047" stroke-width="3" />
+    <text x="768" y="194" font-size="21" font-weight="700" fill="#30482d">3. Direct-sale profit</text>
+    <text x="768" y="226" font-size="17" fill="#40553b">Harvest value</text>
+    <text x="768" y="250" font-size="17" fill="#40553b">minus all seed costs</text>
+
+    <rect x="936" y="154" width="210" height="112" rx="8" fill="#f1dfeb" stroke="#8c5b7c" stroke-width="3" />
+    <text x="1041" y="194" font-size="21" font-weight="700" fill="#5f3d56">4. Normalize</text>
+    <text x="1041" y="226" font-size="17" fill="#5f3d56">total profit / 112</text>
+    <text x="1041" y="250" font-size="17" fill="#5f3d56">= gold per day</text>
+  </g>
+  <g stroke="#315f55" stroke-width="6" fill="none" marker-end="url(#arrow)">
+    <path d="M310 210 H338" /><path d="M604 210 H632" /><path d="M898 210 H926" />
+  </g>
+
+  <text x="54" y="326" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#3b3126">The planning window</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="54" y="350" width="262" height="64" rx="8" fill="#d9eabf" stroke="#527047" stroke-width="2" /><text x="185" y="390" font-size="19" font-weight="700" fill="#30482d">Days 1-28</text>
+    <rect x="330" y="350" width="262" height="64" rx="8" fill="#f6d58b" stroke="#a56b21" stroke-width="2" /><text x="461" y="390" font-size="19" font-weight="700" fill="#6b4215">Days 29-56</text>
+    <rect x="606" y="350" width="262" height="64" rx="8" fill="#d9b1a6" stroke="#9f4e3d" stroke-width="2" /><text x="737" y="390" font-size="19" font-weight="700" fill="#6d3024">Days 57-84</text>
+    <rect x="882" y="350" width="264" height="64" rx="8" fill="#c9ddeb" stroke="#3f78a8" stroke-width="2" /><text x="1014" y="390" font-size="19" font-weight="700" fill="#233d50">Days 85-112</text>
+  </g>
+
+  <rect x="54" y="466" width="1092" height="142" rx="8" fill="#ffffff" stroke="#b14f3a" stroke-width="3" />
+  <text x="82" y="506" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#7a3328">Machine capacity is a second decision</text>
+  <text x="82" y="540" font-family="Arial, sans-serif" font-size="18" fill="#4b4540">The crop table does not assume every fruit becomes wine or jelly. First calculate crop output, then compare:</text>
+  <rect x="82" y="560" width="304" height="32" rx="6" fill="#e4efd3" /><text x="234" y="582" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#30482d">harvests per week</text>
+  <text x="410" y="582" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#315f55">vs</text>
+  <rect x="452" y="560" width="304" height="32" rx="6" fill="#dce9f0" /><text x="604" y="582" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#233d50">machine cycles per week</text>
+  <text x="786" y="582" font-family="Arial, sans-serif" font-size="17" fill="#4b4540">Backlog means the artisan result is capacity-limited.</text>
+  <text x="54" y="648" font-family="Arial, sans-serif" font-size="15" fill="#5d5548">StardewProfit editorial visual - calculation reviewed July 20, 2026</text>
+</svg>

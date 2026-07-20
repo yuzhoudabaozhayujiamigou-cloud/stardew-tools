@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
 import FaqJsonLd from "@/components/FaqJsonLd";
+import { buildArticleJsonLd, EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 import { SITE_ORIGIN } from "@/lib/site";
 
 const PAGE_URL = `${SITE_ORIGIN}/guides/multiplayer-crossplay`;
@@ -13,6 +15,7 @@ export const metadata: Metadata = {
   title: "Stardew Valley Multiplayer Crossplay Guide (2026): Platform Status + Fast Setup",
   description:
     "Quick multiplayer and crossplay status for Stardew Valley across PC, Switch, PlayStation, Xbox, and mobile. Includes split-screen support and shortest setup steps.",
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: {
     canonical: PAGE_URL,
   },
@@ -97,9 +100,23 @@ export default function MultiplayerCrossplayGuidePage() {
         />
 
         <FaqJsonLd faqs={faqItems} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildArticleJsonLd({
+                headline: "Stardew Valley Multiplayer Crossplay Guide",
+                description:
+                  "Current multiplayer, split-screen, and cross-platform support across PC, consoles, and mobile.",
+                path: "/guides/multiplayer-crossplay",
+                datePublished: publishedTime,
+                dateModified: modifiedTime,
+              }),
+            ),
+          }}
+        />
 
         <header className="mt-6 rounded-2xl border border-amber-200 bg-white/60 p-6 shadow-sm">
-          <p className="text-sm text-slate-600">Updated: {new Date(modifiedTime).toISOString().slice(0, 10)}</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
             Stardew Valley Multiplayer Crossplay Guide
           </h1>
@@ -107,6 +124,7 @@ export default function MultiplayerCrossplayGuidePage() {
             Fast status check for multiplayer, split-screen, and cross-platform support. Use this page when you want
             a direct answer before inviting friends.
           </p>
+          <EditorialReview gameVersion="1.6" className="!text-slate-600" />
         </header>
 
         <section className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-6">

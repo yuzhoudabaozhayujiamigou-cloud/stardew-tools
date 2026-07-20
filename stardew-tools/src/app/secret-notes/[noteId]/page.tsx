@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { EditorialReview } from "@/components/EditorialReview";
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
 import { NoteEmbedCard } from "@/components/secret-notes/NoteEmbedCard";
 import { NoteDetailPanel } from "@/components/secret-notes/NoteDetailPanel";
 import type { SecretNote } from "@/components/secret-notes/types";
 import { SiteFooter } from "@/components/SiteFooter";
 import { secretNotes } from "@/data/secretNotes";
+import {
+  EDITORIAL_AUTHOR_NAME,
+  EDITORIAL_AUTHOR_URL,
+  VERIFIED_REVIEW_DATE,
+} from "@/lib/editorial";
 import { SITE_ORIGIN } from "@/lib/site";
 
 type SecretNoteDetailPageProps = {
@@ -21,8 +27,8 @@ type SecretNoteDetailPageProps = {
 };
 
 const DEFAULT_SITE_URL = SITE_ORIGIN;
-const ARTICLE_AUTHOR_NAME = "Stardew Tools Guide";
 const SECRET_NOTES_PUBLISHED_AT = "2026-02-15T00:00:00.000Z";
+const SECRET_NOTES_REVIEWED_AT = `${VERIFIED_REVIEW_DATE}T00:00:00.000Z`;
 
 type EmbedMode = "none" | "panel" | "card";
 
@@ -63,7 +69,7 @@ const NOTE_22_FAQ_ITEMS: NoteFaqItem[] = [
   {
     question: "What do I need for Secret Note 22?",
     answer:
-      "You need Secret Note 22 plus a Battery Pack. Without the Battery Pack, the panel interaction in the tunnel will not start the quest.",
+      "You need a Battery Pack for the tunnel panel. Finding Secret Note 22 is not required to start the Mysterious Qi quest, although the note points you to the correct place.",
   },
   {
     question: "What reward does Secret Note 22 unlock?",
@@ -73,7 +79,7 @@ const NOTE_22_FAQ_ITEMS: NoteFaqItem[] = [
   {
     question: "What if Secret Note 22 does not trigger?",
     answer:
-      "Re-check that you have the note and a Battery Pack, then interact with the panel in the Bus Tunnel again. Most issues are item-state or panel-position mistakes.",
+      "Confirm that a Battery Pack is in your inventory, then interact with the wall box near the center of the Bus Tunnel. The note itself is not required.",
   },
 ];
 
@@ -186,6 +192,7 @@ function getAbsoluteImageUrl(relativeImagePath: string | undefined): string | un
 function buildArticleJsonLd(note: SecretNote) {
   const noteUrl = `${getSiteUrl()}/secret-notes/${note.id}`;
   const imageUrl = getAbsoluteImageUrl(note.locationImage);
+  const isExpandedNote = note.id === 19 || note.id === 22;
 
   return {
     "@context": "https://schema.org",
@@ -194,15 +201,17 @@ function buildArticleJsonLd(note: SecretNote) {
     description: `Location: ${note.location}. ${toHintExcerpt(note.decodedHint)}`,
     image: imageUrl ? [imageUrl] : undefined,
     author: {
-      "@type": "Person",
-      name: ARTICLE_AUTHOR_NAME,
+      "@type": "Organization",
+      name: EDITORIAL_AUTHOR_NAME,
+      url: EDITORIAL_AUTHOR_URL,
     },
     publisher: {
       "@type": "Organization",
-      name: "Stardew Tools",
+      name: "StardewProfit",
+      url: SITE_ORIGIN,
     },
     datePublished: SECRET_NOTES_PUBLISHED_AT,
-    dateModified: SECRET_NOTES_PUBLISHED_AT,
+    dateModified: isExpandedNote ? SECRET_NOTES_REVIEWED_AT : SECRET_NOTES_PUBLISHED_AT,
     mainEntityOfPage: noteUrl,
   };
 }
@@ -297,7 +306,7 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
       index: shouldIndex,
       follow: true,
     },
-    authors: [{ name: ARTICLE_AUTHOR_NAME }],
+    authors: [{ name: EDITORIAL_AUTHOR_NAME, url: EDITORIAL_AUTHOR_URL }],
     alternates: {
       canonical: canonicalUrl,
     },
@@ -306,9 +315,10 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
       description,
       type: "article",
       url: canonicalUrl,
-      siteName: "Stardew Tools",
+      siteName: "StardewProfit",
       publishedTime: SECRET_NOTES_PUBLISHED_AT,
-      authors: [ARTICLE_AUTHOR_NAME],
+      modifiedTime: shouldIndex ? SECRET_NOTES_REVIEWED_AT : SECRET_NOTES_PUBLISHED_AT,
+      authors: [EDITORIAL_AUTHOR_NAME],
       images: imageUrl
         ? [
             {
@@ -401,6 +411,7 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
                 Check location, reward, and decoded hint details for this note. Share this URL directly with other
                 players.
               </p>
+              {note.id === 19 || note.id === 22 ? <EditorialReview gameVersion="1.6" /> : null}
 
               <div className="mt-3">
                 <Link
@@ -478,7 +489,7 @@ export default async function SecretNoteDetailPage(props: SecretNoteDetailPagePr
                     panel position.
                   </p>
                   <ul className="mt-3 grid gap-2 text-sm leading-6 text-[#5f4228]/85 sm:grid-cols-2">
-                    <li>• You must already have Secret Note 22 unlocked.</li>
+                    <li>• The note is not required; it only reveals the intended clue.</li>
                     <li>• Battery Pack is required for the interaction.</li>
                     <li>• Click the panel area carefully if the first attempt fails.</li>
                     <li>• Use note 19 and calculator links to keep your route efficient.</li>

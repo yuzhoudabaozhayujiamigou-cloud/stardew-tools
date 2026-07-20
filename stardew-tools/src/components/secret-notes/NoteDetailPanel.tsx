@@ -21,6 +21,8 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
     );
   }
 
+  const hasAnnotatedSchematic = note.id === 19 || note.id === 22;
+
   return (
     <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
       <div className="flex items-start justify-between gap-3">
@@ -52,15 +54,21 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
 
         <div className={detailBlockClass}>
           <div className="text-xs font-semibold uppercase tracking-wider text-[#6f4b2a]/75">Location Preview</div>
-          <div className="mt-3 aspect-video overflow-hidden rounded-2xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce]">
+          <div
+            className={`mt-3 rounded-2xl border-2 border-dashed border-[#b58b61]/70 bg-[#f8ebce] ${
+              hasAnnotatedSchematic ? "overflow-x-auto" : "aspect-video overflow-hidden"
+            }`}
+          >
             {note.locationImage ? (
               <Image
                 src={note.locationImage}
                 alt={`${note.location} map preview`}
                 width={960}
                 height={540}
-                className="block h-full w-full object-cover"
-                sizes="(min-width: 768px) 640px, 100vw"
+                className={`block ${
+                  hasAnnotatedSchematic ? "h-auto w-full min-w-[900px] md:min-w-0" : "h-full w-full object-cover"
+                }`}
+                sizes={hasAnnotatedSchematic ? "(min-width: 768px) 900px, 900px" : "(min-width: 768px) 640px, 100vw"}
               />
             ) : (
               <div
@@ -77,6 +85,11 @@ export function NoteDetailPanel(props: NoteDetailPanelProps) {
               </div>
             )}
           </div>
+          {hasAnnotatedSchematic ? (
+            <p className="mt-2 text-xs leading-5 text-[#6f4b2a]/80">
+              Original StardewProfit annotated schematic. Not a gameplay screenshot and not drawn to scale.
+            </p>
+          ) : null}
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2">

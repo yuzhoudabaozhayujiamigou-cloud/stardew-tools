@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
+import { EditorialReview } from "@/components/EditorialReview";
+import { GuideVisual } from "@/components/GuideVisual";
 import { SiteFooter } from "@/components/SiteFooter";
 import cropsData from "@/data/crops.json";
 import { calculateSeasonProfit, type Crop } from "@/lib/calculateProfit";
+import { buildArticleJsonLd, EDITORIAL_AUTHOR_NAME } from "@/lib/editorial";
 
 type GreenhouseCropRanking = {
   name: string;
@@ -62,11 +65,15 @@ const GREENHOUSE_RELATED_POSTS = [
 ];
 
 const PAGE_PATH = "/best-crops/greenhouse";
+const PAGE_TITLE = "Best Greenhouse Crops Stardew Valley - Max Profit Year-Round";
+const PAGE_DESCRIPTION =
+  "Compare Stardew Valley greenhouse crops with a reproducible 112-day direct-sale model, then separate crop output from artisan machine capacity.";
+const PAGE_IMAGE = "/visuals/greenhouse-112-day-model.svg";
 
 export const metadata: Metadata = {
-  title: "Best Greenhouse Crops Stardew Valley – Max Profit Year-Round",
-  description:
-    "Find the stardew greenhouse best crop for your setup. Compare Stardew Valley greenhouse profit rankings from Ancient Fruit Wine to Sweet Gem Berry and optimize year-round.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  authors: [{ name: EDITORIAL_AUTHOR_NAME, url: "/about#editorial-team" }],
   alternates: {
     canonical: PAGE_PATH,
   },
@@ -82,6 +89,14 @@ export default function BestGreenhouseCropsPage() {
             { name: "Best Crops", href: "/best-crops" },
             { name: "Greenhouse", href: PAGE_PATH },
           ]}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              buildArticleJsonLd({ headline: PAGE_TITLE, description: PAGE_DESCRIPTION, path: PAGE_PATH, imagePath: PAGE_IMAGE }),
+            ),
+          }}
         />
         <script
           type="application/ld+json"
@@ -123,6 +138,7 @@ export default function BestGreenhouseCropsPage() {
             This ranking uses a reproducible 112-day direct-sale model. Artisan goods are shown as a separate decision
             because crop output does not become wine or jelly unless your machines can process it.
           </p>
+          <EditorialReview gameVersion="1.6" />
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/calculator?preset=ancient-vs-starfruit-greenhouse" className={PRIMARY_CTA_CLASS}>
               Open Greenhouse Preset
@@ -132,6 +148,12 @@ export default function BestGreenhouseCropsPage() {
             </Link>
           </div>
         </header>
+
+        <GuideVisual
+          src={PAGE_IMAGE}
+          alt="Greenhouse 112-day calculation flow from seed plan to gold per day and machine capacity"
+          caption="Original StardewProfit calculation visual. It documents the exact ranking sequence and keeps artisan machine throughput separate from direct crop sales."
+        />
 
         <section className={`mt-8 ${CARD_CLASS}`}>
           <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Top greenhouse crops over 112 days</h2>
