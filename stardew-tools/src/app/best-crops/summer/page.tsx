@@ -4,20 +4,12 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { SiteFooter } from "@/components/SiteFooter";
 import cropsData from "@/data/crops.json";
-
-type CropRecord = {
-  id: string;
-  name: string;
-  season: string[];
-  seedCost: number;
-  sellPrice: number;
-  growthDays: number;
-};
+import { calculateSeasonProfit, type Crop } from "@/lib/calculateProfit";
 
 type RankedCrop = {
   name: string;
-  sellPrice: number;
-  growthDays: number;
+  harvestCount: number;
+  totalProfit: number;
   goldPerDay: number;
 };
 
@@ -30,14 +22,24 @@ const PRIMARY_CTA_CLASS =
 const SECONDARY_CTA_CLASS =
   "inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-white/60 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-white/80";
 
-const SUMMER_TOP_CROPS: RankedCrop[] = (cropsData as CropRecord[])
+const SUMMER_TOP_CROPS: RankedCrop[] = (cropsData as Crop[])
   .filter((crop) => crop.season.includes("summer"))
-  .map((crop) => ({
-    name: crop.name,
-    sellPrice: crop.sellPrice,
-    growthDays: crop.growthDays,
-    goldPerDay: (crop.sellPrice - crop.seedCost) / crop.growthDays,
-  }))
+  .map((crop) => {
+    const result = calculateSeasonProfit({
+      crop,
+      seasonDays: 28,
+      quality: "normal",
+      hasTiller: false,
+      profession: "none",
+    });
+
+    return {
+      name: crop.name,
+      harvestCount: result.harvestCount,
+      totalProfit: result.totalProfit,
+      goldPerDay: result.goldPerDay,
+    };
+  })
   .sort((left, right) => right.goldPerDay - left.goldPerDay)
   .slice(0, 8);
 
@@ -102,10 +104,10 @@ export default function BestSummerCropsPage() {
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
             Summer is where your farm can scale quickly if you pick high-margin crops early. This page ranks summer
-            crops from our calculator dataset using a simple gold/day estimate for fast comparison.
+            crops with the same 28-day harvest-cycle model used by the main calculator.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-            Formula used: <span className="font-semibold text-[#4a321e]">(sellPrice - seedCost) / growthDays</span>.
+            Assumptions: normal quality, direct crop sales, no Tiller bonus, and planting on Summer 1.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/calculator" className={PRIMARY_CTA_CLASS}>
@@ -118,16 +120,16 @@ export default function BestSummerCropsPage() {
         </header>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
-          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Top Summer crops by gold/day estimate</h2>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Top Summer crops over a full 28-day season</h2>
           <div className="mt-4 overflow-x-auto">
             <table className="min-w-full border-collapse text-left text-sm text-[#4a321e]">
               <thead>
                 <tr className="border-b-2 border-[#7c4d2e]/40">
                   <th className="px-2 py-2 font-semibold">Rank</th>
                   <th className="px-2 py-2 font-semibold">Crop Name</th>
-                  <th className="px-2 py-2 font-semibold">Sell Price</th>
-                  <th className="px-2 py-2 font-semibold">Growth Days</th>
-                  <th className="px-2 py-2 font-semibold">Gold/Day estimate</th>
+                  <th className="px-2 py-2 font-semibold">Harvests</th>
+                  <th className="px-2 py-2 font-semibold">Total Profit</th>
+                  <th className="px-2 py-2 font-semibold">Gold/Day</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,13 +137,35 @@ export default function BestSummerCropsPage() {
                   <tr key={crop.name} className="border-b border-[#7c4d2e]/20">
                     <td className="px-2 py-2 font-semibold">{index + 1}</td>
                     <td className="px-2 py-2">{crop.name}</td>
-                    <td className="px-2 py-2">{crop.sellPrice}g</td>
-                    <td className="px-2 py-2">{crop.growthDays} days</td>
+                    <td className="px-2 py-2">{crop.harvestCount}</td>
+                    <td className="px-2 py-2">{crop.totalProfit.toLocaleString()}g</td>
                     <td className="px-2 py-2">{crop.goldPerDay.toFixed(2)}g</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+          <p className="mt-3 text-sm leading-6 text-[#5f4228]/85">
+            Regrowing crops receive credit for every harvest that fits before Fall 1. Use a day-limited calculator
+            result after Summer 1 because missing the first growth cycle changes both harvest count and cash timing.
+          </p>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Choose by Summer objective</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Fast reinvestment</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Prioritize an early harvest when the proceeds will fund more seeds, sprinklers, or a tool upgrade.</p>
+            </div>
+            <div className="rounded-2xl border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Low daily labor</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">A strong paper return can still be a poor fit if repeated harvests consume the time you need elsewhere.</p>
+            </div>
+            <div className="rounded-2xl border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Processing plan</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Reserve Kegs for premium fruit and make sure the harvest does not exceed your realistic machine queue.</p>
+            </div>
           </div>
         </section>
 

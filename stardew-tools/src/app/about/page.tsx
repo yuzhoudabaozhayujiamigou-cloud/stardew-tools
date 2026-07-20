@@ -37,7 +37,7 @@ export default function AboutPage() {
             StardewProfit is a fan-made project focused on practical crop profit tools and strategy guides for Stardew
             Valley players.
           </p>
-          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: April 24, 2026</p>
+          <p className="mt-2 text-sm font-semibold text-[#5f4228]/90">Last updated: July 20, 2026</p>
         </header>
 
         <section className={SECTION_CLASS}>
@@ -58,6 +58,39 @@ export default function AboutPage() {
           <p className="mt-2">
             This site is maintained by an independent developer and continuously updated. We aim to keep data accurate
             and tools reliable for the Stardew Valley community.
+          </p>
+        </section>
+
+        <section className={SECTION_CLASS}>
+          <h2 className="text-base font-semibold text-[#4a321e]">How Results Are Produced</h2>
+          <p className="mt-2">
+            Crop rankings are generated from a shared dataset and calculation library. The calculator accounts for
+            seed cost, first harvest timing, regrowth, days remaining, crop quality, and selected professions. Pages
+            that use a simpler estimate state that limitation beside the result.
+          </p>
+          <p className="mt-2">
+            Read the full{" "}
+            <Link
+              href="/methodology"
+              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+            >
+              data and calculation methodology
+            </Link>{" "}
+            for formulas, exclusions, review practices, and correction instructions.
+          </p>
+        </section>
+
+        <section className={SECTION_CLASS}>
+          <h2 className="text-base font-semibold text-[#4a321e]">Corrections and Feedback</h2>
+          <p className="mt-2">
+            Game updates and unusual save conditions can change a recommendation. To report an issue, use the{" "}
+            <Link
+              href="/contact"
+              className="font-semibold underline decoration-[#8a5b3a]/60 decoration-2 underline-offset-2 transition hover:text-[#4a321e]"
+            >
+              contact page
+            </Link>{" "}
+            and include the affected URL, crop or item, game version, and the result you expected.
           </p>
         </section>
 

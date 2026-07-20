@@ -9,6 +9,16 @@ export const metadata: Metadata = {
   title: "Stardew Valley Guides & Quick Answers | Stardew Tools",
   description:
     "Browse all Stardew Valley crop profit guides, quick answers, and farming strategy articles. Find the best crops, compare kegs vs jars, and plan your farm.",
+  alternates: {
+    canonical: `${SITE_ORIGIN}/blog`,
+  },
+  openGraph: {
+    type: "website",
+    url: `${SITE_ORIGIN}/blog`,
+    title: "Stardew Valley Guides & Quick Answers | Stardew Tools",
+    description:
+      "Browse Stardew Valley crop profit guides, quick answers, and farming strategy articles organized by the decision you need to make.",
+  },
 };
 
 import fs from "node:fs";
@@ -24,6 +34,7 @@ function getAllBlogPosts() {
     .filter(
       (entry: { isDirectory: () => boolean; name: string }) =>
         entry.isDirectory() &&
+        entry.name !== "[slug]" &&
         fs.existsSync(path.join(blogDir, entry.name, "page.tsx"))
     )
     .map((entry: { name: string }) => entry.name)
@@ -151,6 +162,34 @@ export default function BlogIndexPage() {
         </header>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+            <div>
+              <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">A decision library, not a keyword list</h2>
+              <p className="mt-3 text-sm leading-7 text-[#5f4228]/90 sm:text-base">
+                Stardew profit questions are usually time-sensitive: what to plant with 10 days left, whether to spend
+                a rare seed, or which machine should receive a limited harvest. The articles below explain the tradeoff
+                behind the answer, show the assumptions, and link back to a calculator preset so you can test the same
+                idea against your own farm.
+              </p>
+              <p className="mt-3 text-sm leading-7 text-[#5f4228]/90 sm:text-base">
+                Start with a quick answer when you need a decision now. Choose a full guide when you are changing your
+                farm plan, comparing professions, or building a greenhouse and artisan room that will run for many
+                seasons.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/50 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Our guide format</h3>
+              <ul className="mt-2 list-disc space-y-2 pl-5 text-sm leading-7 text-[#5f4228]/90">
+                <li>Direct answer first, followed by the assumptions that can change it.</li>
+                <li>Tables or worked examples for crop, machine, and day-limit comparisons.</li>
+                <li>Links to the calculator, seasonal pages, and the next decision in the same plan.</li>
+                <li>Separate early-game, greenhouse, and processing advice instead of one universal ranking.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6f4b2a]/75">Featured</p>
           <h2 className="mt-1 text-xl font-semibold text-[#4a321e] sm:text-2xl">Start here</h2>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
@@ -177,6 +216,28 @@ export default function BlogIndexPage() {
               {LABEL_OVERRIDES[slug] ?? humanizeSlug(slug)}
             </Link>
           ))}
+        </section>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Choose a guide by farm situation</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">New save</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Use the <Link className="underline" href="/blog/best-crops-year-1">Year 1 crop guide</Link> to balance seed cost, watering time, and the first tool upgrades.</p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Season is ending</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Read the day-limit answers for <Link className="underline" href="/blog/best-crops-7-days-left-before-season-switch">7 days left</Link> or <Link className="underline" href="/blog/best-crops-10-days-left-quick-answer">10 days left</Link>.</p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Greenhouse open</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Compare <Link className="underline" href="/blog/best-greenhouse-crops-stardew-valley">greenhouse crops</Link> with your available Kegs before filling every tile.</p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Machines are full</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Use the <Link className="underline" href="/blog/keg-vs-jar-profit-guide">Keg vs Jar guide</Link> to route premium fruit and overflow without wasting cycles.</p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

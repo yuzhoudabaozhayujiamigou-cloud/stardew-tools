@@ -148,6 +148,45 @@ export default function SprinklerCoverageCalculatorPage() {
           </p>
         </section>
 
+        <section className={CARD_CLASS}>
+          <h2 className="text-2xl font-semibold">Coverage is not the same as a finished layout</h2>
+          <p className="mt-3 leading-7 text-[#5f4228]/90">
+            The count table assumes every watered tile can be used. Real fields lose space at edges, around scarecrows,
+            beside paths, and where sprinkler patterns do not divide cleanly into the field dimensions. Use the result
+            as a minimum coverage count, then add the layout shape before crafting the final batch.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold">Worked example: 100 crop tiles</h3>
+              <p className="mt-2 text-sm leading-7 text-[#5f4228]/85">
+                The simple result is 13 Quality Sprinklers because 100 / 8 rounds up. A rectangular layout may still
+                need 14 if the last sprinkler cannot use all eight positions.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold">Worked example: gradual upgrade</h3>
+              <p className="mt-2 text-sm leading-7 text-[#5f4228]/85">
+                Replacing every Quality Sprinkler at once is not required. Move Iridium Sprinklers into the most crowded
+                blocks first, then reuse Quality Sprinklers on a secondary field.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className={CARD_CLASS}>
+          <h2 className="text-2xl font-semibold">Plan the field in this order</h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-5 leading-7 text-[#5f4228]/90">
+            <li>Choose the number of crop tiles you can afford, water, and harvest.</li>
+            <li>Pick a sprinkler tier based on current crafting materials rather than an ideal late-game setup.</li>
+            <li>Calculate the minimum sprinkler count, then sketch the actual width and height of each block.</li>
+            <li>Reserve path, scarecrow, Junimo Hut, and access tiles before buying seeds.</li>
+          </ol>
+          <p className="mt-4 text-sm leading-7 text-[#5f4228]/85">
+            After the field size is realistic, use the <Link href="/calculator" className={LINK_CLASS}>profit calculator</Link>
+            to test whether the larger planting pays back the sprinkler and seed investment inside the season.
+          </p>
+        </section>
+
         <section id="faq" className={CARD_CLASS}>
           <h2 className="text-2xl font-semibold">FAQ</h2>
           <div className="mt-4 space-y-3">

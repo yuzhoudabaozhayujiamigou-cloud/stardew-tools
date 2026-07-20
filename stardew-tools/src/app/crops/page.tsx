@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
 import FaqJsonLd from "@/components/FaqJsonLd";
@@ -213,6 +214,56 @@ export default function CropsProfitGuidePage() {
               </section>
             ))}
           </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">How to use these rankings</h2>
+          <div className="mt-3 grid gap-5 text-sm leading-7 text-[#5f4228]/90 lg:grid-cols-3">
+            <div>
+              <h3 className="font-semibold text-[#4a321e]">1. Start with time remaining</h3>
+              <p className="mt-1">
+                A full-season ranking is useful on day 1, but it can mislead you late in the season. A crop that needs
+                13 days to mature may be a poor choice with 10 days left even if its full-season total looks strong.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-[#4a321e]">2. Check cash-flow needs</h3>
+              <p className="mt-1">
+                Gold/day measures return over the planning window, not whether you can afford the seeds today. Use the
+                <Link className="ml-1 underline" href="/calculator">calculator</Link> to compare a short-term seed budget and
+                a longer greenhouse plan separately.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-[#4a321e]">3. Account for processing</h3>
+              <p className="mt-1">
+                These tables show direct crop sales only. If Kegs or Preserves Jars are part of your plan, use the
+                <Link className="ml-1 underline" href="/tools/keg-vs-preserves-jar">machine comparison</Link> after selecting
+                a crop so machine time does not become the hidden bottleneck.
+              </p>
+            </div>
+          </div>
+          <div className="mt-5 rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4 text-sm leading-7 text-[#5f4228]/85">
+            <strong className="text-[#4a321e]">Method note:</strong> the ranking uses the same crop dataset and
+            harvest-cycle function as the calculator. It assumes normal quality, no Tiller bonus, and direct sale
+            value. Regrowing crops are credited for each harvest that fits inside the selected 28-day or 56-day
+            window; crops that cannot finish before the window ends are not treated as profitable just because their
+            sticker price is high.
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Common planning mistakes</h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-[#5f4228]/90">
+            <li>Comparing total gold without dividing by the days and tiles committed to the crop.</li>
+            <li>Planting a crop on the last possible day without leaving time for the harvest or a replant.</li>
+            <li>Using a greenhouse ranking for a seasonal field where the season-change deadline still applies.</li>
+            <li>Ignoring seed cost when cash is tight, then missing a tool upgrade or a festival purchase.</li>
+          </ul>
+          <p className="mt-4 text-sm leading-7 text-[#5f4228]/85">
+            Treat the table as a shortlist, not a command. Your best choice is the crop that fits your days left,
+            seed budget, watering capacity, and machine queue at the same time.
+          </p>
         </section>
 
         <section id="faq" className={`mt-8 ${CARD_CLASS}`}>

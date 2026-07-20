@@ -76,7 +76,6 @@ const TOC = [
 const CARD =
   "rounded-[28px] border-4 border-[#7c4d2e]/70 bg-[#fff3da]/92 p-5 shadow-[0_14px_34px_rgba(56,41,23,0.22)] ring-1 ring-yellow-900/15 sm:p-7";
 const H2 = "text-xl font-semibold text-[#4a321e] sm:text-2xl";
-const H3 = "text-lg font-semibold text-[#4a321e]";
 const P = "mt-3 text-sm leading-6 text-[#5c4033]/90 sm:text-base";
 const LI = "ml-5 list-disc text-sm leading-6 text-[#5c4033]/90 sm:text-base";
 const LINK =
@@ -234,7 +233,7 @@ export default function SummerProfitGuidePage() {
           <section id="top-crops-ranked" className="mt-10">
             <h2 className={H2}>Best Summer crops ranked</h2>
             <p className={P}>
-              The table below ranks every Summer crop by practical profit. The "Best Use" column tells you
+              The table below ranks every Summer crop by practical profit. The &quot;Best Use&quot; column tells you
               whether the crop shines in kegs, jars, or just as raw sale.
             </p>
             <Table>{TABLE_SUMMER_CROPS}</Table>

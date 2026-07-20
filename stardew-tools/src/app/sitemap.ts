@@ -10,9 +10,21 @@ const STATIC_ENTRIES = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/calculator", changeFrequency: "weekly", priority: 0.9 },
   { path: "/crops", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/best-crops/spring", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/best-crops/summer", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/best-crops/fall", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/best-crops/winter", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/best-crops/greenhouse", changeFrequency: "monthly", priority: 0.7 },
   { path: "/presets", changeFrequency: "weekly", priority: 0.8 },
   { path: "/blog", changeFrequency: "daily", priority: 0.8 },
   { path: "/secret-notes", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/methodology", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/about", changeFrequency: "yearly", priority: 0.5 },
+  { path: "/contact", changeFrequency: "yearly", priority: 0.5 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/cookie-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/disclaimer", changeFrequency: "yearly", priority: 0.3 },
 ] as const satisfies ReadonlyArray<{
   path: string;
   changeFrequency: NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;

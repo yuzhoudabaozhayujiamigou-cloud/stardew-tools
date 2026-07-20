@@ -184,6 +184,48 @@ export default function KegVsPreservesJarPage() {
           </ul>
         </section>
 
+        <section className={CARD_CLASS}>
+          <h2 className="text-2xl font-semibold">How to read the comparison</h2>
+          <p className="mt-3 leading-7 text-[#5f4228]/90">
+            The table separates item value from machine throughput. A Keg normally takes longer, but it adds more
+            value to expensive fruit. A Preserves Jar finishes sooner and adds a fixed 50g on top of twice the base
+            price, which makes it especially useful for lower-value crops or a farm that has more harvest than Kegs.
+            Neither row includes the Artisan profession bonus, because that bonus changes the final sale value of both
+            machines equally and should be applied after choosing a route.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold">Choose Kegs when value is scarce</h3>
+              <p className="mt-2 text-sm leading-7 text-[#5f4228]/85">
+                If you have a steady supply of Starfruit or Ancient Fruit and enough time to refill machines, protect
+                those inputs for Kegs. The longer cycle is justified by the larger value added per fruit.
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#7c4d2e]/45 bg-white/55 p-4">
+              <h3 className="font-semibold">Choose Jars when capacity is scarce</h3>
+              <p className="mt-2 text-sm leading-7 text-[#5f4228]/85">
+                If harvested crops are piling up or you can only refill machines once a day, the shorter Jar cycle can
+                turn more of that inventory into saleable goods before the next harvest.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className={CARD_CLASS}>
+          <h2 className="text-2xl font-semibold">A practical three-step decision</h2>
+          <ol className="mt-4 list-decimal space-y-3 pl-5 leading-7 text-[#5f4228]/90">
+            <li>Count the crop you can actually harvest this week, not the crop you hope to grow next season.</li>
+            <li>Reserve Kegs for the highest base-price fruit until their input queue is full.</li>
+            <li>Send the remaining crop to Jars, sell it raw, or compare a different profession in the <Link href="/calculator" className={LINK_CLASS}>profit calculator</Link>.</li>
+          </ol>
+          <p className="mt-4 text-sm leading-7 text-[#5f4228]/85">
+            Example: a farm with 20 Ancient Fruit and 40 Blueberries but only 20 Kegs should put Ancient Fruit in the
+            Kegs first. The Blueberries are not wasted: Jars can process them in shorter cycles while the Kegs work
+            through the premium queue. This capacity-first approach usually beats assigning every crop to the same
+            machine type.
+          </p>
+        </section>
+
         <section id="faq" className={CARD_CLASS}>
           <h2 className="text-2xl font-semibold">FAQ</h2>
           <div className="mt-4 space-y-3">

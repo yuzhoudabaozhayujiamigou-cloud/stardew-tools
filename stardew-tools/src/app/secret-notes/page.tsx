@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 
 import { PwaRegisterScript } from "@/components/PwaRegisterScript";
@@ -100,10 +101,39 @@ export default function SecretNotesPage() {
             Secret Notes Finder
           </h1>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/85 sm:text-base">
-            Search, decode, and track your Secret Notes progress. This first skeleton includes mock data,
-            a full-width responsive grid list, and mobile-friendly stacked cards.
+            Search all 25 Secret Notes by number, location, reward, or a phrase from the decoded hint. Each result
+            explains where to look, what the clue means, and what to do after you find it, so the finder works as a
+            checklist rather than a list of unexplained answers.
           </p>
         </header>
+
+        <section className="mt-8 rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div>
+              <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">How to use this finder</h2>
+              <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-7 text-[#5f4228]/90">
+                <li>Unlock Secret Notes by obtaining the Magnifying Glass during the Winter Mystery quest.</li>
+                <li>Use the search and filters to narrow the list to a note number, area, or reward.</li>
+                <li>Open a note to read the decoded clue, then follow the location instructions in your save.</li>
+                <li>Mark the note complete on this device so the remaining clues are easy to revisit.</li>
+              </ol>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">What the results include</h2>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-[#5f4228]/90">
+                <li>Location hints grouped by the farm, town, beach, mountain, desert, and island areas.</li>
+                <li>Reward summaries that distinguish one-time items from repeatable activities.</li>
+                <li>Practical next steps for clues that require a season, time window, or unlocked area.</li>
+                <li>Links to focused detail pages, including the popular <Link className="underline" href="/secret-notes/22">Secret Note #22 tunnel panel guide</Link>.</li>
+              </ul>
+            </div>
+          </div>
+          <p className="mt-5 border-t border-[#7c4d2e]/25 pt-4 text-sm leading-7 text-[#5f4228]/85">
+            Secret Notes are optional discoveries, so there is no penalty for solving them out of order. If a clue
+            points to an area you have not unlocked yet, leave it unchecked and return later. The completion state is
+            stored locally in your browser; it is never required to browse the full reference list.
+          </p>
+        </section>
 
         <section className="mt-8">
           <section className="rounded-[28px] border-4 border-[#7c4d2e]/80 bg-[#f3e5bf]/95 p-5 shadow-[0_12px_28px_rgba(56,41,23,0.28)] ring-1 ring-yellow-900/20 sm:p-7">

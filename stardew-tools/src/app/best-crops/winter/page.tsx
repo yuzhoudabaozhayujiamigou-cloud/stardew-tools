@@ -161,6 +161,47 @@ export default function BestWinterCropsPage() {
         </section>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Choose a Winter income plan</h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-2xl border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">No greenhouse yet</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
+                Use Winter Seeds as a forage and skill-building loop, then spend the extra time on mining, fishing,
+                tool upgrades, and farm layout work.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Greenhouse available</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
+                Treat greenhouse tiles as a separate year-round calculation. Compare first-harvest delay, regrowth,
+                seed supply, and available Kegs before committing every tile.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Artisan inventory waiting</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">
+                Winter is a good time to clear stored fruit and vegetables, but machine throughput still determines
+                which goods finish before your next large harvest.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Why Winter is not a normal crop ranking</h2>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-[#5f4228]/90 sm:text-base">
+            Outdoor Winter Seeds produce forage items rather than one guaranteed shop crop, so a single sell-price row
+            cannot represent every outcome. The table is a planning reference for the seed cycle; it does not include
+            forage quality, Botanist, crafting more seeds from harvested forage, or the opportunity cost of the time
+            spent maintaining the field.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-[#5f4228]/90 sm:text-base">
+            Read the <Link href="/methodology" className="font-semibold underline">calculation methodology</Link> for
+            the assumptions used across seasonal pages, then model greenhouse crops separately in the calculator.
+          </p>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
           <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Related Winter and Greenhouse guides</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {WINTER_RELATED_POSTS.map((post) => (
