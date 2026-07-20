@@ -50,22 +50,22 @@ export function HomeQuickCalculator() {
   return (
     <section
       aria-labelledby="quick-calculator-heading"
-      className="rounded-lg border-2 border-[#284d41] bg-white p-4 shadow-[0_12px_30px_rgba(28,57,48,0.16)] sm:p-6"
+      className="rounded-lg border-2 border-[#7c4d2e] bg-[#f3e5bf] p-4 shadow-[0_12px_30px_rgba(56,41,23,0.22)] sm:p-6"
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-sm font-semibold text-[#b14f3a]">Quick ranking</p>
-          <h2 id="quick-calculator-heading" className="mt-1 text-2xl font-semibold text-[#203b33]">
+          <p className="text-sm font-semibold text-[#5c8a3e]">Quick ranking</p>
+          <h2 id="quick-calculator-heading" className="mt-1 text-2xl font-semibold text-[#4a321e]">
             Best crops for your remaining days
           </h2>
         </div>
-        <span className="rounded-md bg-[#e5f0eb] px-3 py-1 text-sm font-semibold text-[#284d41]">
+        <span className="rounded-md bg-[#fce8b1] px-3 py-1 text-sm font-semibold text-[#5f4228]">
           {daysLeft} days
         </span>
       </div>
 
       <fieldset className="mt-5">
-        <legend className="text-sm font-semibold text-[#384b44]">Season</legend>
+        <legend className="text-sm font-semibold text-[#5f4228]">Season</legend>
         <div className="mt-2 grid grid-cols-4 gap-2" role="group" aria-label="Season">
           {SEASONS.map((option) => {
             const isActive = season === option.value;
@@ -77,8 +77,8 @@ export function HomeQuickCalculator() {
                 onClick={() => setSeason(option.value)}
                 className={`min-h-10 rounded-md border px-2 py-2 text-sm font-semibold transition ${
                   isActive
-                    ? "border-[#284d41] bg-[#284d41] text-white"
-                    : "border-[#b8c8c1] bg-[#f7faf8] text-[#384b44] hover:border-[#6d8b7f]"
+                    ? "border-[#5c8a3e] bg-[#5c8a3e] text-white"
+                    : "border-[#8a5b3a]/55 bg-[#fff8e8] text-[#5f4228] hover:border-[#7c4d2e] hover:bg-[#fce8b1]"
                 }`}
               >
                 {option.label}
@@ -89,7 +89,7 @@ export function HomeQuickCalculator() {
       </fieldset>
 
       <div className="mt-5 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-        <label className="block text-sm font-semibold text-[#384b44]">
+        <label className="block text-sm font-semibold text-[#5f4228]">
           <span className="flex items-center justify-between gap-3">
             Days left
             <input
@@ -98,7 +98,7 @@ export function HomeQuickCalculator() {
               max="28"
               value={daysLeft}
               onChange={(event) => setDaysLeft(Math.max(1, Math.min(28, Number(event.target.value) || 1)))}
-              className="h-9 w-20 rounded-md border border-[#b8c8c1] bg-white px-2 text-right font-semibold text-[#b14f3a]"
+              className="h-9 w-20 rounded-md border border-[#8a5b3a]/65 bg-[#fff8e8] px-2 text-right font-semibold text-[#5c8a3e]"
               aria-label="Days left in season"
             />
           </span>
@@ -108,15 +108,15 @@ export function HomeQuickCalculator() {
             max="28"
             value={daysLeft}
             onChange={(event) => setDaysLeft(Number(event.target.value))}
-            className="mt-2 block h-2 w-full cursor-pointer accent-[#b14f3a]"
+            className="mt-2 block h-2 w-full cursor-pointer accent-[#5c8a3e]"
           />
         </label>
-        <label className="flex min-h-10 items-center gap-2 rounded-md border border-[#b8c8c1] bg-[#f7faf8] px-3 py-2 text-sm font-semibold text-[#384b44]">
+        <label className="flex min-h-10 items-center gap-2 rounded-md border border-[#8a5b3a]/55 bg-[#fff8e8] px-3 py-2 text-sm font-semibold text-[#5f4228]">
           <input
             type="checkbox"
             checked={hasTiller}
             onChange={(event) => setHasTiller(event.target.checked)}
-            className="h-4 w-4 accent-[#284d41]"
+            className="h-4 w-4 accent-[#5c8a3e]"
           />
           Tiller +10%
         </label>
@@ -128,18 +128,18 @@ export function HomeQuickCalculator() {
             {rankings.map((result, index) => {
               const barWidth = bestGoldPerDay > 0 ? Math.max(18, (result.goldPerDay / bestGoldPerDay) * 100) : 18;
               return (
-                <li key={result.cropId} className="rounded-lg border border-[#d2ddd8] bg-[#fbfcfb] p-3">
+                <li key={result.cropId} className="rounded-lg border border-[#8a5b3a]/45 bg-[#fff8e8] p-3">
                   <div className="flex items-baseline justify-between gap-3">
                     <div className="min-w-0">
-                      <span className="mr-2 text-sm font-semibold text-[#b14f3a]">#{index + 1}</span>
-                      <span className="font-semibold text-[#203b33]">{result.cropName}</span>
+                      <span className="mr-2 text-sm font-semibold text-[#7c4d2e]">#{index + 1}</span>
+                      <span className="font-semibold text-[#4a321e]">{result.cropName}</span>
                     </div>
-                    <strong className="shrink-0 text-[#284d41]">{result.goldPerDay.toFixed(1)}g/day</strong>
+                    <strong className="shrink-0 text-[#5c8a3e]">{result.goldPerDay.toFixed(1)}g/day</strong>
                   </div>
-                  <div className="mt-2 h-2 overflow-hidden rounded-sm bg-[#e2e8e5]">
+                  <div className="mt-2 h-2 overflow-hidden rounded-sm bg-[#e4d4ae]">
                     <div className="h-full rounded-sm bg-[#d9a441]" style={{ width: `${barWidth}%` }} />
                   </div>
-                  <p className="mt-2 text-sm text-[#5b6863]">
+                  <p className="mt-2 text-sm text-[#5f4228]/85">
                     {formatGold(result.totalProfit)} profit per tile · {result.harvestCount}{" "}
                     {result.harvestCount === 1 ? "harvest" : "harvests"}
                   </p>
@@ -148,8 +148,8 @@ export function HomeQuickCalculator() {
             })}
           </ol>
         ) : (
-          <div className="flex min-h-[220px] items-center rounded-lg border border-[#e2c4bb] bg-[#fff7f4] p-5">
-            <p className="text-sm leading-6 text-[#6b4339]">
+          <div className="flex min-h-[220px] items-center rounded-lg border border-[#8a5b3a]/45 bg-[#fff8e8] p-5">
+            <p className="text-sm leading-6 text-[#5f4228]">
               No profitable crop can mature in this window under the selected assumptions. Increase the days left or
               open the full calculator for fertilizer and growth-speed options.
             </p>
@@ -157,14 +157,14 @@ export function HomeQuickCalculator() {
         )}
       </div>
 
-      <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-[#d2ddd8] pt-4">
+      <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-[#8a5b3a]/45 pt-4">
         <Link
           href={fullCalculatorHref}
-          className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#b14f3a] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#963f30]"
+          className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#5c8a3e] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4e7a32]"
         >
           Continue in full calculator
         </Link>
-        <p className="text-xs leading-5 text-[#64716c]">Normal quality, direct sales, one outdoor tile.</p>
+        <p className="text-xs leading-5 text-[#5f4228]/80">Normal quality, direct sales, one outdoor tile.</p>
       </div>
     </section>
   );

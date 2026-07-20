@@ -46,35 +46,35 @@ const DESTINATIONS = [
     title: "Plan the whole farm",
     description: "Move from one crop choice into Year 1, progression, greenhouse, and completion routes.",
     href: "/guides",
-    accent: "border-t-[#3f78a8]",
+    accent: "border-t-[#5c8a3e]",
   },
   {
     label: "Artisan tools",
     title: "Match crops to machines",
     description: "Compare kegs, jars, seed replacement value, sprinkler coverage, and processing capacity.",
     href: "/tools",
-    accent: "border-t-[#b14f3a]",
+    accent: "border-t-[#7c4d2e]",
   },
   {
     label: "Greenhouse",
     title: "Use a 112-day horizon",
     description: "Separate direct crop output from the machine throughput needed for wine or jelly.",
     href: "/best-crops/greenhouse",
-    accent: "border-t-[#527047]",
+    accent: "border-t-[#4e7a32]",
   },
   {
     label: "Secret Notes",
     title: "Find locations and rewards",
     description: "Browse the finder and open the expanded Note 19 and Note 22 route schematics.",
     href: "/secret-notes",
-    accent: "border-t-[#8c5b7c]",
+    accent: "border-t-[#b77b2f]",
   },
   {
     label: "Methodology",
     title: "Check every assumption",
     description: "See how harvest timing, regrowth, quality, professions, and seed costs enter each result.",
     href: "/methodology",
-    accent: "border-t-[#284d41]",
+    accent: "border-t-[#8a5b3a]",
   },
 ] as const;
 
@@ -145,42 +145,42 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8f6ee] text-[#203b33]">
+    <div className="min-h-screen bg-[#9ed7a4] text-[#4a321e]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <main>
-        <section className="border-b border-[#b7c8c1] bg-[#e5f0eb]">
+        <section className="border-b border-[#7c4d2e]/45 bg-[#9ed7a4]">
           <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,0.82fr)_minmax(560px,1.18fr)] lg:items-center lg:gap-12">
             <div className="max-w-xl">
-              <p className="text-sm font-semibold text-[#b14f3a]">StardewProfit</p>
-              <h1 className="mt-2 text-4xl font-semibold leading-tight text-[#203b33] sm:text-5xl">
+              <p className="text-sm font-semibold text-[#5c3d23]">StardewProfit</p>
+              <h1 className="mt-2 text-4xl font-semibold leading-tight text-[#4a321e] sm:text-5xl">
                 Stardew Valley Profit Calculator
               </h1>
-              <p className="mt-5 text-lg leading-8 text-[#40554d]">
+              <p className="mt-5 text-lg leading-8 text-[#5f4228]">
                 Rank crops by the days you actually have left, then carry the result into seasonal, greenhouse, and
                 artisan planning.
               </p>
-              <p className="mt-4 text-sm leading-7 text-[#586860]">
+              <p className="mt-4 text-sm leading-7 text-[#5f4228]/90">
                 The quick ranking uses the same shared crop data and harvest-cycle logic as the full calculator. It
                 counts regrowth, subtracts seed costs, and excludes harvests that miss the deadline.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="#quick-calculator-heading"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#284d41] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#203f35] lg:hidden"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#5c8a3e] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4e7a32] lg:hidden"
                 >
                   Start quick ranking
                 </Link>
                 <Link
                   href="/calculator"
-                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#284d41] bg-white px-5 py-2.5 text-sm font-semibold text-[#284d41] transition hover:bg-[#f4f8f6]"
+                  className="inline-flex min-h-11 items-center justify-center rounded-md border border-[#7c4d2e] bg-[#fff8e8] px-5 py-2.5 text-sm font-semibold text-[#5c3d23] transition hover:bg-[#fce8b1]"
                 >
                   Open full calculator
                 </Link>
               </div>
-              <div className="mt-7 border-l-4 border-[#d9a441] pl-4 text-sm leading-6 text-[#586860]">
+              <div className="mt-7 border-l-4 border-[#d9a441] pl-4 text-sm leading-6 text-[#5f4228]/90">
                 <p>
                   Reviewed <time dateTime={VERIFIED_REVIEW_DATE}>{VERIFIED_REVIEW_DATE_LABEL}</time> for Stardew Valley
                   1.6 mechanics.
@@ -198,12 +198,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-b border-[#ddd8c8] bg-[#fffdf8]">
+        <section className="border-b border-[#8a5b3a]/35 bg-[#fff8e8]">
           <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-[#3f78a8]">Explore by decision</p>
-              <h2 className="mt-2 text-3xl font-semibold text-[#203b33]">Continue from a number to a farm plan</h2>
-              <p className="mt-3 text-base leading-7 text-[#586860]">
+              <p className="text-sm font-semibold text-[#5c8a3e]">Explore by decision</p>
+              <h2 className="mt-2 text-3xl font-semibold text-[#4a321e]">Continue from a number to a farm plan</h2>
+              <p className="mt-3 text-base leading-7 text-[#5f4228]/90">
                 Choose the section that matches the constraint in front of you. Each destination links back to a
                 working calculator or explains the assumptions behind its recommendation.
               </p>
@@ -214,12 +214,12 @@ export default function HomePage() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`group rounded-lg border border-[#d8d5c9] border-t-4 ${item.accent} bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#9ea9a4] hover:shadow-md`}
+                  className={`group rounded-lg border border-[#8a5b3a]/55 border-t-4 ${item.accent} bg-[#f3e5bf] p-5 transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/75 hover:bg-[#fce8b1] hover:shadow-md`}
                 >
-                  <p className="text-sm font-semibold text-[#6a746f]">{item.label}</p>
-                  <h3 className="mt-2 text-xl font-semibold text-[#203b33] group-hover:text-[#b14f3a]">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-[#586860]">{item.description}</p>
-                  <span className="mt-4 inline-block text-sm font-semibold text-[#284d41] underline decoration-[#284d41]/30 underline-offset-4">
+                  <p className="text-sm font-semibold text-[#6f4b2a]/80">{item.label}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-[#4a321e] group-hover:text-[#5c8a3e]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">{item.description}</p>
+                  <span className="mt-4 inline-block text-sm font-semibold text-[#5c3d23] underline decoration-[#7c4d2e]/35 underline-offset-4">
                     Open section
                   </span>
                 </Link>
@@ -228,58 +228,58 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="border-b border-[#c8d5d0] bg-[#eef4f1]">
+        <section className="border-b border-[#7c4d2e]/35 bg-[#f3e5bf]">
           <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-6 sm:py-14 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-start">
             <div>
-              <p className="text-sm font-semibold text-[#b14f3a]">Transparent calculations</p>
-              <h2 className="mt-2 text-3xl font-semibold text-[#203b33]">A ranking you can audit</h2>
-              <p className="mt-3 text-base leading-7 text-[#586860]">
+              <p className="text-sm font-semibold text-[#7c4d2e]">Transparent calculations</p>
+              <h2 className="mt-2 text-3xl font-semibold text-[#4a321e]">A ranking you can audit</h2>
+              <p className="mt-3 text-base leading-7 text-[#5f4228]/90">
                 A crop is only credited when its harvest fits. Regrowing crops keep their first seed cost, replant crops
                 pay for every cycle, and artisan goods remain a separate machine-capacity decision.
               </p>
               <Link
                 href="/methodology"
-                className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-[#284d41] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#203f35]"
+                className="mt-5 inline-flex min-h-11 items-center justify-center rounded-md bg-[#5c8a3e] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#4e7a32]"
               >
                 Read the methodology
               </Link>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
-              <div className="border-l-4 border-[#d9a441] bg-white px-4 py-5">
-                <strong className="text-2xl text-[#203b33]">1-28</strong>
-                <p className="mt-2 text-sm leading-6 text-[#586860]">Day window used by the homepage ranking.</p>
+              <div className="border-l-4 border-[#d9a441] bg-[#fff8e8] px-4 py-5">
+                <strong className="text-2xl text-[#4a321e]">1-28</strong>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Day window used by the homepage ranking.</p>
               </div>
-              <div className="border-l-4 border-[#3f78a8] bg-white px-4 py-5">
-                <strong className="text-2xl text-[#203b33]">Per tile</strong>
-                <p className="mt-2 text-sm leading-6 text-[#586860]">Keeps fields of different sizes comparable.</p>
+              <div className="border-l-4 border-[#5c8a3e] bg-[#fff8e8] px-4 py-5">
+                <strong className="text-2xl text-[#4a321e]">Per tile</strong>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Keeps fields of different sizes comparable.</p>
               </div>
-              <div className="border-l-4 border-[#b14f3a] bg-white px-4 py-5">
-                <strong className="text-2xl text-[#203b33]">Direct sale</strong>
-                <p className="mt-2 text-sm leading-6 text-[#586860]">Prevents unlimited machine assumptions.</p>
+              <div className="border-l-4 border-[#7c4d2e] bg-[#fff8e8] px-4 py-5">
+                <strong className="text-2xl text-[#4a321e]">Direct sale</strong>
+                <p className="mt-2 text-sm leading-6 text-[#5f4228]/90">Prevents unlimited machine assumptions.</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg-[#fffdf8]">
+        <section className="bg-[#fff8e8]">
           <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold text-[#8c5b7c]">Questions</p>
-              <h2 className="mt-2 text-3xl font-semibold text-[#203b33]">What the quick result means</h2>
+              <p className="text-sm font-semibold text-[#5c8a3e]">Questions</p>
+              <h2 className="mt-2 text-3xl font-semibold text-[#4a321e]">What the quick result means</h2>
             </div>
-            <div className="mt-7 divide-y divide-[#d8d5c9] border-y border-[#d8d5c9]">
+            <div className="mt-7 divide-y divide-[#8a5b3a]/35 border-y border-[#8a5b3a]/35">
               {HOME_FAQS.map((item) => (
                 <details key={item.question} className="group py-5">
-                  <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-[#203b33] marker:content-none">
+                  <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-[#4a321e] marker:content-none">
                     {item.question}
                   </summary>
-                  <p className="mt-3 max-w-4xl text-sm leading-7 text-[#586860]">{item.answer}</p>
+                  <p className="mt-3 max-w-4xl text-sm leading-7 text-[#5f4228]/90">{item.answer}</p>
                 </details>
               ))}
             </div>
 
-            <SiteFooter className="mt-10 border-t border-[#d8d5c9] pt-6" />
+            <SiteFooter className="mt-10 border-t border-[#8a5b3a]/35 pt-6" />
           </div>
         </section>
       </main>
