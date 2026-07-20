@@ -63,7 +63,7 @@ const PRESETS: PresetCard[] = [
     href: "/calculator?season=summer&daysLeft=28",
     relatedGuide: {
       label: "Best Summer Crops",
-      href: "/blog/best-summer-crops-quick-answer",
+      href: "/blog/stardew-valley-summer-profit-guide",
     },
   },
   {

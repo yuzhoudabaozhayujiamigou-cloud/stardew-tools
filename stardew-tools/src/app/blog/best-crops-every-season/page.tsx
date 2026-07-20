@@ -472,7 +472,7 @@ export default function BestCropsEverySeasonPage() {
               <div className="rounded-2xl border border-[#2f6a3a]/25 bg-white/75 p-4">
                 <p className="text-sm font-semibold text-[#1f6b2e]">Best next reads</p>
                 <p className="mt-2 text-sm leading-6 text-[#245631]">
-                  For indoor scaling, compare the <Link href="/blog/greenhouse-layout-guide" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]">greenhouse layout guide</Link> and the <Link href="/blog/ancient-fruit-vs-starfruit-wine" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]">Ancient Fruit vs Starfruit Wine</Link> comparison.
+                  For indoor scaling, compare the <Link href="/blog/greenhouse-layout-guide" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]">greenhouse layout guide</Link> and the <Link href="/blog/ancient-fruit-wine-vs-starfruit-wine" className="font-semibold text-[#2f6a3a] underline decoration-[#2f6a3a]/30 underline-offset-4 hover:text-[#1f6b2e]">Ancient Fruit Wine vs Starfruit Wine</Link> comparison.
                 </p>
               </div>
             </div>
@@ -778,10 +778,10 @@ export default function BestCropsEverySeasonPage() {
               </div>
               <div className="flex flex-wrap gap-2">
                 <Link
-                  href="/blog/best-summer-crops-quick-answer"
+                  href="/blog/stardew-valley-summer-profit-guide"
                   className="inline-flex items-center rounded-2xl border border-[#7c4d2e]/25 bg-[#fff8e8] px-4 py-2 text-sm font-semibold text-[#4a321e] shadow-sm transition hover:-translate-y-0.5 hover:border-[#7c4d2e]/40"
                 >
-                  Quick Summer Answer
+                  Summer Profit Guide
                 </Link>
                 <TrackedBlogCtaLink
                   href="/calculator?season=summer&profession=artisan"

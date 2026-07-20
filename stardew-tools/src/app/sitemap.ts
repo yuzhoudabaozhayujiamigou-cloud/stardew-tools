@@ -6,10 +6,18 @@ import type { MetadataRoute } from "next";
 import { secretNotes } from "@/data/secretNotes";
 import { SITE_ORIGIN } from "@/lib/site";
 
+const EXCLUDED_BLOG_SLUGS = new Set([
+  "best-summer-crops-quick-answer",
+  "greenhouse-keg-empire-profit-guide",
+  "keg-vs-jar-complete-profit-system",
+  "stardew-1-7-update",
+]);
+
 const STATIC_ENTRIES = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/calculator", changeFrequency: "weekly", priority: 0.9 },
   { path: "/crops", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/best-crops", changeFrequency: "weekly", priority: 0.8 },
   { path: "/best-crops/spring", changeFrequency: "monthly", priority: 0.7 },
   { path: "/best-crops/summer", changeFrequency: "monthly", priority: 0.7 },
   { path: "/best-crops/fall", changeFrequency: "monthly", priority: 0.7 },
@@ -17,6 +25,8 @@ const STATIC_ENTRIES = [
   { path: "/best-crops/greenhouse", changeFrequency: "monthly", priority: 0.7 },
   { path: "/presets", changeFrequency: "weekly", priority: 0.8 },
   { path: "/blog", changeFrequency: "daily", priority: 0.8 },
+  { path: "/guides", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/tools", changeFrequency: "weekly", priority: 0.8 },
   { path: "/secret-notes", changeFrequency: "weekly", priority: 0.8 },
   { path: "/methodology", changeFrequency: "monthly", priority: 0.6 },
   { path: "/about", changeFrequency: "yearly", priority: 0.5 },
@@ -47,6 +57,9 @@ function getRouteDirectories(section: "blog" | "guides" | "tools"): string[] {
     .filter((entry) => !hasDynamicRoutePlaceholder(entry.name))
     .filter((entry) => {
       if (section === "guides" && entry.name === "lethal-company") {
+        return false;
+      }
+      if (section === "blog" && EXCLUDED_BLOG_SLUGS.has(entry.name)) {
         return false;
       }
       if (section === "tools" && (entry.name === "quota-calculator" || entry.name === "lethal-company")) {
@@ -112,12 +125,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const secretNotesEntries: MetadataRoute.Sitemap = secretNotes.map((note) => ({
-    url: `${SITE_ORIGIN}/secret-notes/${note.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: note.id === 19 || note.id === 22 ? 0.7 : 0.5,
-  } satisfies MetadataRoute.Sitemap[number]));
+  const secretNotesEntries: MetadataRoute.Sitemap = secretNotes
+    .filter((note) => note.id === 19 || note.id === 22)
+    .map((note) => ({
+      url: `${SITE_ORIGIN}/secret-notes/${note.id}`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    } satisfies MetadataRoute.Sitemap[number]));
 
   return [...staticEntries, ...blogEntries, ...guideEntries, ...toolEntries, ...secretNotesEntries].filter(
     (entry) => !hasDynamicRoutePlaceholder(entry.url),

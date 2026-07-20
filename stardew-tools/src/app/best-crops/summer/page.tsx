@@ -44,7 +44,7 @@ const SUMMER_TOP_CROPS: RankedCrop[] = (cropsData as Crop[])
   .slice(0, 8);
 
 const SUMMER_RELATED_POSTS = [
-  { label: "Best Summer Crops (Quick Answer)", href: "/blog/best-summer-crops-quick-answer" },
+  { label: "Summer Profit Guide", href: "/blog/stardew-valley-summer-profit-guide" },
   { label: "Summer Day 1 Maximum Profit", href: "/blog/stardew-valley-summer-day-1-maximum-profit-guide" },
   { label: "Summer Day 15 Planting Guide", href: "/blog/stardew-valley-summer-day-15-profit-guide" },
   { label: "Summer Day 20 Is It Too Late?", href: "/blog/stardew-valley-summer-day-20-is-it-too-late" },

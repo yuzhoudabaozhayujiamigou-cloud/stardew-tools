@@ -24,6 +24,13 @@ export const metadata: Metadata = {
 import fs from "node:fs";
 import path from "node:path";
 
+const HIDDEN_BLOG_SLUGS = new Set([
+  "best-summer-crops-quick-answer",
+  "greenhouse-keg-empire-profit-guide",
+  "keg-vs-jar-complete-profit-system",
+  "stardew-1-7-update",
+]);
+
 function getAllBlogPosts() {
   const blogDir = path.join(process.cwd(), "src", "app", "blog");
 
@@ -35,6 +42,7 @@ function getAllBlogPosts() {
       (entry: { isDirectory: () => boolean; name: string }) =>
         entry.isDirectory() &&
         entry.name !== "[slug]" &&
+        !HIDDEN_BLOG_SLUGS.has(entry.name) &&
         fs.existsSync(path.join(blogDir, entry.name, "page.tsx"))
     )
     .map((entry: { name: string }) => entry.name)

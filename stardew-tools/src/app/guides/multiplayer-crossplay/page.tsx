@@ -7,7 +7,7 @@ import { SITE_ORIGIN } from "@/lib/site";
 
 const PAGE_URL = `${SITE_ORIGIN}/guides/multiplayer-crossplay`;
 const publishedTime = "2026-03-11T00:00:00.000Z";
-const modifiedTime = "2026-03-11T00:00:00.000Z";
+const modifiedTime = "2026-07-20T00:00:00.000Z";
 
 export const metadata: Metadata = {
   title: "Stardew Valley Multiplayer Crossplay Guide (2026): Platform Status + Fast Setup",
@@ -59,10 +59,10 @@ const platformRows = [
   },
   {
     platform: "iOS / Android",
-    multiplayer: "No",
+    multiplayer: "No standard supported menu",
     splitScreen: "No",
-    crossPlatform: "Not applicable",
-    shortestSteps: "Single-player only right now",
+    crossPlatform: "No supported crossplay",
+    shortestSteps: "Use the standard release as a single-player game",
   },
 ] as const;
 
@@ -80,7 +80,7 @@ const faqItems = [
   {
     question: "Does mobile support multiplayer now?",
     answer:
-      "No. Mobile is currently single-player in this guide snapshot.",
+      "The standard mobile release does not provide the same supported co-op menu as PC and consoles. Experimental or unofficial workarounds are not treated as dependable crossplay in this guide.",
   },
 ];
 
@@ -158,7 +158,8 @@ export default function MultiplayerCrossplayGuidePage() {
         <section id="faq" className="mt-12">
           <h2 className="text-2xl font-semibold">FAQ</h2>
           <p className="mt-3 leading-7 text-slate-700">
-            Placeholder FAQ block for future updates.
+            These answers describe the standard supported game experience. Platform services, experimental mobile
+            features, and mods can change what is technically possible without creating official crossplay support.
           </p>
           <div className="mt-6 space-y-4">
             {faqItems.map((item) => (
@@ -170,6 +171,55 @@ export default function MultiplayerCrossplayGuidePage() {
               </details>
             ))}
           </div>
+        </section>
+
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold">Requirements before a friend can join</h2>
+          <div className="mt-5 grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg border border-amber-200 bg-white/70 p-5">
+              <h3 className="font-semibold">Match the game version</h3>
+              <p className="mt-2 leading-7 text-slate-700">
+                Host and farmhands should install the same game update. On PC, mismatched gameplay mods can also stop
+                a connection or make the save behave differently after joining.
+              </p>
+            </div>
+            <div className="rounded-lg border border-amber-200 bg-white/70 p-5">
+              <h3 className="font-semibold">Provide one cabin per farmhand</h3>
+              <p className="mt-2 leading-7 text-slate-700">
+                A farm needs an available cabin for each additional player. Build one through Robin if an existing
+                single-player save has no open farmhand slot.
+              </p>
+            </div>
+            <div className="rounded-lg border border-amber-200 bg-white/70 p-5">
+              <h3 className="font-semibold">Keep the host online</h3>
+              <p className="mt-2 leading-7 text-slate-700">
+                The host owns the farm save. Farmhands cannot continue that world while the host is offline unless the
+                save is transferred and opened by another player.
+              </p>
+            </div>
+            <div className="rounded-lg border border-amber-200 bg-white/70 p-5">
+              <h3 className="font-semibold">Check platform services</h3>
+              <p className="mt-2 leading-7 text-slate-700">
+                Console online play can require the platform&apos;s network service and an eligible account. A local
+                split-screen session does not use cross-platform networking.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-12 rounded-lg border border-sky-200 bg-sky-50/80 p-6">
+          <h2 className="text-2xl font-semibold">Connection troubleshooting order</h2>
+          <ol className="mt-4 list-decimal space-y-2 pl-6 leading-7 text-slate-700">
+            <li>Confirm both players are using the same platform ecosystem and game version.</li>
+            <li>Load the farm through the Co-op menu and verify an unused cabin exists.</li>
+            <li>On PC, temporarily test without gameplay mods to rule out a mod mismatch.</li>
+            <li>Restart the game and platform client, then create a fresh invite code or invitation.</li>
+            <li>Check the platform network status and local firewall or router only after the farm setup is correct.</li>
+          </ol>
+          <p className="mt-4 leading-7 text-slate-700">
+            Crossplay means joining across different platform ecosystems. Playing between Steam and GOG on PC, or
+            between devices in the same console family, does not mean PC-to-console crossplay exists.
+          </p>
         </section>
 
         <section className="mt-12 rounded-2xl border border-slate-200 bg-white/70 p-6">

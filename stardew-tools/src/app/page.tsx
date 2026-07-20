@@ -101,10 +101,10 @@ const HUB_SCENARIOS = [
     href: "/blog/stardew-valley-profit-guide-2026",
   },
   {
-    tag: "Update",
-    title: "Stardew 1.7 Update Notes",
-    desc: "Track patch expectations and what might change crop/profit plans.",
-    href: "/blog/stardew-1-7-update",
+    tag: "Methods",
+    title: "How Profit Is Calculated",
+    desc: "Review harvest timing, assumptions, exclusions, and correction practices.",
+    href: "/methodology",
   },
 ] as const;
 

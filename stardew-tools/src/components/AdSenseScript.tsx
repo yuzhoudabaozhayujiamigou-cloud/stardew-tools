@@ -1,20 +1,46 @@
 'use client';
 
 import Script from 'next/script';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
-const ADSENSE_BLACKLIST = new Set([
-  '/about',
-  '/contact',
-  '/privacy-policy',
-  '/terms',
-  '/disclaimer',
+const ADSENSE_CONTENT_PATHS = new Set([
+  '/',
+  '/calculator',
+  '/crops',
+  '/best-crops',
+  '/blog',
+  '/guides',
+  '/tools',
+  '/secret-notes',
+  '/methodology',
+  '/presets',
 ]);
+
+const ADSENSE_CONTENT_PREFIXES = ['/best-crops/', '/blog/', '/guides/', '/tools/'];
+const ADSENSE_EXCLUDED_CONTENT_PATHS = new Set(['/blog/stardew-1-7-update']);
+
+function isEligibleContentPath(pathname: string): boolean {
+  if (ADSENSE_EXCLUDED_CONTENT_PATHS.has(pathname)) {
+    return false;
+  }
+
+  if (ADSENSE_CONTENT_PATHS.has(pathname)) {
+    return true;
+  }
+
+  if (pathname.startsWith('/secret-notes/')) {
+    return pathname === '/secret-notes/19' || pathname === '/secret-notes/22';
+  }
+
+  return ADSENSE_CONTENT_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+}
 
 export function AdSenseScript() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const isSecretNoteEmbed = pathname.startsWith('/secret-notes/') && searchParams.has('embed');
 
-  if (pathname && ADSENSE_BLACKLIST.has(pathname)) {
+  if (!isEligibleContentPath(pathname) || isSecretNoteEmbed) {
     return null;
   }
 

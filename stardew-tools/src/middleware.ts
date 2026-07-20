@@ -17,11 +17,22 @@ const GONE_PATHS = new Set([
   "/tools/lethal-company/patch-notes/v45",
 ]);
 
+const PERMANENT_REDIRECTS = new Map([
+  ["/blog/best-summer-crops-quick-answer", "/blog/stardew-valley-summer-profit-guide"],
+  ["/blog/greenhouse-keg-empire-profit-guide", "/blog/greenhouse-layout-guide"],
+  ["/blog/keg-vs-jar-complete-profit-system", "/blog/keg-vs-jar-profit-guide"],
+]);
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname === "/tools/quota-calculator") {
     return NextResponse.redirect(new URL("/calculator", request.url), 301);
+  }
+
+  const redirectTarget = PERMANENT_REDIRECTS.get(pathname);
+  if (redirectTarget) {
+    return NextResponse.redirect(new URL(redirectTarget, request.url), 301);
   }
 
   if (GONE_PATHS.has(pathname)) {
@@ -40,6 +51,9 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/tools/quota-calculator",
+    "/blog/best-summer-crops-quick-answer",
+    "/blog/greenhouse-keg-empire-profit-guide",
+    "/blog/keg-vs-jar-complete-profit-system",
     "/guides/lethal-company",
     "/guides/lethal-company/:path*",
     "/tools/lethal-company/:path*",

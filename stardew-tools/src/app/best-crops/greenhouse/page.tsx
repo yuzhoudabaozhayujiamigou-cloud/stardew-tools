@@ -3,10 +3,14 @@ import Link from "next/link";
 
 import Breadcrumb from "@/components/Breadcrumb";
 import { SiteFooter } from "@/components/SiteFooter";
+import cropsData from "@/data/crops.json";
+import { calculateSeasonProfit, type Crop } from "@/lib/calculateProfit";
 
 type GreenhouseCropRanking = {
   name: string;
-  annualProfitPerTile: number;
+  harvestCount: number;
+  totalProfit: number;
+  goldPerDay: number;
   note: string;
 };
 
@@ -19,33 +23,36 @@ const PRIMARY_CTA_CLASS =
 const SECONDARY_CTA_CLASS =
   "inline-flex items-center justify-center rounded-2xl border border-[#8a5b3a]/45 bg-white/60 px-4 py-2 text-sm font-semibold text-[#5c3d23] shadow-sm transition hover:bg-white/80";
 
-const GREENHOUSE_RANKING: GreenhouseCropRanking[] = [
-  {
-    name: "Ancient Fruit Wine",
-    annualProfitPerTile: 15400,
-    note: "Best long-run value with low replanting overhead and easy weekly keg cycles.",
-  },
-  {
-    name: "Starfruit Wine",
-    annualProfitPerTile: 14200,
-    note: "Top-tier burst profit if you can sustain seed costs and consistent keg throughput.",
-  },
-  {
-    name: "Hops (Pale Ale route)",
-    annualProfitPerTile: 11200,
-    note: "High throughput option with strong returns, but much higher daily processing workload.",
-  },
-  {
-    name: "Coffee",
-    annualProfitPerTile: 6100,
-    note: "Lower ceiling than wine routes but steady harvest cadence and useful self-buff value.",
-  },
-  {
-    name: "Sweet Gem Berry",
-    annualProfitPerTile: 3000,
-    note: "Big single harvest value, but low annual cycle count makes it weaker than wine lines.",
-  },
-];
+const GREENHOUSE_DAYS = 112;
+const GREENHOUSE_TILES = 116;
+
+const GREENHOUSE_RANKING: GreenhouseCropRanking[] = (cropsData as Crop[])
+  .map((crop) => {
+    const result = calculateSeasonProfit({
+      crop,
+      seasonDays: 28,
+      quality: "normal",
+      hasTiller: false,
+      profession: "none",
+      environment: "greenhouse",
+      crossSeasonDays: GREENHOUSE_DAYS,
+    });
+
+    return {
+      name: crop.name,
+      harvestCount: result.harvestCount,
+      totalProfit: result.totalProfit,
+      goldPerDay: result.goldPerDay,
+      note: crop.isRegrowing
+        ? `Plant once, then harvest every ${crop.regrowDays} days after the first crop.`
+        : `Replant after each ${result.effectiveGrowthDays}-day growth cycle; seed cost is charged each cycle.`,
+    };
+  })
+  .filter((crop) => crop.harvestCount > 0)
+  .sort((left, right) => right.goldPerDay - left.goldPerDay)
+  .slice(0, 8);
+
+const TOP_FULL_GREENHOUSE_PROFIT = GREENHOUSE_RANKING[0].totalProfit * GREENHOUSE_TILES;
 
 const GREENHOUSE_RELATED_POSTS = [
   { label: "Best Greenhouse Crops (Quick Answer)", href: "/blog/best-greenhouse-crops-quick-answer" },
@@ -113,7 +120,8 @@ export default function BestGreenhouseCropsPage() {
             resets. That makes annual per-tile output and processing capacity the key decision factors.
           </p>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
-            This ranking prioritizes long-run yearly profit for common artisan-heavy routes.
+            This ranking uses a reproducible 112-day direct-sale model. Artisan goods are shown as a separate decision
+            because crop output does not become wine or jelly unless your machines can process it.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/calculator?preset=ancient-vs-starfruit-greenhouse" className={PRIMARY_CTA_CLASS}>
@@ -126,15 +134,21 @@ export default function BestGreenhouseCropsPage() {
         </header>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
-          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Top 5 greenhouse crops by annual profit</h2>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Top greenhouse crops over 112 days</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[#5f4228]/90">
+            Assumptions: one tile, normal quality, direct crop sales, no Tiller bonus, no fertilizer, and an empty
+            greenhouse planted on day 1. Regrowing crops pay for one seed; replant crops pay for every cycle.
+          </p>
           <div className="mt-4 overflow-x-auto">
             <table className="min-w-full border-collapse text-left text-sm text-[#4a321e]">
               <thead>
                 <tr className="border-b-2 border-[#7c4d2e]/40">
                   <th className="px-2 py-2 font-semibold">Rank</th>
-                  <th className="px-2 py-2 font-semibold">Crop path</th>
-                  <th className="px-2 py-2 font-semibold">Annual profit estimate</th>
-                  <th className="px-2 py-2 font-semibold">Why it ranks here</th>
+                  <th className="px-2 py-2 font-semibold">Crop</th>
+                  <th className="px-2 py-2 font-semibold">Harvests</th>
+                  <th className="px-2 py-2 font-semibold">112-day profit</th>
+                  <th className="px-2 py-2 font-semibold">Gold/day</th>
+                  <th className="px-2 py-2 font-semibold">Growth plan</th>
                 </tr>
               </thead>
               <tbody>
@@ -142,13 +156,54 @@ export default function BestGreenhouseCropsPage() {
                   <tr key={entry.name} className="border-b border-[#7c4d2e]/20">
                     <td className="px-2 py-2 font-semibold">{index + 1}</td>
                     <td className="px-2 py-2">{entry.name}</td>
-                    <td className="px-2 py-2">{entry.annualProfitPerTile.toLocaleString()}g / tile / year</td>
+                    <td className="px-2 py-2">{entry.harvestCount}</td>
+                    <td className="px-2 py-2">{entry.totalProfit.toLocaleString()}g / tile</td>
+                    <td className="px-2 py-2">{entry.goldPerDay.toFixed(2)}g</td>
                     <td className="px-2 py-2">{entry.note}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">How the greenhouse calculation works</h2>
+          <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-7 text-[#5f4228]/90">
+            <li>Count every harvest that fits after the crop&apos;s first growth period.</li>
+            <li>Multiply harvests by the normal-quality sale price and yield per harvest.</li>
+            <li>Subtract one seed for a regrowing crop or one seed for every replant cycle.</li>
+            <li>Divide the 112-day profit by 112 to make crops with different schedules comparable.</li>
+          </ol>
+          <div className="mt-5 rounded-lg border-2 border-[#7c4d2e]/45 bg-[#fff8e8] p-4 text-sm leading-7 text-[#5f4228]/90">
+            <strong className="text-[#4a321e]">Scale check:</strong> filling all {GREENHOUSE_TILES} standard crop tiles
+            with the first-ranked direct-sale crop would produce about {TOP_FULL_GREENHOUSE_PROFIT.toLocaleString()}g
+            over this first 112-day window before fertilizer, professions, or processing. A mature greenhouse that has
+            already finished its first growth period needs a separate steady-state comparison.
+          </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Direct sale and artisan profit are different plans</h2>
+          <div className="mt-4 grid gap-4 lg:grid-cols-3">
+            <div className="rounded-lg border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Crop capacity</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">The table answers how much one planted tile produces before machines.</p>
+            </div>
+            <div className="rounded-lg border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Machine capacity</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Kegs and jars can only process the items that fit through their cycle time.</p>
+            </div>
+            <div className="rounded-lg border border-[#8a5b3a]/35 bg-white/55 p-4">
+              <h3 className="font-semibold text-[#4a321e]">Player capacity</h3>
+              <p className="mt-2 text-sm leading-6 text-[#5f4228]/85">Replanting and frequent harvests can lose value when the routine is not maintained.</p>
+            </div>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-[#5f4228]/90">
+            After choosing a raw crop, use the <Link className="font-semibold underline" href="/tools/keg-vs-preserves-jar">Keg vs Preserves Jar comparison</Link> and
+            your real machine count. Do not apply an artisan multiplier to every harvest when most of the crop will wait
+            in a chest or be sold raw.
+          </p>
         </section>
 
         <section className={`mt-8 ${CARD_CLASS}`}>

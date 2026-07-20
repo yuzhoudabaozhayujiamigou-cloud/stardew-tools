@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { SITE_ORIGIN } from "@/lib/site";
+
 function Breadcrumbs({
   items,
 }: {
@@ -62,7 +64,7 @@ function FaqJsonLd({
 }
 
 const SITE_NAME = "StardewProfit";
-const SITE_URL = "https://stardewprofit.com";
+const SITE_URL = SITE_ORIGIN;
 const PUBLISHED_ISO = "2026-03-14T00:00:00.000Z"; // UTC 0:00 today
 
 export const metadata: Metadata = {

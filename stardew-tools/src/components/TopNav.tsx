@@ -16,6 +16,21 @@ const NAV_LINKS: NavLink[] = [
     icon: "🧮",
   },
   {
+    href: "/guides",
+    label: "Guides",
+    icon: "📘",
+  },
+  {
+    href: "/best-crops",
+    label: "Crop Rankings",
+    icon: "🌱",
+  },
+  {
+    href: "/tools",
+    label: "Tools",
+    icon: "🛠️",
+  },
+  {
     href: "/secret-notes",
     label: "Secret Notes",
     icon: "🗒️",
@@ -57,7 +72,7 @@ export function TopNav() {
           Stardew Tools
         </Link>
 
-        <nav aria-label="Global navigation" className="flex items-center gap-2">
+        <nav aria-label="Global navigation" className="hidden items-center gap-2 lg:flex">
           {NAV_LINKS.map((link) => {
             const isActive = isActiveLink(pathname, link.href);
 
@@ -79,6 +94,36 @@ export function TopNav() {
               </Link>
             );
           })}
+        </nav>
+
+        <nav aria-label="Mobile navigation" className="flex items-center gap-2 lg:hidden">
+          <Link
+            href="/calculator"
+            aria-current={isActiveLink(pathname, "/calculator") ? "page" : undefined}
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-[#a77d57]/45 bg-[#fff6dd] px-3 py-2.5 text-xs font-semibold text-[#5f432a]"
+          >
+            <span aria-hidden="true">🧮</span>
+            Calculator
+          </Link>
+          <details className="group relative">
+            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-xl border border-[#a77d57]/45 bg-[#fff6dd] px-3 py-2.5 text-xs font-semibold text-[#5f432a] marker:content-none">
+              <span aria-hidden="true">☰</span>
+              Browse
+            </summary>
+            <div className="absolute right-0 top-[calc(100%+0.5rem)] z-50 w-52 rounded-lg border-2 border-[#7c4d2e]/70 bg-[#fff8e8] p-2 shadow-[0_12px_28px_rgba(56,41,23,0.28)]">
+              {NAV_LINKS.filter((link) => link.href !== "/calculator").map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActiveLink(pathname, link.href) ? "page" : undefined}
+                  className="flex min-h-10 items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-[#5f432a] hover:bg-[#f6e8bd]"
+                >
+                  <span aria-hidden="true">{link.icon}</span>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </details>
         </nav>
       </div>
     </header>

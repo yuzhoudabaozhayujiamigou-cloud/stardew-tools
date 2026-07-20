@@ -247,7 +247,7 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
       title: "Stardew Valley Secret Notes Finder",
       description: "Browse Stardew Valley Secret Notes and decode every clue.",
       robots: {
-        index: true,
+        index: false,
         follow: true,
       },
     };
@@ -260,7 +260,7 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
       title: "Stardew Valley Secret Notes Finder",
       description: "Browse Stardew Valley Secret Notes and decode every clue.",
       robots: {
-        index: true,
+        index: false,
         follow: true,
       },
     };
@@ -288,12 +288,13 @@ export async function generateMetadata(props: SecretNoteDetailPageProps): Promis
 
   const canonicalUrl = `${getSiteUrl()}/secret-notes/${note.id}`;
   const imageUrl = getAbsoluteImageUrl(note.locationImage);
+  const shouldIndex = note.id === 19 || note.id === 22;
 
   return {
     title,
     description,
     robots: {
-      index: true,
+      index: shouldIndex,
       follow: true,
     },
     authors: [{ name: ARTICLE_AUTHOR_NAME }],

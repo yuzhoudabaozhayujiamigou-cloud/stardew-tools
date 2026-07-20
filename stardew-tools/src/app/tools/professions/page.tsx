@@ -28,55 +28,61 @@ const SECONDARY_CTA_CLASS =
 
 const COMPARISON_ROWS: ProfessionComparisonRow[] = [
   {
-    category: "Farming",
-    optionA: "Tiller (+10% crops)",
-    optionB: "Artisan (+40% artisan goods)",
-    bestWhen: "Artisan wins once kegs and jars drive most of your income.",
+    category: "Farming: processing",
+    optionA: "Tiller at level 5 (+10% crops)",
+    optionB: "Artisan at level 10 (+40% artisan goods)",
+    bestWhen: "Follow this path when kegs, jars, cheese, oil, or other artisan goods drive income.",
   },
   {
-    category: "Fishing",
-    optionA: "Fisher (+25%)",
-    optionB: "Angler (+50% legendary)",
-    bestWhen: "Fisher is safer for daily income; Angler is strongest for premium catches.",
+    category: "Fishing: fish sales",
+    optionA: "Fisher at level 5 (+25% fish value)",
+    optionB: "Angler at level 10 (+50% fish value total)",
+    bestWhen: "Use this path when selling fish matters more than crab-pot convenience or treasure hunting.",
   },
   {
-    category: "Mining",
-    optionA: "Miner (+1 ore per vein)",
-    optionB: "Geologist (higher gem chance)",
-    bestWhen: "Miner supports bar-heavy crafting, Geologist supports gem selling and geode value.",
+    category: "Mining: materials",
+    optionA: "Miner at level 5 (+1 ore per vein)",
+    optionB: "Blacksmith or Prospector at level 10",
+    bestWhen: "Choose more ore for tool upgrades and crafting, then specialize in bar value or coal supply.",
+  },
+  {
+    category: "Mining: gems and geodes",
+    optionA: "Geologist at level 5 (chance for paired gems)",
+    optionB: "Excavator or Gemologist at level 10",
+    bestWhen: "Choose this path for more geodes or a 30% value bonus on gems and minerals.",
   },
 ];
 
 const RECOMMENDATION_ROWS: RecommendationRow[] = [
   {
     goal: "Scale wine/jam empire",
-    recommended: "Artisan (+40% artisan goods)",
+    recommended: "Tiller -> Artisan",
     reason: "Largest multiplier for late-game processing pipelines.",
   },
   {
     goal: "Sell raw crops early",
-    recommended: "Tiller (+10% crops)",
+    recommended: "Tiller",
     reason: "Immediate boost while machine count is still low.",
   },
   {
     goal: "Steady fish income",
-    recommended: "Fisher (+25%)",
+    recommended: "Fisher -> Angler",
     reason: "Consistent value increase on all regular fish sales.",
   },
   {
-    goal: "Legendary fish cashouts",
-    recommended: "Angler (+50% legendary)",
-    reason: "Highest payout route for one-time or high-value fish targets.",
+    goal: "Crab-pot convenience",
+    recommended: "Trapper -> Mariner or Luremaster",
+    reason: "Choose no-junk catches or bait-free pots instead of the fish-sale path.",
   },
   {
     goal: "Ore-first progression",
-    recommended: "Miner (+1 ore)",
+    recommended: "Miner -> Prospector or Blacksmith",
     reason: "More ore per run accelerates tool upgrades and keg crafting.",
   },
   {
-    goal: "Gem farming runs",
-    recommended: "Geologist (gem chance)",
-    reason: "Higher gem frequency improves direct sales and late-game crystal setups.",
+    goal: "Gem and geode value",
+    recommended: "Geologist -> Gemologist or Excavator",
+    reason: "Geologist can produce paired gems; level 10 then improves gem value or geode frequency.",
   },
 ];
 
@@ -131,6 +137,11 @@ export default function ProfessionsPage() {
             Profession choices lock in long-term income multipliers. This comparison shows where each path performs
             best for farming, fishing, and mining-focused saves.
           </p>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-[#5f4228]/90 sm:text-base">
+            Level 10 professions are continuations of a level 5 choice, not separate alternatives. For example,
+            Artisan requires Tiller and Angler requires Fisher.
+          </p>
+          <p className="mt-3 text-sm font-semibold text-[#5f4228]/90">Reviewed for Stardew Valley 1.6 mechanics: July 20, 2026</p>
         </header>
 
         <section className={`mt-8 ${CARD_CLASS}`}>
@@ -140,8 +151,8 @@ export default function ProfessionsPage() {
               <thead>
                 <tr className="border-b-2 border-[#7c4d2e]/40">
                   <th className="px-2 py-2 font-semibold">Category</th>
-                  <th className="px-2 py-2 font-semibold">Option A</th>
-                  <th className="px-2 py-2 font-semibold">Option B</th>
+                  <th className="px-2 py-2 font-semibold">Level 5 choice</th>
+                  <th className="px-2 py-2 font-semibold">Level 10 continuation</th>
                   <th className="px-2 py-2 font-semibold">Practical outcome</th>
                 </tr>
               </thead>
@@ -157,6 +168,20 @@ export default function ProfessionsPage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className={`mt-8 ${CARD_CLASS}`}>
+          <h2 className="text-xl font-semibold text-[#4a321e] sm:text-2xl">Read percentage bonuses correctly</h2>
+          <p className="mt-3 text-sm leading-7 text-[#5f4228]/90">
+            Fisher and Angler are the same skill path. A fish with a 1,000g sale value becomes 1,250g with Fisher or
+            1,500g after choosing Angler; the bonuses do not stack into 1,750g. Geologist also does not increase the
+            general chance of finding a gem. It gives mining nodes a chance to produce gems in pairs.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-[#5f4228]/90">
+            If your farm changes direction, the Statue of Uncertainty in the Sewers lets you pay 10,000g to change a
+            skill&apos;s professions. Treat that cost as a reset fee when comparing a short early-game bonus with a stronger
+            late-game path.
+          </p>
         </section>
 
         <section className={`mt-8 ${CARD_CLASS}`}>

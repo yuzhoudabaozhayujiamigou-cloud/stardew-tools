@@ -15,6 +15,10 @@ const DESCRIPTION =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: url,
   },
